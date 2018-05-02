@@ -10,7 +10,16 @@ namespace sl
 class ICommInterface
 {
 public:
-    typedef std::function<void(const unsigned char*, const size_t) noexcept> Receiver;
+    class Listener
+    {
+    public:
+        virtual void onReceived(const unsigned char* data, const size_t length) = 0;
+    };
+
+    ICommInterface(const Listener& _listener):
+        listener(_listener)
+    {
+    }
 
     virtual ~ICommInterface()
     {
@@ -18,13 +27,8 @@ public:
 
     virtual void send(const unsigned char* data, const size_t length) = 0;
 
-    void setReceiver(Receiver _receiver) noexcept
-    {
-        receiver = _receiver;
-    }
-
 protected:
-    Receiver receiver;
+    const Listener& listener;
 };
 
 } // sl

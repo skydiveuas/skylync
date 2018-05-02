@@ -16,53 +16,11 @@ public:
     {
     }
 
-    void callAfter(const size_t after, Task _task)
-    {
-        if (running)
-        {
-            std::runtime_error("ITimer already running.");
-        }
-        else
-        {
-            recurrnet = false;
-            task = _task;
-            start(after);
-        }
-    }
+    virtual void callAfter(const size_t after, Task task) = 0;
 
-    void callEvery(const size_t interval, Task _task)
-    {
-        if (running)
-        {
-            std::runtime_error("ITimer already running.");
-        }
-        else
-        {
-            recurrnet = true;
-            task = _task;
-            start(interval);
-        }
-    }
+    virtual void callEvery(const size_t interval, Task task) = 0;
 
     virtual void kill() noexcept = 0;
-
-protected:
-    virtual void start(const size_t time) = 0;
-
-    void tick() noexcept
-    {
-        if (false == recurrnet)
-        {
-            kill();
-            running = false;
-        }
-        task();
-    }
-
-    Task task;
-
-    bool recurrnet { false };
-    bool running { false };
 };
 
 } // sl
