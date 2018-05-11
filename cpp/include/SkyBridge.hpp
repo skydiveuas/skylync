@@ -19,6 +19,17 @@ class SkyBridge
 public:
     class Listener
     {
+    public:
+        enum Side
+        {
+            DEVICE,
+            PILOT,
+        } side;
+
+        Listener(const Side _side);
+
+        virtual ~Listener();
+
         virtual void notifyBridgeEvent(const event::bridge::BridgeEvent& event) = 0;
 
         virtual std::shared_ptr<ITimer> createTimer() = 0;
