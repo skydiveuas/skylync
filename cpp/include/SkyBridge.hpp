@@ -1,20 +1,20 @@
-#ifndef SKYDEVICE_HPP
-#define SKYDEVICE_HPP
-
-#include <memory>
+#ifndef SKYBRIDGE_HPP
+#define SKYBRIDGE_HPP
 
 #include "ITimer.hpp"
+
+#include "state/IState.hpp"
 
 #include "event/endpoint/EndpointEvent.hpp"
 #include "event/bridge/BridgeEvent.hpp"
 
+#include <memory>
+#include <mutex>
+
 namespace sl
 {
 
-namespace device
-{
-
-class SkyDevice
+class SkyBridge
 {
 public:
     class Listener
@@ -22,18 +22,21 @@ public:
         virtual void notifyBridgeEvent(const event::bridge::BridgeEvent& event) = 0;
 
         virtual std::shared_ptr<ITimer> createTimer() = 0;
+
+        virtual void trace(const std::string& message) = 0;
     };
 
-    SkyDevice(const Listener& _listener);
+    SkyBridge(const Listener& _listener);
 
     void notifyEndpointEvent(const event::endpoint::EndpointEvent& event);
 
 private:
     const Listener& listener;
-};
 
-} // device
+    state::IState& state;
+    std::mutex stateLock;
+};
 
 } // sl
 
-#endif // SKYDEVICE_HPP
+#endif // SKYBRIDGE_HPP
