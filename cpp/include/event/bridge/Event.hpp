@@ -1,5 +1,5 @@
-#ifndef BRIDGEEVENT_HPP
-#define BRIDGEEVENT_HPP
+#ifndef BRIDGE_EVENT_HPP
+#define BRIDGE_EVENT_HPP
 
 #include <string>
 
@@ -12,7 +12,7 @@ namespace event
 namespace bridge
 {
 
-class BridgeEvent
+class Event
 {
 public:
     enum Type
@@ -20,9 +20,9 @@ public:
         CONNECTED,
     };
 
-    BridgeEvent(const Type _type);
+    Event(const Type _type);
 
-    virtual ~BridgeEvent();
+    virtual ~Event();
 
     virtual std::string toString() noexcept;
 
@@ -30,10 +30,10 @@ private:
     const Type type;
 };
 
-} // endpoint
+} // bridge
 
 } // event
 
 } // sl
 
-#endif // BRIDGEEVENT_HPP
+#endif // BRIDGE_EVENT_HPP

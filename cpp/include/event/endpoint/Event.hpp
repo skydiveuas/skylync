@@ -1,5 +1,5 @@
-#ifndef ENDPOINTEVENT_HPP
-#define ENDPOINTEVENT_HPP
+#ifndef ENDPOINT_EVENT_HPP
+#define ENDPOINT_EVENT_HPP
 
 namespace sl
 {
@@ -10,7 +10,7 @@ namespace event
 namespace endpoint
 {
 
-class EndpointEvent
+class Event
 {
 public:
     enum Type
@@ -18,12 +18,12 @@ public:
         CONNECT,
     };
 
-    EndpointEvent(const Type _type):
+    Event(const Type _type):
         type(_type)
     {
     }
 
-    virtual ~EndpointEvent()
+    virtual ~Event()
     {
     }
 
@@ -37,4 +37,4 @@ private:
 
 } // sl
 
-#endif // ENDPOINTEVENT_HPP
+#endif // ENDPOINT_EVENT_HPP
