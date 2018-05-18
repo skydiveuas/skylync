@@ -24,7 +24,7 @@ public:
 
     virtual ~Event();
 
-    virtual std::string toString() noexcept;
+    virtual const char* toString() const noexcept;
 
 private:
     const Type type;

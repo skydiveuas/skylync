@@ -16,14 +16,9 @@ public:
         virtual void onReceived(const unsigned char* data, const size_t length) = 0;
     };
 
-    ICommInterface(const Listener& _listener):
-        listener(_listener)
-    {
-    }
+    ICommInterface(const Listener& _listener);
 
-    virtual ~ICommInterface()
-    {
-    }
+    virtual ~ICommInterface();
 
     virtual void send(const unsigned char* data, const size_t length) = 0;
 

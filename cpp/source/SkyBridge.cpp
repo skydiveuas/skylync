@@ -19,7 +19,7 @@ SkyBridge::SkyBridge(Listener& _listener):
 
 void SkyBridge::notifyEndpointEvent(const event::endpoint::Event& event)
 {
-
+    listener.trace(std::string("Handling: ") + event.toString());
 }
 
 void SkyBridge::notifyBridgeEvent(const event::bridge::Event& event)

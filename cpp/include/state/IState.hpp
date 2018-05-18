@@ -1,7 +1,10 @@
 #ifndef ISTATE_HPP
 #define ISTATE_HPP
 
+#include "ITimer.hpp"
+
 #include "event/bridge/Event.hpp"
+#include "event/endpoint/Event.hpp"
 
 #include <memory>
 
@@ -14,6 +17,11 @@ namespace state
 class IState
 {
 public:
+    enum Type
+    {
+        CONNECT,
+    };
+
     class Listener
     {
     public:
@@ -24,17 +32,21 @@ public:
         virtual void trace(const std::string& message) = 0;
     };
 
-    IState(Listener& _listener):
-        listener(_listener)
-    {
+    IState(const Type _type, Listener& _listener);
 
-    }
+    virtual ~IState();
 
-    virtual ~IState()
-    {
-    }
+    Type getType() const noexcept;
+
+    virtual void handleEvent(const event::endpoint::Event& event) = 0;
+
+    virtual void handleMessage() = 0;
+
+    virtual const char* toString() const noexcept = 0;
 
 protected:
+    const Type type;
+
     Listener& listener;
 };
 

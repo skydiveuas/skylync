@@ -12,11 +12,16 @@ namespace state
 class Idle : public IState
 {
 public:
-    Idle(Listener& listener):
-        IState(listener)
-    {
+    Idle(Listener& listener);
 
-    }
+    void handleEvent(const event::endpoint::Event& event) override;
+
+    void handleMessage() override;
+
+    const char* toString() const noexcept override;
+
+private:
+    static constexpr auto NAME = "Idle";
 };
 
 } // state

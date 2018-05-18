@@ -17,6 +17,8 @@ public:
     virtual void callEvery(const size_t interval, Task task) = 0;
 
     virtual void kill() noexcept = 0;
+
+    virtual ~ITimer();
 };
 
 } // sl

@@ -18,14 +18,11 @@ public:
         CONNECT,
     };
 
-    Event(const Type _type):
-        type(_type)
-    {
-    }
+    Event(const Type _type);
 
-    virtual ~Event()
-    {
-    }
+    virtual ~Event();
+
+    virtual const char* toString() const noexcept;
 
 private:
     const Type type;

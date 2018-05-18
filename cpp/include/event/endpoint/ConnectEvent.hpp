@@ -17,12 +17,7 @@ namespace endpoint
 class ConnectEvent : public Event
 {
 public:
-    ConnectEvent(const std::string& _ip, const int _port):
-        Event(Event::CONNECT),
-        ip (_ip),
-        port(_port)
-    {
-    }
+    ConnectEvent(const std::string& _ip, const int _port);
 
 private:
     const std::string ip;

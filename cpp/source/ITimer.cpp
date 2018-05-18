@@ -1,5 +1,7 @@
 #include "ITimer.hpp"
 
-virtual ~ITimer()
+using namespace sl;
+
+ITimer::~ITimer()
 {
 }
