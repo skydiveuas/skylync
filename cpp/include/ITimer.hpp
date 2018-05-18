@@ -12,10 +12,6 @@ class ITimer
 public:
     typedef std::function<void(void) noexcept> Task;
 
-    virtual ~ITimer()
-    {
-    }
-
     virtual void callAfter(const size_t after, Task task) = 0;
 
     virtual void callEvery(const size_t interval, Task task) = 0;

@@ -27,10 +27,7 @@ public:
             PILOT,
         } side;
 
-        Listener(const Side _side):
-            side(_side)
-        {
-        }
+        Listener(const Side _side);
 
         virtual ~Listener();
 
@@ -41,16 +38,9 @@ public:
         virtual void trace(const std::string& message) = 0;
     };
 
-    SkyBridge(Listener& _listener):
-        listener(_listener),
-        state(*(new state::Idle(*this)))
-    {
-    }
+    SkyBridge(Listener& _listener);
 
-    void notifyEndpointEvent(const event::endpoint::Event& event)
-    {
-
-    }
+    void notifyEndpointEvent(const event::endpoint::Event& event);
 
 private:
     Listener& listener;
@@ -58,20 +48,11 @@ private:
     state::IState& state;
     std::mutex stateLock;
 
-    void notifyBridgeEvent(const event::bridge::Event& event) override
-    {
-        listener.notifyBridgeEvent(event);
-    }
+    void notifyBridgeEvent(const event::bridge::Event& event) override;
 
-    std::shared_ptr<ITimer> createTimer() override
-    {
-        return listener.createTimer();
-    }
+    std::shared_ptr<ITimer> createTimer() override;
 
-    void trace(const std::string& message) override
-    {
-        listener.trace(message);
-    }
+    void trace(const std::string& message) override;
 };
 
 } // sl
