@@ -2,6 +2,7 @@
 #define SKYBRIDGE_HPP
 
 #include "ITimer.hpp"
+#include "ICommInterface.hpp"
 
 #include "event/endpoint/Event.hpp"
 #include "event/bridge/Event.hpp"
@@ -31,11 +32,18 @@ public:
 
         virtual ~Listener();
 
-        virtual void notifyBridgeEvent(const event::bridge::Event* event) noexcept = 0;
+        virtual void
+        notifyBridgeEvent(const event::bridge::Event* event) noexcept = 0;
 
-        virtual std::shared_ptr<ITimer> createTimer() noexcept = 0;
+        virtual std::shared_ptr<ICommInterface>
+        createCommInterface(const ICommInterface::TransportProtocol protocol,
+                            const ICommInterface::Listener& listener) noexcept = 0;
 
-        virtual void trace(const std::string& message) noexcept = 0;
+        virtual std::shared_ptr<ITimer>
+        createTimer() noexcept = 0;
+
+        virtual void
+        trace(const std::string& message) noexcept = 0;
     };
 
     SkyBridge(Listener& _listener);
