@@ -8,14 +8,14 @@ Connecting::Connecting(Listener& listener):
 {
 }
 
-IState* Connecting::handleEvent(const Event& event)
+sl::state::IState* Connecting::handleEvent(const Event& event)
 {
-
+    return nullptr;
 }
 
-IState* Connecting::handleMessage()
+sl::state::IState* Connecting::handleMessage()
 {
-
+    return nullptr;
 }
 
 std::string Connecting::toString() const noexcept

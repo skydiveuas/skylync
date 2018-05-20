@@ -10,7 +10,7 @@ Idle::Idle(Listener& listener):
 {
 }
 
-sl::state::IState& Idle::handleEvent(const Event& event)
+sl::state::IState* Idle::handleEvent(const Event& event)
 {
     switch (event.getType())
     {
@@ -24,9 +24,9 @@ sl::state::IState& Idle::handleEvent(const Event& event)
     return nullptr;
 }
 
-void Idle::handleMessage()
+sl::state::IState* Idle::handleMessage()
 {
-
+    return nullptr;
 }
 
 std::string Idle::toString() const noexcept

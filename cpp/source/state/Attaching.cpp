@@ -8,14 +8,14 @@ Attaching::Attaching(Listener& listener):
 {
 }
 
-IState* Attaching::handleEvent(const Event& event)
+sl::state::IState* Attaching::handleEvent(const Event& event)
 {
-
+    return nullptr;
 }
 
-IState* Attaching::handleMessage()
+sl::state::IState* Attaching::handleMessage()
 {
-
+    return nullptr;
 }
 
 std::string Attaching::toString() const noexcept

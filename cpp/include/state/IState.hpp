@@ -28,7 +28,7 @@ public:
     class Listener
     {
     public:
-        virtual void notifyBridgeEvent(const event::bridge::Event& event) noexcept = 0;
+        virtual void notifyBridgeEvent(const event::bridge::Event* event) noexcept = 0;
 
         virtual std::shared_ptr<ITimer> createTimer() noexcept = 0;
 
@@ -61,7 +61,7 @@ protected:
 template <typename _State>
 IState* IState::newState() const
 {
-    return *(new _State(listener));
+    return new _State(listener);
 }
 
 } // state
