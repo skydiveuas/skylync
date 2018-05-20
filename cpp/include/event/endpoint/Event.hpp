@@ -1,6 +1,8 @@
 #ifndef ENDPOINT_EVENT_HPP
 #define ENDPOINT_EVENT_HPP
 
+#include <string>
+
 namespace sl
 {
 
@@ -16,13 +18,14 @@ public:
     enum Type
     {
         CONNECT,
+        ATTACH,
     };
 
     Event(const Type _type);
 
     virtual ~Event();
 
-    virtual const char* toString() const noexcept;
+    virtual std::string toString() noexcept;
 
 private:
     const Type type;

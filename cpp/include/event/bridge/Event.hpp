@@ -1,5 +1,5 @@
-#ifndef BRIDGE_EVENT_HPP
-#define BRIDGE_EVENT_HPP
+#ifndef EVENT_BRIDGE_HPP
+#define EVENT_BRIDGE_HPP
 
 #include <string>
 
@@ -17,7 +17,10 @@ class Event
 public:
     enum Type
     {
+        MESSAGE,
+        ERROR,
         CONNECTED,
+        ATTACHED,
     };
 
     Event(const Type _type);
@@ -36,4 +39,4 @@ private:
 
 } // sl
 
-#endif // BRIDGE_EVENT_HPP
+#endif // EVENT_BRIDGE_HPP
