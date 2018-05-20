@@ -1,15 +1,24 @@
 #include "state/Idle.hpp"
 
-using namespace sl::state;
+using sl::state::Idle;
+using sl::event::endpoint::Event;
 
 Idle::Idle(Listener& listener):
-    IState(CONNECT, listener)
+    IState(IDLE, listener)
 {
 }
 
-void Idle::handleEvent(const event::endpoint::Event& event)
+void Idle::handleEvent(const Event& event)
 {
+    switch (event.getType())
+    {
+    case Event::CONNECT:
 
+        return;
+
+    default:
+        except(event);
+    }
 }
 
 void Idle::handleMessage()
@@ -17,7 +26,7 @@ void Idle::handleMessage()
 
 }
 
-const char* Idle::toString() const noexcept
+std::string Idle::toString() const noexcept
 {
-    return NAME;
+    return "Idle";
 }

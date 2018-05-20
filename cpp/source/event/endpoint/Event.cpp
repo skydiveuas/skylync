@@ -1,6 +1,6 @@
 #include "event/endpoint/Event.hpp"
 
-using namespace sl::event::endpoint;
+using sl::event::endpoint::Event;
 
 Event::Event(const Type _type):
     type(_type)
@@ -11,7 +11,16 @@ Event::~Event()
 {
 }
 
-const char* Event::toString() const noexcept
+Event::Type Event::getType() const noexcept
 {
-    return "test";
+    return type;
+}
+
+std::string Event::toString() const noexcept
+{
+    switch (type)
+    {
+    default:
+        return "Unknown event name";
+    }
 }

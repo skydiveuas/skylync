@@ -8,3 +8,8 @@ Connect::Connect(const std::string& _ip, const int _port):
     port(_port)
 {
 }
+
+std::string Connect::toString() const noexcept
+{
+    return "Connect[" + ip + "@" + std::to_string(port) + "]";
+}

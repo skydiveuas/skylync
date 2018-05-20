@@ -18,12 +18,13 @@ class Message : public Event
 {
 public:
     Message(const std::string& _message);
+    Message(const Type type, const std::string& _message);
 
     virtual ~Message();
 
-    virtual std::string toString() noexcept;
+    virtual std::string toString() const noexcept override;
 
-private:
+protected:
     std::string message;
 };
 

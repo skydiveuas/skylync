@@ -1,10 +1,8 @@
-#include "event/endpoint/ConnectEvent.hpp"
+#include "event/bridge/Attached.hpp"
 
-using namespace sl::event::endpoint;
+using sl::event::bridge::Attached;
 
-ConnectEvent::ConnectEvent(const std::string& _ip, const int _port):
-    Event(Event::CONNECT),
-    ip (_ip),
-    port(_port)
+Attached::Attached():
+    Event(Event::ATTACHED)
 {
 }

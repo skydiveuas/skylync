@@ -1,5 +1,5 @@
-#ifndef ENDPOINT_EVENT_HPP
-#define ENDPOINT_EVENT_HPP
+#ifndef EVENT_ENDPOINT_HPP
+#define EVENT_ENDPOINT_HPP
 
 #include <string>
 
@@ -25,7 +25,9 @@ public:
 
     virtual ~Event();
 
-    virtual std::string toString() noexcept;
+    Type getType() const noexcept;
+
+    virtual std::string toString() const noexcept;
 
 private:
     const Type type;
@@ -37,4 +39,4 @@ private:
 
 } // sl
 
-#endif // ENDPOINT_EVENT_HPP
+#endif // EVENT_ENDPOINT_HPP

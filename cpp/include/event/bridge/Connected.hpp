@@ -16,10 +16,6 @@ class Connected : public Event
 {
 public:
     Connected();
-
-    ~Connected();
-
-    std::string toString() noexcept;
 };
 
 } // bridge

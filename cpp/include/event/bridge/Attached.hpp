@@ -12,14 +12,10 @@ namespace event
 namespace bridge
 {
 
-class Attach : public Event
+class Attached : public Event
 {
 public:
-    Attach();
-
-    ~Attach();
-
-    std::string toString() noexcept;
+    Attached();
 };
 
 } // bridge

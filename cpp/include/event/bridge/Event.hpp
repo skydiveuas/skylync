@@ -25,9 +25,11 @@ public:
 
     Event(const Type _type);
 
+    Type getType() const noexcept;
+
     virtual ~Event();
 
-    virtual const char* toString() const noexcept;
+    virtual std::string toString() const noexcept;
 
 private:
     const Type type;

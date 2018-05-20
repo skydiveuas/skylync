@@ -14,18 +14,18 @@ namespace event
 namespace endpoint
 {
 
-class Attach
+class Attach : public Event
 {
 public:
     Attach(const std::string _id, const std::string _pwd);
 
     ~Attach();
 
-    std::string toString() noexcept;
+    std::string toString() const noexcept override;
 
 private:
     const std::string id;
-    const std::string pwd;
+    std::string pwd;
 };
 
 } // endpoint

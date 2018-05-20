@@ -1,5 +1,5 @@
-#ifndef ISTATE_HPP
-#define ISTATE_HPP
+#ifndef STATE_ISTATE_HPP
+#define STATE_ISTATE_HPP
 
 #include "ITimer.hpp"
 
@@ -19,7 +19,10 @@ class IState
 public:
     enum Type
     {
-        CONNECT,
+        IDLE,
+        CONNECTING,
+        ATTACHING,
+        ATTACHED,
     };
 
     class Listener
@@ -42,16 +45,18 @@ public:
 
     virtual void handleMessage() = 0;
 
-    virtual const char* toString() const noexcept = 0;
+    virtual std::string toString() const noexcept = 0;
 
 protected:
     const Type type;
 
     Listener& listener;
+
+    void except(const event::endpoint::Event& event) const;
 };
 
 } // state
 
 } // sl
 
-#endif // ISTATE_HPP
+#endif // STATE_ISTATE_HPP

@@ -1,6 +1,7 @@
 #include "state/IState.hpp"
 
-using namespace sl::state;
+using sl::state::IState;
+using sl::event::endpoint::Event;
 
 IState::IState(const Type _type, Listener& _listener):
     type(_type),
@@ -15,4 +16,9 @@ IState::Type IState::getType() const noexcept
 
 IState::~IState()
 {
+}
+
+void IState::except(const Event& event) const
+{
+    throw std::runtime_error("Unexpected:[" + event.toString() + "] @ [" + toString() + "]");
 }

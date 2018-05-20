@@ -19,7 +19,7 @@ class Connect : public Event
 public:
     Connect(const std::string& _ip, const int _port);
 
-    std::string toString() noexcept;
+    std::string toString() const noexcept override;
 
 private:
     const std::string ip;

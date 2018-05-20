@@ -19,9 +19,7 @@ class Error : public Message
 public:
     Error(const std::string message);
 
-    ~Error();
-
-    std::string toString() noexcept;
+    std::string toString() const noexcept override;
 };
 
 } // bridge

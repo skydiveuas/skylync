@@ -1,5 +1,5 @@
-#ifndef STATE_IDLE_HPP
-#define STATE_IDLE_HPP
+#ifndef STATE_CONNECTING_HPP
+#define STATE_CONNECTING_HPP
 
 #include "IState.hpp"
 
@@ -9,10 +9,10 @@ namespace sl
 namespace state
 {
 
-class Idle : public IState
+class Connecting : public IState
 {
 public:
-    Idle(Listener& listener);
+    Connecting(Listener& listener);
 
     void handleEvent(const event::endpoint::Event& event) override;
 
@@ -25,4 +25,4 @@ public:
 
 } // sl
 
-#endif // IDLE_HPP
+#endif // STATE_CONNECTING_HPP
