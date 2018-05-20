@@ -8,12 +8,12 @@ Attached::Attached(Listener& listener):
 {
 }
 
-void Attached::handleEvent(const Event& event)
+IState* Attached::handleEvent(const Event& event)
 {
 
 }
 
-void Attached::handleMessage()
+IState* Attached::handleMessage()
 {
 
 }

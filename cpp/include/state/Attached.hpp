@@ -14,9 +14,9 @@ class Attached : public IState
 public:
     Attached(Listener& listener);
 
-    void handleEvent(const event::endpoint::Event& event) override;
+    IState* handleEvent(const event::endpoint::Event& event) override;
 
-    void handleMessage() override;
+    IState* handleMessage() override;
 
     std::string toString() const noexcept override;
 };

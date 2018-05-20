@@ -31,28 +31,30 @@ public:
 
         virtual ~Listener();
 
-        virtual void notifyBridgeEvent(const event::bridge::Event& event) = 0;
+        virtual void notifyBridgeEvent(const event::bridge::Event& event) noexcept = 0;
 
-        virtual std::shared_ptr<ITimer> createTimer() = 0;
+        virtual std::shared_ptr<ITimer> createTimer() noexcept = 0;
 
-        virtual void trace(const std::string& message) = 0;
+        virtual void trace(const std::string& message) noexcept = 0;
     };
 
     SkyBridge(Listener& _listener);
 
-    void notifyEndpointEvent(const event::endpoint::Event& event);
+    void notifyEndpointEvent(const event::endpoint::Event& event) noexcept;
+
+    state::IState::Type getState() const noexcept;
 
 private:
     Listener& listener;
 
-    state::IState& state;
+    std::shared_ptr<state::IState> state;
     std::mutex stateLock;
 
-    void notifyBridgeEvent(const event::bridge::Event& event) override;
+    void notifyBridgeEvent(const event::bridge::Event& event) noexcept override;
 
-    std::shared_ptr<ITimer> createTimer() override;
+    std::shared_ptr<ITimer> createTimer() noexcept override;
 
-    void trace(const std::string& message) override;
+    void trace(const std::string& message) noexcept override;
 };
 
 } // sl

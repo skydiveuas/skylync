@@ -8,12 +8,12 @@ Connecting::Connecting(Listener& listener):
 {
 }
 
-void Connecting::handleEvent(const Event& event)
+IState* Connecting::handleEvent(const Event& event)
 {
 
 }
 
-void Connecting::handleMessage()
+IState* Connecting::handleMessage()
 {
 
 }

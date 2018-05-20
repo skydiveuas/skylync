@@ -1,5 +1,7 @@
 #include "state/Idle.hpp"
 
+#include "state/Connecting.hpp"
+
 using sl::state::Idle;
 using sl::event::endpoint::Event;
 
@@ -8,17 +10,18 @@ Idle::Idle(Listener& listener):
 {
 }
 
-void Idle::handleEvent(const Event& event)
+sl::state::IState& Idle::handleEvent(const Event& event)
 {
     switch (event.getType())
     {
     case Event::CONNECT:
-
-        return;
+        // TODO send CONNECT message
+        return newState<sl::state::Connecting>();
 
     default:
         except(event);
     }
+    return nullptr;
 }
 
 void Idle::handleMessage()
