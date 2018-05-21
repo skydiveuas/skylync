@@ -1,6 +1,10 @@
 #include "SkyBridge.hpp"
 
+#include "state/Idle.hpp"
+#include "state/Connecting.hpp"
+
 #include "event/bridge/Message.hpp"
+#include "event/bridge/Error.hpp"
 
 using sl::SkyBridge;
 
@@ -19,7 +23,7 @@ SkyBridge::SkyBridge(Listener& _listener):
 {
 }
 
-void SkyBridge::notifyEndpointEvent(const sl::event::endpoint::Event* event) noexcept
+void SkyBridge::notifyEndpointEvent(const EndpointEvent* event) noexcept
 {
     handleEvent(event);
 }
@@ -29,14 +33,14 @@ sl::state::IState::Type SkyBridge::getState() const noexcept
     return state->getType();
 }
 
-void SkyBridge::handleEvent(const sl::event::endpoint::Event* event) noexcept
+void SkyBridge::handleEvent(const EndpointEvent* event) noexcept
 {
-    std::unique_ptr<const sl::event::endpoint::Event> eventLock(event);
+    std::unique_ptr<const EndpointEvent> eventLock(event);
     listener.trace(std::string("Handling: ") + event->toString());
     try
     {
         std::unique_lock<std::mutex> lockGuard(stateLock);
-        std::unique_ptr<sl::state::IState> newState(state->handleEvent(*event));
+        std::unique_ptr<State> newState(state->handleEvent(*event));
         if (nullptr != newState.get())
         {
             listener.trace("State transition: [" + state->toString() +
@@ -57,7 +61,7 @@ void SkyBridge::handleMessage() noexcept
     try
     {
         std::unique_lock<std::mutex> lockGuard(stateLock);
-        std::unique_ptr<sl::state::IState> newState(state->handleMessage());
+        std::unique_ptr<State> newState(state->handleMessage());
         if (nullptr != newState.get())
         {
             listener.trace("State transition: [" + state->toString() +
@@ -74,17 +78,23 @@ void SkyBridge::handleMessage() noexcept
 
 void SkyBridge::onConnected()
 {
+    listener.trace("SkyBridge::onConnected");
 
+    // TODO handle encryption procedure
+
+    listener.notifyBridgeEvent(new BridgeEvent(BridgeEvent::CONNECTED));
 }
 
 void SkyBridge::onDisconnected()
 {
-
+    listener.trace("SkyBridge::onDisconnected");
+    listener.notifyBridgeEvent(new BridgeEvent(BridgeEvent::DISCONNECTED));
 }
 
-void SkyBridge::onReceived(const unsigned char* data, const size_t length)
+void SkyBridge::onReceived(const unsigned char*, const size_t)
 {
-
+    // TODO encode Google Protocol message
+    state->handleMessage();
 }
 
 void SkyBridge::connect()

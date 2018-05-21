@@ -8,7 +8,6 @@
 #include "event/bridge/Event.hpp"
 
 #include "state/IState.hpp"
-#include "state/Idle.hpp"
 
 #include <memory>
 #include <mutex>
@@ -20,6 +19,11 @@ class SkyBridge : public state::IState::Listener,
         public ICommInterface::Listener
 {
 public:
+    typedef state::IState State;
+
+    typedef event::bridge::Event BridgeEvent;
+    typedef event::endpoint::Event EndpointEvent;
+
     class Listener
     {
     public:
@@ -34,7 +38,7 @@ public:
         virtual ~Listener();
 
         virtual void
-        notifyBridgeEvent(const event::bridge::Event* event) noexcept = 0;
+        notifyBridgeEvent(const BridgeEvent* event) noexcept = 0;
 
         virtual std::shared_ptr<ICommInterface>
         createCommInterface(const ICommInterface::TransportProtocol protocol,
@@ -49,7 +53,7 @@ public:
 
     SkyBridge(Listener& _listener);
 
-    void notifyEndpointEvent(const event::endpoint::Event* event) noexcept;
+    void notifyEndpointEvent(const EndpointEvent* event) noexcept;
 
     state::IState::Type getState() const noexcept;
 
@@ -61,7 +65,7 @@ private:
 
     std::shared_ptr<ICommInterface> commInterface;
 
-    void handleEvent(const event::endpoint::Event* event) noexcept;
+    void handleEvent(const EndpointEvent* event) noexcept;
     void handleMessage() noexcept;
 
     // ICommInterface::Listener overrides
@@ -72,7 +76,7 @@ private:
     // state::IState::Listener overrides
     void connect();
     void disconnect();
-    void notifyBridgeEvent(const event::bridge::Event* event) noexcept override;
+    void notifyBridgeEvent(const BridgeEvent* event) noexcept override;
     std::shared_ptr<ICommInterface>
     createCommInterface(const ICommInterface::TransportProtocol protocol,
                         const ICommInterface::Listener& _listener) noexcept override;

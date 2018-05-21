@@ -15,7 +15,7 @@ sl::state::IState* Idle::handleEvent(const Event& event)
     switch (event.getType())
     {
     case Event::CONNECT:
-        // TODO send CONNECT message
+        listener.connect();
         return newState<sl::state::Connecting>();
 
     default:

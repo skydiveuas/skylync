@@ -3,6 +3,8 @@
 
 #include "ITimer.hpp"
 
+#include "ICommInterface.hpp"
+
 #include "event/bridge/Event.hpp"
 #include "event/endpoint/Event.hpp"
 

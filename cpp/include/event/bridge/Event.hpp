@@ -22,6 +22,7 @@ public:
         CONNECTED,
         ATTACHED,
         RELEASED,
+        DISCONNECTED,
     };
 
     Event(const Type _type);
