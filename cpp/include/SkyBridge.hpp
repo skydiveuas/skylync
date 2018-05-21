@@ -16,7 +16,8 @@
 namespace sl
 {
 
-class SkyBridge : public state::IState::Listener
+class SkyBridge : public state::IState::Listener,
+        public ICommInterface::Listener
 {
 public:
     class Listener
@@ -58,11 +59,23 @@ private:
     std::unique_ptr<state::IState> state;
     std::mutex stateLock;
 
+    std::shared_ptr<ICommInterface> commInterface;
+
     void handleEvent(const event::endpoint::Event* event) noexcept;
     void handleMessage() noexcept;
 
+    // ICommInterface::Listener overrides
+    void onConnected() override;
+    void onDisconnected() override;
+    void onReceived(const unsigned char* data, const size_t length) override;
+
     // state::IState::Listener overrides
+    void connect();
+    void disconnect();
     void notifyBridgeEvent(const event::bridge::Event* event) noexcept override;
+    std::shared_ptr<ICommInterface>
+    createCommInterface(const ICommInterface::TransportProtocol protocol,
+                        const ICommInterface::Listener& _listener) noexcept override;
     std::shared_ptr<ITimer> createTimer() noexcept override;
     void trace(const std::string& message) noexcept override;
 };

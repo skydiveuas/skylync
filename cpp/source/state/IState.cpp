@@ -3,6 +3,10 @@
 using sl::state::IState;
 using sl::event::endpoint::Event;
 
+IState::Listener::~Listener()
+{
+}
+
 IState::IState(const Type _type, Listener& _listener):
     type(_type),
     listener(_listener)

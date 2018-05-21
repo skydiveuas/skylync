@@ -28,7 +28,17 @@ public:
     class Listener
     {
     public:
+        virtual ~Listener();
+
+        virtual void connect() = 0;
+
+        virtual void disconnect() = 0;
+
         virtual void notifyBridgeEvent(const event::bridge::Event* event) noexcept = 0;
+
+        virtual std::shared_ptr<ICommInterface>
+        createCommInterface(const ICommInterface::TransportProtocol protocol,
+                            const ICommInterface::Listener& listener) noexcept = 0;
 
         virtual std::shared_ptr<ITimer> createTimer() noexcept = 0;
 

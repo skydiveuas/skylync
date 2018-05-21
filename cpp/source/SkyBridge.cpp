@@ -72,14 +72,52 @@ void SkyBridge::handleMessage() noexcept
     }
 }
 
+void SkyBridge::onConnected()
+{
+
+}
+
+void SkyBridge::onDisconnected()
+{
+
+}
+
+void SkyBridge::onReceived(const unsigned char* data, const size_t length)
+{
+
+}
+
+void SkyBridge::connect()
+{
+    listener.trace("SkyBridge::connect");
+    commInterface = listener.createCommInterface(sl::ICommInterface::TCP, *this);
+    commInterface->connect();
+}
+
+void SkyBridge::disconnect()
+{
+    listener.trace("SkyBridge::disconnect");
+
+}
+
 void SkyBridge::notifyBridgeEvent(const sl::event::bridge::Event* event) noexcept
 {
-    listener.trace(std::string("Emitting: ") + event->toString());
+    listener.trace("Emitting: " + event->toString());
     listener.notifyBridgeEvent(event);
+}
+
+
+std::shared_ptr<sl::ICommInterface>
+SkyBridge::createCommInterface(const sl::ICommInterface::TransportProtocol protocol,
+                               const sl::ICommInterface::Listener& _listener) noexcept
+{
+    listener.trace("SkyBridge::disconnect");
+    return listener.createCommInterface(protocol, _listener);
 }
 
 std::shared_ptr<sl::ITimer> SkyBridge::createTimer() noexcept
 {
+    listener.trace("SkyBridge::createTimer");
     return listener.createTimer();
 }
 

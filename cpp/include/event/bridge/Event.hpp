@@ -21,6 +21,7 @@ public:
         ERROR,
         CONNECTED,
         ATTACHED,
+        RELEASED,
     };
 
     Event(const Type _type);

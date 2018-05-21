@@ -19,6 +19,7 @@ public:
     {
         CONNECT,
         ATTACH,
+        RELEASE,
     };
 
     Event(const Type _type);
