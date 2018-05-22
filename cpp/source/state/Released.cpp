@@ -1,16 +1,16 @@
-#include "state/Idle.hpp"
+#include "state/Released.hpp"
 
 #include "state/Connecting.hpp"
 
-using sl::state::Idle;
+using sl::state::Released;
 using sl::event::endpoint::Event;
 
-Idle::Idle(Listener& listener):
-    IState(IDLE, listener)
+Released::Released(Listener& listener):
+    IState(RELEASED, listener)
 {
 }
 
-sl::state::IState* Idle::handleEvent(const Event& event)
+sl::state::IState* Released::handleEvent(const Event& event)
 {
     switch (event.getType())
     {
@@ -24,12 +24,12 @@ sl::state::IState* Idle::handleEvent(const Event& event)
     return nullptr;
 }
 
-sl::state::IState* Idle::handleMessage()
+sl::state::IState* Released::handleMessage()
 {
     return nullptr;
 }
 
-std::string Idle::toString() const noexcept
+std::string Released::toString() const noexcept
 {
-    return "Idle";
+    return "Released";
 }

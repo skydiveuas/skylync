@@ -74,8 +74,8 @@ private:
     void onReceived(const unsigned char* data, const size_t length) override;
 
     // state::IState::Listener overrides
-    void connect();
-    void disconnect();
+    void connect() override;
+    void disconnect() override;
     void notifyBridgeEvent(const BridgeEvent* event) noexcept override;
     std::shared_ptr<ICommInterface>
     createCommInterface(const ICommInterface::TransportProtocol protocol,

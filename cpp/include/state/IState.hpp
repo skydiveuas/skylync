@@ -21,10 +21,11 @@ class IState
 public:
     enum Type
     {
-        IDLE,
+        RELEASED,
         CONNECTING,
         ATTACHING,
         ATTACHED,
+        DISCONNECTING,
     };
 
     class Listener
@@ -35,6 +36,8 @@ public:
         virtual void connect() = 0;
 
         virtual void disconnect() = 0;
+
+        virtual void sendMessage() = 0;
 
         virtual void notifyBridgeEvent(const event::bridge::Event* event) noexcept = 0;
 

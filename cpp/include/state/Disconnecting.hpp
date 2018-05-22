@@ -1,5 +1,5 @@
-#ifndef STATE_IDLE_HPP
-#define STATE_IDLE_HPP
+#ifndef STATE_DISCONNECTING_HPP
+#define STATE_DISCONNECTING_HPP
 
 #include "IState.hpp"
 
@@ -9,14 +9,16 @@ namespace sl
 namespace state
 {
 
-class Idle : public IState
+class Disconnecting : public IState
 {
 public:
-    Idle(Listener& listener);
+    Disconnecting(Listener& listener);
 
     IState* handleEvent(const event::endpoint::Event& event) override;
 
     IState* handleMessage() override;
+
+    IState* notifyDisconnected();
 
     std::string toString() const noexcept override;
 };
@@ -25,4 +27,4 @@ public:
 
 } // sl
 
-#endif // IDLE_HPP
+#endif // STATE_DISCONNECTING_HPP

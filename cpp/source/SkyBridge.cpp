@@ -1,7 +1,8 @@
 #include "SkyBridge.hpp"
 
-#include "state/Idle.hpp"
+#include "state/Released.hpp"
 #include "state/Connecting.hpp"
+#include "state/Disconnecting.hpp"
 
 #include "event/bridge/Message.hpp"
 #include "event/bridge/Error.hpp"
@@ -19,7 +20,7 @@ SkyBridge::Listener::~Listener()
 
 SkyBridge::SkyBridge(Listener& _listener):
     listener(_listener),
-    state(new sl::state::Idle(*this))
+    state(new sl::state::Released(*this))
 {
 }
 
@@ -79,16 +80,51 @@ void SkyBridge::handleMessage() noexcept
 void SkyBridge::onConnected()
 {
     listener.trace("SkyBridge::onConnected");
-
-    // TODO handle encryption procedure
-
-    listener.notifyBridgeEvent(new BridgeEvent(BridgeEvent::CONNECTED));
+    try
+    {
+        std::unique_lock<std::mutex> lockGuard(stateLock);
+        if (State::CONNECTING == getState())
+        {
+            std::unique_ptr<State> newState(
+                        reinterpret_cast<sl::state::Connecting*>(state.get())->notifyConnected());
+            if (nullptr != newState.get())
+            {
+                listener.trace("State transition: [" + state->toString() +
+                               " -> " + newState->toString() + "]");
+                state.swap(newState);
+            }
+        }
+    }
+    catch (const std::runtime_error& e)
+    {
+        using sl::event::bridge::Message;
+        notifyBridgeEvent(new Message(e.what()));
+    }
 }
 
 void SkyBridge::onDisconnected()
 {
     listener.trace("SkyBridge::onDisconnected");
-    listener.notifyBridgeEvent(new BridgeEvent(BridgeEvent::DISCONNECTED));
+    try
+    {
+        std::unique_lock<std::mutex> lockGuard(stateLock);
+        if (State::DISCONNECTING == getState())
+        {
+            std::unique_ptr<State> newState(
+                        reinterpret_cast<sl::state::Disconnecting*>(state.get())->notifyDisconnected());
+            if (nullptr != newState.get())
+            {
+                listener.trace("State transition: [" + state->toString() +
+                               " -> " + newState->toString() + "]");
+                state.swap(newState);
+            }
+        }
+    }
+    catch (const std::runtime_error& e)
+    {
+        using sl::event::bridge::Message;
+        notifyBridgeEvent(new Message(e.what()));
+    }
 }
 
 void SkyBridge::onReceived(const unsigned char*, const size_t)
@@ -107,7 +143,7 @@ void SkyBridge::connect()
 void SkyBridge::disconnect()
 {
     listener.trace("SkyBridge::disconnect");
-
+    commInterface->disconnect();
 }
 
 void SkyBridge::notifyBridgeEvent(const sl::event::bridge::Event* event) noexcept
