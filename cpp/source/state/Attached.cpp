@@ -1,24 +1,39 @@
 #include "state/Attached.hpp"
 
+#include "state/Release.hpp"
+
 using sl::state::Attached;
-using sl::event::endpoint::Event;
 
 Attached::Attached(Listener& listener):
-    IState(ATTACHED, listener)
+    ILiveCycleState(Type::ATTACHED, listener)
 {
 }
 
-sl::state::IState* Attached::handleEvent(const Event& event)
+void Attached::start(const EndpointEvent* const) noexcept
 {
-    return nullptr;
+    notifyBridgeEvent(new BridgeEvent(BridgeEvent::ATTACHED));
 }
 
-sl::state::IState* Attached::handleMessage()
+void Attached::handleEvent(const EndpointEvent& event)
 {
-    return nullptr;
+    switch (event.getType())
+    {
+    case EndpointEvent::RELEASE:
+        switchState<sl::state::Release>();
+        break;
+
+    default:
+        exceptUnexpected(event);
+        break;
+    }
+}
+
+void Attached::handleMessage(const Message&)
+{
+
 }
 
 std::string Attached::toString() const noexcept
 {
-    return "Attached";
+    return "ATTACHED";
 }

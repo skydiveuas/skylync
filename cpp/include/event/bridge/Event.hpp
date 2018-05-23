@@ -20,6 +20,7 @@ public:
         MESSAGE,
         ERROR,
         CONNECTED,
+        ENCRYPTED,
         ATTACHED,
         RELEASED,
         DISCONNECTED,

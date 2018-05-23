@@ -1,13 +1,15 @@
 #ifndef SKYBRIDGE_HPP
 #define SKYBRIDGE_HPP
 
+#include "SkyBridgeListener.hpp"
+
 #include "ITimer.hpp"
 #include "ICommInterface.hpp"
 
 #include "event/endpoint/Event.hpp"
 #include "event/bridge/Event.hpp"
 
-#include "state/IState.hpp"
+#include "state/ILiveCycleState.hpp"
 
 #include <memory>
 #include <mutex>
@@ -15,73 +17,33 @@
 namespace sl
 {
 
-class SkyBridge : public state::IState::Listener,
-        public ICommInterface::Listener
+class SkyBridge : public state::ILiveCycleState::Listener
 {
 public:
-    typedef state::IState State;
+    typedef state::ILiveCycleState State;
 
     typedef event::bridge::Event BridgeEvent;
     typedef event::endpoint::Event EndpointEvent;
 
-    class Listener
-    {
-    public:
-        enum Side
-        {
-            DEVICE,
-            PILOT,
-        } side;
-
-        Listener(const Side _side);
-
-        virtual ~Listener();
-
-        virtual void
-        notifyBridgeEvent(const BridgeEvent* event) noexcept = 0;
-
-        virtual std::shared_ptr<ICommInterface>
-        createCommInterface(const ICommInterface::TransportProtocol protocol,
-                            const ICommInterface::Listener& listener) noexcept = 0;
-
-        virtual std::shared_ptr<ITimer>
-        createTimer() noexcept = 0;
-
-        virtual void
-        trace(const std::string& message) noexcept = 0;
-    };
-
-    SkyBridge(Listener& _listener);
+    SkyBridge(SkyBridgeListener& listener);
 
     void notifyEndpointEvent(const EndpointEvent* event) noexcept;
 
-    state::IState::Type getState() const noexcept;
+    State::Type getState() const noexcept;
 
 private:
-    Listener& listener;
-
-    std::unique_ptr<state::IState> state;
-    std::mutex stateLock;
+    SkyBridgeListener& listener;
 
     std::shared_ptr<ICommInterface> commInterface;
 
-    void handleEvent(const EndpointEvent* event) noexcept;
-    void handleMessage() noexcept;
+    std::shared_ptr<state::ILiveCycleState> state;
+    std::mutex stateLock;
 
-    // ICommInterface::Listener overrides
-    void onConnected() override;
-    void onDisconnected() override;
-    void onReceived(const unsigned char* data, const size_t length) override;
+    void switchState(std::shared_ptr<State> newState, const EndpointEvent* const event) override;
 
-    // state::IState::Listener overrides
-    void connect() override;
-    void disconnect() override;
-    void notifyBridgeEvent(const BridgeEvent* event) noexcept override;
-    std::shared_ptr<ICommInterface>
-    createCommInterface(const ICommInterface::TransportProtocol protocol,
-                        const ICommInterface::Listener& _listener) noexcept override;
-    std::shared_ptr<ITimer> createTimer() noexcept override;
-    void trace(const std::string& message) noexcept override;
+    ICommInterface& getControlCommInterface() override;
+
+    SkyBridgeListener& getBridgeListener() override;
 };
 
 } // sl

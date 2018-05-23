@@ -1,0 +1,28 @@
+#ifndef STATE_RELEASE_HPP
+#define STATE_RELEASE_HPP
+
+#include "ILiveCycleState.hpp"
+
+namespace sl
+{
+
+namespace state
+{
+
+class Release : public ILiveCycleState
+{
+public:
+    Release(Listener& listener);
+
+    void start(const EndpointEvent* const event) noexcept override;
+
+    void handleMessage(const Message& message) override;
+
+    std::string toString() const noexcept override;
+};
+
+} // state
+
+} // sl
+
+#endif // STATE_RELEASED_HPP

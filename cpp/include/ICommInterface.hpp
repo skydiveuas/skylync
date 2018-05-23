@@ -2,7 +2,8 @@
 #define ICOMMINTERFACE_HPP
 
 #include <cstddef>
-#include <functional>
+#include <atomic>
+#include <utility>
 
 namespace sl
 {
@@ -10,6 +11,8 @@ namespace sl
 class ICommInterface
 {
 public:
+    typedef std::pair<const unsigned char* const, const size_t> DataPacket;
+
     enum TransportProtocol
     {
         TCP,
@@ -23,10 +26,12 @@ public:
 
         virtual void onDisconnected() = 0;
 
-        virtual void onReceived(const unsigned char* data, const size_t length) = 0;
+        virtual void onReceived(const DataPacket) = 0;
     };
 
-    ICommInterface(const Listener& _listener);
+    ICommInterface(Listener& listener);
+
+    void setListener(Listener& listener);
 
     virtual ~ICommInterface();
 
@@ -34,10 +39,10 @@ public:
 
     virtual void disconnect() = 0;
 
-    virtual void send(const unsigned char* data, const size_t length) = 0;
+    virtual void send(const DataPacket) = 0;
 
 protected:
-    const Listener& listener;
+    std::atomic<Listener*> listener;
 };
 
 } // sl

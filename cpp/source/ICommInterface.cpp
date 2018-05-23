@@ -1,13 +1,18 @@
 #include "ICommInterface.hpp"
 
-using namespace sl;
+using sl::ICommInterface;
 
-ICommInterface::ICommInterface(const Listener& _listener):
-    listener(_listener)
+
+ICommInterface::ICommInterface(Listener& _listener)
 {
+    setListener(_listener);
+}
+
+void ICommInterface::setListener(Listener& _listener)
+{
+    listener.store(&_listener);
 }
 
 ICommInterface::~ICommInterface()
 {
 }
-

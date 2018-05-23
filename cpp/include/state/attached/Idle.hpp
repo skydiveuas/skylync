@@ -1,5 +1,5 @@
-#ifndef STATE_CONNECTING_HPP
-#define STATE_CONNECTING_HPP
+#ifndef STATE_ATTACHED_HPP
+#define STATE_ATTACHED_HPP
 
 #include "IState.hpp"
 
@@ -9,16 +9,14 @@ namespace sl
 namespace state
 {
 
-class Connecting : public IState
+class Attached : public IState
 {
 public:
-    Connecting(Listener& listener);
+    Attached(Listener& listener);
 
     IState* handleEvent(const event::endpoint::Event& event) override;
 
     IState* handleMessage() override;
-
-    IState* notifyConnected();
 
     std::string toString() const noexcept override;
 };
@@ -27,4 +25,4 @@ public:
 
 } // sl
 
-#endif // STATE_CONNECTING_HPP
+#endif // STATE_ATTACHED_HPP

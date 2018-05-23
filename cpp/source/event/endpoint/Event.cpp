@@ -20,6 +20,9 @@ std::string Event::toString() const noexcept
 {
     switch (type)
     {
+    case CONNECT: return "CONNECT";
+    case ATTACH: return "ATTACH";
+    case RELEASE: return "RELEASE";
     default:
         return "Unknown event name";
     }
