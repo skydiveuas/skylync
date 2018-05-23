@@ -4,6 +4,7 @@
 #include <cstddef>
 #include <atomic>
 #include <utility>
+#include <string>
 
 namespace sl
 {
@@ -35,7 +36,7 @@ public:
 
     virtual ~ICommInterface();
 
-    virtual void connect() = 0;
+    virtual void connect(const std::string& host, const int port) = 0;
 
     virtual void disconnect() = 0;
 
