@@ -18,7 +18,7 @@ void Connection::start(const EndpointEvent* const) noexcept
 {
     connectionTimer = listener.getBridgeListener().createTimer();
     connectionTimer->callAfter(CONNECTION_TIMEOUT, std::bind(&Connection::onTimeout, this));
-    controlCommInterface.connect("192.168.1.52", 16385);
+    controlCommInterface.connect("localhost", 16385);
 }
 
 void Connection::onConnected()
