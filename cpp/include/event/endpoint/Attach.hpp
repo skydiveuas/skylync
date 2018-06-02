@@ -23,6 +23,8 @@ public:
 
     std::string toString() const noexcept override;
 
+    std::string getMessage() const noexcept;
+
 private:
     const std::string id;
     std::string pwd;

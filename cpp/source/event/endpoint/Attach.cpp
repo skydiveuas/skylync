@@ -18,3 +18,8 @@ std::string Attach::toString() const noexcept
 {
     return "Attach[" + id + "]";
 }
+
+std::string Attach::getMessage() const noexcept
+{
+    return "Attach[id:" + id + ", pwd:" + pwd + "]";
+}

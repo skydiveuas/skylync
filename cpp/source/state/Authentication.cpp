@@ -2,6 +2,8 @@
 
 #include "state/Attached.hpp"
 
+#include "event/endpoint/Attach.hpp"
+
 using sl::state::Authentication;
 
 Authentication::Authentication(Listener& listener):
@@ -11,7 +13,7 @@ Authentication::Authentication(Listener& listener):
 
 void Authentication::start(const EndpointEvent* const event) noexcept
 {
-    send("Authenticate with: [" + event->toString() + "]");
+    send(reinterpret_cast<const sl::event::endpoint::Attach* const>(event)->getMessage());
 }
 
 void Authentication::handleMessage(const Message& message)
