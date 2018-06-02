@@ -52,13 +52,13 @@ void ILiveCycleState::onDisconnected()
 
 void ILiveCycleState::onReceived(const sl::ICommInterface::DataPacket dataPacket)
 {
-    handleMessage(Message(reinterpret_cast<const char* const>(dataPacket.first), dataPacket.second));
+    handleMessage(Message(dataPacket.first, dataPacket.second));
 }
 
 void ILiveCycleState::send(const Message& message)
 {
     trace("Sending message: [" + message + "]");
-    controlCommInterface.send(sl::ICommInterface::DataPacket(reinterpret_cast<const unsigned char* const>(message.c_str()), message.size()));
+    controlCommInterface.send(sl::ICommInterface::DataPacket(message.data(), message.size()));
 }
 
 void ILiveCycleState::notifyBridgeEvent(const BridgeEvent* const event)

@@ -12,7 +12,7 @@ namespace sl
 class ICommInterface
 {
 public:
-    typedef std::pair<const unsigned char* const, const size_t> DataPacket;
+    typedef std::pair<const char* const, const size_t> DataPacket;
 
     enum TransportProtocol
     {

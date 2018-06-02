@@ -16,7 +16,7 @@ void Encryption::start(const EndpointEvent* const) noexcept
     notifyBridgeEvent(new BridgeEvent(BridgeEvent::CONNECTED));
     trace("Starting encryption procedure");
     const size_t SIZE = 64;
-    unsigned char* data = new unsigned char[SIZE];
+    char* data = new char[SIZE];
     std::memset(data, 'a', SIZE);
     controlCommInterface.send(sl::ICommInterface::DataPacket(data, SIZE));
 }
