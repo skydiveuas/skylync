@@ -3,7 +3,6 @@
 
 #include "SkyBridgeListener.hpp"
 
-#include "ITimer.hpp"
 #include "ICommInterface.hpp"
 
 #include "event/bridge/Event.hpp"

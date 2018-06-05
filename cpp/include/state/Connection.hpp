@@ -23,7 +23,7 @@ public:
 private:
     static constexpr size_t CONNECTION_TIMEOUT = 2000; // ms
 
-    std::shared_ptr<ITimer> connectionTimer;
+    //std::shared_ptr<ITimer> connectionTimer;
 
     void onTimeout() noexcept;
 };

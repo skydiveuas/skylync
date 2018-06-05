@@ -16,15 +16,15 @@ Connection::Connection(Listener& listener):
 
 void Connection::start(const EndpointEvent* const) noexcept
 {
-    connectionTimer = listener.getBridgeListener().createTimer();
-    connectionTimer->callAfter(CONNECTION_TIMEOUT, std::bind(&Connection::onTimeout, this));
+    //connectionTimer = listener.getBridgeListener().createTimer();
+    //connectionTimer->callAfter(CONNECTION_TIMEOUT, std::bind(&Connection::onTimeout, this));
     controlCommInterface.connect("localhost", 16385);
 }
 
 void Connection::onConnected()
 {
     trace("Connection::onConnected");
-    connectionTimer->kill();
+    //connectionTimer->kill();
     switchState<sl::state::Encryption>();
 }
 
