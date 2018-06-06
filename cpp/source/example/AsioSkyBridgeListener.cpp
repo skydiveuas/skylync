@@ -1,5 +1,7 @@
 #include "example/AsioSkyBridgeListener.hpp"
 
+#include "example/Timer.hpp"
+
 #include <iostream>
 
 using sl::example::AsioSkyBridgeListener;
@@ -32,6 +34,11 @@ std::shared_ptr<sl::ICommInterface> AsioSkyBridgeListener::createCommInterface(c
         // error
         return nullptr;
     }
+}
+
+std::shared_ptr<sl::ITimer> AsioSkyBridgeListener::createTimer() noexcept
+{
+    return std::make_shared<Timer>(timerThread);
 }
 
 void AsioSkyBridgeListener::trace(const std::string& message) noexcept

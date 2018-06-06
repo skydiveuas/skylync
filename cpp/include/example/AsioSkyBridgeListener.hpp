@@ -6,6 +6,8 @@
 #include "AsioTcpClient.hpp"
 #include "AsioUdpClient.hpp"
 
+#include "TimerThread.hpp"
+
 #include "asio.hpp"
 
 #include <memory>
@@ -28,7 +30,12 @@ public:
     std::shared_ptr<sl::ICommInterface> createCommInterface(const sl::ICommInterface::TransportProtocol protocol,
                                                             sl::ICommInterface::Listener& listener) noexcept;
 
+    std::shared_ptr<ITimer> createTimer() noexcept override;
+
     void trace(const std::string& message) noexcept override;
+
+private:
+    TimerThread timerThread;
 };
 
 

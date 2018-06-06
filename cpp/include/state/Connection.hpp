@@ -18,12 +18,14 @@ public:
 
     void onConnected() override;
 
+    void onDisconnected() override;
+
     std::string toString() const noexcept override;
 
 private:
-    static constexpr size_t CONNECTION_TIMEOUT = 2000; // ms
+    static constexpr size_t CONNECTION_TIMEOUT = 4000; // ms
 
-    //std::shared_ptr<ITimer> connectionTimer;
+    std::shared_ptr<ITimer> connectionTimer;
 
     void onTimeout() noexcept;
 };
