@@ -12,10 +12,20 @@ AsioSkyBridgeListener::AsioSkyBridgeListener(asio::io_context& _ioContext, const
 {
 }
 
-void AsioSkyBridgeListener::notifyBridgeEvent(const sl::event::bridge::Event* event) noexcept
+AsioSkyBridgeListener::~AsioSkyBridgeListener()
 {
-    std::unique_ptr<const sl::event::bridge::Event> guard(event);
-    std::cout << "Received event: " << event->toString() << std::endl;
+    timerThread.clear();
+}
+
+void AsioSkyBridgeListener::notifyBridgeEvent(const BridgeEvent* event) noexcept
+{
+    std::unique_ptr<const BridgeEvent> guard(event);
+    notifyBridgeEvent(*guard.get());
+}
+
+void AsioSkyBridgeListener::notifyBridgeEvent(const BridgeEvent& event) noexcept
+{
+    trace("Received: " + event.toString());
 }
 
 std::shared_ptr<sl::ICommInterface> AsioSkyBridgeListener::createCommInterface(const sl::ICommInterface::TransportProtocol protocol,

@@ -1,6 +1,7 @@
 #include "example/Timer.hpp"
 
 #include <exception>
+#include <iostream>
 
 using sl::example::Timer;
 
@@ -32,7 +33,7 @@ void Timer::callAfter(const Milisec timeout, Task task)
 {
     if (false == running)
     {
-        id = timerThread.setInterval(task, timeout);
+        id = timerThread.setTimeout(task, timeout);
         running = true;
     }
     else
@@ -40,8 +41,6 @@ void Timer::callAfter(const Milisec timeout, Task task)
         throw std::logic_error("Trying to start timer when it is stil running");
     }
 }
-
-#include <iostream>
 
 void Timer::kill()
 {

@@ -23,13 +23,14 @@ void Connection::start(const EndpointEvent* const) noexcept
 
 void Connection::onConnected()
 {
-    trace("Connection::onConnected");
     connectionTimer->kill();
+    trace("Connection::onConnected");
     switchState<sl::state::Encryption>();
 }
 
 void Connection::onDisconnected()
 {
+    connectionTimer->kill();
     trace("Connection::onDisconnected");
     switchState<sl::state::Disconnected>();
 }
@@ -41,6 +42,6 @@ std::string Connection::toString() const noexcept
 
 void Connection::onTimeout() noexcept
 {
-    controlCommInterface.disconnect();
     notifyBridgeEvent(new sl::event::bridge::Error("Timeout waiting for connection, disconnected."));
+    controlCommInterface.disconnect();
 }

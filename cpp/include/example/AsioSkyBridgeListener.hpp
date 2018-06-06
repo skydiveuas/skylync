@@ -3,6 +3,8 @@
 
 #include "SkyBridgeListener.hpp"
 
+#include "event/bridge/Event.hpp"
+
 #include "AsioTcpClient.hpp"
 #include "AsioUdpClient.hpp"
 
@@ -25,7 +27,11 @@ public:
 
     AsioSkyBridgeListener(asio::io_context& _ioContext, const sl::SkyBridgeListener::Side side);
 
-    void notifyBridgeEvent(const sl::event::bridge::Event* event) noexcept override;
+    virtual ~AsioSkyBridgeListener();
+
+    void notifyBridgeEvent(const BridgeEvent* event) noexcept override;
+
+    virtual void notifyBridgeEvent(const BridgeEvent& event) noexcept;
 
     std::shared_ptr<sl::ICommInterface> createCommInterface(const sl::ICommInterface::TransportProtocol protocol,
                                                             sl::ICommInterface::Listener& listener) noexcept;
