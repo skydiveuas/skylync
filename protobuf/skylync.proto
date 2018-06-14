@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package skylync;
+
+message Context {
+
+}
+
+message AttachParams {
+
+}
+
+message Message {
+  enum Command {
+    UNKNOWN_COMMAND = 0;
+    ACCEPT = 1;
+    REJECT = 2;
+    ATTACH = 3;
+    RELEASE = 4;
+    CONTEXT_UPDATE = 5;
+    POKE = 6;
+    LIST_DEVICE = 7;
+    STATUS_DEVICE = 8;
+    DEVICE_REQUEST = 9;
+    HO_REQUEST = 10;
+    MISSION_APPROVAL = 11;
+    TEARDOWN_MISSION = 12;
+    STATUS_UPDATE = 13;
+    OPERATION_REQUEST = 14;
+    OPERATION_TEARDOWN = 15;
+  }
+
+  enum Cause {
+    UNKNOWN_CAUSE = 0;
+    BAD_DATA = 1;
+    INTERNAL_ERROR = 2;
+    NOT_FOUND = 3;
+    UNAUTHORIZED = 4;
+    BUSY = 5;
+    BAD_DEVICE = 6;
+    NOT_CAPABLE = 7;
+    NOTED = 8;
+    BLOCKED = 9;
+    ALLREADY_IN_USE = 10;
+    OVERLOADED = 11;
+    AUTHENTICATION_FAILED = 12;
+  }
+
+  Command command = 1;
+
+  Command responseFor = 2;
+  string note = 3;
+}
+
+message EndpointMessage {
+  Message base = 1;
+
+  AttachParams attachParams = 2;
+  Context context = 3;
+}
+
+message BridgeMessage {
+  Message base = 1;
+
+  Context context = 2;
+}
