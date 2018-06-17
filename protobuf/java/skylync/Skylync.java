@@ -17,6 +17,11 @@ public final class Skylync {
   public interface ContextOrBuilder extends
       // @@protoc_insertion_point(interface_extends:skylync.Context)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>uint64 refId = 1;</code>
+     */
+    long getRefId();
   }
   /**
    * Protobuf type {@code skylync.Context}
@@ -31,6 +36,7 @@ public final class Skylync {
       super(builder);
     }
     private Context() {
+      refId_ = 0L;
     }
 
     @java.lang.Override
@@ -46,6 +52,7 @@ public final class Skylync {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -61,6 +68,11 @@ public final class Skylync {
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
+              break;
+            }
+            case 8: {
+
+              refId_ = input.readUInt64();
               break;
             }
           }
@@ -87,6 +99,15 @@ public final class Skylync {
               skylync.Skylync.Context.class, skylync.Skylync.Context.Builder.class);
     }
 
+    public static final int REFID_FIELD_NUMBER = 1;
+    private long refId_;
+    /**
+     * <code>uint64 refId = 1;</code>
+     */
+    public long getRefId() {
+      return refId_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -99,6 +120,9 @@ public final class Skylync {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (refId_ != 0L) {
+        output.writeUInt64(1, refId_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -107,6 +131,10 @@ public final class Skylync {
       if (size != -1) return size;
 
       size = 0;
+      if (refId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, refId_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -123,6 +151,8 @@ public final class Skylync {
       skylync.Skylync.Context other = (skylync.Skylync.Context) obj;
 
       boolean result = true;
+      result = result && (getRefId()
+          == other.getRefId());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -134,6 +164,9 @@ public final class Skylync {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + REFID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getRefId());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -263,6 +296,8 @@ public final class Skylync {
       }
       public Builder clear() {
         super.clear();
+        refId_ = 0L;
+
         return this;
       }
 
@@ -285,6 +320,7 @@ public final class Skylync {
 
       public skylync.Skylync.Context buildPartial() {
         skylync.Skylync.Context result = new skylync.Skylync.Context(this);
+        result.refId_ = refId_;
         onBuilt();
         return result;
       }
@@ -326,6 +362,9 @@ public final class Skylync {
 
       public Builder mergeFrom(skylync.Skylync.Context other) {
         if (other == skylync.Skylync.Context.getDefaultInstance()) return this;
+        if (other.getRefId() != 0L) {
+          setRefId(other.getRefId());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -350,6 +389,32 @@ public final class Skylync {
             mergeFrom(parsedMessage);
           }
         }
+        return this;
+      }
+
+      private long refId_ ;
+      /**
+       * <code>uint64 refId = 1;</code>
+       */
+      public long getRefId() {
+        return refId_;
+      }
+      /**
+       * <code>uint64 refId = 1;</code>
+       */
+      public Builder setRefId(long value) {
+        
+        refId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 refId = 1;</code>
+       */
+      public Builder clearRefId() {
+        
+        refId_ = 0L;
+        onChanged();
         return this;
       }
       public final Builder setUnknownFields(
@@ -404,6 +469,26 @@ public final class Skylync {
   public interface AttachParamsOrBuilder extends
       // @@protoc_insertion_point(interface_extends:skylync.AttachParams)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string id = 1;</code>
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    /**
+     * <code>string pwd = 2;</code>
+     */
+    java.lang.String getPwd();
+    /**
+     * <code>string pwd = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getPwdBytes();
   }
   /**
    * Protobuf type {@code skylync.AttachParams}
@@ -418,6 +503,8 @@ public final class Skylync {
       super(builder);
     }
     private AttachParams() {
+      id_ = "";
+      pwd_ = "";
     }
 
     @java.lang.Override
@@ -433,6 +520,7 @@ public final class Skylync {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -448,6 +536,18 @@ public final class Skylync {
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              id_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              pwd_ = s;
               break;
             }
           }
@@ -474,6 +574,74 @@ public final class Skylync {
               skylync.Skylync.AttachParams.class, skylync.Skylync.AttachParams.Builder.class);
     }
 
+    public static final int ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object id_;
+    /**
+     * <code>string id = 1;</code>
+     */
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PWD_FIELD_NUMBER = 2;
+    private volatile java.lang.Object pwd_;
+    /**
+     * <code>string pwd = 2;</code>
+     */
+    public java.lang.String getPwd() {
+      java.lang.Object ref = pwd_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        pwd_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string pwd = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPwdBytes() {
+      java.lang.Object ref = pwd_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        pwd_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -486,6 +654,12 @@ public final class Skylync {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      }
+      if (!getPwdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, pwd_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -494,6 +668,12 @@ public final class Skylync {
       if (size != -1) return size;
 
       size = 0;
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      }
+      if (!getPwdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, pwd_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -510,6 +690,10 @@ public final class Skylync {
       skylync.Skylync.AttachParams other = (skylync.Skylync.AttachParams) obj;
 
       boolean result = true;
+      result = result && getId()
+          .equals(other.getId());
+      result = result && getPwd()
+          .equals(other.getPwd());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -521,6 +705,10 @@ public final class Skylync {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      hash = (37 * hash) + PWD_FIELD_NUMBER;
+      hash = (53 * hash) + getPwd().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -650,6 +838,10 @@ public final class Skylync {
       }
       public Builder clear() {
         super.clear();
+        id_ = "";
+
+        pwd_ = "";
+
         return this;
       }
 
@@ -672,6 +864,8 @@ public final class Skylync {
 
       public skylync.Skylync.AttachParams buildPartial() {
         skylync.Skylync.AttachParams result = new skylync.Skylync.AttachParams(this);
+        result.id_ = id_;
+        result.pwd_ = pwd_;
         onBuilt();
         return result;
       }
@@ -713,6 +907,14 @@ public final class Skylync {
 
       public Builder mergeFrom(skylync.Skylync.AttachParams other) {
         if (other == skylync.Skylync.AttachParams.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
+        }
+        if (!other.getPwd().isEmpty()) {
+          pwd_ = other.pwd_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -737,6 +939,144 @@ public final class Skylync {
             mergeFrom(parsedMessage);
           }
         }
+        return this;
+      }
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 1;</code>
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public Builder clearId() {
+        
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object pwd_ = "";
+      /**
+       * <code>string pwd = 2;</code>
+       */
+      public java.lang.String getPwd() {
+        java.lang.Object ref = pwd_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          pwd_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string pwd = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPwdBytes() {
+        java.lang.Object ref = pwd_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          pwd_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string pwd = 2;</code>
+       */
+      public Builder setPwd(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        pwd_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string pwd = 2;</code>
+       */
+      public Builder clearPwd() {
+        
+        pwd_ = getDefaultInstance().getPwd();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string pwd = 2;</code>
+       */
+      public Builder setPwdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        pwd_ = value;
+        onChanged();
         return this;
       }
       public final Builder setUnknownFields(
@@ -3698,8 +4038,9 @@ public final class Skylync {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\rskylync.proto\022\007skylync\"\t\n\007Context\"\016\n\014A" +
-      "ttachParams\"\372\004\n\007Message\022)\n\007command\030\001 \001(\016" +
+      "\n\rskylync.proto\022\007skylync\"\030\n\007Context\022\r\n\005r" +
+      "efId\030\001 \001(\004\"\'\n\014AttachParams\022\n\n\002id\030\001 \001(\t\022\013" +
+      "\n\003pwd\030\002 \001(\t\"\372\004\n\007Message\022)\n\007command\030\001 \001(\016" +
       "2\030.skylync.Message.Command\022-\n\013responseFo" +
       "r\030\002 \001(\0162\030.skylync.Message.Command\022\014\n\004not" +
       "e\030\003 \001(\t\"\243\002\n\007Command\022\023\n\017UNKNOWN_COMMAND\020\000" +
@@ -3739,13 +4080,13 @@ public final class Skylync {
     internal_static_skylync_Context_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_skylync_Context_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "RefId", });
     internal_static_skylync_AttachParams_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_skylync_AttachParams_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_skylync_AttachParams_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Id", "Pwd", });
     internal_static_skylync_Message_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_skylync_Message_fieldAccessorTable = new

@@ -3,11 +3,12 @@ syntax = "proto3";
 package skylync;
 
 message Context {
-
+    uint64 refId = 1;
 }
 
 message AttachParams {
-
+    string id = 1;
+    string pwd = 2;
 }
 
 message Message {

@@ -4,6 +4,7 @@
 #include "SkyBridgeListener.hpp"
 
 #include "ICommInterface.hpp"
+#include "ProtobufParser.hpp"
 
 #include "event/endpoint/Event.hpp"
 #include "event/bridge/Event.hpp"
@@ -34,6 +35,7 @@ private:
     SkyBridgeListener& listener;
 
     std::shared_ptr<ICommInterface> commInterface;
+    std::shared_ptr<ProtobufParser> parser;
 
     std::shared_ptr<state::ILiveCycleState> state;
     std::mutex stateLock;

@@ -166,11 +166,14 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::Context, refid_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::AttachParams, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::AttachParams, id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::AttachParams, pwd_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::Message, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -197,10 +200,10 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::skylync::Context)},
-  { 5, -1, sizeof(::skylync::AttachParams)},
-  { 10, -1, sizeof(::skylync::Message)},
-  { 18, -1, sizeof(::skylync::EndpointMessage)},
-  { 26, -1, sizeof(::skylync::BridgeMessage)},
+  { 6, -1, sizeof(::skylync::AttachParams)},
+  { 13, -1, sizeof(::skylync::Message)},
+  { 21, -1, sizeof(::skylync::EndpointMessage)},
+  { 29, -1, sizeof(::skylync::BridgeMessage)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -233,8 +236,9 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\rskylync.proto\022\007skylync\"\t\n\007Context\"\016\n\014A"
-      "ttachParams\"\372\004\n\007Message\022)\n\007command\030\001 \001(\016"
+      "\n\rskylync.proto\022\007skylync\"\030\n\007Context\022\r\n\005r"
+      "efId\030\001 \001(\004\"\'\n\014AttachParams\022\n\n\002id\030\001 \001(\t\022\013"
+      "\n\003pwd\030\002 \001(\t\"\372\004\n\007Message\022)\n\007command\030\001 \001(\016"
       "2\030.skylync.Message.Command\022-\n\013responseFo"
       "r\030\002 \001(\0162\030.skylync.Message.Command\022\014\n\004not"
       "e\030\003 \001(\t\"\243\002\n\007Command\022\023\n\017UNKNOWN_COMMAND\020\000"
@@ -258,7 +262,7 @@ void AddDescriptorsImpl() {
       "\030\002 \001(\0132\020.skylync.Contextb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 912);
+      descriptor, 952);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "skylync.proto", &protobuf_RegisterTypes);
 }
@@ -373,6 +377,7 @@ const int Message::Cause_ARRAYSIZE;
 void Context::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Context::kRefIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Context::Context()
@@ -388,10 +393,12 @@ Context::Context(const Context& from)
       _internal_metadata_(NULL),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  refid_ = from.refid_;
   // @@protoc_insertion_point(copy_constructor:skylync.Context)
 }
 
 void Context::SharedCtor() {
+  refid_ = GOOGLE_ULONGLONG(0);
   _cached_size_ = 0;
 }
 
@@ -432,6 +439,7 @@ void Context::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  refid_ = GOOGLE_ULONGLONG(0);
   _internal_metadata_.Clear();
 }
 
@@ -444,12 +452,31 @@ bool Context::MergePartialFromCodedStream(
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
-  handle_unusual:
-    if (tag == 0) {
-      goto success;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // uint64 refId = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &refid_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
     }
-    DO_(::google::protobuf::internal::WireFormat::SkipField(
-          input, tag, _internal_metadata_.mutable_unknown_fields()));
   }
 success:
   // @@protoc_insertion_point(parse_success:skylync.Context)
@@ -466,6 +493,11 @@ void Context::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  // uint64 refId = 1;
+  if (this->refid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->refid(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -479,6 +511,11 @@ void Context::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_to_array_start:skylync.Context)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
+
+  // uint64 refId = 1;
+  if (this->refid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->refid(), target);
+  }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
@@ -497,6 +534,13 @@ size_t Context::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
+  // uint64 refId = 1;
+  if (this->refid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->refid());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -526,6 +570,9 @@ void Context::MergeFrom(const Context& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from.refid() != 0) {
+    set_refid(from.refid());
+  }
 }
 
 void Context::CopyFrom(const ::google::protobuf::Message& from) {
@@ -552,6 +599,7 @@ void Context::Swap(Context* other) {
 }
 void Context::InternalSwap(Context* other) {
   using std::swap;
+  swap(refid_, other->refid_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -567,6 +615,8 @@ void Context::InternalSwap(Context* other) {
 void AttachParams::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int AttachParams::kIdFieldNumber;
+const int AttachParams::kPwdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 AttachParams::AttachParams()
@@ -582,10 +632,20 @@ AttachParams::AttachParams(const AttachParams& from)
       _internal_metadata_(NULL),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.id().size() > 0) {
+    id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.id_);
+  }
+  pwd_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.pwd().size() > 0) {
+    pwd_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.pwd_);
+  }
   // @@protoc_insertion_point(copy_constructor:skylync.AttachParams)
 }
 
 void AttachParams::SharedCtor() {
+  id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  pwd_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _cached_size_ = 0;
 }
 
@@ -595,6 +655,8 @@ AttachParams::~AttachParams() {
 }
 
 void AttachParams::SharedDtor() {
+  id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  pwd_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void AttachParams::SetCachedSize(int size) const {
@@ -626,6 +688,8 @@ void AttachParams::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  pwd_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _internal_metadata_.Clear();
 }
 
@@ -638,12 +702,49 @@ bool AttachParams::MergePartialFromCodedStream(
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
-  handle_unusual:
-    if (tag == 0) {
-      goto success;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->id().data(), static_cast<int>(this->id().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "skylync.AttachParams.id"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string pwd = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_pwd()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->pwd().data(), static_cast<int>(this->pwd().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "skylync.AttachParams.pwd"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
     }
-    DO_(::google::protobuf::internal::WireFormat::SkipField(
-          input, tag, _internal_metadata_.mutable_unknown_fields()));
   }
 success:
   // @@protoc_insertion_point(parse_success:skylync.AttachParams)
@@ -660,6 +761,26 @@ void AttachParams::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  // string id = 1;
+  if (this->id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->id().data(), static_cast<int>(this->id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "skylync.AttachParams.id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->id(), output);
+  }
+
+  // string pwd = 2;
+  if (this->pwd().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->pwd().data(), static_cast<int>(this->pwd().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "skylync.AttachParams.pwd");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->pwd(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -673,6 +794,28 @@ void AttachParams::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_to_array_start:skylync.AttachParams)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
+
+  // string id = 1;
+  if (this->id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->id().data(), static_cast<int>(this->id().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "skylync.AttachParams.id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->id(), target);
+  }
+
+  // string pwd = 2;
+  if (this->pwd().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->pwd().data(), static_cast<int>(this->pwd().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "skylync.AttachParams.pwd");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->pwd(), target);
+  }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
@@ -691,6 +834,20 @@ size_t AttachParams::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
+  // string id = 1;
+  if (this->id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->id());
+  }
+
+  // string pwd = 2;
+  if (this->pwd().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->pwd());
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -720,6 +877,14 @@ void AttachParams::MergeFrom(const AttachParams& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from.id().size() > 0) {
+
+    id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.id_);
+  }
+  if (from.pwd().size() > 0) {
+
+    pwd_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.pwd_);
+  }
 }
 
 void AttachParams::CopyFrom(const ::google::protobuf::Message& from) {
@@ -746,6 +911,8 @@ void AttachParams::Swap(AttachParams* other) {
 }
 void AttachParams::InternalSwap(AttachParams* other) {
   using std::swap;
+  id_.Swap(&other->id_);
+  pwd_.Swap(&other->pwd_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }

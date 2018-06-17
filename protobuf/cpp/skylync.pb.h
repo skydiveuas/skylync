@@ -231,10 +231,17 @@ class Context : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 
   // accessors -------------------------------------------------------
 
+  // uint64 refId = 1;
+  void clear_refid();
+  static const int kRefIdFieldNumber = 1;
+  ::google::protobuf::uint64 refid() const;
+  void set_refid(::google::protobuf::uint64 value);
+
   // @@protoc_insertion_point(class_scope:skylync.Context)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint64 refid_;
   mutable int _cached_size_;
   friend struct ::protobuf_skylync_2eproto::TableStruct;
   friend void ::protobuf_skylync_2eproto::InitDefaultsContextImpl();
@@ -323,10 +330,40 @@ class AttachParams : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // accessors -------------------------------------------------------
 
+  // string id = 1;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  const ::std::string& id() const;
+  void set_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_id(::std::string&& value);
+  #endif
+  void set_id(const char* value);
+  void set_id(const char* value, size_t size);
+  ::std::string* mutable_id();
+  ::std::string* release_id();
+  void set_allocated_id(::std::string* id);
+
+  // string pwd = 2;
+  void clear_pwd();
+  static const int kPwdFieldNumber = 2;
+  const ::std::string& pwd() const;
+  void set_pwd(const ::std::string& value);
+  #if LANG_CXX11
+  void set_pwd(::std::string&& value);
+  #endif
+  void set_pwd(const char* value);
+  void set_pwd(const char* value, size_t size);
+  ::std::string* mutable_pwd();
+  ::std::string* release_pwd();
+  void set_allocated_pwd(::std::string* pwd);
+
   // @@protoc_insertion_point(class_scope:skylync.AttachParams)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr id_;
+  ::google::protobuf::internal::ArenaStringPtr pwd_;
   mutable int _cached_size_;
   friend struct ::protobuf_skylync_2eproto::TableStruct;
   friend void ::protobuf_skylync_2eproto::InitDefaultsAttachParamsImpl();
@@ -799,9 +836,129 @@ class BridgeMessage : public ::google::protobuf::Message /* @@protoc_insertion_p
 #endif  // __GNUC__
 // Context
 
+// uint64 refId = 1;
+inline void Context::clear_refid() {
+  refid_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 Context::refid() const {
+  // @@protoc_insertion_point(field_get:skylync.Context.refId)
+  return refid_;
+}
+inline void Context::set_refid(::google::protobuf::uint64 value) {
+  
+  refid_ = value;
+  // @@protoc_insertion_point(field_set:skylync.Context.refId)
+}
+
 // -------------------------------------------------------------------
 
 // AttachParams
+
+// string id = 1;
+inline void AttachParams::clear_id() {
+  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& AttachParams::id() const {
+  // @@protoc_insertion_point(field_get:skylync.AttachParams.id)
+  return id_.GetNoArena();
+}
+inline void AttachParams::set_id(const ::std::string& value) {
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:skylync.AttachParams.id)
+}
+#if LANG_CXX11
+inline void AttachParams::set_id(::std::string&& value) {
+  
+  id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:skylync.AttachParams.id)
+}
+#endif
+inline void AttachParams::set_id(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:skylync.AttachParams.id)
+}
+inline void AttachParams::set_id(const char* value, size_t size) {
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:skylync.AttachParams.id)
+}
+inline ::std::string* AttachParams::mutable_id() {
+  
+  // @@protoc_insertion_point(field_mutable:skylync.AttachParams.id)
+  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* AttachParams::release_id() {
+  // @@protoc_insertion_point(field_release:skylync.AttachParams.id)
+  
+  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void AttachParams::set_allocated_id(::std::string* id) {
+  if (id != NULL) {
+    
+  } else {
+    
+  }
+  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
+  // @@protoc_insertion_point(field_set_allocated:skylync.AttachParams.id)
+}
+
+// string pwd = 2;
+inline void AttachParams::clear_pwd() {
+  pwd_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& AttachParams::pwd() const {
+  // @@protoc_insertion_point(field_get:skylync.AttachParams.pwd)
+  return pwd_.GetNoArena();
+}
+inline void AttachParams::set_pwd(const ::std::string& value) {
+  
+  pwd_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:skylync.AttachParams.pwd)
+}
+#if LANG_CXX11
+inline void AttachParams::set_pwd(::std::string&& value) {
+  
+  pwd_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:skylync.AttachParams.pwd)
+}
+#endif
+inline void AttachParams::set_pwd(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  pwd_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:skylync.AttachParams.pwd)
+}
+inline void AttachParams::set_pwd(const char* value, size_t size) {
+  
+  pwd_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:skylync.AttachParams.pwd)
+}
+inline ::std::string* AttachParams::mutable_pwd() {
+  
+  // @@protoc_insertion_point(field_mutable:skylync.AttachParams.pwd)
+  return pwd_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* AttachParams::release_pwd() {
+  // @@protoc_insertion_point(field_release:skylync.AttachParams.pwd)
+  
+  return pwd_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void AttachParams::set_allocated_pwd(::std::string* pwd) {
+  if (pwd != NULL) {
+    
+  } else {
+    
+  }
+  pwd_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), pwd);
+  // @@protoc_insertion_point(field_set_allocated:skylync.AttachParams.pwd)
+}
 
 // -------------------------------------------------------------------
 
