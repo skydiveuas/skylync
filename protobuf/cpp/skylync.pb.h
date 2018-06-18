@@ -554,9 +554,9 @@ class Message : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 
   // accessors -------------------------------------------------------
 
-  // string note = 3;
+  // string note = 4;
   void clear_note();
-  static const int kNoteFieldNumber = 3;
+  static const int kNoteFieldNumber = 4;
   const ::std::string& note() const;
   void set_note(const ::std::string& value);
   #if LANG_CXX11
@@ -580,6 +580,12 @@ class Message : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   ::skylync::Message_Command responsefor() const;
   void set_responsefor(::skylync::Message_Command value);
 
+  // .skylync.Message.Cause cause = 3;
+  void clear_cause();
+  static const int kCauseFieldNumber = 3;
+  ::skylync::Message_Cause cause() const;
+  void set_cause(::skylync::Message_Cause value);
+
   // @@protoc_insertion_point(class_scope:skylync.Message)
  private:
 
@@ -587,6 +593,7 @@ class Message : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   ::google::protobuf::internal::ArenaStringPtr note_;
   int command_;
   int responsefor_;
+  int cause_;
   mutable int _cached_size_;
   friend struct ::protobuf_skylync_2eproto::TableStruct;
   friend void ::protobuf_skylync_2eproto::InitDefaultsMessageImpl();
@@ -992,7 +999,21 @@ inline void Message::set_responsefor(::skylync::Message_Command value) {
   // @@protoc_insertion_point(field_set:skylync.Message.responseFor)
 }
 
-// string note = 3;
+// .skylync.Message.Cause cause = 3;
+inline void Message::clear_cause() {
+  cause_ = 0;
+}
+inline ::skylync::Message_Cause Message::cause() const {
+  // @@protoc_insertion_point(field_get:skylync.Message.cause)
+  return static_cast< ::skylync::Message_Cause >(cause_);
+}
+inline void Message::set_cause(::skylync::Message_Cause value) {
+  
+  cause_ = value;
+  // @@protoc_insertion_point(field_set:skylync.Message.cause)
+}
+
+// string note = 4;
 inline void Message::clear_note() {
   note_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }

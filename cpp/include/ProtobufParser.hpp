@@ -19,12 +19,13 @@ public:
 
     ProtobufParser(Callback _callback);
 
-    void deserialize(const char* const buf, const size_t length) const;
+    void parse(const ICommInterface::DataPacket dataPacket) const;
 
     ICommInterface::DataPacket serialize(const ::google::protobuf::Message& message);
 
 private:
     static constexpr size_t OUT_BUFFER_SIZE = 1024;
+
     std::array<char, OUT_BUFFER_SIZE> outBuffer;
     size_t outBufferPosition = { 0 };
 
@@ -40,20 +41,19 @@ ProtobufParser<_ExpectedMessage>::ProtobufParser(Callback _callback):
 }
 
 template <typename _ExpectedMessage>
-void ProtobufParser<_ExpectedMessage>::deserialize(const char* const buf, const size_t length) const
+void ProtobufParser<_ExpectedMessage>::parse(const sl::ICommInterface::DataPacket dataPacket) const
 {
-    size_t size = length;
+    size_t size = dataPacket.second;
     while (size >= sizeof(uint32_t))
     {
         size_t messageSize;
-        memcpy(&messageSize, buf, sizeof(uint32_t));
-        if (messageSize + sizeof(uint32_t) < length)
+        memcpy(&messageSize, dataPacket.first, sizeof(uint32_t));
+        if (messageSize + sizeof(uint32_t) < size)
         {
             throw std::runtime_error("Not enough data received for parsing.");
         }
-
         std::shared_ptr<_ExpectedMessage> result = std::make_shared<_ExpectedMessage>();
-        if (result->ParseFromArray(buf, messageSize))
+        if (result->ParseFromArray(dataPacket.first + sizeof(uint32_t), messageSize))
         {
             callback(result);
         }
@@ -61,7 +61,6 @@ void ProtobufParser<_ExpectedMessage>::deserialize(const char* const buf, const 
         {
             throw std::runtime_error("Could not parse message.");
         }
-
         size -= (messageSize + sizeof(uint32_t));
     }
 }
@@ -69,12 +68,12 @@ void ProtobufParser<_ExpectedMessage>::deserialize(const char* const buf, const 
 template <typename _ExpectedMessage>
 sl::ICommInterface::DataPacket ProtobufParser<_ExpectedMessage>::serialize(const ::google::protobuf::Message& message)
 {
-    size_t size = message.ByteSizeLong() + sizeof(uint32_t);
+    const size_t size = message.ByteSizeLong() + sizeof(uint32_t);
     if (OUT_BUFFER_SIZE - outBufferPosition < size)
     {
         outBufferPosition = 0;
     }
-    if (serialize(message, outBuffer.data() + outBufferPosition, size))
+    if (false == serialize(message, outBuffer.data() + outBufferPosition, size))
     {
         throw std::runtime_error("Could not serialize message");
     }
@@ -92,7 +91,7 @@ bool ProtobufParser<_ExpectedMessage>::serialize(const ::google::protobuf::Messa
         throw std::runtime_error("Too small buffer for message to be serialized.");
     }
     memcpy(buf, &messageSize, sizeof(uint32_t));
-    return message.SerializeToArray(buf + sizeof(uint32_t), length);
+    return message.SerializeToArray(buf + sizeof(uint32_t), length - sizeof(uint32_t));
 }
 
 } // sl

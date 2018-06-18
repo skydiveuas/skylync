@@ -181,6 +181,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::Message, command_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::Message, responsefor_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::Message, cause_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::Message, note_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::EndpointMessage, _internal_metadata_),
@@ -202,8 +203,8 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 0, -1, sizeof(::skylync::Context)},
   { 6, -1, sizeof(::skylync::AttachParams)},
   { 13, -1, sizeof(::skylync::Message)},
-  { 21, -1, sizeof(::skylync::EndpointMessage)},
-  { 29, -1, sizeof(::skylync::BridgeMessage)},
+  { 22, -1, sizeof(::skylync::EndpointMessage)},
+  { 30, -1, sizeof(::skylync::BridgeMessage)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -238,31 +239,32 @@ void AddDescriptorsImpl() {
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\rskylync.proto\022\007skylync\"\030\n\007Context\022\r\n\005r"
       "efId\030\001 \001(\004\"\'\n\014AttachParams\022\n\n\002id\030\001 \001(\t\022\013"
-      "\n\003pwd\030\002 \001(\t\"\372\004\n\007Message\022)\n\007command\030\001 \001(\016"
+      "\n\003pwd\030\002 \001(\t\"\241\005\n\007Message\022)\n\007command\030\001 \001(\016"
       "2\030.skylync.Message.Command\022-\n\013responseFo"
-      "r\030\002 \001(\0162\030.skylync.Message.Command\022\014\n\004not"
-      "e\030\003 \001(\t\"\243\002\n\007Command\022\023\n\017UNKNOWN_COMMAND\020\000"
-      "\022\n\n\006ACCEPT\020\001\022\n\n\006REJECT\020\002\022\n\n\006ATTACH\020\003\022\013\n\007"
-      "RELEASE\020\004\022\022\n\016CONTEXT_UPDATE\020\005\022\010\n\004POKE\020\006\022"
-      "\017\n\013LIST_DEVICE\020\007\022\021\n\rSTATUS_DEVICE\020\010\022\022\n\016D"
-      "EVICE_REQUEST\020\t\022\016\n\nHO_REQUEST\020\n\022\024\n\020MISSI"
-      "ON_APPROVAL\020\013\022\024\n\020TEARDOWN_MISSION\020\014\022\021\n\rS"
-      "TATUS_UPDATE\020\r\022\025\n\021OPERATION_REQUEST\020\016\022\026\n"
-      "\022OPERATION_TEARDOWN\020\017\"\340\001\n\005Cause\022\021\n\rUNKNO"
-      "WN_CAUSE\020\000\022\014\n\010BAD_DATA\020\001\022\022\n\016INTERNAL_ERR"
-      "OR\020\002\022\r\n\tNOT_FOUND\020\003\022\020\n\014UNAUTHORIZED\020\004\022\010\n"
-      "\004BUSY\020\005\022\016\n\nBAD_DEVICE\020\006\022\017\n\013NOT_CAPABLE\020\007"
-      "\022\t\n\005NOTED\020\010\022\013\n\007BLOCKED\020\t\022\023\n\017ALLREADY_IN_"
-      "USE\020\n\022\016\n\nOVERLOADED\020\013\022\031\n\025AUTHENTICATION_"
-      "FAILED\020\014\"\201\001\n\017EndpointMessage\022\036\n\004base\030\001 \001"
-      "(\0132\020.skylync.Message\022+\n\014attachParams\030\002 \001"
-      "(\0132\025.skylync.AttachParams\022!\n\007context\030\003 \001"
-      "(\0132\020.skylync.Context\"R\n\rBridgeMessage\022\036\n"
-      "\004base\030\001 \001(\0132\020.skylync.Message\022!\n\007context"
-      "\030\002 \001(\0132\020.skylync.Contextb\006proto3"
+      "r\030\002 \001(\0162\030.skylync.Message.Command\022%\n\005cau"
+      "se\030\003 \001(\0162\026.skylync.Message.Cause\022\014\n\004note"
+      "\030\004 \001(\t\"\243\002\n\007Command\022\023\n\017UNKNOWN_COMMAND\020\000\022"
+      "\n\n\006ACCEPT\020\001\022\n\n\006REJECT\020\002\022\n\n\006ATTACH\020\003\022\013\n\007R"
+      "ELEASE\020\004\022\022\n\016CONTEXT_UPDATE\020\005\022\010\n\004POKE\020\006\022\017"
+      "\n\013LIST_DEVICE\020\007\022\021\n\rSTATUS_DEVICE\020\010\022\022\n\016DE"
+      "VICE_REQUEST\020\t\022\016\n\nHO_REQUEST\020\n\022\024\n\020MISSIO"
+      "N_APPROVAL\020\013\022\024\n\020TEARDOWN_MISSION\020\014\022\021\n\rST"
+      "ATUS_UPDATE\020\r\022\025\n\021OPERATION_REQUEST\020\016\022\026\n\022"
+      "OPERATION_TEARDOWN\020\017\"\340\001\n\005Cause\022\021\n\rUNKNOW"
+      "N_CAUSE\020\000\022\014\n\010BAD_DATA\020\001\022\022\n\016INTERNAL_ERRO"
+      "R\020\002\022\r\n\tNOT_FOUND\020\003\022\020\n\014UNAUTHORIZED\020\004\022\010\n\004"
+      "BUSY\020\005\022\016\n\nBAD_DEVICE\020\006\022\017\n\013NOT_CAPABLE\020\007\022"
+      "\t\n\005NOTED\020\010\022\013\n\007BLOCKED\020\t\022\023\n\017ALLREADY_IN_U"
+      "SE\020\n\022\016\n\nOVERLOADED\020\013\022\031\n\025AUTHENTICATION_F"
+      "AILED\020\014\"\201\001\n\017EndpointMessage\022\036\n\004base\030\001 \001("
+      "\0132\020.skylync.Message\022+\n\014attachParams\030\002 \001("
+      "\0132\025.skylync.AttachParams\022!\n\007context\030\003 \001("
+      "\0132\020.skylync.Context\"R\n\rBridgeMessage\022\036\n\004"
+      "base\030\001 \001(\0132\020.skylync.Message\022!\n\007context\030"
+      "\002 \001(\0132\020.skylync.Contextb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 952);
+      descriptor, 991);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "skylync.proto", &protobuf_RegisterTypes);
 }
@@ -930,6 +932,7 @@ void Message::InitAsDefaultInstance() {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Message::kCommandFieldNumber;
 const int Message::kResponseForFieldNumber;
+const int Message::kCauseFieldNumber;
 const int Message::kNoteFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -951,16 +954,16 @@ Message::Message(const Message& from)
     note_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.note_);
   }
   ::memcpy(&command_, &from.command_,
-    static_cast<size_t>(reinterpret_cast<char*>(&responsefor_) -
-    reinterpret_cast<char*>(&command_)) + sizeof(responsefor_));
+    static_cast<size_t>(reinterpret_cast<char*>(&cause_) -
+    reinterpret_cast<char*>(&command_)) + sizeof(cause_));
   // @@protoc_insertion_point(copy_constructor:skylync.Message)
 }
 
 void Message::SharedCtor() {
   note_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&command_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&responsefor_) -
-      reinterpret_cast<char*>(&command_)) + sizeof(responsefor_));
+      reinterpret_cast<char*>(&cause_) -
+      reinterpret_cast<char*>(&command_)) + sizeof(cause_));
   _cached_size_ = 0;
 }
 
@@ -1004,8 +1007,8 @@ void Message::Clear() {
 
   note_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&command_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&responsefor_) -
-      reinterpret_cast<char*>(&command_)) + sizeof(responsefor_));
+      reinterpret_cast<char*>(&cause_) -
+      reinterpret_cast<char*>(&command_)) + sizeof(cause_));
   _internal_metadata_.Clear();
 }
 
@@ -1049,10 +1052,25 @@ bool Message::MergePartialFromCodedStream(
         break;
       }
 
-      // string note = 3;
+      // .skylync.Message.Cause cause = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_cause(static_cast< ::skylync::Message_Cause >(value));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string note = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_note()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -1103,14 +1121,20 @@ void Message::SerializeWithCachedSizes(
       2, this->responsefor(), output);
   }
 
-  // string note = 3;
+  // .skylync.Message.Cause cause = 3;
+  if (this->cause() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      3, this->cause(), output);
+  }
+
+  // string note = 4;
   if (this->note().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->note().data(), static_cast<int>(this->note().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "skylync.Message.note");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->note(), output);
+      4, this->note(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1139,7 +1163,13 @@ void Message::SerializeWithCachedSizes(
       2, this->responsefor(), target);
   }
 
-  // string note = 3;
+  // .skylync.Message.Cause cause = 3;
+  if (this->cause() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      3, this->cause(), target);
+  }
+
+  // string note = 4;
   if (this->note().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->note().data(), static_cast<int>(this->note().length()),
@@ -1147,7 +1177,7 @@ void Message::SerializeWithCachedSizes(
       "skylync.Message.note");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->note(), target);
+        4, this->note(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1167,7 +1197,7 @@ size_t Message::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // string note = 3;
+  // string note = 4;
   if (this->note().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -1184,6 +1214,12 @@ size_t Message::ByteSizeLong() const {
   if (this->responsefor() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->responsefor());
+  }
+
+  // .skylync.Message.Cause cause = 3;
+  if (this->cause() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->cause());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1225,6 +1261,9 @@ void Message::MergeFrom(const Message& from) {
   if (from.responsefor() != 0) {
     set_responsefor(from.responsefor());
   }
+  if (from.cause() != 0) {
+    set_cause(from.cause());
+  }
 }
 
 void Message::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1254,6 +1293,7 @@ void Message::InternalSwap(Message* other) {
   note_.Swap(&other->note_);
   swap(command_, other->command_);
   swap(responsefor_, other->responsefor_);
+  swap(cause_, other->cause_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }

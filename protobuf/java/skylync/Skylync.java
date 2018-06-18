@@ -1151,11 +1151,20 @@ public final class Skylync {
     skylync.Skylync.Message.Command getResponseFor();
 
     /**
-     * <code>string note = 3;</code>
+     * <code>.skylync.Message.Cause cause = 3;</code>
+     */
+    int getCauseValue();
+    /**
+     * <code>.skylync.Message.Cause cause = 3;</code>
+     */
+    skylync.Skylync.Message.Cause getCause();
+
+    /**
+     * <code>string note = 4;</code>
      */
     java.lang.String getNote();
     /**
-     * <code>string note = 3;</code>
+     * <code>string note = 4;</code>
      */
     com.google.protobuf.ByteString
         getNoteBytes();
@@ -1175,6 +1184,7 @@ public final class Skylync {
     private Message() {
       command_ = 0;
       responseFor_ = 0;
+      cause_ = 0;
       note_ = "";
     }
 
@@ -1221,7 +1231,13 @@ public final class Skylync {
               responseFor_ = rawValue;
               break;
             }
-            case 26: {
+            case 24: {
+              int rawValue = input.readEnum();
+
+              cause_ = rawValue;
+              break;
+            }
+            case 34: {
               java.lang.String s = input.readStringRequireUtf8();
 
               note_ = s;
@@ -1704,10 +1720,26 @@ public final class Skylync {
       return result == null ? skylync.Skylync.Message.Command.UNRECOGNIZED : result;
     }
 
-    public static final int NOTE_FIELD_NUMBER = 3;
+    public static final int CAUSE_FIELD_NUMBER = 3;
+    private int cause_;
+    /**
+     * <code>.skylync.Message.Cause cause = 3;</code>
+     */
+    public int getCauseValue() {
+      return cause_;
+    }
+    /**
+     * <code>.skylync.Message.Cause cause = 3;</code>
+     */
+    public skylync.Skylync.Message.Cause getCause() {
+      skylync.Skylync.Message.Cause result = skylync.Skylync.Message.Cause.valueOf(cause_);
+      return result == null ? skylync.Skylync.Message.Cause.UNRECOGNIZED : result;
+    }
+
+    public static final int NOTE_FIELD_NUMBER = 4;
     private volatile java.lang.Object note_;
     /**
-     * <code>string note = 3;</code>
+     * <code>string note = 4;</code>
      */
     public java.lang.String getNote() {
       java.lang.Object ref = note_;
@@ -1722,7 +1754,7 @@ public final class Skylync {
       }
     }
     /**
-     * <code>string note = 3;</code>
+     * <code>string note = 4;</code>
      */
     public com.google.protobuf.ByteString
         getNoteBytes() {
@@ -1756,8 +1788,11 @@ public final class Skylync {
       if (responseFor_ != skylync.Skylync.Message.Command.UNKNOWN_COMMAND.getNumber()) {
         output.writeEnum(2, responseFor_);
       }
+      if (cause_ != skylync.Skylync.Message.Cause.UNKNOWN_CAUSE.getNumber()) {
+        output.writeEnum(3, cause_);
+      }
       if (!getNoteBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, note_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, note_);
       }
       unknownFields.writeTo(output);
     }
@@ -1775,8 +1810,12 @@ public final class Skylync {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, responseFor_);
       }
+      if (cause_ != skylync.Skylync.Message.Cause.UNKNOWN_CAUSE.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, cause_);
+      }
       if (!getNoteBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, note_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, note_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1796,6 +1835,7 @@ public final class Skylync {
       boolean result = true;
       result = result && command_ == other.command_;
       result = result && responseFor_ == other.responseFor_;
+      result = result && cause_ == other.cause_;
       result = result && getNote()
           .equals(other.getNote());
       result = result && unknownFields.equals(other.unknownFields);
@@ -1813,6 +1853,8 @@ public final class Skylync {
       hash = (53 * hash) + command_;
       hash = (37 * hash) + RESPONSEFOR_FIELD_NUMBER;
       hash = (53 * hash) + responseFor_;
+      hash = (37 * hash) + CAUSE_FIELD_NUMBER;
+      hash = (53 * hash) + cause_;
       hash = (37 * hash) + NOTE_FIELD_NUMBER;
       hash = (53 * hash) + getNote().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -1948,6 +1990,8 @@ public final class Skylync {
 
         responseFor_ = 0;
 
+        cause_ = 0;
+
         note_ = "";
 
         return this;
@@ -1974,6 +2018,7 @@ public final class Skylync {
         skylync.Skylync.Message result = new skylync.Skylync.Message(this);
         result.command_ = command_;
         result.responseFor_ = responseFor_;
+        result.cause_ = cause_;
         result.note_ = note_;
         onBuilt();
         return result;
@@ -2021,6 +2066,9 @@ public final class Skylync {
         }
         if (other.responseFor_ != 0) {
           setResponseForValue(other.getResponseForValue());
+        }
+        if (other.cause_ != 0) {
+          setCauseValue(other.getCauseValue());
         }
         if (!other.getNote().isEmpty()) {
           note_ = other.note_;
@@ -2141,9 +2189,53 @@ public final class Skylync {
         return this;
       }
 
+      private int cause_ = 0;
+      /**
+       * <code>.skylync.Message.Cause cause = 3;</code>
+       */
+      public int getCauseValue() {
+        return cause_;
+      }
+      /**
+       * <code>.skylync.Message.Cause cause = 3;</code>
+       */
+      public Builder setCauseValue(int value) {
+        cause_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.skylync.Message.Cause cause = 3;</code>
+       */
+      public skylync.Skylync.Message.Cause getCause() {
+        skylync.Skylync.Message.Cause result = skylync.Skylync.Message.Cause.valueOf(cause_);
+        return result == null ? skylync.Skylync.Message.Cause.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.skylync.Message.Cause cause = 3;</code>
+       */
+      public Builder setCause(skylync.Skylync.Message.Cause value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        cause_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.skylync.Message.Cause cause = 3;</code>
+       */
+      public Builder clearCause() {
+        
+        cause_ = 0;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object note_ = "";
       /**
-       * <code>string note = 3;</code>
+       * <code>string note = 4;</code>
        */
       public java.lang.String getNote() {
         java.lang.Object ref = note_;
@@ -2158,7 +2250,7 @@ public final class Skylync {
         }
       }
       /**
-       * <code>string note = 3;</code>
+       * <code>string note = 4;</code>
        */
       public com.google.protobuf.ByteString
           getNoteBytes() {
@@ -2174,7 +2266,7 @@ public final class Skylync {
         }
       }
       /**
-       * <code>string note = 3;</code>
+       * <code>string note = 4;</code>
        */
       public Builder setNote(
           java.lang.String value) {
@@ -2187,7 +2279,7 @@ public final class Skylync {
         return this;
       }
       /**
-       * <code>string note = 3;</code>
+       * <code>string note = 4;</code>
        */
       public Builder clearNote() {
         
@@ -2196,7 +2288,7 @@ public final class Skylync {
         return this;
       }
       /**
-       * <code>string note = 3;</code>
+       * <code>string note = 4;</code>
        */
       public Builder setNoteBytes(
           com.google.protobuf.ByteString value) {
@@ -4040,28 +4132,29 @@ public final class Skylync {
     java.lang.String[] descriptorData = {
       "\n\rskylync.proto\022\007skylync\"\030\n\007Context\022\r\n\005r" +
       "efId\030\001 \001(\004\"\'\n\014AttachParams\022\n\n\002id\030\001 \001(\t\022\013" +
-      "\n\003pwd\030\002 \001(\t\"\372\004\n\007Message\022)\n\007command\030\001 \001(\016" +
+      "\n\003pwd\030\002 \001(\t\"\241\005\n\007Message\022)\n\007command\030\001 \001(\016" +
       "2\030.skylync.Message.Command\022-\n\013responseFo" +
-      "r\030\002 \001(\0162\030.skylync.Message.Command\022\014\n\004not" +
-      "e\030\003 \001(\t\"\243\002\n\007Command\022\023\n\017UNKNOWN_COMMAND\020\000" +
-      "\022\n\n\006ACCEPT\020\001\022\n\n\006REJECT\020\002\022\n\n\006ATTACH\020\003\022\013\n\007" +
-      "RELEASE\020\004\022\022\n\016CONTEXT_UPDATE\020\005\022\010\n\004POKE\020\006\022" +
-      "\017\n\013LIST_DEVICE\020\007\022\021\n\rSTATUS_DEVICE\020\010\022\022\n\016D" +
-      "EVICE_REQUEST\020\t\022\016\n\nHO_REQUEST\020\n\022\024\n\020MISSI" +
-      "ON_APPROVAL\020\013\022\024\n\020TEARDOWN_MISSION\020\014\022\021\n\rS" +
-      "TATUS_UPDATE\020\r\022\025\n\021OPERATION_REQUEST\020\016\022\026\n" +
-      "\022OPERATION_TEARDOWN\020\017\"\340\001\n\005Cause\022\021\n\rUNKNO" +
-      "WN_CAUSE\020\000\022\014\n\010BAD_DATA\020\001\022\022\n\016INTERNAL_ERR" +
-      "OR\020\002\022\r\n\tNOT_FOUND\020\003\022\020\n\014UNAUTHORIZED\020\004\022\010\n" +
-      "\004BUSY\020\005\022\016\n\nBAD_DEVICE\020\006\022\017\n\013NOT_CAPABLE\020\007" +
-      "\022\t\n\005NOTED\020\010\022\013\n\007BLOCKED\020\t\022\023\n\017ALLREADY_IN_" +
-      "USE\020\n\022\016\n\nOVERLOADED\020\013\022\031\n\025AUTHENTICATION_" +
-      "FAILED\020\014\"\201\001\n\017EndpointMessage\022\036\n\004base\030\001 \001" +
-      "(\0132\020.skylync.Message\022+\n\014attachParams\030\002 \001" +
-      "(\0132\025.skylync.AttachParams\022!\n\007context\030\003 \001" +
-      "(\0132\020.skylync.Context\"R\n\rBridgeMessage\022\036\n" +
-      "\004base\030\001 \001(\0132\020.skylync.Message\022!\n\007context" +
-      "\030\002 \001(\0132\020.skylync.Contextb\006proto3"
+      "r\030\002 \001(\0162\030.skylync.Message.Command\022%\n\005cau" +
+      "se\030\003 \001(\0162\026.skylync.Message.Cause\022\014\n\004note" +
+      "\030\004 \001(\t\"\243\002\n\007Command\022\023\n\017UNKNOWN_COMMAND\020\000\022" +
+      "\n\n\006ACCEPT\020\001\022\n\n\006REJECT\020\002\022\n\n\006ATTACH\020\003\022\013\n\007R" +
+      "ELEASE\020\004\022\022\n\016CONTEXT_UPDATE\020\005\022\010\n\004POKE\020\006\022\017" +
+      "\n\013LIST_DEVICE\020\007\022\021\n\rSTATUS_DEVICE\020\010\022\022\n\016DE" +
+      "VICE_REQUEST\020\t\022\016\n\nHO_REQUEST\020\n\022\024\n\020MISSIO" +
+      "N_APPROVAL\020\013\022\024\n\020TEARDOWN_MISSION\020\014\022\021\n\rST" +
+      "ATUS_UPDATE\020\r\022\025\n\021OPERATION_REQUEST\020\016\022\026\n\022" +
+      "OPERATION_TEARDOWN\020\017\"\340\001\n\005Cause\022\021\n\rUNKNOW" +
+      "N_CAUSE\020\000\022\014\n\010BAD_DATA\020\001\022\022\n\016INTERNAL_ERRO" +
+      "R\020\002\022\r\n\tNOT_FOUND\020\003\022\020\n\014UNAUTHORIZED\020\004\022\010\n\004" +
+      "BUSY\020\005\022\016\n\nBAD_DEVICE\020\006\022\017\n\013NOT_CAPABLE\020\007\022" +
+      "\t\n\005NOTED\020\010\022\013\n\007BLOCKED\020\t\022\023\n\017ALLREADY_IN_U" +
+      "SE\020\n\022\016\n\nOVERLOADED\020\013\022\031\n\025AUTHENTICATION_F" +
+      "AILED\020\014\"\201\001\n\017EndpointMessage\022\036\n\004base\030\001 \001(" +
+      "\0132\020.skylync.Message\022+\n\014attachParams\030\002 \001(" +
+      "\0132\025.skylync.AttachParams\022!\n\007context\030\003 \001(" +
+      "\0132\020.skylync.Context\"R\n\rBridgeMessage\022\036\n\004" +
+      "base\030\001 \001(\0132\020.skylync.Message\022!\n\007context\030" +
+      "\002 \001(\0132\020.skylync.Contextb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4092,7 +4185,7 @@ public final class Skylync {
     internal_static_skylync_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_skylync_Message_descriptor,
-        new java.lang.String[] { "Command", "ResponseFor", "Note", });
+        new java.lang.String[] { "Command", "ResponseFor", "Cause", "Note", });
     internal_static_skylync_EndpointMessage_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_skylync_EndpointMessage_fieldAccessorTable = new

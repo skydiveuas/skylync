@@ -50,7 +50,9 @@ message Message {
   Command command = 1;
 
   Command responseFor = 2;
-  string note = 3;
+  Cause cause = 3;
+
+  string note = 4;
 }
 
 message EndpointMessage {

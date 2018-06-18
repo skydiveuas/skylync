@@ -81,7 +81,7 @@ protected:
     void send(const skylync::EndpointMessage& message);
 
     void notifyBridgeEvent(const BridgeEvent* const event);
-    void trace(const std::string& message);
+    void trace(const std::string& message);   
 
     void except(const std::string& cause) const;
     void exceptUnexpected(const std::shared_ptr<skylync::BridgeMessage> message) const;

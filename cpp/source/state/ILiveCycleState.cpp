@@ -52,7 +52,8 @@ void ILiveCycleState::onDisconnected()
 
 void ILiveCycleState::onReceived(const sl::ICommInterface::DataPacket dataPacket)
 {
-    listener.getParser().deserialize(dataPacket.first, dataPacket.second);
+    trace("onReceived");
+    listener.getParser().parse(dataPacket);
 }
 
 void ILiveCycleState::send(const skylync::EndpointMessage& message)

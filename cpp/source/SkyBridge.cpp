@@ -10,8 +10,8 @@ using sl::SkyBridge;
 
 SkyBridge::SkyBridge(sl::SkyBridgeListener& _listener):
     listener(_listener),
+    parser(std::bind(&SkyBridge::handleMessage, this, std::placeholders::_1)),
     commInterface(listener.createCommInterface(sl::ICommInterface::TCP, *state.get())),
-    parser(std::make_shared<sl::ProtobufParser<skylync::BridgeMessage>>(std::bind(&SkyBridge::handleMessage, this, std::placeholders::_1))),
     state(std::make_shared<sl::state::Disconnected>(*this))
 {
     commInterface->setListener(*state.get());
@@ -48,7 +48,7 @@ sl::SkyBridgeListener& SkyBridge::getBridgeListener()
 
 sl::ProtobufParser<skylync::BridgeMessage>& SkyBridge::getParser()
 {
-    return *parser;
+    return parser;
 }
 
 void SkyBridge::handleMessage(std::shared_ptr<skylync::BridgeMessage> message)

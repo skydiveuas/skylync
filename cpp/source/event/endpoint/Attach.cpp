@@ -19,7 +19,12 @@ std::string Attach::toString() const noexcept
     return "Attach[" + id + "]";
 }
 
-std::string Attach::getMessage() const noexcept
+const std::string& Attach::getId() const noexcept
 {
-    return "Attach[id:" + id + ",pwd:" + pwd + "]";
+    return id;
+}
+
+const std::string& Attach::getPwd() const noexcept
+{
+    return pwd;
 }

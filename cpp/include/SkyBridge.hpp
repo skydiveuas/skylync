@@ -33,9 +33,9 @@ public:
 
 private:
     SkyBridgeListener& listener;
+    ProtobufParser<skylync::BridgeMessage> parser;
 
     std::shared_ptr<ICommInterface> commInterface;
-    std::shared_ptr<ProtobufParser<skylync::BridgeMessage>> parser;
 
     std::shared_ptr<state::ILiveCycleState> state;
     std::mutex stateLock;
