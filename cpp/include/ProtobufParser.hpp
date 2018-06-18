@@ -13,9 +13,9 @@ public:
 
     ProtobufParser(Callback _callback);
 
-    void deserialize(const void* const buf, const size_t length);
+    void deserialize(const char* const buf, const size_t length);
 
-    static void serialize(const ::google::protobuf::Message& message, const void* const buf, const size_t length);
+    static bool serialize(const ::google::protobuf::Message& message, char* buf, const size_t length);
 
 private:
     Callback callback;
