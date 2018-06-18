@@ -35,7 +35,7 @@ void ILiveCycleState::handleEvent(const EndpointEvent& event)
     exceptUnexpected(event);
 }
 
-void ILiveCycleState::handleMessage(const Message& message)
+void ILiveCycleState::handleMessage(std::shared_ptr<skylync::BridgeMessage> message)
 {
     exceptUnexpected(message);
 }
@@ -52,13 +52,13 @@ void ILiveCycleState::onDisconnected()
 
 void ILiveCycleState::onReceived(const sl::ICommInterface::DataPacket dataPacket)
 {
-    handleMessage(Message(dataPacket.first, dataPacket.second));
+    listener.getParser().deserialize(dataPacket.first, dataPacket.second);
 }
 
-void ILiveCycleState::send(const Message& message)
+void ILiveCycleState::send(const skylync::EndpointMessage& message)
 {
-    trace("Sending message: [" + message + "]");
-    controlCommInterface.send(sl::ICommInterface::DataPacket(message.data(), message.size()));
+    trace("Sending message: [" + message.DebugString() + "]");
+    controlCommInterface.send(listener.getParser().serialize(message));
 }
 
 void ILiveCycleState::notifyBridgeEvent(const BridgeEvent* const event)
@@ -71,17 +71,22 @@ void ILiveCycleState::trace(const std::string& message)
     listener.getBridgeListener().trace(message);
 }
 
-void ILiveCycleState::except(const std::string& message) const
+void ILiveCycleState::except(const std::string& cause) const
 {
-    throw std::runtime_error(message + " @ " + toString());
+    throw std::runtime_error(cause + " @ " + toString());
 }
 
-void ILiveCycleState::exceptUnexpected(const std::string& message) const
+void ILiveCycleState::exceptUnexpected(const std::shared_ptr<skylync::BridgeMessage> message) const
 {
-    except("Unexpected: [" + message + "]");
+    exceptUnexpected(message->DebugString());
 }
 
 void ILiveCycleState::exceptUnexpected(const EndpointEvent& event) const
 {
     exceptUnexpected(event.toString());
+}
+
+void ILiveCycleState::exceptUnexpected(const std::string& cause) const
+{
+    except("Unexpected: [" + cause + "]");
 }

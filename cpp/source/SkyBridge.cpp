@@ -2,11 +2,16 @@
 
 #include "state/Disconnected.hpp"
 
+#include "event/bridge/Message.hpp"
+
+#include <functional>
+
 using sl::SkyBridge;
 
 SkyBridge::SkyBridge(sl::SkyBridgeListener& _listener):
     listener(_listener),
     commInterface(listener.createCommInterface(sl::ICommInterface::TCP, *state.get())),
+    parser(std::make_shared<sl::ProtobufParser<skylync::BridgeMessage>>(std::bind(&SkyBridge::handleMessage, this, std::placeholders::_1))),
     state(std::make_shared<sl::state::Disconnected>(*this))
 {
     commInterface->setListener(*state.get());
@@ -39,4 +44,14 @@ sl::ICommInterface& SkyBridge::getControlCommInterface()
 sl::SkyBridgeListener& SkyBridge::getBridgeListener()
 {
     return listener;
+}
+
+sl::ProtobufParser<skylync::BridgeMessage>& SkyBridge::getParser()
+{
+    return *parser;
+}
+
+void SkyBridge::handleMessage(std::shared_ptr<skylync::BridgeMessage> message)
+{
+    state->handleMessage(message);
 }

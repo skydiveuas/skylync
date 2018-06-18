@@ -4,6 +4,9 @@
 #include "SkyBridgeListener.hpp"
 
 #include "ICommInterface.hpp"
+#include "ProtobufParser.hpp"
+
+#include "skylync.pb.h"
 
 #include "event/bridge/Event.hpp"
 #include "event/endpoint/Event.hpp"
@@ -21,8 +24,6 @@ class ILiveCycleState : public ICommInterface::Listener
 public:
     typedef event::endpoint::Event EndpointEvent;
     typedef event::bridge::Event BridgeEvent;
-
-    typedef std::string Message;
 
     enum Type
     {
@@ -46,6 +47,8 @@ public:
         virtual ICommInterface& getControlCommInterface() = 0;
 
         virtual SkyBridgeListener& getBridgeListener() = 0;
+
+        virtual ProtobufParser<skylync::BridgeMessage>& getParser() = 0;
     };
 
     ILiveCycleState(const Type type, Listener& listener);
@@ -58,7 +61,7 @@ public:
 
     virtual void handleEvent(const EndpointEvent& event);
 
-    virtual void handleMessage(const Message& message);
+    virtual void handleMessage(std::shared_ptr<skylync::BridgeMessage> message);
 
     virtual void onConnected();
 
@@ -75,14 +78,15 @@ protected:
 
     ICommInterface& controlCommInterface;
 
-    void send(const Message& message);
+    void send(const skylync::EndpointMessage& message);
 
     void notifyBridgeEvent(const BridgeEvent* const event);
     void trace(const std::string& message);
 
-    void except(const std::string& message) const;
-    void exceptUnexpected(const std::string& message) const;
+    void except(const std::string& cause) const;
+    void exceptUnexpected(const std::shared_ptr<skylync::BridgeMessage> message) const;
     void exceptUnexpected(const EndpointEvent& event) const;
+    void exceptUnexpected(const std::string& cause) const;
 
     template <typename _State>
     void switchState()

@@ -18,7 +18,7 @@ public:
 
     void handleEvent(const EndpointEvent& event) override;
 
-    void handleMessage(const Message& message) override;
+    void handleMessage(std::shared_ptr<skylync::BridgeMessage> message) override;
 
     std::string toString() const noexcept override;
 };

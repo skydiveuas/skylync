@@ -28,9 +28,9 @@ void Attached::handleEvent(const EndpointEvent& event)
     }
 }
 
-void Attached::handleMessage(const Message&)
+void Attached::handleMessage(std::shared_ptr<skylync::BridgeMessage> message)
 {
-
+    trace("Received: [" + message->DebugString() + "]");
 }
 
 std::string Attached::toString() const noexcept

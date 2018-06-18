@@ -3,6 +3,8 @@
 
 #include "Event.hpp"
 
+#include "skylync.pb.h"
+
 #include <string>
 
 namespace sl

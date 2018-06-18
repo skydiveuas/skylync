@@ -9,15 +9,14 @@ Release::Release(Listener& listener):
 {
 }
 
-void Release::start(const EndpointEvent* const) noexcept
+void Release::start(const EndpointEvent* const event) noexcept
 {
-    send("MESSAGE:RELEASE");
+    //send("MESSAGE:RELEASE");
 }
 
-void Release::handleMessage(const Message& message)
+void Release::handleMessage(std::shared_ptr<skylync::BridgeMessage> message)
 {
-    trace("Received: [" + message + "] - released");
-    switchState<sl::state::Disconnection>();
+    trace("Received: [" + message->DebugString() + "]");
 }
 
 std::string Release::toString() const noexcept
