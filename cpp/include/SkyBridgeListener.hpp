@@ -18,7 +18,7 @@ public:
     typedef event::bridge::Event BridgeEvent;
     typedef event::endpoint::Event EndpointEvent;
 
-    enum Side
+    const enum Side
     {
         DEVICE,
         PILOT,

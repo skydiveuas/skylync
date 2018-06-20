@@ -20,6 +20,7 @@ public:
         CONNECT,
         ATTACH,
         RELEASE,
+        LIST_DEVICES,
     };
 
     Event(const Type _type);

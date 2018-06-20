@@ -11,6 +11,15 @@ message AttachParams {
     string pwd = 2;
 }
 
+message DeviceId {
+   uint64 refId = 1;
+   string id = 2;
+}
+
+message DeviceList {
+    repeated DeviceId devices = 1;
+}
+
 message Message {
   enum Command {
     UNKNOWN_COMMAND = 0;
@@ -66,4 +75,5 @@ message BridgeMessage {
   Message base = 1;
 
   Context context = 2;
+  DeviceList deviceList = 3;
 }

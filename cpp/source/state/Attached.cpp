@@ -2,6 +2,9 @@
 
 #include "state/Release.hpp"
 
+#include "state/attached/device/Ready.hpp"
+#include "state/attached/pilot/Ready.hpp"
+
 using sl::state::Attached;
 
 Attached::Attached(Listener& listener):
@@ -9,9 +12,22 @@ Attached::Attached(Listener& listener):
 {
 }
 
-void Attached::start(const EndpointEvent* const) noexcept
+void Attached::start(const EndpointEvent* const event) noexcept
 {
     notifyBridgeEvent(new BridgeEvent(BridgeEvent::ATTACHED));
+    switch (listener.getBridgeListener().side)
+    {
+    case sl::SkyBridgeListener::DEVICE:
+        switchSubState(new sl::state::attached::device::Ready(listener), event);
+        break;
+
+    case sl::SkyBridgeListener::PILOT:
+        switchSubState(new sl::state::attached::pilot::Ready(listener), event);
+        break;
+
+    default:
+        break;
+    }
 }
 
 void Attached::handleEvent(const EndpointEvent& event)
@@ -36,4 +52,11 @@ void Attached::handleMessage(std::shared_ptr<skylync::BridgeMessage> message)
 std::string Attached::toString() const noexcept
 {
     return "ATTACHED";
+}
+
+void Attached::switchSubState(sl::state::attached::IAttachedState* newState, const EndpointEvent* const event)
+{
+    std::unique_ptr<sl::state::attached::IAttachedState> guard(newState);
+    subState.swap(guard);
+    subState->start(event);
 }

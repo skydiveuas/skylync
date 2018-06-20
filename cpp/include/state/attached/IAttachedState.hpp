@@ -1,7 +1,9 @@
-#ifndef STATE_ATTACHED_HPP
-#define STATE_ATTACHED_HPP
+#ifndef STATE_ATTACHED_IATTACHEDSTATE_HPP
+#define STATE_ATTACHED_IATTACHEDSTATE_HPP
 
-#include "IState.hpp"
+#include "state/ILiveCycleState.hpp"
+
+#include "event/bridge/Event.hpp"
 
 namespace sl
 {
@@ -9,20 +11,33 @@ namespace sl
 namespace state
 {
 
-class Attached : public IState
+namespace attached {
+
+class IAttachedState
 {
 public:
-    Attached(Listener& listener);
+    typedef IAttachedState State;
 
-    IState* handleEvent(const event::endpoint::Event& event) override;
+    IAttachedState(ILiveCycleState::Listener& _listener);
 
-    IState* handleMessage() override;
+    virtual void start(const ILiveCycleState::EndpointEvent* const event) noexcept;
 
-    std::string toString() const noexcept override;
+    virtual State* handleEvent(const event::endpoint::Event& event);
+
+    virtual State* handleMessage(std::shared_ptr<skylync::BridgeMessage> message);
+
+    virtual std::string toString() const noexcept = 0;
+
+private:
+    ILiveCycleState::Listener& listener;
+
+    ICommInterface& controlCommInterface;
 };
+
+} // attached
 
 } // state
 
 } // sl
 
-#endif // STATE_ATTACHED_HPP
+#endif // STATE_ATTACHED_IATTACHEDSTATE_HPP

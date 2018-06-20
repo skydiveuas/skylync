@@ -37,7 +37,7 @@ namespace protobuf_skylync_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[5];
+  static const ::google::protobuf::internal::ParseTable schema[7];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -47,6 +47,10 @@ void InitDefaultsContextImpl();
 void InitDefaultsContext();
 void InitDefaultsAttachParamsImpl();
 void InitDefaultsAttachParams();
+void InitDefaultsDeviceIdImpl();
+void InitDefaultsDeviceId();
+void InitDefaultsDeviceListImpl();
+void InitDefaultsDeviceList();
 void InitDefaultsMessageImpl();
 void InitDefaultsMessage();
 void InitDefaultsEndpointMessageImpl();
@@ -56,6 +60,8 @@ void InitDefaultsBridgeMessage();
 inline void InitDefaults() {
   InitDefaultsContext();
   InitDefaultsAttachParams();
+  InitDefaultsDeviceId();
+  InitDefaultsDeviceList();
   InitDefaultsMessage();
   InitDefaultsEndpointMessage();
   InitDefaultsBridgeMessage();
@@ -71,6 +77,12 @@ extern BridgeMessageDefaultTypeInternal _BridgeMessage_default_instance_;
 class Context;
 class ContextDefaultTypeInternal;
 extern ContextDefaultTypeInternal _Context_default_instance_;
+class DeviceId;
+class DeviceIdDefaultTypeInternal;
+extern DeviceIdDefaultTypeInternal _DeviceId_default_instance_;
+class DeviceList;
+class DeviceListDefaultTypeInternal;
+extern DeviceListDefaultTypeInternal _DeviceList_default_instance_;
 class EndpointMessage;
 class EndpointMessageDefaultTypeInternal;
 extern EndpointMessageDefaultTypeInternal _EndpointMessage_default_instance_;
@@ -370,6 +382,225 @@ class AttachParams : public ::google::protobuf::Message /* @@protoc_insertion_po
 };
 // -------------------------------------------------------------------
 
+class DeviceId : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:skylync.DeviceId) */ {
+ public:
+  DeviceId();
+  virtual ~DeviceId();
+
+  DeviceId(const DeviceId& from);
+
+  inline DeviceId& operator=(const DeviceId& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  DeviceId(DeviceId&& from) noexcept
+    : DeviceId() {
+    *this = ::std::move(from);
+  }
+
+  inline DeviceId& operator=(DeviceId&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DeviceId& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const DeviceId* internal_default_instance() {
+    return reinterpret_cast<const DeviceId*>(
+               &_DeviceId_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    2;
+
+  void Swap(DeviceId* other);
+  friend void swap(DeviceId& a, DeviceId& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline DeviceId* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  DeviceId* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const DeviceId& from);
+  void MergeFrom(const DeviceId& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(DeviceId* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string id = 2;
+  void clear_id();
+  static const int kIdFieldNumber = 2;
+  const ::std::string& id() const;
+  void set_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_id(::std::string&& value);
+  #endif
+  void set_id(const char* value);
+  void set_id(const char* value, size_t size);
+  ::std::string* mutable_id();
+  ::std::string* release_id();
+  void set_allocated_id(::std::string* id);
+
+  // uint64 refId = 1;
+  void clear_refid();
+  static const int kRefIdFieldNumber = 1;
+  ::google::protobuf::uint64 refid() const;
+  void set_refid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:skylync.DeviceId)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr id_;
+  ::google::protobuf::uint64 refid_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_skylync_2eproto::TableStruct;
+  friend void ::protobuf_skylync_2eproto::InitDefaultsDeviceIdImpl();
+};
+// -------------------------------------------------------------------
+
+class DeviceList : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:skylync.DeviceList) */ {
+ public:
+  DeviceList();
+  virtual ~DeviceList();
+
+  DeviceList(const DeviceList& from);
+
+  inline DeviceList& operator=(const DeviceList& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  DeviceList(DeviceList&& from) noexcept
+    : DeviceList() {
+    *this = ::std::move(from);
+  }
+
+  inline DeviceList& operator=(DeviceList&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DeviceList& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const DeviceList* internal_default_instance() {
+    return reinterpret_cast<const DeviceList*>(
+               &_DeviceList_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    3;
+
+  void Swap(DeviceList* other);
+  friend void swap(DeviceList& a, DeviceList& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline DeviceList* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  DeviceList* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const DeviceList& from);
+  void MergeFrom(const DeviceList& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(DeviceList* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .skylync.DeviceId devices = 1;
+  int devices_size() const;
+  void clear_devices();
+  static const int kDevicesFieldNumber = 1;
+  const ::skylync::DeviceId& devices(int index) const;
+  ::skylync::DeviceId* mutable_devices(int index);
+  ::skylync::DeviceId* add_devices();
+  ::google::protobuf::RepeatedPtrField< ::skylync::DeviceId >*
+      mutable_devices();
+  const ::google::protobuf::RepeatedPtrField< ::skylync::DeviceId >&
+      devices() const;
+
+  // @@protoc_insertion_point(class_scope:skylync.DeviceList)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::skylync::DeviceId > devices_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_skylync_2eproto::TableStruct;
+  friend void ::protobuf_skylync_2eproto::InitDefaultsDeviceListImpl();
+};
+// -------------------------------------------------------------------
+
 class Message : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:skylync.Message) */ {
  public:
   Message();
@@ -405,7 +636,7 @@ class Message : public ::google::protobuf::Message /* @@protoc_insertion_point(c
                &_Message_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    2;
+    4;
 
   void Swap(Message* other);
   friend void swap(Message& a, Message& b) {
@@ -635,7 +866,7 @@ class EndpointMessage : public ::google::protobuf::Message /* @@protoc_insertion
                &_EndpointMessage_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    3;
+    5;
 
   void Swap(EndpointMessage* other);
   friend void swap(EndpointMessage& a, EndpointMessage& b) {
@@ -757,7 +988,7 @@ class BridgeMessage : public ::google::protobuf::Message /* @@protoc_insertion_p
                &_BridgeMessage_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    4;
+    6;
 
   void Swap(BridgeMessage* other);
   friend void swap(BridgeMessage& a, BridgeMessage& b) {
@@ -822,12 +1053,22 @@ class BridgeMessage : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::skylync::Context* mutable_context();
   void set_allocated_context(::skylync::Context* context);
 
+  // .skylync.DeviceList deviceList = 3;
+  bool has_devicelist() const;
+  void clear_devicelist();
+  static const int kDeviceListFieldNumber = 3;
+  const ::skylync::DeviceList& devicelist() const;
+  ::skylync::DeviceList* release_devicelist();
+  ::skylync::DeviceList* mutable_devicelist();
+  void set_allocated_devicelist(::skylync::DeviceList* devicelist);
+
   // @@protoc_insertion_point(class_scope:skylync.BridgeMessage)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::skylync::Message* base_;
   ::skylync::Context* context_;
+  ::skylync::DeviceList* devicelist_;
   mutable int _cached_size_;
   friend struct ::protobuf_skylync_2eproto::TableStruct;
   friend void ::protobuf_skylync_2eproto::InitDefaultsBridgeMessageImpl();
@@ -965,6 +1206,111 @@ inline void AttachParams::set_allocated_pwd(::std::string* pwd) {
   }
   pwd_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), pwd);
   // @@protoc_insertion_point(field_set_allocated:skylync.AttachParams.pwd)
+}
+
+// -------------------------------------------------------------------
+
+// DeviceId
+
+// uint64 refId = 1;
+inline void DeviceId::clear_refid() {
+  refid_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 DeviceId::refid() const {
+  // @@protoc_insertion_point(field_get:skylync.DeviceId.refId)
+  return refid_;
+}
+inline void DeviceId::set_refid(::google::protobuf::uint64 value) {
+  
+  refid_ = value;
+  // @@protoc_insertion_point(field_set:skylync.DeviceId.refId)
+}
+
+// string id = 2;
+inline void DeviceId::clear_id() {
+  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& DeviceId::id() const {
+  // @@protoc_insertion_point(field_get:skylync.DeviceId.id)
+  return id_.GetNoArena();
+}
+inline void DeviceId::set_id(const ::std::string& value) {
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:skylync.DeviceId.id)
+}
+#if LANG_CXX11
+inline void DeviceId::set_id(::std::string&& value) {
+  
+  id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:skylync.DeviceId.id)
+}
+#endif
+inline void DeviceId::set_id(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:skylync.DeviceId.id)
+}
+inline void DeviceId::set_id(const char* value, size_t size) {
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:skylync.DeviceId.id)
+}
+inline ::std::string* DeviceId::mutable_id() {
+  
+  // @@protoc_insertion_point(field_mutable:skylync.DeviceId.id)
+  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* DeviceId::release_id() {
+  // @@protoc_insertion_point(field_release:skylync.DeviceId.id)
+  
+  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void DeviceId::set_allocated_id(::std::string* id) {
+  if (id != NULL) {
+    
+  } else {
+    
+  }
+  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
+  // @@protoc_insertion_point(field_set_allocated:skylync.DeviceId.id)
+}
+
+// -------------------------------------------------------------------
+
+// DeviceList
+
+// repeated .skylync.DeviceId devices = 1;
+inline int DeviceList::devices_size() const {
+  return devices_.size();
+}
+inline void DeviceList::clear_devices() {
+  devices_.Clear();
+}
+inline const ::skylync::DeviceId& DeviceList::devices(int index) const {
+  // @@protoc_insertion_point(field_get:skylync.DeviceList.devices)
+  return devices_.Get(index);
+}
+inline ::skylync::DeviceId* DeviceList::mutable_devices(int index) {
+  // @@protoc_insertion_point(field_mutable:skylync.DeviceList.devices)
+  return devices_.Mutable(index);
+}
+inline ::skylync::DeviceId* DeviceList::add_devices() {
+  // @@protoc_insertion_point(field_add:skylync.DeviceList.devices)
+  return devices_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::skylync::DeviceId >*
+DeviceList::mutable_devices() {
+  // @@protoc_insertion_point(field_mutable_list:skylync.DeviceList.devices)
+  return &devices_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::skylync::DeviceId >&
+DeviceList::devices() const {
+  // @@protoc_insertion_point(field_list:skylync.DeviceList.devices)
+  return devices_;
 }
 
 // -------------------------------------------------------------------
@@ -1324,9 +1670,63 @@ inline void BridgeMessage::set_allocated_context(::skylync::Context* context) {
   // @@protoc_insertion_point(field_set_allocated:skylync.BridgeMessage.context)
 }
 
+// .skylync.DeviceList deviceList = 3;
+inline bool BridgeMessage::has_devicelist() const {
+  return this != internal_default_instance() && devicelist_ != NULL;
+}
+inline void BridgeMessage::clear_devicelist() {
+  if (GetArenaNoVirtual() == NULL && devicelist_ != NULL) {
+    delete devicelist_;
+  }
+  devicelist_ = NULL;
+}
+inline const ::skylync::DeviceList& BridgeMessage::devicelist() const {
+  const ::skylync::DeviceList* p = devicelist_;
+  // @@protoc_insertion_point(field_get:skylync.BridgeMessage.deviceList)
+  return p != NULL ? *p : *reinterpret_cast<const ::skylync::DeviceList*>(
+      &::skylync::_DeviceList_default_instance_);
+}
+inline ::skylync::DeviceList* BridgeMessage::release_devicelist() {
+  // @@protoc_insertion_point(field_release:skylync.BridgeMessage.deviceList)
+  
+  ::skylync::DeviceList* temp = devicelist_;
+  devicelist_ = NULL;
+  return temp;
+}
+inline ::skylync::DeviceList* BridgeMessage::mutable_devicelist() {
+  
+  if (devicelist_ == NULL) {
+    devicelist_ = new ::skylync::DeviceList;
+  }
+  // @@protoc_insertion_point(field_mutable:skylync.BridgeMessage.deviceList)
+  return devicelist_;
+}
+inline void BridgeMessage::set_allocated_devicelist(::skylync::DeviceList* devicelist) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete devicelist_;
+  }
+  if (devicelist) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      devicelist = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, devicelist, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  devicelist_ = devicelist;
+  // @@protoc_insertion_point(field_set_allocated:skylync.BridgeMessage.deviceList)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

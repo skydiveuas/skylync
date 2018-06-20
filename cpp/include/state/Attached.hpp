@@ -3,6 +3,8 @@
 
 #include "ILiveCycleState.hpp"
 
+#include "attached/IAttachedState.hpp"
+
 namespace sl
 {
 
@@ -21,6 +23,11 @@ public:
     void handleMessage(std::shared_ptr<skylync::BridgeMessage> message) override;
 
     std::string toString() const noexcept override;
+
+private:
+    std::unique_ptr<attached::IAttachedState> subState;
+
+    void switchSubState(attached::IAttachedState* newState, const EndpointEvent* const event);
 };
 
 } // state
