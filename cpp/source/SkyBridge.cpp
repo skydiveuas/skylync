@@ -51,6 +51,15 @@ sl::ProtobufParser<skylync::BridgeMessage>& SkyBridge::getParser()
     return parser;
 }
 
+void SkyBridge::updateContext(const skylync::Context* _context)
+{
+    listener.trace("Updating context");
+    if (context.update(_context))
+    {
+        listener.trace("ERR! Context update failed");
+    }
+}
+
 void SkyBridge::handleMessage(std::shared_ptr<skylync::BridgeMessage> message)
 {
     state->handleMessage(message);

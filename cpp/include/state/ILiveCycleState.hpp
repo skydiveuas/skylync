@@ -49,6 +49,8 @@ public:
         virtual SkyBridgeListener& getBridgeListener() = 0;
 
         virtual ProtobufParser<skylync::BridgeMessage>& getParser() = 0;
+
+        virtual void updateContext(const skylync::Context* context) = 0;
     };
 
     ILiveCycleState(const Type type, Listener& listener);

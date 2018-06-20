@@ -27,8 +27,10 @@ void Authentication::handleMessage(std::shared_ptr<skylync::BridgeMessage> messa
 {
     trace("Received: [" + message->DebugString() + "]");
     if (message->has_base() &&
-            message->base().command() == skylync::Message::ACCEPT)
+            message->base().command() == skylync::Message::ACCEPT &&
+            message->has_context())
     {
+        listener.updateContext(message->release_context());
         switchState<sl::state::Attached>();
     }
     else

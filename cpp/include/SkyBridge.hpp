@@ -6,6 +6,8 @@
 #include "ICommInterface.hpp"
 #include "ProtobufParser.hpp"
 
+#include "Context.hpp"
+
 #include "event/endpoint/Event.hpp"
 #include "event/bridge/Event.hpp"
 
@@ -40,6 +42,8 @@ private:
     std::shared_ptr<state::ILiveCycleState> state;
     std::mutex stateLock;
 
+    Context context;
+
     void switchState(std::shared_ptr<State> newState, const EndpointEvent* const event) override;
 
     ICommInterface& getControlCommInterface() override;
@@ -47,6 +51,8 @@ private:
     SkyBridgeListener& getBridgeListener() override;
 
     ProtobufParser<skylync::BridgeMessage>& getParser() override;
+
+    void updateContext(const skylync::Context* _context) override;
 
     void handleMessage(std::shared_ptr<skylync::BridgeMessage> message);
 };
