@@ -12,51 +12,51 @@ Attached::Attached(Listener& listener):
 {
 }
 
-void Attached::start(const EndpointEvent* const event) noexcept
+void Attached::start(const EndpointEvent* const) noexcept
 {
-    notifyBridgeEvent(new BridgeEvent(BridgeEvent::ATTACHED));
     switch (listener.getBridgeListener().side)
     {
     case sl::SkyBridgeListener::DEVICE:
-        switchSubState(new sl::state::attached::device::Ready(listener), event);
+        switchSubState(new sl::state::attached::device::Ready(listener));
         break;
 
     case sl::SkyBridgeListener::PILOT:
-        switchSubState(new sl::state::attached::pilot::Ready(listener), event);
+        switchSubState(new sl::state::attached::pilot::Ready(listener));
         break;
 
     default:
-        break;
+        exceptUnexpected("Endpoint side type");
     }
 }
 
 void Attached::handleEvent(const EndpointEvent& event)
 {
-    switch (event.getType())
+    trace("Handlinig: [" + event.toString() + "] @ " + toString());
+    sl::state::attached::IAttachedState* newState(subState->handleEvent(event));
+    if (nullptr != newState)
     {
-    case EndpointEvent::RELEASE:
-        switchState<sl::state::Release>();
-        break;
-
-    default:
-        exceptUnexpected(event);
-        break;
+        switchSubState(newState);
     }
 }
 
 void Attached::handleMessage(std::shared_ptr<skylync::BridgeMessage> message)
 {
-    trace("Received: [" + message->DebugString() + "]");
+    trace("Received: [" + message->DebugString() + "] @ " + toString());
+    sl::state::attached::IAttachedState* newState(subState->handleMessage(message));
+    if (nullptr != newState)
+    {
+        switchSubState(newState);
+    }
 }
 
 std::string Attached::toString() const noexcept
 {
-    return "ATTACHED";
+    return subState != nullptr ? subState->toString() : "ATTACHED";
 }
 
-void Attached::switchSubState(sl::state::attached::IAttachedState* newState, const EndpointEvent* const event)
+void Attached::switchSubState(sl::state::attached::IAttachedState* newState)
 {
     std::unique_ptr<sl::state::attached::IAttachedState> guard(newState);
     subState.swap(guard);
-    subState->start(event);
+    subState->start();
 }

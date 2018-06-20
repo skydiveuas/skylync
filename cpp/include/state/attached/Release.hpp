@@ -3,8 +3,6 @@
 
 #include "state/attached/IAttachedState.hpp"
 
-#include "event/bridge/Event.hpp"
-
 namespace sl
 {
 
@@ -18,11 +16,7 @@ class Release : public IAttachedState
 public:
     Release(ILiveCycleState::Listener& listener);
 
-    void start(const ILiveCycleState::EndpointEvent* const event) noexcept override;
-
-    State* handleEvent(const event::endpoint::Event& event) override;
-
-    State* handleMessage(std::shared_ptr<skylync::BridgeMessage> message) override;
+    void start() noexcept override;
 
     std::string toString() const noexcept override;
 };

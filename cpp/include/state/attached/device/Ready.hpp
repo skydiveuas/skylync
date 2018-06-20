@@ -20,11 +20,9 @@ class Ready : public IAttachedState
 public:
     Ready(ILiveCycleState::Listener& listener);
 
-    void start(const ILiveCycleState::EndpointEvent* const event) noexcept override;
+    void start() noexcept override;
 
-    State* handleEvent(const event::endpoint::Event& event) override;
-
-    State* handleMessage(std::shared_ptr<skylync::BridgeMessage> message) override;
+    State* handleEvent(const EndpointEvent& event) override;
 
     std::string toString() const noexcept override;
 };

@@ -27,7 +27,7 @@ public:
 private:
     std::unique_ptr<attached::IAttachedState> subState;
 
-    void switchSubState(attached::IAttachedState* newState, const EndpointEvent* const event);
+    void switchSubState(attached::IAttachedState* newState);
 };
 
 } // state

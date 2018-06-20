@@ -3,8 +3,6 @@
 
 #include "state/ILiveCycleState.hpp"
 
-#include "event/bridge/Event.hpp"
-
 namespace sl
 {
 
@@ -16,22 +14,34 @@ namespace attached {
 class IAttachedState
 {
 public:
+    typedef event::endpoint::Event EndpointEvent;
+    typedef event::bridge::Event BridgeEvent;
     typedef IAttachedState State;
 
     IAttachedState(ILiveCycleState::Listener& _listener);
 
-    virtual void start(const ILiveCycleState::EndpointEvent* const event) noexcept;
+    virtual void start() noexcept;
 
-    virtual State* handleEvent(const event::endpoint::Event& event);
+    virtual State* handleEvent(const EndpointEvent& event);
 
     virtual State* handleMessage(std::shared_ptr<skylync::BridgeMessage> message);
 
     virtual std::string toString() const noexcept = 0;
 
-private:
+protected:
     ILiveCycleState::Listener& listener;
 
     ICommInterface& controlCommInterface;
+
+    void send(const skylync::EndpointMessage& message);
+
+    void notifyBridgeEvent(const BridgeEvent* const event);
+    void trace(const std::string& message);
+
+    void except(const std::string& cause) const;
+    void exceptUnexpected(const std::shared_ptr<skylync::BridgeMessage> message) const;
+    void exceptUnexpected(const EndpointEvent& event) const;
+    void exceptUnexpected(const std::string& cause) const;
 };
 
 } // attached

@@ -1,5 +1,9 @@
 #include "state/attached/pilot/Ready.hpp"
 
+#include "state/attached/pilot/ListDevices.hpp"
+
+#include "state/attached/Release.hpp"
+
 using sl::state::attached::pilot::Ready;
 
 Ready::Ready(ILiveCycleState::Listener& listener):
@@ -7,18 +11,26 @@ Ready::Ready(ILiveCycleState::Listener& listener):
 {
 }
 
-void Ready::start(const sl::event::endpoint::Event* const) noexcept
+void Ready::start() noexcept
 {
+    std::cout << "aasdasdasdasdasdas" << std::endl;
+    notifyBridgeEvent(new BridgeEvent(BridgeEvent::ATTACHED));
 }
 
-sl::state::attached::IAttachedState* Ready::handleEvent(const sl::event::endpoint::Event&)
+sl::state::attached::IAttachedState* Ready::handleEvent(const EndpointEvent& event)
 {
-    return nullptr;
-}
+    switch (event.getType())
+    {
+    case sl::event::endpoint::Event::RELEASE:
+        return new sl::state::attached::Release(listener);
 
-sl::state::attached::IAttachedState* Ready::handleMessage(std::shared_ptr<skylync::BridgeMessage>)
-{
-    return nullptr;
+    case sl::event::endpoint::Event::LIST_DEVICES:
+        return new sl::state::attached::pilot::ListDevices(listener);
+
+    default:
+        exceptUnexpected(event);
+        return nullptr;
+    }
 }
 
 std::string Ready::toString() const noexcept
