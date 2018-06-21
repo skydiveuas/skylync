@@ -12,8 +12,8 @@ message AttachParams {
 }
 
 message DeviceId {
-   uint64 refId = 1;
-   string id = 2;
+   uint64 ref = 1;
+   string name = 2;
 }
 
 message DeviceList {

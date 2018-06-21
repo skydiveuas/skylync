@@ -464,32 +464,32 @@ class DeviceId : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   // accessors -------------------------------------------------------
 
-  // string id = 2;
-  void clear_id();
-  static const int kIdFieldNumber = 2;
-  const ::std::string& id() const;
-  void set_id(const ::std::string& value);
+  // string name = 2;
+  void clear_name();
+  static const int kNameFieldNumber = 2;
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
   #if LANG_CXX11
-  void set_id(::std::string&& value);
+  void set_name(::std::string&& value);
   #endif
-  void set_id(const char* value);
-  void set_id(const char* value, size_t size);
-  ::std::string* mutable_id();
-  ::std::string* release_id();
-  void set_allocated_id(::std::string* id);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
 
-  // uint64 refId = 1;
-  void clear_refid();
-  static const int kRefIdFieldNumber = 1;
-  ::google::protobuf::uint64 refid() const;
-  void set_refid(::google::protobuf::uint64 value);
+  // uint64 ref = 1;
+  void clear_ref();
+  static const int kRefFieldNumber = 1;
+  ::google::protobuf::uint64 ref() const;
+  void set_ref(::google::protobuf::uint64 value);
 
   // @@protoc_insertion_point(class_scope:skylync.DeviceId)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr id_;
-  ::google::protobuf::uint64 refid_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
+  ::google::protobuf::uint64 ref_;
   mutable int _cached_size_;
   friend struct ::protobuf_skylync_2eproto::TableStruct;
   friend void ::protobuf_skylync_2eproto::InitDefaultsDeviceIdImpl();
@@ -1212,71 +1212,71 @@ inline void AttachParams::set_allocated_pwd(::std::string* pwd) {
 
 // DeviceId
 
-// uint64 refId = 1;
-inline void DeviceId::clear_refid() {
-  refid_ = GOOGLE_ULONGLONG(0);
+// uint64 ref = 1;
+inline void DeviceId::clear_ref() {
+  ref_ = GOOGLE_ULONGLONG(0);
 }
-inline ::google::protobuf::uint64 DeviceId::refid() const {
-  // @@protoc_insertion_point(field_get:skylync.DeviceId.refId)
-  return refid_;
+inline ::google::protobuf::uint64 DeviceId::ref() const {
+  // @@protoc_insertion_point(field_get:skylync.DeviceId.ref)
+  return ref_;
 }
-inline void DeviceId::set_refid(::google::protobuf::uint64 value) {
+inline void DeviceId::set_ref(::google::protobuf::uint64 value) {
   
-  refid_ = value;
-  // @@protoc_insertion_point(field_set:skylync.DeviceId.refId)
+  ref_ = value;
+  // @@protoc_insertion_point(field_set:skylync.DeviceId.ref)
 }
 
-// string id = 2;
-inline void DeviceId::clear_id() {
-  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// string name = 2;
+inline void DeviceId::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& DeviceId::id() const {
-  // @@protoc_insertion_point(field_get:skylync.DeviceId.id)
-  return id_.GetNoArena();
+inline const ::std::string& DeviceId::name() const {
+  // @@protoc_insertion_point(field_get:skylync.DeviceId.name)
+  return name_.GetNoArena();
 }
-inline void DeviceId::set_id(const ::std::string& value) {
+inline void DeviceId::set_name(const ::std::string& value) {
   
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:skylync.DeviceId.id)
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:skylync.DeviceId.name)
 }
 #if LANG_CXX11
-inline void DeviceId::set_id(::std::string&& value) {
+inline void DeviceId::set_name(::std::string&& value) {
   
-  id_.SetNoArena(
+  name_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:skylync.DeviceId.id)
+  // @@protoc_insertion_point(field_set_rvalue:skylync.DeviceId.name)
 }
 #endif
-inline void DeviceId::set_id(const char* value) {
+inline void DeviceId::set_name(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:skylync.DeviceId.id)
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:skylync.DeviceId.name)
 }
-inline void DeviceId::set_id(const char* value, size_t size) {
+inline void DeviceId::set_name(const char* value, size_t size) {
   
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:skylync.DeviceId.id)
+  // @@protoc_insertion_point(field_set_pointer:skylync.DeviceId.name)
 }
-inline ::std::string* DeviceId::mutable_id() {
+inline ::std::string* DeviceId::mutable_name() {
   
-  // @@protoc_insertion_point(field_mutable:skylync.DeviceId.id)
-  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:skylync.DeviceId.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* DeviceId::release_id() {
-  // @@protoc_insertion_point(field_release:skylync.DeviceId.id)
+inline ::std::string* DeviceId::release_name() {
+  // @@protoc_insertion_point(field_release:skylync.DeviceId.name)
   
-  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void DeviceId::set_allocated_id(::std::string* id) {
-  if (id != NULL) {
+inline void DeviceId::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
     
   } else {
     
   }
-  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
-  // @@protoc_insertion_point(field_set_allocated:skylync.DeviceId.id)
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:skylync.DeviceId.name)
 }
 
 // -------------------------------------------------------------------

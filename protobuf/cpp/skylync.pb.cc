@@ -233,8 +233,8 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::DeviceId, refid_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::DeviceId, id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::DeviceId, ref_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::DeviceId, name_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::DeviceList, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -311,8 +311,8 @@ void AddDescriptorsImpl() {
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\rskylync.proto\022\007skylync\"\030\n\007Context\022\r\n\005r"
       "efId\030\001 \001(\004\"\'\n\014AttachParams\022\n\n\002id\030\001 \001(\t\022\013"
-      "\n\003pwd\030\002 \001(\t\"%\n\010DeviceId\022\r\n\005refId\030\001 \001(\004\022\n"
-      "\n\002id\030\002 \001(\t\"0\n\nDeviceList\022\"\n\007devices\030\001 \003("
+      "\n\003pwd\030\002 \001(\t\"%\n\010DeviceId\022\013\n\003ref\030\001 \001(\004\022\014\n\004"
+      "name\030\002 \001(\t\"0\n\nDeviceList\022\"\n\007devices\030\001 \003("
       "\0132\021.skylync.DeviceId\"\241\005\n\007Message\022)\n\007comm"
       "and\030\001 \001(\0162\030.skylync.Message.Command\022-\n\013r"
       "esponseFor\030\002 \001(\0162\030.skylync.Message.Comma"
@@ -1006,8 +1006,8 @@ void AttachParams::InternalSwap(AttachParams* other) {
 void DeviceId::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int DeviceId::kRefIdFieldNumber;
-const int DeviceId::kIdFieldNumber;
+const int DeviceId::kRefFieldNumber;
+const int DeviceId::kNameFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 DeviceId::DeviceId()
@@ -1023,17 +1023,17 @@ DeviceId::DeviceId(const DeviceId& from)
       _internal_metadata_(NULL),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.id().size() > 0) {
-    id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.id_);
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.name().size() > 0) {
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
-  refid_ = from.refid_;
+  ref_ = from.ref_;
   // @@protoc_insertion_point(copy_constructor:skylync.DeviceId)
 }
 
 void DeviceId::SharedCtor() {
-  id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  refid_ = GOOGLE_ULONGLONG(0);
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ref_ = GOOGLE_ULONGLONG(0);
   _cached_size_ = 0;
 }
 
@@ -1043,7 +1043,7 @@ DeviceId::~DeviceId() {
 }
 
 void DeviceId::SharedDtor() {
-  id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void DeviceId::SetCachedSize(int size) const {
@@ -1075,8 +1075,8 @@ void DeviceId::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  refid_ = GOOGLE_ULONGLONG(0);
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ref_ = GOOGLE_ULONGLONG(0);
   _internal_metadata_.Clear();
 }
 
@@ -1090,30 +1090,30 @@ bool DeviceId::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // uint64 refId = 1;
+      // uint64 ref = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &refid_)));
+                 input, &ref_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // string id = 2;
+      // string name = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_id()));
+                input, this->mutable_name()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->id().data(), static_cast<int>(this->id().length()),
+            this->name().data(), static_cast<int>(this->name().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "skylync.DeviceId.id"));
+            "skylync.DeviceId.name"));
         } else {
           goto handle_unusual;
         }
@@ -1146,19 +1146,19 @@ void DeviceId::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 refId = 1;
-  if (this->refid() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->refid(), output);
+  // uint64 ref = 1;
+  if (this->ref() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->ref(), output);
   }
 
-  // string id = 2;
-  if (this->id().size() > 0) {
+  // string name = 2;
+  if (this->name().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->id().data(), static_cast<int>(this->id().length()),
+      this->name().data(), static_cast<int>(this->name().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "skylync.DeviceId.id");
+      "skylync.DeviceId.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->id(), output);
+      2, this->name(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1175,20 +1175,20 @@ void DeviceId::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 refId = 1;
-  if (this->refid() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->refid(), target);
+  // uint64 ref = 1;
+  if (this->ref() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->ref(), target);
   }
 
-  // string id = 2;
-  if (this->id().size() > 0) {
+  // string name = 2;
+  if (this->name().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->id().data(), static_cast<int>(this->id().length()),
+      this->name().data(), static_cast<int>(this->name().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "skylync.DeviceId.id");
+      "skylync.DeviceId.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->id(), target);
+        2, this->name(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1208,18 +1208,18 @@ size_t DeviceId::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // string id = 2;
-  if (this->id().size() > 0) {
+  // string name = 2;
+  if (this->name().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->id());
+        this->name());
   }
 
-  // uint64 refId = 1;
-  if (this->refid() != 0) {
+  // uint64 ref = 1;
+  if (this->ref() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt64Size(
-        this->refid());
+        this->ref());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1251,12 +1251,12 @@ void DeviceId::MergeFrom(const DeviceId& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.id().size() > 0) {
+  if (from.name().size() > 0) {
 
-    id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.id_);
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
-  if (from.refid() != 0) {
-    set_refid(from.refid());
+  if (from.ref() != 0) {
+    set_ref(from.ref());
   }
 }
 
@@ -1284,8 +1284,8 @@ void DeviceId::Swap(DeviceId* other) {
 }
 void DeviceId::InternalSwap(DeviceId* other) {
   using std::swap;
-  id_.Swap(&other->id_);
-  swap(refid_, other->refid_);
+  name_.Swap(&other->name_);
+  swap(ref_, other->ref_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }

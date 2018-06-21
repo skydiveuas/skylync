@@ -1133,19 +1133,19 @@ public final class Skylync {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>uint64 refId = 1;</code>
+     * <code>uint64 ref = 1;</code>
      */
-    long getRefId();
+    long getRef();
 
     /**
-     * <code>string id = 2;</code>
+     * <code>string name = 2;</code>
      */
-    java.lang.String getId();
+    java.lang.String getName();
     /**
-     * <code>string id = 2;</code>
+     * <code>string name = 2;</code>
      */
     com.google.protobuf.ByteString
-        getIdBytes();
+        getNameBytes();
   }
   /**
    * Protobuf type {@code skylync.DeviceId}
@@ -1160,8 +1160,8 @@ public final class Skylync {
       super(builder);
     }
     private DeviceId() {
-      refId_ = 0L;
-      id_ = "";
+      ref_ = 0L;
+      name_ = "";
     }
 
     @java.lang.Override
@@ -1197,13 +1197,13 @@ public final class Skylync {
             }
             case 8: {
 
-              refId_ = input.readUInt64();
+              ref_ = input.readUInt64();
               break;
             }
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              id_ = s;
+              name_ = s;
               break;
             }
           }
@@ -1230,43 +1230,43 @@ public final class Skylync {
               skylync.Skylync.DeviceId.class, skylync.Skylync.DeviceId.Builder.class);
     }
 
-    public static final int REFID_FIELD_NUMBER = 1;
-    private long refId_;
+    public static final int REF_FIELD_NUMBER = 1;
+    private long ref_;
     /**
-     * <code>uint64 refId = 1;</code>
+     * <code>uint64 ref = 1;</code>
      */
-    public long getRefId() {
-      return refId_;
+    public long getRef() {
+      return ref_;
     }
 
-    public static final int ID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object id_;
+    public static final int NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object name_;
     /**
-     * <code>string id = 2;</code>
+     * <code>string name = 2;</code>
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        id_ = s;
+        name_ = s;
         return s;
       }
     }
     /**
-     * <code>string id = 2;</code>
+     * <code>string name = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getIdBytes() {
-      java.lang.Object ref = id_;
+        getNameBytes() {
+      java.lang.Object ref = name_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        id_ = b;
+        name_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -1285,11 +1285,11 @@ public final class Skylync {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (refId_ != 0L) {
-        output.writeUInt64(1, refId_);
+      if (ref_ != 0L) {
+        output.writeUInt64(1, ref_);
       }
-      if (!getIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, id_);
+      if (!getNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
       }
       unknownFields.writeTo(output);
     }
@@ -1299,12 +1299,12 @@ public final class Skylync {
       if (size != -1) return size;
 
       size = 0;
-      if (refId_ != 0L) {
+      if (ref_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(1, refId_);
+          .computeUInt64Size(1, ref_);
       }
-      if (!getIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, id_);
+      if (!getNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1322,10 +1322,10 @@ public final class Skylync {
       skylync.Skylync.DeviceId other = (skylync.Skylync.DeviceId) obj;
 
       boolean result = true;
-      result = result && (getRefId()
-          == other.getRefId());
-      result = result && getId()
-          .equals(other.getId());
+      result = result && (getRef()
+          == other.getRef());
+      result = result && getName()
+          .equals(other.getName());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -1337,11 +1337,11 @@ public final class Skylync {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + REFID_FIELD_NUMBER;
+      hash = (37 * hash) + REF_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getRefId());
-      hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId().hashCode();
+          getRef());
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1471,9 +1471,9 @@ public final class Skylync {
       }
       public Builder clear() {
         super.clear();
-        refId_ = 0L;
+        ref_ = 0L;
 
-        id_ = "";
+        name_ = "";
 
         return this;
       }
@@ -1497,8 +1497,8 @@ public final class Skylync {
 
       public skylync.Skylync.DeviceId buildPartial() {
         skylync.Skylync.DeviceId result = new skylync.Skylync.DeviceId(this);
-        result.refId_ = refId_;
-        result.id_ = id_;
+        result.ref_ = ref_;
+        result.name_ = name_;
         onBuilt();
         return result;
       }
@@ -1540,11 +1540,11 @@ public final class Skylync {
 
       public Builder mergeFrom(skylync.Skylync.DeviceId other) {
         if (other == skylync.Skylync.DeviceId.getDefaultInstance()) return this;
-        if (other.getRefId() != 0L) {
-          setRefId(other.getRefId());
+        if (other.getRef() != 0L) {
+          setRef(other.getRef());
         }
-        if (!other.getId().isEmpty()) {
-          id_ = other.id_;
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -1574,97 +1574,97 @@ public final class Skylync {
         return this;
       }
 
-      private long refId_ ;
+      private long ref_ ;
       /**
-       * <code>uint64 refId = 1;</code>
+       * <code>uint64 ref = 1;</code>
        */
-      public long getRefId() {
-        return refId_;
+      public long getRef() {
+        return ref_;
       }
       /**
-       * <code>uint64 refId = 1;</code>
+       * <code>uint64 ref = 1;</code>
        */
-      public Builder setRefId(long value) {
+      public Builder setRef(long value) {
         
-        refId_ = value;
+        ref_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint64 refId = 1;</code>
+       * <code>uint64 ref = 1;</code>
        */
-      public Builder clearRefId() {
+      public Builder clearRef() {
         
-        refId_ = 0L;
+        ref_ = 0L;
         onChanged();
         return this;
       }
 
-      private java.lang.Object id_ = "";
+      private java.lang.Object name_ = "";
       /**
-       * <code>string id = 2;</code>
+       * <code>string name = 2;</code>
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          id_ = s;
+          name_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string id = 2;</code>
+       * <code>string name = 2;</code>
        */
       public com.google.protobuf.ByteString
-          getIdBytes() {
-        java.lang.Object ref = id_;
+          getNameBytes() {
+        java.lang.Object ref = name_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          id_ = b;
+          name_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string id = 2;</code>
+       * <code>string name = 2;</code>
        */
-      public Builder setId(
+      public Builder setName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        id_ = value;
+        name_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string id = 2;</code>
+       * <code>string name = 2;</code>
        */
-      public Builder clearId() {
+      public Builder clearName() {
         
-        id_ = getDefaultInstance().getId();
+        name_ = getDefaultInstance().getName();
         onChanged();
         return this;
       }
       /**
-       * <code>string id = 2;</code>
+       * <code>string name = 2;</code>
        */
-      public Builder setIdBytes(
+      public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        id_ = value;
+        name_ = value;
         onChanged();
         return this;
       }
@@ -5682,8 +5682,8 @@ public final class Skylync {
     java.lang.String[] descriptorData = {
       "\n\rskylync.proto\022\007skylync\"\030\n\007Context\022\r\n\005r" +
       "efId\030\001 \001(\004\"\'\n\014AttachParams\022\n\n\002id\030\001 \001(\t\022\013" +
-      "\n\003pwd\030\002 \001(\t\"%\n\010DeviceId\022\r\n\005refId\030\001 \001(\004\022\n" +
-      "\n\002id\030\002 \001(\t\"0\n\nDeviceList\022\"\n\007devices\030\001 \003(" +
+      "\n\003pwd\030\002 \001(\t\"%\n\010DeviceId\022\013\n\003ref\030\001 \001(\004\022\014\n\004" +
+      "name\030\002 \001(\t\"0\n\nDeviceList\022\"\n\007devices\030\001 \003(" +
       "\0132\021.skylync.DeviceId\"\241\005\n\007Message\022)\n\007comm" +
       "and\030\001 \001(\0162\030.skylync.Message.Command\022-\n\013r" +
       "esponseFor\030\002 \001(\0162\030.skylync.Message.Comma" +
@@ -5739,7 +5739,7 @@ public final class Skylync {
     internal_static_skylync_DeviceId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_skylync_DeviceId_descriptor,
-        new java.lang.String[] { "RefId", "Id", });
+        new java.lang.String[] { "Ref", "Name", });
     internal_static_skylync_DeviceList_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_skylync_DeviceList_fieldAccessorTable = new
