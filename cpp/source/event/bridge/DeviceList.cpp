@@ -5,7 +5,7 @@ using namespace sl::event::bridge;
 DeviceList::DeviceList(const skylync::DeviceList& _deviceList):
     Event(Event::DEVICE_LIST)
 {
-    deviceList.resize(_deviceList.devices_size());
+    deviceList.reserve(_deviceList.devices_size());
     for (int i = 0; i < _deviceList.devices_size(); ++i)
     {
         const skylync::DeviceId& device = _deviceList.devices(i);
