@@ -1,7 +1,6 @@
 #include "ICommInterface.hpp"
 
-using sl::ICommInterface;
-
+using namespace sl;
 
 ICommInterface::ICommInterface(Listener& _listener)
 {

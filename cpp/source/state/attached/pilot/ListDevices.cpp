@@ -2,7 +2,13 @@
 
 #include "state/attached/pilot/Ready.hpp"
 
-using sl::state::attached::pilot::ListDevices;
+#include "event/bridge/DeviceList.hpp"
+#include "event/bridge/Error.hpp"
+
+using namespace sl::event;
+using namespace sl::state;
+using namespace sl::state::attached;
+using namespace sl::state::attached::pilot;
 
 ListDevices::ListDevices(ILiveCycleState::Listener& listener):
     IAttachedState(listener)
@@ -13,11 +19,10 @@ void ListDevices::start() noexcept
 {
     skylync::EndpointMessage message;
     message.mutable_base()->set_command(skylync::Message::LIST_DEVICE);
-    // TODO set device refId
     send(message);
 }
 
-sl::state::attached::IAttachedState* ListDevices::handleEvent(const EndpointEvent& event)
+IAttachedState* ListDevices::handleEvent(const sl::event::endpoint::Event& event)
 {
     switch (event.getType())
     {
@@ -27,10 +32,19 @@ sl::state::attached::IAttachedState* ListDevices::handleEvent(const EndpointEven
     }
 }
 
-sl::state::attached::IAttachedState* ListDevices::handleMessage(std::shared_ptr<skylync::BridgeMessage>)
+IAttachedState* ListDevices::handleMessage(std::shared_ptr<skylync::BridgeMessage> message)
 {
-    // TODO handle bridge response
-    return nullptr;
+    if (message->base().command() == skylync::Message::ACCEPT &&
+            message->base().responsefor() == skylync::Message::LIST_DEVICE &&
+            message->has_devicelist())
+    {
+        return new Ready(listener, new bridge::DeviceList(message->devicelist()));
+    }
+    else
+    {
+        exceptUnexpected(message);
+        return nullptr;
+    }
 }
 
 std::string ListDevices::toString() const noexcept

@@ -25,16 +25,16 @@ class AsioSkyBridgeListener : public SkyBridgeListener
 public:
     asio::io_context& ioContext;
 
-    AsioSkyBridgeListener(asio::io_context& _ioContext, const sl::SkyBridgeListener::Side side);
+    AsioSkyBridgeListener(asio::io_context& _ioContext, const SkyBridgeListener::Side side);
 
     virtual ~AsioSkyBridgeListener();
 
-    void notifyBridgeEvent(const BridgeEvent* event) noexcept override;
+    void notifyBridgeEvent(const event::bridge::Event* event) noexcept override;
 
-    virtual void notifyBridgeEvent(const BridgeEvent& event) noexcept;
+    virtual void notifyBridgeEvent(const event::bridge::Event& event) noexcept;
 
-    std::shared_ptr<sl::ICommInterface> createCommInterface(const sl::ICommInterface::TransportProtocol protocol,
-                                                            sl::ICommInterface::Listener& listener) noexcept;
+    std::shared_ptr<sl::ICommInterface> createCommInterface(const ICommInterface::TransportProtocol protocol,
+                                                            ICommInterface::Listener& listener) noexcept;
 
     std::shared_ptr<ITimer> createTimer() noexcept override;
 

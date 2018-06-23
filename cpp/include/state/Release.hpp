@@ -14,7 +14,7 @@ class Release : public ILiveCycleState
 public:
     Release(Listener& listener);
 
-    void start(const EndpointEvent* const event) noexcept override;
+    void start(const event::endpoint::Event* const event) noexcept override;
 
     void handleMessage(std::shared_ptr<skylync::BridgeMessage> message) override;
 

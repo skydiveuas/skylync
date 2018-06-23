@@ -2,24 +2,25 @@
 
 #include "state/Authentication.hpp"
 
-using sl::state::Encrypted;
+using namespace sl::event;
+using namespace sl::state;
 
 Encrypted::Encrypted(Listener& listener):
     ILiveCycleState(Type::ENCRYPTED, listener)
 {
 }
 
-void Encrypted::start(const EndpointEvent* const) noexcept
+void Encrypted::start(const endpoint::Event* const) noexcept
 {
-    notifyBridgeEvent(new BridgeEvent(BridgeEvent::ENCRYPTED));
+    notifyBridgeEvent(new bridge::Event(bridge::Event::ENCRYPTED));
 }
 
-void Encrypted::handleEvent(const EndpointEvent& event)
+void Encrypted::handleEvent(const endpoint::Event& event)
 {
     switch (event.getType())
     {
-    case EndpointEvent::ATTACH:
-        switchState<sl::state::Authentication>(event);
+    case endpoint::Event::ATTACH:
+        switchState<Authentication>(event);
         break;
 
     default:

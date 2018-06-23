@@ -1,6 +1,8 @@
 #ifndef EVENT_BRIDGE_HPP
 #define EVENT_BRIDGE_HPP
 
+#include "Types.hpp"
+
 #include <string>
 
 namespace sl
@@ -24,6 +26,8 @@ public:
         ATTACHED,
         RELEASED,
         DISCONNECTED,
+        DEVICE_LIST,
+        CHANNEL,
     };
 
     Event(const Type _type);

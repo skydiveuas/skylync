@@ -14,7 +14,7 @@ class Connection : public ILiveCycleState
 public:
     Connection(Listener& listener);
 
-    void start(const EndpointEvent* const event) noexcept override;
+    void start(const event::endpoint::Event* const event) noexcept override;
 
     void onConnected() override;
 

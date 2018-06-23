@@ -20,9 +20,9 @@ public:
 
     void start() noexcept override;
 
-    State* handleEvent(const EndpointEvent& event) override;
+    IAttachedState* handleEvent(const sl::event::endpoint::Event& event) override;
 
-    State* handleMessage(std::shared_ptr<skylync::BridgeMessage> message) override;
+    IAttachedState* handleMessage(std::shared_ptr<skylync::BridgeMessage> message) override;
 
     std::string toString() const noexcept override;
 };

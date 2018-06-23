@@ -6,47 +6,47 @@
 
 #include <functional>
 
-using sl::SkyBridge;
+using namespace sl;
 
-SkyBridge::SkyBridge(sl::SkyBridgeListener& _listener):
+SkyBridge::SkyBridge(SkyBridgeListener& _listener):
     listener(_listener),
     parser(std::bind(&SkyBridge::handleMessage, this, std::placeholders::_1)),
-    commInterface(listener.createCommInterface(sl::ICommInterface::TCP, *state.get())),
-    state(std::make_shared<sl::state::Disconnected>(*this))
+    commInterface(listener.createCommInterface(ICommInterface::TCP, *state.get())),
+    state(std::make_shared<state::Disconnected>(*this))
 {
     commInterface->setListener(*state.get());
 }
 
-void SkyBridge::notifyEndpointEvent(const EndpointEvent* event) noexcept
+void SkyBridge::notifyEndpointEvent(const event::endpoint::Event* event) noexcept
 {
     listener.trace("Handling: " + event->toString() + " @ " + state->toString());
-    std::unique_ptr<const EndpointEvent> eventLock(event);
+    std::unique_ptr<const event::endpoint::Event> eventLock(event);
     state->handleEvent(*event);
 }
 
-sl::state::ILiveCycleState::Type SkyBridge::getState() const noexcept
+state::ILiveCycleState::Type SkyBridge::getState() const noexcept
 {
     return state->getType();
 }
 
-void SkyBridge::switchState(std::shared_ptr<State> newState, const EndpointEvent* const event)
+void SkyBridge::switchState(std::shared_ptr<state::ILiveCycleState> newState, const event::endpoint::Event* const event)
 {
     listener.trace("Transition: " + state->toString() + " -> " + newState->toString());
     state.swap(newState);
     state->start(event);
 }
 
-sl::ICommInterface& SkyBridge::getControlCommInterface()
+ICommInterface& SkyBridge::getControlCommInterface()
 {
     return *commInterface;
 }
 
-sl::SkyBridgeListener& SkyBridge::getBridgeListener()
+SkyBridgeListener& SkyBridge::getBridgeListener()
 {
     return listener;
 }
 
-sl::ProtobufParser<skylync::BridgeMessage>& SkyBridge::getParser()
+ProtobufParser<skylync::BridgeMessage>& SkyBridge::getParser()
 {
     return parser;
 }

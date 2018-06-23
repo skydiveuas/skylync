@@ -1,6 +1,8 @@
 #ifndef EVENT_ENDPOINT_HPP
 #define EVENT_ENDPOINT_HPP
 
+#include "Types.hpp"
+
 #include <string>
 
 namespace sl
@@ -21,6 +23,7 @@ public:
         ATTACH,
         RELEASE,
         LIST_DEVICES,
+        REQUEST_DEVICE,
     };
 
     Event(const Type _type);

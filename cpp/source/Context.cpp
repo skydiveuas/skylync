@@ -1,6 +1,6 @@
 #include "Context.hpp"
 
-using sl::Context;
+using namespace sl;
 
 Context::Context()
 {
@@ -17,7 +17,7 @@ bool Context::update(const skylync::Context* _protoContext)
     return false;
 }
 
-unsigned long Context::getRefId() const
+sl::RefId Context::getRefId() const
 {
     return protoContext->refid();
 }

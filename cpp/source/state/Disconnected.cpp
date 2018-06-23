@@ -2,24 +2,25 @@
 
 #include "state/Connection.hpp"
 
-using sl::state::Disconnected;
+using namespace sl::event;
+using namespace sl::state;
 
 Disconnected::Disconnected(Listener& listener):
     ILiveCycleState(Type::DISCONNECTED, listener)
 {
 }
 
-void Disconnected::start(const EndpointEvent* const) noexcept
+void Disconnected::start(const endpoint::Event* const) noexcept
 {
-    notifyBridgeEvent(new BridgeEvent(BridgeEvent::DISCONNECTED));
+    notifyBridgeEvent(new bridge::Event(bridge::Event::DISCONNECTED));
 }
 
-void Disconnected::handleEvent(const EndpointEvent& event)
+void Disconnected::handleEvent(const endpoint::Event& event)
 {
     switch (event.getType())
     {
-    case sl::event::endpoint::Event::CONNECT:
-        switchState<sl::state::Connection>();
+    case endpoint::Event::CONNECT:
+        switchState<Connection>();
         break;
 
     default:

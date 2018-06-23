@@ -17,7 +17,7 @@ namespace bridge
 class Error : public Message
 {
 public:
-    Error(const std::string message);
+    Error(const std::string& message);
 
     std::string toString() const noexcept override;
 };

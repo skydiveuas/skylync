@@ -4,28 +4,35 @@
 
 #include "state/attached/Release.hpp"
 
-using sl::state::attached::pilot::Ready;
+using namespace sl::event;
+using namespace sl::state;
+using namespace sl::state::attached;
+using namespace sl::state::attached::pilot;
 
-Ready::Ready(ILiveCycleState::Listener& listener):
-    IAttachedState(listener)
+Ready::Ready(ILiveCycleState::Listener& listener, const bridge::Event* const _event):
+    IAttachedState(listener),
+    event(_event)
 {
 }
 
 void Ready::start() noexcept
 {
-    std::cout << "aasdasdasdasdasdas" << std::endl;
-    notifyBridgeEvent(new BridgeEvent(BridgeEvent::ATTACHED));
+    if (event)
+    {
+        notifyBridgeEvent(event);
+        event = nullptr;
+    }
 }
 
-sl::state::attached::IAttachedState* Ready::handleEvent(const EndpointEvent& event)
+IAttachedState* Ready::handleEvent(const endpoint::Event& event)
 {
     switch (event.getType())
     {
-    case sl::event::endpoint::Event::RELEASE:
-        return new sl::state::attached::Release(listener);
+    case endpoint::Event::RELEASE:
+        return new Release(listener);
 
-    case sl::event::endpoint::Event::LIST_DEVICES:
-        return new sl::state::attached::pilot::ListDevices(listener);
+    case endpoint::Event::LIST_DEVICES:
+        return new ListDevices(listener);
 
     default:
         exceptUnexpected(event);

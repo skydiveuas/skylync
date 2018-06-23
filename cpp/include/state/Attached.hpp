@@ -16,9 +16,9 @@ class Attached : public ILiveCycleState
 public:
     Attached(Listener& listener);
 
-    void start(const EndpointEvent* const) noexcept override;
+    void start(const event::endpoint::Event* const) noexcept override;
 
-    void handleEvent(const EndpointEvent& event) override;
+    void handleEvent(const event::endpoint::Event& event) override;
 
     void handleMessage(std::shared_ptr<skylync::BridgeMessage> message) override;
 

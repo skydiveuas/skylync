@@ -5,23 +5,25 @@
 #include "state/attached/device/Ready.hpp"
 #include "state/attached/pilot/Ready.hpp"
 
-using sl::state::Attached;
+using namespace sl::event;
+using namespace sl::state;
+using namespace sl::state::attached;
 
 Attached::Attached(Listener& listener):
     ILiveCycleState(Type::ATTACHED, listener)
 {
 }
 
-void Attached::start(const EndpointEvent* const) noexcept
+void Attached::start(const endpoint::Event* const) noexcept
 {
     switch (listener.getBridgeListener().side)
     {
-    case sl::SkyBridgeListener::DEVICE:
-        switchSubState(new sl::state::attached::device::Ready(listener));
+    case SkyBridgeListener::DEVICE:
+        switchSubState(new device::Ready(listener, new bridge::Event(bridge::Event::ATTACHED)));
         break;
 
-    case sl::SkyBridgeListener::PILOT:
-        switchSubState(new sl::state::attached::pilot::Ready(listener));
+    case SkyBridgeListener::PILOT:
+        switchSubState(new pilot::Ready(listener, new bridge::Event(bridge::Event::ATTACHED)));
         break;
 
     default:
@@ -29,10 +31,10 @@ void Attached::start(const EndpointEvent* const) noexcept
     }
 }
 
-void Attached::handleEvent(const EndpointEvent& event)
+void Attached::handleEvent(const endpoint::Event& event)
 {
     trace("Handlinig: [" + event.toString() + "] @ " + toString());
-    sl::state::attached::IAttachedState* newState(subState->handleEvent(event));
+    IAttachedState* newState(subState->handleEvent(event));
     if (nullptr != newState)
     {
         switchSubState(newState);
@@ -42,7 +44,7 @@ void Attached::handleEvent(const EndpointEvent& event)
 void Attached::handleMessage(std::shared_ptr<skylync::BridgeMessage> message)
 {
     trace("Received: [" + message->DebugString() + "] @ " + toString());
-    sl::state::attached::IAttachedState* newState(subState->handleMessage(message));
+    IAttachedState* newState(subState->handleMessage(message));
     if (nullptr != newState)
     {
         switchSubState(newState);
@@ -54,9 +56,9 @@ std::string Attached::toString() const noexcept
     return subState != nullptr ? subState->toString() : "ATTACHED";
 }
 
-void Attached::switchSubState(sl::state::attached::IAttachedState* newState)
+void Attached::switchSubState(IAttachedState* newState)
 {
-    std::unique_ptr<sl::state::attached::IAttachedState> guard(newState);
+    std::unique_ptr<IAttachedState> guard(newState);
     subState.swap(guard);
     subState->start();
 }

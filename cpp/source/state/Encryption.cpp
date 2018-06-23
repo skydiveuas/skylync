@@ -4,28 +4,29 @@
 
 #include <cstring>
 
-using sl::state::Encryption;
+using namespace sl::event;
+using namespace sl::state;
 
 Encryption::Encryption(Listener& listener):
     ILiveCycleState(Type::ENCRYPTION, listener)
 {
 }
 
-void Encryption::start(const EndpointEvent* const) noexcept
+void Encryption::start(const endpoint::Event* const) noexcept
 {
-    notifyBridgeEvent(new BridgeEvent(BridgeEvent::CONNECTED));
+    notifyBridgeEvent(new bridge::Event(event::bridge::Event::CONNECTED));
     trace("Starting encryption procedure");
     const size_t SIZE = 64;
     char* data = new char[SIZE];
     std::memset(data, 'a', SIZE);
-    controlCommInterface.send(sl::ICommInterface::DataPacket(data, SIZE));
+    controlCommInterface.send(ICommInterface::DataPacket(data, SIZE));
 }
 
-void Encryption::onReceived(const sl::ICommInterface::DataPacket dataPacket)
+void Encryption::onReceived(const ICommInterface::DataPacket dataPacket)
 {
     trace("Received " + std::to_string(dataPacket.second) + " bytes, encrypted");
     delete[] dataPacket.first;
-    switchState<sl::state::Encrypted>();
+    switchState<Encrypted>();
 }
 
 std::string Encryption::toString() const noexcept

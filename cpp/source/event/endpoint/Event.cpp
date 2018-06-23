@@ -1,6 +1,6 @@
 #include "event/endpoint/Event.hpp"
 
-using sl::event::endpoint::Event;
+using namespace sl::event::endpoint;
 
 Event::Event(const Type _type):
     type(_type)
@@ -24,7 +24,7 @@ std::string Event::toString() const noexcept
     case ATTACH: return "ATTACH";
     case RELEASE: return "RELEASE";
     case LIST_DEVICES: return "LIST_DEVICES";
-
+    case REQUEST_DEVICE: return "REQUEST_DEVICE";
     default:
         return "Unknown event name";
     }

@@ -1,6 +1,6 @@
 #include "event/endpoint/Attach.hpp"
 
-using sl::event::endpoint::Attach;
+using namespace sl::event::endpoint;
 
 Attach::Attach(const std::string _id, const std::string _pwd):
     Event(Event::ATTACH),

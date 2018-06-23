@@ -3,6 +3,8 @@
 
 #include "skylync.pb.h"
 
+#include "Types.hpp"
+
 namespace sl
 {
 
@@ -13,7 +15,7 @@ public:
 
     bool update(const skylync::Context* _protoContext);
 
-    unsigned long getRefId() const;
+    sl::RefId getRefId() const;
 
 private:
     std::unique_ptr<const skylync::Context> protoContext;

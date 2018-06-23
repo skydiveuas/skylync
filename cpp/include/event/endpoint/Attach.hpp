@@ -1,9 +1,9 @@
 #ifndef EVENT_ENDPOINT_ATTACH_HPP
 #define EVENT_ENDPOINT_ATTACH_HPP
 
-#include <string>
-
 #include "Event.hpp"
+
+#include <string>
 
 namespace sl
 {

@@ -2,23 +2,24 @@
 
 #include "state/Disconnected.hpp"
 
-using sl::state::Disconnection;
+using namespace sl::event;
+using namespace sl::state;
 
 Disconnection::Disconnection(Listener& listener):
     ILiveCycleState(Type::DISCONNECTION, listener)
 {
 }
 
-void Disconnection::start(const EndpointEvent* const) noexcept
+void Disconnection::start(const endpoint::Event* const) noexcept
 {
-    notifyBridgeEvent(new BridgeEvent(BridgeEvent::RELEASED));
+    notifyBridgeEvent(new bridge::Event(bridge::Event::RELEASED));
     controlCommInterface.disconnect();
 }
 
 void Disconnection::onDisconnected()
 {
     trace("Disconnection::onDisconnected");
-    switchState<sl::state::Disconnected>();
+    switchState<Disconnected>();
 }
 
 std::string Disconnection::toString() const noexcept

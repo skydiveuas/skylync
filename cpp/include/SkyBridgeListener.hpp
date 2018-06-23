@@ -15,9 +15,6 @@ namespace sl
 class SkyBridgeListener
 {
 public:
-    typedef event::bridge::Event BridgeEvent;
-    typedef event::endpoint::Event EndpointEvent;
-
     const enum Side
     {
         DEVICE,
@@ -28,7 +25,7 @@ public:
 
     virtual ~SkyBridgeListener();
 
-    virtual void notifyBridgeEvent(const BridgeEvent* const) noexcept = 0;
+    virtual void notifyBridgeEvent(const event::bridge::Event* const) noexcept = 0;
 
     virtual std::shared_ptr<ICommInterface> createCommInterface(const ICommInterface::TransportProtocol,
                                                                 ICommInterface::Listener&) noexcept = 0;

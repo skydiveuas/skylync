@@ -1,6 +1,6 @@
 #include "ITimer.hpp"
 
-using sl::ITimer;
+using namespace sl;
 
 ITimer::~ITimer()
 {

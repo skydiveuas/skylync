@@ -22,16 +22,11 @@ namespace sl
 class SkyBridge : public state::ILiveCycleState::Listener
 {
 public:
-    typedef state::ILiveCycleState State;
-
-    typedef event::bridge::Event BridgeEvent;
-    typedef event::endpoint::Event EndpointEvent;
-
     SkyBridge(SkyBridgeListener& listener);
 
-    void notifyEndpointEvent(const EndpointEvent* event) noexcept;
+    void notifyEndpointEvent(const event::endpoint::Event* event) noexcept;
 
-    State::Type getState() const noexcept;
+    state::ILiveCycleState::Type getState() const noexcept;
 
 private:
     SkyBridgeListener& listener;
@@ -44,7 +39,7 @@ private:
 
     Context context;
 
-    void switchState(std::shared_ptr<State> newState, const EndpointEvent* const event) override;
+    void switchState(std::shared_ptr<state::ILiveCycleState> newState, const event::endpoint::Event* const event) override;
 
     ICommInterface& getControlCommInterface() override;
 

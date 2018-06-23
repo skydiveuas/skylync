@@ -14,9 +14,9 @@ class Disconnected : public ILiveCycleState
 public:
     Disconnected(Listener& listener);
 
-    void start(const EndpointEvent* const event) noexcept override;
+    void start(const event::endpoint::Event* const event) noexcept override;
 
-    void handleEvent(const EndpointEvent& event) override;
+    void handleEvent(const event::endpoint::Event& event) override;
 
     std::string toString() const noexcept override;
 };

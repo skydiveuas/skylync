@@ -4,10 +4,12 @@
 
 #include <iostream>
 
-using sl::example::AsioSkyBridgeListener;
+using namespace sl;
+using namespace sl::example;
+using namespace sl::event;
 
-AsioSkyBridgeListener::AsioSkyBridgeListener(asio::io_context& _ioContext, const sl::SkyBridgeListener::Side side):
-    sl::SkyBridgeListener(side),
+AsioSkyBridgeListener::AsioSkyBridgeListener(asio::io_context& _ioContext, const SkyBridgeListener::Side side):
+    SkyBridgeListener(side),
     ioContext(_ioContext)
 {
 }
@@ -17,27 +19,27 @@ AsioSkyBridgeListener::~AsioSkyBridgeListener()
     timerThread.clear();
 }
 
-void AsioSkyBridgeListener::notifyBridgeEvent(const BridgeEvent* event) noexcept
+void AsioSkyBridgeListener::notifyBridgeEvent(const bridge::Event* event) noexcept
 {
-    std::unique_ptr<const BridgeEvent> guard(event);
+    std::unique_ptr<const bridge::Event> guard(event);
     notifyBridgeEvent(*guard.get());
 }
 
-void AsioSkyBridgeListener::notifyBridgeEvent(const BridgeEvent& event) noexcept
+void AsioSkyBridgeListener::notifyBridgeEvent(const bridge::Event& event) noexcept
 {
     trace("Received: " + event.toString());
 }
 
-std::shared_ptr<sl::ICommInterface> AsioSkyBridgeListener::createCommInterface(const sl::ICommInterface::TransportProtocol protocol,
-                                                        sl::ICommInterface::Listener& listener) noexcept
+std::shared_ptr<sl::ICommInterface> AsioSkyBridgeListener::createCommInterface(const ICommInterface::TransportProtocol protocol,
+                                                        ICommInterface::Listener& listener) noexcept
 {
     std::cout << "SkyBridgeListener::createCommInterface" << std::endl;
     switch (protocol)
     {
-    case sl::ICommInterface::TCP:
+    case ICommInterface::TCP:
         return std::make_shared<AsioTcpClient>(listener, ioContext);
 
-    case sl::ICommInterface::UDP:
+    case ICommInterface::UDP:
         return std::make_shared<AsioUdpClient>(listener, ioContext);
 
     default:
@@ -46,7 +48,7 @@ std::shared_ptr<sl::ICommInterface> AsioSkyBridgeListener::createCommInterface(c
     }
 }
 
-std::shared_ptr<sl::ITimer> AsioSkyBridgeListener::createTimer() noexcept
+std::shared_ptr<ITimer> AsioSkyBridgeListener::createTimer() noexcept
 {
     return std::make_shared<Timer>(timerThread);
 }

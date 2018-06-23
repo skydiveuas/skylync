@@ -7,14 +7,15 @@
 
 #include <functional>
 
-using sl::state::Connection;
+using namespace sl::event;
+using namespace sl::state;
 
 Connection::Connection(Listener& listener):
     ILiveCycleState(Type::CONNECTION, listener)
 {
 }
 
-void Connection::start(const EndpointEvent* const) noexcept
+void Connection::start(const endpoint::Event* const) noexcept
 {
     connectionTimer = listener.getBridgeListener().createTimer();
     connectionTimer->callAfter(CONNECTION_TIMEOUT, std::bind(&Connection::onTimeout, this));
@@ -25,14 +26,14 @@ void Connection::onConnected()
 {
     connectionTimer->kill();
     trace("Connection::onConnected");
-    switchState<sl::state::Encryption>();
+    switchState<state::Encryption>();
 }
 
 void Connection::onDisconnected()
 {
     connectionTimer->kill();
     trace("Connection::onDisconnected");
-    switchState<sl::state::Disconnected>();
+    switchState<state::Disconnected>();
 }
 
 std::string Connection::toString() const noexcept
@@ -42,6 +43,6 @@ std::string Connection::toString() const noexcept
 
 void Connection::onTimeout() noexcept
 {
-    notifyBridgeEvent(new sl::event::bridge::Error("Timeout waiting for connection, disconnected."));
+    notifyBridgeEvent(new bridge::Error("Timeout waiting for connection, disconnected."));
     controlCommInterface.disconnect();
 }

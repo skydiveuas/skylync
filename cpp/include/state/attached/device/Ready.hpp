@@ -18,13 +18,16 @@ namespace device {
 class Ready : public IAttachedState
 {
 public:
-    Ready(ILiveCycleState::Listener& listener);
+    Ready(ILiveCycleState::Listener& listener, const event::bridge::Event* const _event);
 
     void start() noexcept override;
 
-    State* handleEvent(const EndpointEvent& event) override;
+    IAttachedState* handleEvent(const sl::event::endpoint::Event& event) override;
 
     std::string toString() const noexcept override;
+
+private:
+    const event::bridge::Event* event;
 };
 
 } // device

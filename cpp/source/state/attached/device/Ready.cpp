@@ -2,24 +2,32 @@
 
 #include "state/attached/Release.hpp"
 
-using sl::state::attached::device::Ready;
+using namespace sl::event;
+using namespace sl::state;
+using namespace sl::state::attached;
+using namespace sl::state::attached::device;
 
-Ready::Ready(ILiveCycleState::Listener& listener):
-    IAttachedState(listener)
+Ready::Ready(ILiveCycleState::Listener& listener, const bridge::Event* const _event):
+    IAttachedState(listener),
+    event(_event)
 {
 }
 
 void Ready::start() noexcept
 {
-    notifyBridgeEvent(new BridgeEvent(BridgeEvent::ATTACHED));
+    if (event)
+    {
+        notifyBridgeEvent(event);
+        event = nullptr;
+    }
 }
 
-sl::state::attached::IAttachedState* Ready::handleEvent(const EndpointEvent& event)
+sl::state::attached::IAttachedState* Ready::handleEvent(const endpoint::Event& event)
 {
     switch (event.getType())
     {
-    case sl::event::endpoint::Event::RELEASE:
-        return new sl::state::attached::Release(listener);
+    case endpoint::Event::RELEASE:
+        return new Release(listener);
 
     default:
         exceptUnexpected(event);

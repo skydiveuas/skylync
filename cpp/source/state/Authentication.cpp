@@ -5,14 +5,15 @@
 
 #include "event/endpoint/Attach.hpp"
 
-using sl::state::Authentication;
+using namespace sl::event;
+using namespace sl::state;
 
 Authentication::Authentication(Listener& listener):
     ILiveCycleState(Type::AUTHENTICATION, listener)
 {
 }
 
-void Authentication::start(const EndpointEvent* const event) noexcept
+void Authentication::start(const sl::event::endpoint::Event* const event) noexcept
 {
     const sl::event::endpoint::Attach& attach =
             *reinterpret_cast<const sl::event::endpoint::Attach* const>(event);

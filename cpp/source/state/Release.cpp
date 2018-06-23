@@ -2,14 +2,15 @@
 
 #include "state/Disconnection.hpp"
 
-using sl::state::Release;
+using namespace sl::event;
+using namespace sl::state;
 
 Release::Release(Listener& listener):
     ILiveCycleState(Type::RELEASE, listener)
 {
 }
 
-void Release::start(const EndpointEvent* const) noexcept
+void Release::start(const endpoint::Event* const) noexcept
 {
     skylync::EndpointMessage message;
     message.mutable_base()->set_command(skylync::Message::RELEASE);
@@ -22,8 +23,8 @@ void Release::handleMessage(std::shared_ptr<skylync::BridgeMessage> message)
     if (message->has_base() &&
             message->base().command() == skylync::Message::ACCEPT)
     {
-        notifyBridgeEvent(new sl::event::bridge::Event(sl::event::bridge::Event::RELEASED));
-        switchState<sl::state::Disconnection>();
+        notifyBridgeEvent(new bridge::Event(bridge::Event::RELEASED));
+        switchState<Disconnection>();
     }
 }
 

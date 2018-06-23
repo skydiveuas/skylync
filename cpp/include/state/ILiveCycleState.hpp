@@ -22,9 +22,6 @@ namespace state
 class ILiveCycleState : public ICommInterface::Listener
 {
 public:
-    typedef event::endpoint::Event EndpointEvent;
-    typedef event::bridge::Event BridgeEvent;
-
     enum Type
     {
         DISCONNECTED,
@@ -42,7 +39,7 @@ public:
     public:
         virtual ~Listener();
 
-        virtual void switchState(std::shared_ptr<ILiveCycleState>, const EndpointEvent* const) = 0;
+        virtual void switchState(std::shared_ptr<ILiveCycleState>, const sl::event::endpoint::Event* const) = 0;
 
         virtual ICommInterface& getControlCommInterface() = 0;
 
@@ -59,9 +56,9 @@ public:
 
     Type getType() const noexcept;
 
-    virtual void start(const EndpointEvent* const event) noexcept;
+    virtual void start(const sl::event::endpoint::Event* const event) noexcept;
 
-    virtual void handleEvent(const EndpointEvent& event);
+    virtual void handleEvent(const sl::event::endpoint::Event& event);
 
     virtual void handleMessage(std::shared_ptr<skylync::BridgeMessage> message);
 
@@ -82,12 +79,12 @@ protected:
 
     void send(const skylync::EndpointMessage& message);
 
-    void notifyBridgeEvent(const BridgeEvent* const event);
+    void notifyBridgeEvent(const event::bridge::Event* const event);
     void trace(const std::string& message);   
 
     void except(const std::string& cause) const;
     void exceptUnexpected(const std::shared_ptr<skylync::BridgeMessage> message) const;
-    void exceptUnexpected(const EndpointEvent& event) const;
+    void exceptUnexpected(const event::endpoint::Event& event) const;
     void exceptUnexpected(const std::string& cause) const;
 
     template <typename _State>
@@ -97,7 +94,7 @@ protected:
     }
 
     template <typename _State>
-    void switchState(const EndpointEvent& event)
+    void switchState(const event::endpoint::Event& event)
     {
         listener.switchState(std::make_shared<_State>(listener), &event);
     }

@@ -1,6 +1,6 @@
 #include "event/bridge/Event.hpp"
 
-using sl::event::bridge::Event;
+using namespace sl::event::bridge;
 
 Event::Event(const Type _type):
     type(_type)
@@ -27,6 +27,8 @@ std::string Event::toString() const noexcept
     case ATTACHED: return "ATTACHED";
     case RELEASED: return "RELEASED";
     case DISCONNECTED: return "DISCONNECTED";
+    case DEVICE_LIST: return "DEVICE_LIST";
+    case CHANNEL: return "CHANNEL";
     default:
         return "Unknown event name";
     }

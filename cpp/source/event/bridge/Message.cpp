@@ -1,6 +1,6 @@
 #include "event/bridge/Message.hpp"
 
-using sl::event::bridge::Message;
+using namespace sl::event::bridge;
 
 Message::Message(const std::string& _message):
     Event(Event::MESSAGE),

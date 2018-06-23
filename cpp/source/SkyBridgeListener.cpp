@@ -1,6 +1,6 @@
 #include "SkyBridgeListener.hpp"
 
-using sl::SkyBridgeListener;
+using namespace sl;
 
 SkyBridgeListener::SkyBridgeListener(const Side _side):
     side(_side)

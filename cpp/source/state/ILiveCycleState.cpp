@@ -1,6 +1,7 @@
 #include "state/ILiveCycleState.hpp"
 
-using sl::state::ILiveCycleState;
+using namespace sl::event;
+using namespace sl::state;
 
 ILiveCycleState::Listener::~Listener()
 {
@@ -25,12 +26,12 @@ sl::state::ILiveCycleState::Type ILiveCycleState::getType() const noexcept
     return type;
 }
 
-void ILiveCycleState::start(const EndpointEvent* const event) noexcept
+void ILiveCycleState::start(const endpoint::Event* const event) noexcept
 {
     exceptUnexpected("Start method with event: [" + event->toString() + "]");
 }
 
-void ILiveCycleState::handleEvent(const EndpointEvent& event)
+void ILiveCycleState::handleEvent(const endpoint::Event& event)
 {
     exceptUnexpected(event);
 }
@@ -50,7 +51,7 @@ void ILiveCycleState::onDisconnected()
     exceptUnexpected("onDisconnected");
 }
 
-void ILiveCycleState::onReceived(const sl::ICommInterface::DataPacket dataPacket)
+void ILiveCycleState::onReceived(const ICommInterface::DataPacket dataPacket)
 {
     trace("onReceived");
     listener.getParser().parse(dataPacket);
@@ -62,7 +63,7 @@ void ILiveCycleState::send(const skylync::EndpointMessage& message)
     controlCommInterface.send(listener.getParser().serialize(message));
 }
 
-void ILiveCycleState::notifyBridgeEvent(const BridgeEvent* const event)
+void ILiveCycleState::notifyBridgeEvent(const bridge::Event* const event)
 {
     listener.getBridgeListener().notifyBridgeEvent(event);
 }
@@ -82,7 +83,7 @@ void ILiveCycleState::exceptUnexpected(const std::shared_ptr<skylync::BridgeMess
     exceptUnexpected(message->DebugString());
 }
 
-void ILiveCycleState::exceptUnexpected(const EndpointEvent& event) const
+void ILiveCycleState::exceptUnexpected(const endpoint::Event& event) const
 {
     exceptUnexpected(event.toString());
 }
