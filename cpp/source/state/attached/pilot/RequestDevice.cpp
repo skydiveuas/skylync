@@ -36,15 +36,25 @@ IAttachedState* RequestDevice::handleEvent(const sl::event::endpoint::Event& eve
 
 IAttachedState* RequestDevice::handleMessage(std::shared_ptr<skylync::BridgeMessage> message)
 {
-    if (message->base().command() == skylync::Message::ACCEPT &&
-            message->base().responsefor() == skylync::Message::REQUEST_DEVICE)
+    if (skylync::Message::REQUEST_DEVICE == message->base().responsefor())
     {
-        trace("====================== device!!!! ==========");
+        switch (message->base().command())
+        {
+        case skylync::Message::ACCEPT:
+            exceptUnexpected(message);
+            return nullptr;
+
+        case skylync::Message::REJECT:
+            return new Ready(listener, new bridge::Error("Request device failed: " +
+                                                         skylync::Message_Cause_Name(message->base().cause())));
+
+        default:
+            exceptUnexpected(message);
+        }
     }
     else
     {
         exceptUnexpected(message);
-        return nullptr;
     }
     return nullptr;
 }

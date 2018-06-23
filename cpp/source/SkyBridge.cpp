@@ -62,5 +62,6 @@ void SkyBridge::updateContext(const skylync::Context* _context)
 
 void SkyBridge::handleMessage(std::shared_ptr<skylync::BridgeMessage> message)
 {
+    listener.trace("Received: " + message->DebugString() + " @ " + state->toString());
     state->handleMessage(message);
 }

@@ -53,7 +53,6 @@ void ILiveCycleState::onDisconnected()
 
 void ILiveCycleState::onReceived(const ICommInterface::DataPacket dataPacket)
 {
-    trace("onReceived");
     listener.getParser().parse(dataPacket);
 }
 
