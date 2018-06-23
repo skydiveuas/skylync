@@ -9,9 +9,11 @@ namespace sl
 namespace state
 {
 
-namespace attached {
+namespace attached
+{
 
-namespace pilot {
+namespace pilot
+{
 
 class Ready : public IAttachedState
 {

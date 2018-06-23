@@ -7,6 +7,8 @@
 #include "event/endpoint/Event.hpp"
 #include "event/bridge/Event.hpp"
 
+#include "Types.hpp"
+
 #include <memory>
 
 namespace sl
@@ -15,13 +17,9 @@ namespace sl
 class SkyBridgeListener
 {
 public:
-    const enum Side
-    {
-        DEVICE,
-        PILOT,
-    } side;
+    const EndpointType side;
 
-    SkyBridgeListener(const Side side);
+    SkyBridgeListener(const EndpointType side);
 
     virtual ~SkyBridgeListener();
 

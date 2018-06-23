@@ -9,7 +9,8 @@ namespace sl
 namespace state
 {
 
-namespace attached {
+namespace attached
+{
 
 class IAttachedState
 {

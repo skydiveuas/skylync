@@ -8,7 +8,7 @@ using namespace sl;
 using namespace sl::example;
 using namespace sl::event;
 
-AsioSkyBridgeListener::AsioSkyBridgeListener(asio::io_context& _ioContext, const SkyBridgeListener::Side side):
+AsioSkyBridgeListener::AsioSkyBridgeListener(asio::io_context& _ioContext, const sl::EndpointType side):
     SkyBridgeListener(side),
     ioContext(_ioContext)
 {

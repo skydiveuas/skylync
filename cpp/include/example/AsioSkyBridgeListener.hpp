@@ -25,7 +25,7 @@ class AsioSkyBridgeListener : public SkyBridgeListener
 public:
     asio::io_context& ioContext;
 
-    AsioSkyBridgeListener(asio::io_context& _ioContext, const SkyBridgeListener::Side side);
+    AsioSkyBridgeListener(asio::io_context& _ioContext, const sl::EndpointType side);
 
     virtual ~AsioSkyBridgeListener();
 

@@ -37,7 +37,7 @@ namespace protobuf_skylync_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[7];
+  static const ::google::protobuf::internal::ParseTable schema[8];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -47,6 +47,8 @@ void InitDefaultsContextImpl();
 void InitDefaultsContext();
 void InitDefaultsAttachParamsImpl();
 void InitDefaultsAttachParams();
+void InitDefaultsRequestDeviceParamsImpl();
+void InitDefaultsRequestDeviceParams();
 void InitDefaultsDeviceIdImpl();
 void InitDefaultsDeviceId();
 void InitDefaultsDeviceListImpl();
@@ -60,6 +62,7 @@ void InitDefaultsBridgeMessage();
 inline void InitDefaults() {
   InitDefaultsContext();
   InitDefaultsAttachParams();
+  InitDefaultsRequestDeviceParams();
   InitDefaultsDeviceId();
   InitDefaultsDeviceList();
   InitDefaultsMessage();
@@ -89,6 +92,9 @@ extern EndpointMessageDefaultTypeInternal _EndpointMessage_default_instance_;
 class Message;
 class MessageDefaultTypeInternal;
 extern MessageDefaultTypeInternal _Message_default_instance_;
+class RequestDeviceParams;
+class RequestDeviceParamsDefaultTypeInternal;
+extern RequestDeviceParamsDefaultTypeInternal _RequestDeviceParams_default_instance_;
 }  // namespace skylync
 namespace skylync {
 
@@ -102,8 +108,8 @@ enum Message_Command {
   Message_Command_POKE = 6,
   Message_Command_LIST_DEVICE = 7,
   Message_Command_STATUS_DEVICE = 8,
-  Message_Command_DEVICE_REQUEST = 9,
-  Message_Command_HO_REQUEST = 10,
+  Message_Command_REQUEST_DEVICE = 9,
+  Message_Command_REQUEST_HO = 10,
   Message_Command_MISSION_APPROVAL = 11,
   Message_Command_TEARDOWN_MISSION = 12,
   Message_Command_STATUS_UPDATE = 13,
@@ -382,6 +388,105 @@ class AttachParams : public ::google::protobuf::Message /* @@protoc_insertion_po
 };
 // -------------------------------------------------------------------
 
+class RequestDeviceParams : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:skylync.RequestDeviceParams) */ {
+ public:
+  RequestDeviceParams();
+  virtual ~RequestDeviceParams();
+
+  RequestDeviceParams(const RequestDeviceParams& from);
+
+  inline RequestDeviceParams& operator=(const RequestDeviceParams& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  RequestDeviceParams(RequestDeviceParams&& from) noexcept
+    : RequestDeviceParams() {
+    *this = ::std::move(from);
+  }
+
+  inline RequestDeviceParams& operator=(RequestDeviceParams&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const RequestDeviceParams& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const RequestDeviceParams* internal_default_instance() {
+    return reinterpret_cast<const RequestDeviceParams*>(
+               &_RequestDeviceParams_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    2;
+
+  void Swap(RequestDeviceParams* other);
+  friend void swap(RequestDeviceParams& a, RequestDeviceParams& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline RequestDeviceParams* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  RequestDeviceParams* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const RequestDeviceParams& from);
+  void MergeFrom(const RequestDeviceParams& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(RequestDeviceParams* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // uint64 refId = 1;
+  void clear_refid();
+  static const int kRefIdFieldNumber = 1;
+  ::google::protobuf::uint64 refid() const;
+  void set_refid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:skylync.RequestDeviceParams)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint64 refid_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_skylync_2eproto::TableStruct;
+  friend void ::protobuf_skylync_2eproto::InitDefaultsRequestDeviceParamsImpl();
+};
+// -------------------------------------------------------------------
+
 class DeviceId : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:skylync.DeviceId) */ {
  public:
   DeviceId();
@@ -417,7 +522,7 @@ class DeviceId : public ::google::protobuf::Message /* @@protoc_insertion_point(
                &_DeviceId_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    2;
+    3;
 
   void Swap(DeviceId* other);
   friend void swap(DeviceId& a, DeviceId& b) {
@@ -531,7 +636,7 @@ class DeviceList : public ::google::protobuf::Message /* @@protoc_insertion_poin
                &_DeviceList_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    3;
+    4;
 
   void Swap(DeviceList* other);
   friend void swap(DeviceList& a, DeviceList& b) {
@@ -636,7 +741,7 @@ class Message : public ::google::protobuf::Message /* @@protoc_insertion_point(c
                &_Message_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    4;
+    5;
 
   void Swap(Message* other);
   friend void swap(Message& a, Message& b) {
@@ -700,10 +805,10 @@ class Message : public ::google::protobuf::Message /* @@protoc_insertion_point(c
     Message_Command_LIST_DEVICE;
   static const Command STATUS_DEVICE =
     Message_Command_STATUS_DEVICE;
-  static const Command DEVICE_REQUEST =
-    Message_Command_DEVICE_REQUEST;
-  static const Command HO_REQUEST =
-    Message_Command_HO_REQUEST;
+  static const Command REQUEST_DEVICE =
+    Message_Command_REQUEST_DEVICE;
+  static const Command REQUEST_HO =
+    Message_Command_REQUEST_HO;
   static const Command MISSION_APPROVAL =
     Message_Command_MISSION_APPROVAL;
   static const Command TEARDOWN_MISSION =
@@ -866,7 +971,7 @@ class EndpointMessage : public ::google::protobuf::Message /* @@protoc_insertion
                &_EndpointMessage_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    5;
+    6;
 
   void Swap(EndpointMessage* other);
   friend void swap(EndpointMessage& a, EndpointMessage& b) {
@@ -940,6 +1045,15 @@ class EndpointMessage : public ::google::protobuf::Message /* @@protoc_insertion
   ::skylync::Context* mutable_context();
   void set_allocated_context(::skylync::Context* context);
 
+  // .skylync.RequestDeviceParams requestDeviceParams = 4;
+  bool has_requestdeviceparams() const;
+  void clear_requestdeviceparams();
+  static const int kRequestDeviceParamsFieldNumber = 4;
+  const ::skylync::RequestDeviceParams& requestdeviceparams() const;
+  ::skylync::RequestDeviceParams* release_requestdeviceparams();
+  ::skylync::RequestDeviceParams* mutable_requestdeviceparams();
+  void set_allocated_requestdeviceparams(::skylync::RequestDeviceParams* requestdeviceparams);
+
   // @@protoc_insertion_point(class_scope:skylync.EndpointMessage)
  private:
 
@@ -947,6 +1061,7 @@ class EndpointMessage : public ::google::protobuf::Message /* @@protoc_insertion
   ::skylync::Message* base_;
   ::skylync::AttachParams* attachparams_;
   ::skylync::Context* context_;
+  ::skylync::RequestDeviceParams* requestdeviceparams_;
   mutable int _cached_size_;
   friend struct ::protobuf_skylync_2eproto::TableStruct;
   friend void ::protobuf_skylync_2eproto::InitDefaultsEndpointMessageImpl();
@@ -988,7 +1103,7 @@ class BridgeMessage : public ::google::protobuf::Message /* @@protoc_insertion_p
                &_BridgeMessage_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    6;
+    7;
 
   void Swap(BridgeMessage* other);
   friend void swap(BridgeMessage& a, BridgeMessage& b) {
@@ -1206,6 +1321,24 @@ inline void AttachParams::set_allocated_pwd(::std::string* pwd) {
   }
   pwd_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), pwd);
   // @@protoc_insertion_point(field_set_allocated:skylync.AttachParams.pwd)
+}
+
+// -------------------------------------------------------------------
+
+// RequestDeviceParams
+
+// uint64 refId = 1;
+inline void RequestDeviceParams::clear_refid() {
+  refid_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 RequestDeviceParams::refid() const {
+  // @@protoc_insertion_point(field_get:skylync.RequestDeviceParams.refId)
+  return refid_;
+}
+inline void RequestDeviceParams::set_refid(::google::protobuf::uint64 value) {
+  
+  refid_ = value;
+  // @@protoc_insertion_point(field_set:skylync.RequestDeviceParams.refId)
 }
 
 // -------------------------------------------------------------------
@@ -1566,6 +1699,56 @@ inline void EndpointMessage::set_allocated_context(::skylync::Context* context) 
   // @@protoc_insertion_point(field_set_allocated:skylync.EndpointMessage.context)
 }
 
+// .skylync.RequestDeviceParams requestDeviceParams = 4;
+inline bool EndpointMessage::has_requestdeviceparams() const {
+  return this != internal_default_instance() && requestdeviceparams_ != NULL;
+}
+inline void EndpointMessage::clear_requestdeviceparams() {
+  if (GetArenaNoVirtual() == NULL && requestdeviceparams_ != NULL) {
+    delete requestdeviceparams_;
+  }
+  requestdeviceparams_ = NULL;
+}
+inline const ::skylync::RequestDeviceParams& EndpointMessage::requestdeviceparams() const {
+  const ::skylync::RequestDeviceParams* p = requestdeviceparams_;
+  // @@protoc_insertion_point(field_get:skylync.EndpointMessage.requestDeviceParams)
+  return p != NULL ? *p : *reinterpret_cast<const ::skylync::RequestDeviceParams*>(
+      &::skylync::_RequestDeviceParams_default_instance_);
+}
+inline ::skylync::RequestDeviceParams* EndpointMessage::release_requestdeviceparams() {
+  // @@protoc_insertion_point(field_release:skylync.EndpointMessage.requestDeviceParams)
+  
+  ::skylync::RequestDeviceParams* temp = requestdeviceparams_;
+  requestdeviceparams_ = NULL;
+  return temp;
+}
+inline ::skylync::RequestDeviceParams* EndpointMessage::mutable_requestdeviceparams() {
+  
+  if (requestdeviceparams_ == NULL) {
+    requestdeviceparams_ = new ::skylync::RequestDeviceParams;
+  }
+  // @@protoc_insertion_point(field_mutable:skylync.EndpointMessage.requestDeviceParams)
+  return requestdeviceparams_;
+}
+inline void EndpointMessage::set_allocated_requestdeviceparams(::skylync::RequestDeviceParams* requestdeviceparams) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete requestdeviceparams_;
+  }
+  if (requestdeviceparams) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      requestdeviceparams = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, requestdeviceparams, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  requestdeviceparams_ = requestdeviceparams;
+  // @@protoc_insertion_point(field_set_allocated:skylync.EndpointMessage.requestDeviceParams)
+}
+
 // -------------------------------------------------------------------
 
 // BridgeMessage
@@ -1723,6 +1906,8 @@ inline void BridgeMessage::set_allocated_devicelist(::skylync::DeviceList* devic
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

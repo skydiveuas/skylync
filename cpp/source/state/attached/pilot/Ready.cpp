@@ -1,8 +1,11 @@
 #include "state/attached/pilot/Ready.hpp"
 
-#include "state/attached/pilot/ListDevices.hpp"
-
 #include "state/attached/Release.hpp"
+
+#include "state/attached/pilot/ListDevices.hpp"
+#include "state/attached/pilot/RequestDevice.hpp"
+
+#include "event/endpoint/RequestDevice.hpp"
 
 using namespace sl::event;
 using namespace sl::state;
@@ -33,6 +36,10 @@ IAttachedState* Ready::handleEvent(const endpoint::Event& event)
 
     case endpoint::Event::LIST_DEVICES:
         return new ListDevices(listener);
+
+    case endpoint::Event::REQUEST_DEVICE:
+        return new pilot::RequestDevice(listener,
+                                        reinterpret_cast<const endpoint::RequestDevice&>(event).getRefId());
 
     default:
         exceptUnexpected(event);

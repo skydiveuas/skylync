@@ -2,7 +2,7 @@
 
 using namespace sl;
 
-SkyBridgeListener::SkyBridgeListener(const Side _side):
+SkyBridgeListener::SkyBridgeListener(const EndpointType _side):
     side(_side)
 {
 }

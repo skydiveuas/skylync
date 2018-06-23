@@ -1128,6 +1128,458 @@ public final class Skylync {
 
   }
 
+  public interface RequestDeviceParamsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:skylync.RequestDeviceParams)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>uint64 refId = 1;</code>
+     */
+    long getRefId();
+  }
+  /**
+   * Protobuf type {@code skylync.RequestDeviceParams}
+   */
+  public  static final class RequestDeviceParams extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:skylync.RequestDeviceParams)
+      RequestDeviceParamsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RequestDeviceParams.newBuilder() to construct.
+    private RequestDeviceParams(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RequestDeviceParams() {
+      refId_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RequestDeviceParams(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+
+              refId_ = input.readUInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return skylync.Skylync.internal_static_skylync_RequestDeviceParams_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return skylync.Skylync.internal_static_skylync_RequestDeviceParams_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              skylync.Skylync.RequestDeviceParams.class, skylync.Skylync.RequestDeviceParams.Builder.class);
+    }
+
+    public static final int REFID_FIELD_NUMBER = 1;
+    private long refId_;
+    /**
+     * <code>uint64 refId = 1;</code>
+     */
+    public long getRefId() {
+      return refId_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (refId_ != 0L) {
+        output.writeUInt64(1, refId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (refId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, refId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof skylync.Skylync.RequestDeviceParams)) {
+        return super.equals(obj);
+      }
+      skylync.Skylync.RequestDeviceParams other = (skylync.Skylync.RequestDeviceParams) obj;
+
+      boolean result = true;
+      result = result && (getRefId()
+          == other.getRefId());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + REFID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getRefId());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static skylync.Skylync.RequestDeviceParams parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static skylync.Skylync.RequestDeviceParams parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static skylync.Skylync.RequestDeviceParams parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static skylync.Skylync.RequestDeviceParams parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static skylync.Skylync.RequestDeviceParams parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static skylync.Skylync.RequestDeviceParams parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static skylync.Skylync.RequestDeviceParams parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static skylync.Skylync.RequestDeviceParams parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static skylync.Skylync.RequestDeviceParams parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static skylync.Skylync.RequestDeviceParams parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static skylync.Skylync.RequestDeviceParams parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static skylync.Skylync.RequestDeviceParams parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(skylync.Skylync.RequestDeviceParams prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code skylync.RequestDeviceParams}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:skylync.RequestDeviceParams)
+        skylync.Skylync.RequestDeviceParamsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return skylync.Skylync.internal_static_skylync_RequestDeviceParams_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return skylync.Skylync.internal_static_skylync_RequestDeviceParams_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                skylync.Skylync.RequestDeviceParams.class, skylync.Skylync.RequestDeviceParams.Builder.class);
+      }
+
+      // Construct using skylync.Skylync.RequestDeviceParams.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        refId_ = 0L;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return skylync.Skylync.internal_static_skylync_RequestDeviceParams_descriptor;
+      }
+
+      public skylync.Skylync.RequestDeviceParams getDefaultInstanceForType() {
+        return skylync.Skylync.RequestDeviceParams.getDefaultInstance();
+      }
+
+      public skylync.Skylync.RequestDeviceParams build() {
+        skylync.Skylync.RequestDeviceParams result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public skylync.Skylync.RequestDeviceParams buildPartial() {
+        skylync.Skylync.RequestDeviceParams result = new skylync.Skylync.RequestDeviceParams(this);
+        result.refId_ = refId_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof skylync.Skylync.RequestDeviceParams) {
+          return mergeFrom((skylync.Skylync.RequestDeviceParams)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(skylync.Skylync.RequestDeviceParams other) {
+        if (other == skylync.Skylync.RequestDeviceParams.getDefaultInstance()) return this;
+        if (other.getRefId() != 0L) {
+          setRefId(other.getRefId());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        skylync.Skylync.RequestDeviceParams parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (skylync.Skylync.RequestDeviceParams) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long refId_ ;
+      /**
+       * <code>uint64 refId = 1;</code>
+       */
+      public long getRefId() {
+        return refId_;
+      }
+      /**
+       * <code>uint64 refId = 1;</code>
+       */
+      public Builder setRefId(long value) {
+        
+        refId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 refId = 1;</code>
+       */
+      public Builder clearRefId() {
+        
+        refId_ = 0L;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:skylync.RequestDeviceParams)
+    }
+
+    // @@protoc_insertion_point(class_scope:skylync.RequestDeviceParams)
+    private static final skylync.Skylync.RequestDeviceParams DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new skylync.Skylync.RequestDeviceParams();
+    }
+
+    public static skylync.Skylync.RequestDeviceParams getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RequestDeviceParams>
+        PARSER = new com.google.protobuf.AbstractParser<RequestDeviceParams>() {
+      public RequestDeviceParams parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RequestDeviceParams(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RequestDeviceParams> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RequestDeviceParams> getParserForType() {
+      return PARSER;
+    }
+
+    public skylync.Skylync.RequestDeviceParams getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface DeviceIdOrBuilder extends
       // @@protoc_insertion_point(interface_extends:skylync.DeviceId)
       com.google.protobuf.MessageOrBuilder {
@@ -2655,13 +3107,13 @@ public final class Skylync {
        */
       STATUS_DEVICE(8),
       /**
-       * <code>DEVICE_REQUEST = 9;</code>
+       * <code>REQUEST_DEVICE = 9;</code>
        */
-      DEVICE_REQUEST(9),
+      REQUEST_DEVICE(9),
       /**
-       * <code>HO_REQUEST = 10;</code>
+       * <code>REQUEST_HO = 10;</code>
        */
-      HO_REQUEST(10),
+      REQUEST_HO(10),
       /**
        * <code>MISSION_APPROVAL = 11;</code>
        */
@@ -2722,13 +3174,13 @@ public final class Skylync {
        */
       public static final int STATUS_DEVICE_VALUE = 8;
       /**
-       * <code>DEVICE_REQUEST = 9;</code>
+       * <code>REQUEST_DEVICE = 9;</code>
        */
-      public static final int DEVICE_REQUEST_VALUE = 9;
+      public static final int REQUEST_DEVICE_VALUE = 9;
       /**
-       * <code>HO_REQUEST = 10;</code>
+       * <code>REQUEST_HO = 10;</code>
        */
-      public static final int HO_REQUEST_VALUE = 10;
+      public static final int REQUEST_HO_VALUE = 10;
       /**
        * <code>MISSION_APPROVAL = 11;</code>
        */
@@ -2778,8 +3230,8 @@ public final class Skylync {
           case 6: return POKE;
           case 7: return LIST_DEVICE;
           case 8: return STATUS_DEVICE;
-          case 9: return DEVICE_REQUEST;
-          case 10: return HO_REQUEST;
+          case 9: return REQUEST_DEVICE;
+          case 10: return REQUEST_HO;
           case 11: return MISSION_APPROVAL;
           case 12: return TEARDOWN_MISSION;
           case 13: return STATUS_UPDATE;
@@ -3738,6 +4190,19 @@ public final class Skylync {
      * <code>.skylync.Context context = 3;</code>
      */
     skylync.Skylync.ContextOrBuilder getContextOrBuilder();
+
+    /**
+     * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+     */
+    boolean hasRequestDeviceParams();
+    /**
+     * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+     */
+    skylync.Skylync.RequestDeviceParams getRequestDeviceParams();
+    /**
+     * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+     */
+    skylync.Skylync.RequestDeviceParamsOrBuilder getRequestDeviceParamsOrBuilder();
   }
   /**
    * Protobuf type {@code skylync.EndpointMessage}
@@ -3820,6 +4285,19 @@ public final class Skylync {
               if (subBuilder != null) {
                 subBuilder.mergeFrom(context_);
                 context_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 34: {
+              skylync.Skylync.RequestDeviceParams.Builder subBuilder = null;
+              if (requestDeviceParams_ != null) {
+                subBuilder = requestDeviceParams_.toBuilder();
+              }
+              requestDeviceParams_ = input.readMessage(skylync.Skylync.RequestDeviceParams.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(requestDeviceParams_);
+                requestDeviceParams_ = subBuilder.buildPartial();
               }
 
               break;
@@ -3911,6 +4389,27 @@ public final class Skylync {
       return getContext();
     }
 
+    public static final int REQUESTDEVICEPARAMS_FIELD_NUMBER = 4;
+    private skylync.Skylync.RequestDeviceParams requestDeviceParams_;
+    /**
+     * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+     */
+    public boolean hasRequestDeviceParams() {
+      return requestDeviceParams_ != null;
+    }
+    /**
+     * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+     */
+    public skylync.Skylync.RequestDeviceParams getRequestDeviceParams() {
+      return requestDeviceParams_ == null ? skylync.Skylync.RequestDeviceParams.getDefaultInstance() : requestDeviceParams_;
+    }
+    /**
+     * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+     */
+    public skylync.Skylync.RequestDeviceParamsOrBuilder getRequestDeviceParamsOrBuilder() {
+      return getRequestDeviceParams();
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -3932,6 +4431,9 @@ public final class Skylync {
       if (context_ != null) {
         output.writeMessage(3, getContext());
       }
+      if (requestDeviceParams_ != null) {
+        output.writeMessage(4, getRequestDeviceParams());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -3951,6 +4453,10 @@ public final class Skylync {
       if (context_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getContext());
+      }
+      if (requestDeviceParams_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getRequestDeviceParams());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3983,6 +4489,11 @@ public final class Skylync {
         result = result && getContext()
             .equals(other.getContext());
       }
+      result = result && (hasRequestDeviceParams() == other.hasRequestDeviceParams());
+      if (hasRequestDeviceParams()) {
+        result = result && getRequestDeviceParams()
+            .equals(other.getRequestDeviceParams());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -4005,6 +4516,10 @@ public final class Skylync {
       if (hasContext()) {
         hash = (37 * hash) + CONTEXT_FIELD_NUMBER;
         hash = (53 * hash) + getContext().hashCode();
+      }
+      if (hasRequestDeviceParams()) {
+        hash = (37 * hash) + REQUESTDEVICEPARAMS_FIELD_NUMBER;
+        hash = (53 * hash) + getRequestDeviceParams().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -4153,6 +4668,12 @@ public final class Skylync {
           context_ = null;
           contextBuilder_ = null;
         }
+        if (requestDeviceParamsBuilder_ == null) {
+          requestDeviceParams_ = null;
+        } else {
+          requestDeviceParams_ = null;
+          requestDeviceParamsBuilder_ = null;
+        }
         return this;
       }
 
@@ -4189,6 +4710,11 @@ public final class Skylync {
           result.context_ = context_;
         } else {
           result.context_ = contextBuilder_.build();
+        }
+        if (requestDeviceParamsBuilder_ == null) {
+          result.requestDeviceParams_ = requestDeviceParams_;
+        } else {
+          result.requestDeviceParams_ = requestDeviceParamsBuilder_.build();
         }
         onBuilt();
         return result;
@@ -4239,6 +4765,9 @@ public final class Skylync {
         }
         if (other.hasContext()) {
           mergeContext(other.getContext());
+        }
+        if (other.hasRequestDeviceParams()) {
+          mergeRequestDeviceParams(other.getRequestDeviceParams());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -4616,6 +5145,123 @@ public final class Skylync {
           context_ = null;
         }
         return contextBuilder_;
+      }
+
+      private skylync.Skylync.RequestDeviceParams requestDeviceParams_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          skylync.Skylync.RequestDeviceParams, skylync.Skylync.RequestDeviceParams.Builder, skylync.Skylync.RequestDeviceParamsOrBuilder> requestDeviceParamsBuilder_;
+      /**
+       * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+       */
+      public boolean hasRequestDeviceParams() {
+        return requestDeviceParamsBuilder_ != null || requestDeviceParams_ != null;
+      }
+      /**
+       * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+       */
+      public skylync.Skylync.RequestDeviceParams getRequestDeviceParams() {
+        if (requestDeviceParamsBuilder_ == null) {
+          return requestDeviceParams_ == null ? skylync.Skylync.RequestDeviceParams.getDefaultInstance() : requestDeviceParams_;
+        } else {
+          return requestDeviceParamsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+       */
+      public Builder setRequestDeviceParams(skylync.Skylync.RequestDeviceParams value) {
+        if (requestDeviceParamsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          requestDeviceParams_ = value;
+          onChanged();
+        } else {
+          requestDeviceParamsBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+       */
+      public Builder setRequestDeviceParams(
+          skylync.Skylync.RequestDeviceParams.Builder builderForValue) {
+        if (requestDeviceParamsBuilder_ == null) {
+          requestDeviceParams_ = builderForValue.build();
+          onChanged();
+        } else {
+          requestDeviceParamsBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+       */
+      public Builder mergeRequestDeviceParams(skylync.Skylync.RequestDeviceParams value) {
+        if (requestDeviceParamsBuilder_ == null) {
+          if (requestDeviceParams_ != null) {
+            requestDeviceParams_ =
+              skylync.Skylync.RequestDeviceParams.newBuilder(requestDeviceParams_).mergeFrom(value).buildPartial();
+          } else {
+            requestDeviceParams_ = value;
+          }
+          onChanged();
+        } else {
+          requestDeviceParamsBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+       */
+      public Builder clearRequestDeviceParams() {
+        if (requestDeviceParamsBuilder_ == null) {
+          requestDeviceParams_ = null;
+          onChanged();
+        } else {
+          requestDeviceParams_ = null;
+          requestDeviceParamsBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+       */
+      public skylync.Skylync.RequestDeviceParams.Builder getRequestDeviceParamsBuilder() {
+        
+        onChanged();
+        return getRequestDeviceParamsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+       */
+      public skylync.Skylync.RequestDeviceParamsOrBuilder getRequestDeviceParamsOrBuilder() {
+        if (requestDeviceParamsBuilder_ != null) {
+          return requestDeviceParamsBuilder_.getMessageOrBuilder();
+        } else {
+          return requestDeviceParams_ == null ?
+              skylync.Skylync.RequestDeviceParams.getDefaultInstance() : requestDeviceParams_;
+        }
+      }
+      /**
+       * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          skylync.Skylync.RequestDeviceParams, skylync.Skylync.RequestDeviceParams.Builder, skylync.Skylync.RequestDeviceParamsOrBuilder> 
+          getRequestDeviceParamsFieldBuilder() {
+        if (requestDeviceParamsBuilder_ == null) {
+          requestDeviceParamsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              skylync.Skylync.RequestDeviceParams, skylync.Skylync.RequestDeviceParams.Builder, skylync.Skylync.RequestDeviceParamsOrBuilder>(
+                  getRequestDeviceParams(),
+                  getParentForChildren(),
+                  isClean());
+          requestDeviceParams_ = null;
+        }
+        return requestDeviceParamsBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -5647,6 +6293,11 @@ public final class Skylync {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_skylync_AttachParams_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_skylync_RequestDeviceParams_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_skylync_RequestDeviceParams_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_skylync_DeviceId_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -5682,33 +6333,35 @@ public final class Skylync {
     java.lang.String[] descriptorData = {
       "\n\rskylync.proto\022\007skylync\"\030\n\007Context\022\r\n\005r" +
       "efId\030\001 \001(\004\"\'\n\014AttachParams\022\n\n\002id\030\001 \001(\t\022\013" +
-      "\n\003pwd\030\002 \001(\t\"%\n\010DeviceId\022\013\n\003ref\030\001 \001(\004\022\014\n\004" +
-      "name\030\002 \001(\t\"0\n\nDeviceList\022\"\n\007devices\030\001 \003(" +
-      "\0132\021.skylync.DeviceId\"\241\005\n\007Message\022)\n\007comm" +
-      "and\030\001 \001(\0162\030.skylync.Message.Command\022-\n\013r" +
-      "esponseFor\030\002 \001(\0162\030.skylync.Message.Comma" +
-      "nd\022%\n\005cause\030\003 \001(\0162\026.skylync.Message.Caus" +
-      "e\022\014\n\004note\030\004 \001(\t\"\243\002\n\007Command\022\023\n\017UNKNOWN_C" +
-      "OMMAND\020\000\022\n\n\006ACCEPT\020\001\022\n\n\006REJECT\020\002\022\n\n\006ATTA" +
-      "CH\020\003\022\013\n\007RELEASE\020\004\022\022\n\016CONTEXT_UPDATE\020\005\022\010\n" +
-      "\004POKE\020\006\022\017\n\013LIST_DEVICE\020\007\022\021\n\rSTATUS_DEVIC" +
-      "E\020\010\022\022\n\016DEVICE_REQUEST\020\t\022\016\n\nHO_REQUEST\020\n\022" +
-      "\024\n\020MISSION_APPROVAL\020\013\022\024\n\020TEARDOWN_MISSIO" +
-      "N\020\014\022\021\n\rSTATUS_UPDATE\020\r\022\025\n\021OPERATION_REQU" +
-      "EST\020\016\022\026\n\022OPERATION_TEARDOWN\020\017\"\340\001\n\005Cause\022" +
-      "\021\n\rUNKNOWN_CAUSE\020\000\022\014\n\010BAD_DATA\020\001\022\022\n\016INTE" +
-      "RNAL_ERROR\020\002\022\r\n\tNOT_FOUND\020\003\022\020\n\014UNAUTHORI" +
-      "ZED\020\004\022\010\n\004BUSY\020\005\022\016\n\nBAD_DEVICE\020\006\022\017\n\013NOT_C" +
-      "APABLE\020\007\022\t\n\005NOTED\020\010\022\013\n\007BLOCKED\020\t\022\023\n\017ALLR" +
-      "EADY_IN_USE\020\n\022\016\n\nOVERLOADED\020\013\022\031\n\025AUTHENT" +
-      "ICATION_FAILED\020\014\"\201\001\n\017EndpointMessage\022\036\n\004" +
-      "base\030\001 \001(\0132\020.skylync.Message\022+\n\014attachPa" +
-      "rams\030\002 \001(\0132\025.skylync.AttachParams\022!\n\007con" +
-      "text\030\003 \001(\0132\020.skylync.Context\"{\n\rBridgeMe" +
-      "ssage\022\036\n\004base\030\001 \001(\0132\020.skylync.Message\022!\n" +
-      "\007context\030\002 \001(\0132\020.skylync.Context\022\'\n\ndevi" +
-      "ceList\030\003 \001(\0132\023.skylync.DeviceListb\006proto" +
-      "3"
+      "\n\003pwd\030\002 \001(\t\"$\n\023RequestDeviceParams\022\r\n\005re" +
+      "fId\030\001 \001(\004\"%\n\010DeviceId\022\013\n\003ref\030\001 \001(\004\022\014\n\004na" +
+      "me\030\002 \001(\t\"0\n\nDeviceList\022\"\n\007devices\030\001 \003(\0132" +
+      "\021.skylync.DeviceId\"\241\005\n\007Message\022)\n\007comman" +
+      "d\030\001 \001(\0162\030.skylync.Message.Command\022-\n\013res" +
+      "ponseFor\030\002 \001(\0162\030.skylync.Message.Command" +
+      "\022%\n\005cause\030\003 \001(\0162\026.skylync.Message.Cause\022" +
+      "\014\n\004note\030\004 \001(\t\"\243\002\n\007Command\022\023\n\017UNKNOWN_COM" +
+      "MAND\020\000\022\n\n\006ACCEPT\020\001\022\n\n\006REJECT\020\002\022\n\n\006ATTACH" +
+      "\020\003\022\013\n\007RELEASE\020\004\022\022\n\016CONTEXT_UPDATE\020\005\022\010\n\004P" +
+      "OKE\020\006\022\017\n\013LIST_DEVICE\020\007\022\021\n\rSTATUS_DEVICE\020" +
+      "\010\022\022\n\016REQUEST_DEVICE\020\t\022\016\n\nREQUEST_HO\020\n\022\024\n" +
+      "\020MISSION_APPROVAL\020\013\022\024\n\020TEARDOWN_MISSION\020" +
+      "\014\022\021\n\rSTATUS_UPDATE\020\r\022\025\n\021OPERATION_REQUES" +
+      "T\020\016\022\026\n\022OPERATION_TEARDOWN\020\017\"\340\001\n\005Cause\022\021\n" +
+      "\rUNKNOWN_CAUSE\020\000\022\014\n\010BAD_DATA\020\001\022\022\n\016INTERN" +
+      "AL_ERROR\020\002\022\r\n\tNOT_FOUND\020\003\022\020\n\014UNAUTHORIZE" +
+      "D\020\004\022\010\n\004BUSY\020\005\022\016\n\nBAD_DEVICE\020\006\022\017\n\013NOT_CAP" +
+      "ABLE\020\007\022\t\n\005NOTED\020\010\022\013\n\007BLOCKED\020\t\022\023\n\017ALLREA" +
+      "DY_IN_USE\020\n\022\016\n\nOVERLOADED\020\013\022\031\n\025AUTHENTIC" +
+      "ATION_FAILED\020\014\"\274\001\n\017EndpointMessage\022\036\n\004ba" +
+      "se\030\001 \001(\0132\020.skylync.Message\022+\n\014attachPara" +
+      "ms\030\002 \001(\0132\025.skylync.AttachParams\022!\n\007conte" +
+      "xt\030\003 \001(\0132\020.skylync.Context\0229\n\023requestDev" +
+      "iceParams\030\004 \001(\0132\034.skylync.RequestDeviceP" +
+      "arams\"{\n\rBridgeMessage\022\036\n\004base\030\001 \001(\0132\020.s" +
+      "kylync.Message\022!\n\007context\030\002 \001(\0132\020.skylyn" +
+      "c.Context\022\'\n\ndeviceList\030\003 \001(\0132\023.skylync." +
+      "DeviceListb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -5734,32 +6387,38 @@ public final class Skylync {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_skylync_AttachParams_descriptor,
         new java.lang.String[] { "Id", "Pwd", });
-    internal_static_skylync_DeviceId_descriptor =
+    internal_static_skylync_RequestDeviceParams_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_skylync_RequestDeviceParams_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_skylync_RequestDeviceParams_descriptor,
+        new java.lang.String[] { "RefId", });
+    internal_static_skylync_DeviceId_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_skylync_DeviceId_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_skylync_DeviceId_descriptor,
         new java.lang.String[] { "Ref", "Name", });
     internal_static_skylync_DeviceList_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_skylync_DeviceList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_skylync_DeviceList_descriptor,
         new java.lang.String[] { "Devices", });
     internal_static_skylync_Message_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_skylync_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_skylync_Message_descriptor,
         new java.lang.String[] { "Command", "ResponseFor", "Cause", "Note", });
     internal_static_skylync_EndpointMessage_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_skylync_EndpointMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_skylync_EndpointMessage_descriptor,
-        new java.lang.String[] { "Base", "AttachParams", "Context", });
+        new java.lang.String[] { "Base", "AttachParams", "Context", "RequestDeviceParams", });
     internal_static_skylync_BridgeMessage_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_skylync_BridgeMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_skylync_BridgeMessage_descriptor,

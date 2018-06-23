@@ -6,6 +6,11 @@
 
 namespace sl
 {
+enum EndpointType
+{
+    DEVICE,
+    PILOT,
+};
 
 typedef unsigned long RefId;
 typedef std::pair<RefId, std::string> RefName;

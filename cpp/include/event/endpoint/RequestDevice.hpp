@@ -15,12 +15,14 @@ namespace endpoint
 class RequestDevice : public Event
 {
 public:
-    RequestDevice(const sl::RefId refId);
+    RequestDevice(const RefId refId);
 
     std::string toString() const noexcept override;
 
+    RefId getRefId() const noexcept;
+
 private:
-    const sl::RefId refId;
+    const RefId refId;
 };
 
 } // endpoint

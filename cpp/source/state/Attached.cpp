@@ -18,11 +18,11 @@ void Attached::start(const endpoint::Event* const) noexcept
 {
     switch (listener.getBridgeListener().side)
     {
-    case SkyBridgeListener::DEVICE:
+    case sl::EndpointType::DEVICE:
         switchSubState(new device::Ready(listener, new bridge::Event(bridge::Event::ATTACHED)));
         break;
 
-    case SkyBridgeListener::PILOT:
+    case sl::EndpointType::PILOT:
         switchSubState(new pilot::Ready(listener, new bridge::Event(bridge::Event::ATTACHED)));
         break;
 
@@ -33,7 +33,6 @@ void Attached::start(const endpoint::Event* const) noexcept
 
 void Attached::handleEvent(const endpoint::Event& event)
 {
-    trace("Handlinig: [" + event.toString() + "] @ " + toString());
     IAttachedState* newState(subState->handleEvent(event));
     if (nullptr != newState)
     {
@@ -43,7 +42,6 @@ void Attached::handleEvent(const endpoint::Event& event)
 
 void Attached::handleMessage(std::shared_ptr<skylync::BridgeMessage> message)
 {
-    trace("Received: [" + message->DebugString() + "] @ " + toString());
     IAttachedState* newState(subState->handleMessage(message));
     if (nullptr != newState)
     {

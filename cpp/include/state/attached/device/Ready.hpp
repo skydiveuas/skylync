@@ -11,9 +11,11 @@ namespace sl
 namespace state
 {
 
-namespace attached {
+namespace attached
+{
 
-namespace device {
+namespace device
+{
 
 class Ready : public IAttachedState
 {
@@ -22,7 +24,7 @@ public:
 
     void start() noexcept override;
 
-    IAttachedState* handleEvent(const sl::event::endpoint::Event& event) override;
+    IAttachedState* handleEvent(const event::endpoint::Event& event) override;
 
     std::string toString() const noexcept override;
 

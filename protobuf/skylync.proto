@@ -11,6 +11,10 @@ message AttachParams {
     string pwd = 2;
 }
 
+message RequestDeviceParams {
+    uint64 refId = 1;
+}
+
 message DeviceId {
    uint64 ref = 1;
    string name = 2;
@@ -31,8 +35,8 @@ message Message {
     POKE = 6;
     LIST_DEVICE = 7;
     STATUS_DEVICE = 8;
-    DEVICE_REQUEST = 9;
-    HO_REQUEST = 10;
+    REQUEST_DEVICE = 9;
+    REQUEST_HO = 10;
     MISSION_APPROVAL = 11;
     TEARDOWN_MISSION = 12;
     STATUS_UPDATE = 13;
@@ -69,6 +73,7 @@ message EndpointMessage {
 
   AttachParams attachParams = 2;
   Context context = 3;
+  RequestDeviceParams requestDeviceParams = 4;
 }
 
 message BridgeMessage {
