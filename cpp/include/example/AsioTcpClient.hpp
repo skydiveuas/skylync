@@ -16,7 +16,7 @@ namespace example
 class AsioTcpClient : public sl::ICommInterface
 {
 public:
-    AsioTcpClient(sl::ICommInterface::Listener& _listener, asio::io_context& _ioContext);
+    AsioTcpClient(ICommInterface::Listener& _listener, asio::io_context& _ioContext);
 
     void connect(const std::string& host, const int port) override;
 
@@ -26,7 +26,7 @@ public:
 
 private:
     static constexpr size_t READ_BUFFER_SIZE = 1024;
-    std::array<char, READ_BUFFER_SIZE> readBuffer;
+    std::array<uint8_t, READ_BUFFER_SIZE> readBuffer;
 
     asio::io_context& ioContext;
     asio::ip::tcp::socket socket;

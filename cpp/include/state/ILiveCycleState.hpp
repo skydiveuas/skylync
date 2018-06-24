@@ -66,7 +66,7 @@ public:
 
     virtual void onDisconnected();
 
-    virtual void onReceived(const ICommInterface::DataPacket dataPacket);
+    virtual void onReceived(const DataPacket dataPacket);
 
     virtual std::string toString() const noexcept = 0;
 

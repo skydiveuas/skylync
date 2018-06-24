@@ -16,7 +16,7 @@ public:
 
     void start(const event::endpoint::Event* const event) noexcept override;
 
-    void onReceived(const ICommInterface::DataPacket dataPacket) override;
+    void onReceived(const DataPacket dataPacket) override;
 
     std::string toString() const noexcept override;
 };

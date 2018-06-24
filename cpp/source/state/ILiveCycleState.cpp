@@ -51,7 +51,7 @@ void ILiveCycleState::onDisconnected()
     exceptUnexpected("onDisconnected");
 }
 
-void ILiveCycleState::onReceived(const ICommInterface::DataPacket dataPacket)
+void ILiveCycleState::onReceived(const DataPacket dataPacket)
 {
     listener.getParser().parse(dataPacket);
 }

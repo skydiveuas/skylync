@@ -17,12 +17,12 @@ void Encryption::start(const endpoint::Event* const) noexcept
     notifyBridgeEvent(new bridge::Event(event::bridge::Event::CONNECTED));
     trace("Starting encryption procedure");
     const size_t SIZE = 64;
-    char* data = new char[SIZE];
+    uint8_t* data = new uint8_t[SIZE];
     std::memset(data, 'a', SIZE);
-    controlCommInterface.send(ICommInterface::DataPacket(data, SIZE));
+    controlCommInterface.send(DataPacket(data, SIZE));
 }
 
-void Encryption::onReceived(const ICommInterface::DataPacket dataPacket)
+void Encryption::onReceived(const DataPacket dataPacket)
 {
     trace("Received " + std::to_string(dataPacket.second) + " bytes, encrypted");
     delete[] dataPacket.first;

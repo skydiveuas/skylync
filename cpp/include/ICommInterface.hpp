@@ -1,6 +1,8 @@
 #ifndef ICOMMINTERFACE_HPP
 #define ICOMMINTERFACE_HPP
 
+#include "Types.hpp"
+
 #include <cstddef>
 #include <atomic>
 #include <utility>
@@ -12,8 +14,6 @@ namespace sl
 class ICommInterface
 {
 public:
-    typedef std::pair<const char* const, const size_t> DataPacket;
-
     enum TransportProtocol
     {
         TCP,

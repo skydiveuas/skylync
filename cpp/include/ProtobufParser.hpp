@@ -15,23 +15,22 @@ class ProtobufParser
 {
 public:
     typedef std::function<void(std::shared_ptr<_ExpectedMessage>)> Callback;
-    typedef std::function<void(const char* const)> ErrorHandler;
 
     ProtobufParser(Callback _callback);
 
-    void parse(const ICommInterface::DataPacket dataPacket) const;
+    void parse(const DataPacket dataPacket) const;
 
-    ICommInterface::DataPacket serialize(const ::google::protobuf::Message& message);
+    DataPacket serialize(const ::google::protobuf::Message& message);
 
 private:
     static constexpr size_t OUT_BUFFER_SIZE = 1024;
 
-    std::array<char, OUT_BUFFER_SIZE> outBuffer;
+    std::array<uint8_t, OUT_BUFFER_SIZE> outBuffer;
     size_t outBufferPosition = { 0 };
 
     const Callback callback;
 
-    bool serialize(const ::google::protobuf::Message& message, char* buf, const size_t length) const;
+    bool serialize(const ::google::protobuf::Message& message, uint8_t* buf, const size_t length) const;
 };
 
 template <typename _ExpectedMessage>
@@ -41,7 +40,7 @@ ProtobufParser<_ExpectedMessage>::ProtobufParser(Callback _callback):
 }
 
 template <typename _ExpectedMessage>
-void ProtobufParser<_ExpectedMessage>::parse(const sl::ICommInterface::DataPacket dataPacket) const
+void ProtobufParser<_ExpectedMessage>::parse(const DataPacket dataPacket) const
 {
     size_t size = dataPacket.second;
     while (size >= sizeof(uint32_t))
@@ -66,7 +65,7 @@ void ProtobufParser<_ExpectedMessage>::parse(const sl::ICommInterface::DataPacke
 }
 
 template <typename _ExpectedMessage>
-sl::ICommInterface::DataPacket ProtobufParser<_ExpectedMessage>::serialize(const ::google::protobuf::Message& message)
+sl::DataPacket ProtobufParser<_ExpectedMessage>::serialize(const ::google::protobuf::Message& message)
 {
     const size_t size = message.ByteSizeLong() + sizeof(uint32_t);
     if (OUT_BUFFER_SIZE - outBufferPosition < size)
@@ -77,13 +76,13 @@ sl::ICommInterface::DataPacket ProtobufParser<_ExpectedMessage>::serialize(const
     {
         throw std::runtime_error("Could not serialize message");
     }
-    ICommInterface::DataPacket result(outBuffer.data() + outBufferPosition, size);
+    DataPacket result(outBuffer.data() + outBufferPosition, size);
     outBufferPosition += size;
     return result;
 }
 
 template <typename _ExpectedMessage>
-bool ProtobufParser<_ExpectedMessage>::serialize(const ::google::protobuf::Message& message, char* buf, const size_t length) const
+bool ProtobufParser<_ExpectedMessage>::serialize(const ::google::protobuf::Message& message, uint8_t* buf, const size_t length) const
 {
     const size_t messageSize = message.ByteSizeLong();
     if (length < messageSize + sizeof(uint32_t))
