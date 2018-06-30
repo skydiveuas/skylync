@@ -34,7 +34,7 @@ void IAttachedState::send(const skylync::EndpointMessage& message)
 
 void IAttachedState::notifyBridgeEvent(const event::bridge::Event* const event)
 {
-    listener.getBridgeListener().notifyBridgeEvent(event);
+    listener.getBridgeListener().notifyBridgeEvent(std::unique_ptr<const event::bridge::Event>(event));
 }
 
 void IAttachedState::trace(const std::string& message)

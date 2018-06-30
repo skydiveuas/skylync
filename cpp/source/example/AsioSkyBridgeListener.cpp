@@ -19,10 +19,9 @@ AsioSkyBridgeListener::~AsioSkyBridgeListener()
     timerThread.clear();
 }
 
-void AsioSkyBridgeListener::notifyBridgeEvent(const bridge::Event* event) noexcept
+void AsioSkyBridgeListener::notifyBridgeEvent(std::unique_ptr<const event::bridge::Event> event) noexcept
 {
-    std::unique_ptr<const bridge::Event> guard(event);
-    notifyBridgeEvent(*guard.get());
+    notifyBridgeEvent(*event.get());
 }
 
 void AsioSkyBridgeListener::notifyBridgeEvent(const bridge::Event& event) noexcept

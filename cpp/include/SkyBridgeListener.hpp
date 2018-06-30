@@ -23,7 +23,7 @@ public:
 
     virtual ~SkyBridgeListener();
 
-    virtual void notifyBridgeEvent(const event::bridge::Event* const) noexcept = 0;
+    virtual void notifyBridgeEvent(std::unique_ptr<const event::bridge::Event>) noexcept = 0;
 
     virtual std::shared_ptr<ICommInterface> createCommInterface(const ICommInterface::TransportProtocol,
                                                                 ICommInterface::Listener&) noexcept = 0;

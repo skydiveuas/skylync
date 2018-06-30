@@ -64,7 +64,7 @@ void ILiveCycleState::send(const skylync::EndpointMessage& message)
 
 void ILiveCycleState::notifyBridgeEvent(const bridge::Event* const event)
 {
-    listener.getBridgeListener().notifyBridgeEvent(event);
+    listener.getBridgeListener().notifyBridgeEvent(std::unique_ptr<const event::bridge::Event>(event));
 }
 
 void ILiveCycleState::trace(const std::string& message)

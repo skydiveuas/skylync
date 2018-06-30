@@ -29,7 +29,7 @@ public:
 
     virtual ~AsioSkyBridgeListener();
 
-    void notifyBridgeEvent(const event::bridge::Event* event) noexcept override;
+    void notifyBridgeEvent(std::unique_ptr<const event::bridge::Event> event) noexcept override;
 
     virtual void notifyBridgeEvent(const event::bridge::Event& event) noexcept;
 
