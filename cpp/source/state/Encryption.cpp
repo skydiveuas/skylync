@@ -20,12 +20,12 @@ void Encryption::start(const endpoint::Event* const) noexcept
     uint8_t* data = new uint8_t[SIZE];
     std::memset(data, 'a', SIZE);
     controlCommInterface.send(DataPacket(data, SIZE));
+    delete[] data;
 }
 
 void Encryption::onReceived(const DataPacket dataPacket)
 {
     trace("Received " + std::to_string(dataPacket.second) + " bytes, encrypted");
-    delete[] dataPacket.first;
     switchState<Encrypted>();
 }
 
