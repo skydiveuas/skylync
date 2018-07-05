@@ -10,7 +10,7 @@ Disconnected::Disconnected(Listener& listener):
 {
 }
 
-void Disconnected::start(const endpoint::Event* const) noexcept
+void Disconnected::start() noexcept
 {
     notifyBridgeEvent(new bridge::Event(bridge::Event::DISCONNECTED));
 }

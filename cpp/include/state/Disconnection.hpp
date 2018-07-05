@@ -14,7 +14,7 @@ class Disconnection : public ILiveCycleState
 public:
     Disconnection(Listener& listener);
 
-    void start(const event::endpoint::Event* const event) noexcept override;
+    void start() noexcept override;
 
     void onDisconnected() override;
 

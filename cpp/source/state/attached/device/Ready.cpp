@@ -1,6 +1,7 @@
 #include "state/attached/device/Ready.hpp"
 
 #include "state/attached/Release.hpp"
+#include "state/attached/device/OperationEstablishment.hpp"
 
 using namespace sl::event;
 using namespace sl::state;
@@ -35,7 +36,20 @@ sl::state::attached::IAttachedState* Ready::handleEvent(const endpoint::Event& e
     }
 }
 
+IAttachedState* Ready::handleMessage(std::shared_ptr<skylync::BridgeMessage> message)
+{
+    switch (message->base().command())
+    {
+    case skylync::Message::OPERATION_STARTED:
+        return new OperationEstablishment(listener);
+
+    default:
+        exceptUnexpected(message);
+        return nullptr;
+    }
+}
+
 std::string Ready::toString() const noexcept
 {
-    return "Attached::Device::READY";
+    return "Attached::Device::Ready";
 }

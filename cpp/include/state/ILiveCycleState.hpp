@@ -39,7 +39,7 @@ public:
     public:
         virtual ~Listener();
 
-        virtual void switchState(std::shared_ptr<ILiveCycleState>, const sl::event::endpoint::Event* const) = 0;
+        virtual void switchState(std::shared_ptr<ILiveCycleState>) = 0;
 
         virtual ICommInterface& getControlCommInterface() = 0;
 
@@ -47,7 +47,7 @@ public:
 
         virtual ProtobufParser<skylync::BridgeMessage>& getParser() = 0;
 
-        virtual void updateContext(const skylync::Context* context) = 0;
+        virtual void updateContext(const skylync::Context*) = 0;
     };
 
     ILiveCycleState(const Type type, Listener& listener);
@@ -56,7 +56,7 @@ public:
 
     Type getType() const noexcept;
 
-    virtual void start(const sl::event::endpoint::Event* const event) noexcept;
+    virtual void start() noexcept;
 
     virtual void handleEvent(const sl::event::endpoint::Event& event);
 
@@ -90,13 +90,19 @@ protected:
     template <typename _State>
     void switchState()
     {
-        listener.switchState(std::make_shared<_State>(listener), nullptr);
+        listener.switchState(std::make_shared<_State>(listener));
     }
 
-    template <typename _State>
-    void switchState(const event::endpoint::Event& event)
+    template <typename _State, typename... _Args>
+    void switchState(_Args&... args)
     {
-        listener.switchState(std::make_shared<_State>(listener), &event);
+        listener.switchState(std::make_shared<_State>(listener, args...));
+    }
+
+    template <typename _State, typename... _Args>
+    void switchState(const _Args&... args)
+    {
+        listener.switchState(std::make_shared<_State>(listener, args...));
     }
 };
 

@@ -10,7 +10,7 @@ Release::Release(Listener& listener):
 {
 }
 
-void Release::start(const endpoint::Event* const) noexcept
+void Release::start() noexcept
 {
     skylync::EndpointMessage message;
     message.mutable_base()->set_command(skylync::Message::RELEASE);
@@ -30,5 +30,5 @@ void Release::handleMessage(std::shared_ptr<skylync::BridgeMessage> message)
 
 std::string Release::toString() const noexcept
 {
-    return "RELEASE";
+    return "Release";
 }

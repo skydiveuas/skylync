@@ -12,7 +12,7 @@ Encryption::Encryption(Listener& listener):
 {
 }
 
-void Encryption::start(const endpoint::Event* const) noexcept
+void Encryption::start() noexcept
 {
     notifyBridgeEvent(new bridge::Event(event::bridge::Event::CONNECTED));
     trace("Starting encryption procedure");
@@ -31,5 +31,5 @@ void Encryption::onReceived(const DataPacket dataPacket)
 
 std::string Encryption::toString() const noexcept
 {
-    return "ENCRYPTION";
+    return "Encryption";
 }

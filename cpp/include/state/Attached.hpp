@@ -16,7 +16,7 @@ class Attached : public ILiveCycleState
 public:
     Attached(Listener& listener);
 
-    void start(const event::endpoint::Event* const) noexcept override;
+    void start() noexcept override;
 
     void handleEvent(const event::endpoint::Event& event) override;
 

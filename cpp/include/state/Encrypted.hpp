@@ -14,7 +14,7 @@ class Encrypted : public ILiveCycleState
 public:
     Encrypted(Listener& listener);
 
-    void start(const event::endpoint::Event* const event) noexcept override;
+    void start() noexcept override;
 
     void handleEvent(const event::endpoint::Event& event);
 

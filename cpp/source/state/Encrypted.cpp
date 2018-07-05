@@ -10,7 +10,7 @@ Encrypted::Encrypted(Listener& listener):
 {
 }
 
-void Encrypted::start(const endpoint::Event* const) noexcept
+void Encrypted::start() noexcept
 {
     notifyBridgeEvent(new bridge::Event(bridge::Event::ENCRYPTED));
 }
@@ -20,7 +20,7 @@ void Encrypted::handleEvent(const endpoint::Event& event)
     switch (event.getType())
     {
     case endpoint::Event::ATTACH:
-        switchState<Authentication>(event);
+        switchState<Authentication>(&reinterpret_cast<const endpoint::Attach&>(event));
         break;
 
     default:
@@ -30,5 +30,5 @@ void Encrypted::handleEvent(const endpoint::Event& event)
 
 std::string Encrypted::toString() const noexcept
 {
-    return "ENCRYPTED";
+    return "Encrypted";
 }

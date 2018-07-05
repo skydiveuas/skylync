@@ -30,11 +30,11 @@ class AttachParamsDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<AttachParams>
       _instance;
 } _AttachParams_default_instance_;
-class RequestDeviceParamsDefaultTypeInternal {
+class OperationRequestParamsDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<RequestDeviceParams>
+  ::google::protobuf::internal::ExplicitlyConstructed<OperationRequestParams>
       _instance;
-} _RequestDeviceParams_default_instance_;
+} _OperationRequestParams_default_instance_;
 class DeviceIdDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<DeviceId>
@@ -104,7 +104,7 @@ void InitDefaultsAttachParams() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsAttachParamsImpl);
 }
 
-void InitDefaultsRequestDeviceParamsImpl() {
+void InitDefaultsOperationRequestParamsImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
 #ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
@@ -113,16 +113,16 @@ void InitDefaultsRequestDeviceParamsImpl() {
   ::google::protobuf::internal::InitProtobufDefaults();
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
   {
-    void* ptr = &::skylync::_RequestDeviceParams_default_instance_;
-    new (ptr) ::skylync::RequestDeviceParams();
+    void* ptr = &::skylync::_OperationRequestParams_default_instance_;
+    new (ptr) ::skylync::OperationRequestParams();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::skylync::RequestDeviceParams::InitAsDefaultInstance();
+  ::skylync::OperationRequestParams::InitAsDefaultInstance();
 }
 
-void InitDefaultsRequestDeviceParams() {
+void InitDefaultsOperationRequestParams() {
   static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsRequestDeviceParamsImpl);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsOperationRequestParamsImpl);
 }
 
 void InitDefaultsDeviceIdImpl() {
@@ -200,7 +200,7 @@ void InitDefaultsEndpointMessageImpl() {
   protobuf_skylync_2eproto::InitDefaultsMessage();
   protobuf_skylync_2eproto::InitDefaultsAttachParams();
   protobuf_skylync_2eproto::InitDefaultsContext();
-  protobuf_skylync_2eproto::InitDefaultsRequestDeviceParams();
+  protobuf_skylync_2eproto::InitDefaultsOperationRequestParams();
   {
     void* ptr = &::skylync::_EndpointMessage_default_instance_;
     new (ptr) ::skylync::EndpointMessage();
@@ -256,11 +256,11 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::AttachParams, id_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::AttachParams, pwd_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::RequestDeviceParams, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::OperationRequestParams, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::RequestDeviceParams, refid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::OperationRequestParams, refid_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::DeviceId, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -291,7 +291,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::EndpointMessage, base_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::EndpointMessage, attachparams_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::EndpointMessage, context_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::EndpointMessage, requestdeviceparams_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::EndpointMessage, operationrequestparams_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::BridgeMessage, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -304,7 +304,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::skylync::Context)},
   { 6, -1, sizeof(::skylync::AttachParams)},
-  { 13, -1, sizeof(::skylync::RequestDeviceParams)},
+  { 13, -1, sizeof(::skylync::OperationRequestParams)},
   { 19, -1, sizeof(::skylync::DeviceId)},
   { 26, -1, sizeof(::skylync::DeviceList)},
   { 32, -1, sizeof(::skylync::Message)},
@@ -315,7 +315,7 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
 static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::skylync::_Context_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::skylync::_AttachParams_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::skylync::_RequestDeviceParams_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::skylync::_OperationRequestParams_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::skylync::_DeviceId_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::skylync::_DeviceList_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::skylync::_Message_default_instance_),
@@ -347,38 +347,39 @@ void AddDescriptorsImpl() {
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\rskylync.proto\022\007skylync\"\030\n\007Context\022\r\n\005r"
       "efId\030\001 \001(\004\"\'\n\014AttachParams\022\n\n\002id\030\001 \001(\t\022\013"
-      "\n\003pwd\030\002 \001(\t\"$\n\023RequestDeviceParams\022\r\n\005re"
-      "fId\030\001 \001(\004\"%\n\010DeviceId\022\013\n\003ref\030\001 \001(\004\022\014\n\004na"
-      "me\030\002 \001(\t\"0\n\nDeviceList\022\"\n\007devices\030\001 \003(\0132"
-      "\021.skylync.DeviceId\"\241\005\n\007Message\022)\n\007comman"
-      "d\030\001 \001(\0162\030.skylync.Message.Command\022-\n\013res"
-      "ponseFor\030\002 \001(\0162\030.skylync.Message.Command"
-      "\022%\n\005cause\030\003 \001(\0162\026.skylync.Message.Cause\022"
-      "\014\n\004note\030\004 \001(\t\"\243\002\n\007Command\022\023\n\017UNKNOWN_COM"
-      "MAND\020\000\022\n\n\006ACCEPT\020\001\022\n\n\006REJECT\020\002\022\n\n\006ATTACH"
-      "\020\003\022\013\n\007RELEASE\020\004\022\022\n\016CONTEXT_UPDATE\020\005\022\010\n\004P"
-      "OKE\020\006\022\017\n\013LIST_DEVICE\020\007\022\021\n\rSTATUS_DEVICE\020"
-      "\010\022\022\n\016REQUEST_DEVICE\020\t\022\016\n\nREQUEST_HO\020\n\022\024\n"
-      "\020MISSION_APPROVAL\020\013\022\024\n\020TEARDOWN_MISSION\020"
-      "\014\022\021\n\rSTATUS_UPDATE\020\r\022\025\n\021OPERATION_REQUES"
-      "T\020\016\022\026\n\022OPERATION_TEARDOWN\020\017\"\340\001\n\005Cause\022\021\n"
-      "\rUNKNOWN_CAUSE\020\000\022\014\n\010BAD_DATA\020\001\022\022\n\016INTERN"
-      "AL_ERROR\020\002\022\r\n\tNOT_FOUND\020\003\022\020\n\014UNAUTHORIZE"
-      "D\020\004\022\010\n\004BUSY\020\005\022\016\n\nBAD_DEVICE\020\006\022\017\n\013NOT_CAP"
-      "ABLE\020\007\022\t\n\005NOTED\020\010\022\013\n\007BLOCKED\020\t\022\023\n\017ALLREA"
-      "DY_IN_USE\020\n\022\016\n\nOVERLOADED\020\013\022\031\n\025AUTHENTIC"
-      "ATION_FAILED\020\014\"\274\001\n\017EndpointMessage\022\036\n\004ba"
-      "se\030\001 \001(\0132\020.skylync.Message\022+\n\014attachPara"
-      "ms\030\002 \001(\0132\025.skylync.AttachParams\022!\n\007conte"
-      "xt\030\003 \001(\0132\020.skylync.Context\0229\n\023requestDev"
-      "iceParams\030\004 \001(\0132\034.skylync.RequestDeviceP"
-      "arams\"{\n\rBridgeMessage\022\036\n\004base\030\001 \001(\0132\020.s"
-      "kylync.Message\022!\n\007context\030\002 \001(\0132\020.skylyn"
-      "c.Context\022\'\n\ndeviceList\030\003 \001(\0132\023.skylync."
-      "DeviceListb\006proto3"
+      "\n\003pwd\030\002 \001(\t\"\'\n\026OperationRequestParams\022\r\n"
+      "\005refId\030\001 \001(\004\"%\n\010DeviceId\022\013\n\003ref\030\001 \001(\004\022\014\n"
+      "\004name\030\002 \001(\t\"0\n\nDeviceList\022\"\n\007devices\030\001 \003"
+      "(\0132\021.skylync.DeviceId\"\261\005\n\007Message\022)\n\007com"
+      "mand\030\001 \001(\0162\030.skylync.Message.Command\022-\n\013"
+      "responseFor\030\002 \001(\0162\030.skylync.Message.Comm"
+      "and\022%\n\005cause\030\003 \001(\0162\026.skylync.Message.Cau"
+      "se\022\014\n\004note\030\004 \001(\t\"\263\002\n\007Command\022\023\n\017UNKNOWN_"
+      "COMMAND\020\000\022\n\n\006ACCEPT\020\001\022\n\n\006REJECT\020\002\022\n\n\006ATT"
+      "ACH\020\003\022\013\n\007RELEASE\020\004\022\022\n\016CONTEXT_UPDATE\020\005\022\017"
+      "\n\013DEVICE_LIST\020\006\022\021\n\rDEVICE_STATUS\020\007\022\030\n\024DE"
+      "VICE_UPDATE_STATUS\020\010\022\025\n\021OPERATION_REQUES"
+      "T\020\t\022\026\n\022OPERATION_TEARDOWN\020\n\022\025\n\021OPERATION"
+      "_STARTED\020\013\022\022\n\016TUNNEL_REQUEST\020\014\022\020\n\014CHANNE"
+      "L_OPEN\020\r\022\024\n\020CHANNEL_VALIDATE\020\016\022\016\n\nHO_REQ"
+      "UEST\020\017\"\340\001\n\005Cause\022\021\n\rUNKNOWN_CAUSE\020\000\022\014\n\010B"
+      "AD_DATA\020\001\022\022\n\016INTERNAL_ERROR\020\002\022\r\n\tNOT_FOU"
+      "ND\020\003\022\020\n\014UNAUTHORIZED\020\004\022\010\n\004BUSY\020\005\022\016\n\nBAD_"
+      "DEVICE\020\006\022\017\n\013NOT_CAPABLE\020\007\022\t\n\005NOTED\020\010\022\013\n\007"
+      "BLOCKED\020\t\022\023\n\017ALLREADY_IN_USE\020\n\022\016\n\nOVERLO"
+      "ADED\020\013\022\031\n\025AUTHENTICATION_FAILED\020\014\"\302\001\n\017En"
+      "dpointMessage\022\036\n\004base\030\001 \001(\0132\020.skylync.Me"
+      "ssage\022+\n\014attachParams\030\002 \001(\0132\025.skylync.At"
+      "tachParams\022!\n\007context\030\003 \001(\0132\020.skylync.Co"
+      "ntext\022\?\n\026operationRequestParams\030\004 \001(\0132\037."
+      "skylync.OperationRequestParams\"{\n\rBridge"
+      "Message\022\036\n\004base\030\001 \001(\0132\020.skylync.Message\022"
+      "!\n\007context\030\002 \001(\0132\020.skylync.Context\022\'\n\nde"
+      "viceList\030\003 \001(\0132\023.skylync.DeviceListb\006pro"
+      "to3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1218);
+      descriptor, 1243);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "skylync.proto", &protobuf_RegisterTypes);
 }
@@ -430,16 +431,16 @@ const Message_Command Message::REJECT;
 const Message_Command Message::ATTACH;
 const Message_Command Message::RELEASE;
 const Message_Command Message::CONTEXT_UPDATE;
-const Message_Command Message::POKE;
-const Message_Command Message::LIST_DEVICE;
-const Message_Command Message::STATUS_DEVICE;
-const Message_Command Message::REQUEST_DEVICE;
-const Message_Command Message::REQUEST_HO;
-const Message_Command Message::MISSION_APPROVAL;
-const Message_Command Message::TEARDOWN_MISSION;
-const Message_Command Message::STATUS_UPDATE;
+const Message_Command Message::DEVICE_LIST;
+const Message_Command Message::DEVICE_STATUS;
+const Message_Command Message::DEVICE_UPDATE_STATUS;
 const Message_Command Message::OPERATION_REQUEST;
 const Message_Command Message::OPERATION_TEARDOWN;
+const Message_Command Message::OPERATION_STARTED;
+const Message_Command Message::TUNNEL_REQUEST;
+const Message_Command Message::CHANNEL_OPEN;
+const Message_Command Message::CHANNEL_VALIDATE;
+const Message_Command Message::HO_REQUEST;
 const Message_Command Message::Command_MIN;
 const Message_Command Message::Command_MAX;
 const int Message::Command_ARRAYSIZE;
@@ -1041,67 +1042,67 @@ void AttachParams::InternalSwap(AttachParams* other) {
 
 // ===================================================================
 
-void RequestDeviceParams::InitAsDefaultInstance() {
+void OperationRequestParams::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int RequestDeviceParams::kRefIdFieldNumber;
+const int OperationRequestParams::kRefIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-RequestDeviceParams::RequestDeviceParams()
+OperationRequestParams::OperationRequestParams()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_skylync_2eproto::InitDefaultsRequestDeviceParams();
+    ::protobuf_skylync_2eproto::InitDefaultsOperationRequestParams();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:skylync.RequestDeviceParams)
+  // @@protoc_insertion_point(constructor:skylync.OperationRequestParams)
 }
-RequestDeviceParams::RequestDeviceParams(const RequestDeviceParams& from)
+OperationRequestParams::OperationRequestParams(const OperationRequestParams& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   refid_ = from.refid_;
-  // @@protoc_insertion_point(copy_constructor:skylync.RequestDeviceParams)
+  // @@protoc_insertion_point(copy_constructor:skylync.OperationRequestParams)
 }
 
-void RequestDeviceParams::SharedCtor() {
+void OperationRequestParams::SharedCtor() {
   refid_ = GOOGLE_ULONGLONG(0);
   _cached_size_ = 0;
 }
 
-RequestDeviceParams::~RequestDeviceParams() {
-  // @@protoc_insertion_point(destructor:skylync.RequestDeviceParams)
+OperationRequestParams::~OperationRequestParams() {
+  // @@protoc_insertion_point(destructor:skylync.OperationRequestParams)
   SharedDtor();
 }
 
-void RequestDeviceParams::SharedDtor() {
+void OperationRequestParams::SharedDtor() {
 }
 
-void RequestDeviceParams::SetCachedSize(int size) const {
+void OperationRequestParams::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* RequestDeviceParams::descriptor() {
+const ::google::protobuf::Descriptor* OperationRequestParams::descriptor() {
   ::protobuf_skylync_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_skylync_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const RequestDeviceParams& RequestDeviceParams::default_instance() {
-  ::protobuf_skylync_2eproto::InitDefaultsRequestDeviceParams();
+const OperationRequestParams& OperationRequestParams::default_instance() {
+  ::protobuf_skylync_2eproto::InitDefaultsOperationRequestParams();
   return *internal_default_instance();
 }
 
-RequestDeviceParams* RequestDeviceParams::New(::google::protobuf::Arena* arena) const {
-  RequestDeviceParams* n = new RequestDeviceParams;
+OperationRequestParams* OperationRequestParams::New(::google::protobuf::Arena* arena) const {
+  OperationRequestParams* n = new OperationRequestParams;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void RequestDeviceParams::Clear() {
-// @@protoc_insertion_point(message_clear_start:skylync.RequestDeviceParams)
+void OperationRequestParams::Clear() {
+// @@protoc_insertion_point(message_clear_start:skylync.OperationRequestParams)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -1110,11 +1111,11 @@ void RequestDeviceParams::Clear() {
   _internal_metadata_.Clear();
 }
 
-bool RequestDeviceParams::MergePartialFromCodedStream(
+bool OperationRequestParams::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:skylync.RequestDeviceParams)
+  // @@protoc_insertion_point(parse_start:skylync.OperationRequestParams)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -1146,17 +1147,17 @@ bool RequestDeviceParams::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:skylync.RequestDeviceParams)
+  // @@protoc_insertion_point(parse_success:skylync.OperationRequestParams)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:skylync.RequestDeviceParams)
+  // @@protoc_insertion_point(parse_failure:skylync.OperationRequestParams)
   return false;
 #undef DO_
 }
 
-void RequestDeviceParams::SerializeWithCachedSizes(
+void OperationRequestParams::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:skylync.RequestDeviceParams)
+  // @@protoc_insertion_point(serialize_start:skylync.OperationRequestParams)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1169,13 +1170,13 @@ void RequestDeviceParams::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:skylync.RequestDeviceParams)
+  // @@protoc_insertion_point(serialize_end:skylync.OperationRequestParams)
 }
 
-::google::protobuf::uint8* RequestDeviceParams::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* OperationRequestParams::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:skylync.RequestDeviceParams)
+  // @@protoc_insertion_point(serialize_to_array_start:skylync.OperationRequestParams)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1188,12 +1189,12 @@ void RequestDeviceParams::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:skylync.RequestDeviceParams)
+  // @@protoc_insertion_point(serialize_to_array_end:skylync.OperationRequestParams)
   return target;
 }
 
-size_t RequestDeviceParams::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:skylync.RequestDeviceParams)
+size_t OperationRequestParams::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:skylync.OperationRequestParams)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1215,23 +1216,23 @@ size_t RequestDeviceParams::ByteSizeLong() const {
   return total_size;
 }
 
-void RequestDeviceParams::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:skylync.RequestDeviceParams)
+void OperationRequestParams::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:skylync.OperationRequestParams)
   GOOGLE_DCHECK_NE(&from, this);
-  const RequestDeviceParams* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const RequestDeviceParams>(
+  const OperationRequestParams* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const OperationRequestParams>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:skylync.RequestDeviceParams)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:skylync.OperationRequestParams)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:skylync.RequestDeviceParams)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:skylync.OperationRequestParams)
     MergeFrom(*source);
   }
 }
 
-void RequestDeviceParams::MergeFrom(const RequestDeviceParams& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:skylync.RequestDeviceParams)
+void OperationRequestParams::MergeFrom(const OperationRequestParams& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:skylync.OperationRequestParams)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -1242,36 +1243,36 @@ void RequestDeviceParams::MergeFrom(const RequestDeviceParams& from) {
   }
 }
 
-void RequestDeviceParams::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:skylync.RequestDeviceParams)
+void OperationRequestParams::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:skylync.OperationRequestParams)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void RequestDeviceParams::CopyFrom(const RequestDeviceParams& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:skylync.RequestDeviceParams)
+void OperationRequestParams::CopyFrom(const OperationRequestParams& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:skylync.OperationRequestParams)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool RequestDeviceParams::IsInitialized() const {
+bool OperationRequestParams::IsInitialized() const {
   return true;
 }
 
-void RequestDeviceParams::Swap(RequestDeviceParams* other) {
+void OperationRequestParams::Swap(OperationRequestParams* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void RequestDeviceParams::InternalSwap(RequestDeviceParams* other) {
+void OperationRequestParams::InternalSwap(OperationRequestParams* other) {
   using std::swap;
   swap(refid_, other->refid_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata RequestDeviceParams::GetMetadata() const {
+::google::protobuf::Metadata OperationRequestParams::GetMetadata() const {
   protobuf_skylync_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_skylync_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -2201,14 +2202,14 @@ void EndpointMessage::InitAsDefaultInstance() {
       ::skylync::AttachParams::internal_default_instance());
   ::skylync::_EndpointMessage_default_instance_._instance.get_mutable()->context_ = const_cast< ::skylync::Context*>(
       ::skylync::Context::internal_default_instance());
-  ::skylync::_EndpointMessage_default_instance_._instance.get_mutable()->requestdeviceparams_ = const_cast< ::skylync::RequestDeviceParams*>(
-      ::skylync::RequestDeviceParams::internal_default_instance());
+  ::skylync::_EndpointMessage_default_instance_._instance.get_mutable()->operationrequestparams_ = const_cast< ::skylync::OperationRequestParams*>(
+      ::skylync::OperationRequestParams::internal_default_instance());
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int EndpointMessage::kBaseFieldNumber;
 const int EndpointMessage::kAttachParamsFieldNumber;
 const int EndpointMessage::kContextFieldNumber;
-const int EndpointMessage::kRequestDeviceParamsFieldNumber;
+const int EndpointMessage::kOperationRequestParamsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 EndpointMessage::EndpointMessage()
@@ -2239,18 +2240,18 @@ EndpointMessage::EndpointMessage(const EndpointMessage& from)
   } else {
     context_ = NULL;
   }
-  if (from.has_requestdeviceparams()) {
-    requestdeviceparams_ = new ::skylync::RequestDeviceParams(*from.requestdeviceparams_);
+  if (from.has_operationrequestparams()) {
+    operationrequestparams_ = new ::skylync::OperationRequestParams(*from.operationrequestparams_);
   } else {
-    requestdeviceparams_ = NULL;
+    operationrequestparams_ = NULL;
   }
   // @@protoc_insertion_point(copy_constructor:skylync.EndpointMessage)
 }
 
 void EndpointMessage::SharedCtor() {
   ::memset(&base_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&requestdeviceparams_) -
-      reinterpret_cast<char*>(&base_)) + sizeof(requestdeviceparams_));
+      reinterpret_cast<char*>(&operationrequestparams_) -
+      reinterpret_cast<char*>(&base_)) + sizeof(operationrequestparams_));
   _cached_size_ = 0;
 }
 
@@ -2263,7 +2264,7 @@ void EndpointMessage::SharedDtor() {
   if (this != internal_default_instance()) delete base_;
   if (this != internal_default_instance()) delete attachparams_;
   if (this != internal_default_instance()) delete context_;
-  if (this != internal_default_instance()) delete requestdeviceparams_;
+  if (this != internal_default_instance()) delete operationrequestparams_;
 }
 
 void EndpointMessage::SetCachedSize(int size) const {
@@ -2307,10 +2308,10 @@ void EndpointMessage::Clear() {
     delete context_;
   }
   context_ = NULL;
-  if (GetArenaNoVirtual() == NULL && requestdeviceparams_ != NULL) {
-    delete requestdeviceparams_;
+  if (GetArenaNoVirtual() == NULL && operationrequestparams_ != NULL) {
+    delete operationrequestparams_;
   }
-  requestdeviceparams_ = NULL;
+  operationrequestparams_ = NULL;
   _internal_metadata_.Clear();
 }
 
@@ -2360,12 +2361,12 @@ bool EndpointMessage::MergePartialFromCodedStream(
         break;
       }
 
-      // .skylync.RequestDeviceParams requestDeviceParams = 4;
+      // .skylync.OperationRequestParams operationRequestParams = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_requestdeviceparams()));
+               input, mutable_operationrequestparams()));
         } else {
           goto handle_unusual;
         }
@@ -2416,10 +2417,10 @@ void EndpointMessage::SerializeWithCachedSizes(
       3, *this->context_, output);
   }
 
-  // .skylync.RequestDeviceParams requestDeviceParams = 4;
-  if (this->has_requestdeviceparams()) {
+  // .skylync.OperationRequestParams operationRequestParams = 4;
+  if (this->has_operationrequestparams()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, *this->requestdeviceparams_, output);
+      4, *this->operationrequestparams_, output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -2457,11 +2458,11 @@ void EndpointMessage::SerializeWithCachedSizes(
         3, *this->context_, deterministic, target);
   }
 
-  // .skylync.RequestDeviceParams requestDeviceParams = 4;
-  if (this->has_requestdeviceparams()) {
+  // .skylync.OperationRequestParams operationRequestParams = 4;
+  if (this->has_operationrequestparams()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        4, *this->requestdeviceparams_, deterministic, target);
+        4, *this->operationrequestparams_, deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -2502,11 +2503,11 @@ size_t EndpointMessage::ByteSizeLong() const {
         *this->context_);
   }
 
-  // .skylync.RequestDeviceParams requestDeviceParams = 4;
-  if (this->has_requestdeviceparams()) {
+  // .skylync.OperationRequestParams operationRequestParams = 4;
+  if (this->has_operationrequestparams()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *this->requestdeviceparams_);
+        *this->operationrequestparams_);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -2547,8 +2548,8 @@ void EndpointMessage::MergeFrom(const EndpointMessage& from) {
   if (from.has_context()) {
     mutable_context()->::skylync::Context::MergeFrom(from.context());
   }
-  if (from.has_requestdeviceparams()) {
-    mutable_requestdeviceparams()->::skylync::RequestDeviceParams::MergeFrom(from.requestdeviceparams());
+  if (from.has_operationrequestparams()) {
+    mutable_operationrequestparams()->::skylync::OperationRequestParams::MergeFrom(from.operationrequestparams());
   }
 }
 
@@ -2579,7 +2580,7 @@ void EndpointMessage::InternalSwap(EndpointMessage* other) {
   swap(base_, other->base_);
   swap(attachparams_, other->attachparams_);
   swap(context_, other->context_);
-  swap(requestdeviceparams_, other->requestdeviceparams_);
+  swap(operationrequestparams_, other->operationrequestparams_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }

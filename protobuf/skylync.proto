@@ -11,7 +11,7 @@ message AttachParams {
     string pwd = 2;
 }
 
-message RequestDeviceParams {
+message OperationRequestParams {
     uint64 refId = 1;
 }
 
@@ -32,16 +32,16 @@ message Message {
     ATTACH = 3;
     RELEASE = 4;
     CONTEXT_UPDATE = 5;
-    POKE = 6;
-    LIST_DEVICE = 7;
-    STATUS_DEVICE = 8;
-    REQUEST_DEVICE = 9;
-    REQUEST_HO = 10;
-    MISSION_APPROVAL = 11;
-    TEARDOWN_MISSION = 12;
-    STATUS_UPDATE = 13;
-    OPERATION_REQUEST = 14;
-    OPERATION_TEARDOWN = 15;
+    DEVICE_LIST = 6;
+    DEVICE_STATUS = 7;
+    DEVICE_UPDATE_STATUS = 8;
+    OPERATION_REQUEST = 9;
+    OPERATION_TEARDOWN = 10;
+    OPERATION_STARTED = 11;
+    TUNNEL_REQUEST = 12;
+    CHANNEL_OPEN = 13;
+    CHANNEL_VALIDATE = 14;
+    HO_REQUEST = 15;
   }
 
   enum Cause {
@@ -73,7 +73,7 @@ message EndpointMessage {
 
   AttachParams attachParams = 2;
   Context context = 3;
-  RequestDeviceParams requestDeviceParams = 4;
+  OperationRequestParams operationRequestParams = 4;
 }
 
 message BridgeMessage {

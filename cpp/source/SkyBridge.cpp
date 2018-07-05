@@ -29,11 +29,11 @@ state::ILiveCycleState::Type SkyBridge::getState() const noexcept
     return state->getType();
 }
 
-void SkyBridge::switchState(std::shared_ptr<state::ILiveCycleState> newState, const event::endpoint::Event* const event)
+void SkyBridge::switchState(std::shared_ptr<state::ILiveCycleState> newState)
 {
     listener.trace("Transition: " + state->toString() + " -> " + newState->toString());
     state.swap(newState);
-    state->start(event);
+    state->start();
 }
 
 ICommInterface& SkyBridge::getControlCommInterface()

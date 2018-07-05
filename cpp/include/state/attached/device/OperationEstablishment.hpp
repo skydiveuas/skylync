@@ -1,5 +1,5 @@
-#ifndef STATE_ATTACHED_DEVICE_READY_HPP
-#define STATE_ATTACHED_DEVICE_READY_HPP
+#ifndef STATE_ATTACHED_DEVICE_OPERATIONESTABLISHMENT_HPP
+#define STATE_ATTACHED_DEVICE_OPERATIONESTABLISHMENT_HPP
 
 #include "state/attached/IAttachedState.hpp"
 
@@ -15,10 +15,10 @@ namespace attached
 namespace device
 {
 
-class Ready : public IAttachedState
+class OperationEstablishment : public IAttachedState
 {
 public:
-    Ready(ILiveCycleState::Listener& listener, const event::bridge::Event* const _event);
+    OperationEstablishment(ILiveCycleState::Listener& listener);
 
     void start() noexcept override;
 
@@ -40,4 +40,4 @@ private:
 
 } // sl
 
-#endif // STATE_ATTACHED_DEVICE_READY_HPP
+#endif // STATE_ATTACHED_DEVICE_OPERATIONESTABLISHMENT_HPP

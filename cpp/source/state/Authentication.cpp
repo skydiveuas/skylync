@@ -8,19 +8,18 @@
 using namespace sl::event;
 using namespace sl::state;
 
-Authentication::Authentication(Listener& listener):
-    ILiveCycleState(Type::AUTHENTICATION, listener)
+Authentication::Authentication(Listener& listener, const endpoint::Attach* _attach):
+    ILiveCycleState(Type::AUTHENTICATION, listener),
+    attach(_attach)
 {
 }
 
-void Authentication::start(const sl::event::endpoint::Event* const event) noexcept
+void Authentication::start() noexcept
 {
-    const sl::event::endpoint::Attach& attach =
-            *reinterpret_cast<const sl::event::endpoint::Attach* const>(event);
     skylync::EndpointMessage message;
     message.mutable_base()->set_command(skylync::Message::ATTACH);
-    message.mutable_attachparams()->set_id(attach.getId());
-    message.mutable_attachparams()->set_pwd(attach.getPwd());
+    message.mutable_attachparams()->set_id(attach->getId());
+    message.mutable_attachparams()->set_pwd(attach->getPwd());
     send(message);
 }
 
@@ -42,5 +41,5 @@ void Authentication::handleMessage(std::shared_ptr<skylync::BridgeMessage> messa
 
 std::string Authentication::toString() const noexcept
 {
-    return "AUTHENTICATION";
+    return "Authentication";
 }

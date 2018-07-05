@@ -14,7 +14,7 @@ class Encryption : public ILiveCycleState
 public:
     Encryption(Listener& listener);
 
-    void start(const event::endpoint::Event* const event) noexcept override;
+    void start() noexcept override;
 
     void onReceived(const DataPacket dataPacket) override;
 

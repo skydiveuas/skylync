@@ -14,7 +14,7 @@ Attached::Attached(Listener& listener):
 {
 }
 
-void Attached::start(const endpoint::Event* const) noexcept
+void Attached::start() noexcept
 {
     switch (listener.getBridgeListener().side)
     {
@@ -51,7 +51,7 @@ void Attached::handleMessage(std::shared_ptr<skylync::BridgeMessage> message)
 
 std::string Attached::toString() const noexcept
 {
-    return subState != nullptr ? subState->toString() : "ATTACHED";
+    return subState != nullptr ? subState->toString() : "Attached";
 }
 
 void Attached::switchSubState(IAttachedState* newState)

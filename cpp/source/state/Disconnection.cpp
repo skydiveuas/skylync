@@ -10,7 +10,7 @@ Disconnection::Disconnection(Listener& listener):
 {
 }
 
-void Disconnection::start(const endpoint::Event* const) noexcept
+void Disconnection::start() noexcept
 {
     notifyBridgeEvent(new bridge::Event(bridge::Event::RELEASED));
     controlCommInterface.disconnect();
@@ -24,5 +24,5 @@ void Disconnection::onDisconnected()
 
 std::string Disconnection::toString() const noexcept
 {
-    return "DISCONNECTION";
+    return "Disconnection";
 }

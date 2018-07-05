@@ -15,7 +15,7 @@ Connection::Connection(Listener& listener):
 {
 }
 
-void Connection::start(const endpoint::Event* const) noexcept
+void Connection::start() noexcept
 {
     connectionTimer = listener.getBridgeListener().createTimer();
     connectionTimer->callAfter(CONNECTION_TIMEOUT, std::bind(&Connection::onTimeout, this));
@@ -38,7 +38,7 @@ void Connection::onDisconnected()
 
 std::string Connection::toString() const noexcept
 {
-    return "CONNECTION";
+    return "Connection";
 }
 
 void Connection::onTimeout() noexcept

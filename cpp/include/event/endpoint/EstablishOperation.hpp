@@ -1,5 +1,5 @@
-#ifndef EVENT_ENDPOINT_REQUESTDEVICE_HPP
-#define EVENT_ENDPOINT_REQUESTDEVICE_HPP
+#ifndef EVENT_ENDPOINT_ESTABLISHOPERATION_HPP
+#define EVENT_ENDPOINT_ESTABLISHOPERATION_HPP
 
 #include "Event.hpp"
 
@@ -12,10 +12,10 @@ namespace event
 namespace endpoint
 {
 
-class RequestDevice : public Event
+class EstablishOperation : public Event
 {
 public:
-    RequestDevice(const RefId refId);
+    EstablishOperation(const RefId refId);
 
     std::string toString() const noexcept override;
 
@@ -31,4 +31,4 @@ private:
 
 } // sl
 
-#endif // EVENT_ENDPOINT_REQUESTDEVICE_HPP
+#endif // EVENT_ENDPOINT_ESTABLISHOPERATION_HPP

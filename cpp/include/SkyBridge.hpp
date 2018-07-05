@@ -39,7 +39,7 @@ private:
 
     Context context;
 
-    void switchState(std::shared_ptr<state::ILiveCycleState> newState, const event::endpoint::Event* const event) override;
+    void switchState(std::shared_ptr<state::ILiveCycleState> newState) override;
 
     ICommInterface& getControlCommInterface() override;
 

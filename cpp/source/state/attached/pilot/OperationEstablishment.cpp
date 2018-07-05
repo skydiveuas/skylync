@@ -1,4 +1,4 @@
-#include "state/attached/pilot/RequestDevice.hpp"
+#include "state/attached/pilot/OperationEstablishment.hpp"
 
 #include "state/attached/pilot/Ready.hpp"
 
@@ -10,21 +10,21 @@ using namespace sl::state;
 using namespace sl::state::attached;
 using namespace sl::state::attached::pilot;
 
-RequestDevice::RequestDevice(ILiveCycleState::Listener& listener, const RefId _requestedRefId):
+OperationEstablishment::OperationEstablishment(ILiveCycleState::Listener& listener, const RefId _requestedRefId):
     IAttachedState(listener),
     requestedRefId(_requestedRefId)
 {
 }
 
-void RequestDevice::start() noexcept
+void OperationEstablishment::start() noexcept
 {
     skylync::EndpointMessage message;
-    message.mutable_base()->set_command(skylync::Message::REQUEST_DEVICE);
-    message.mutable_requestdeviceparams()->set_refid(requestedRefId);
+    message.mutable_base()->set_command(skylync::Message::OPERATION_REQUEST);
+    message.mutable_operationrequestparams()->set_refid(requestedRefId);
     send(message);
 }
 
-IAttachedState* RequestDevice::handleEvent(const sl::event::endpoint::Event& event)
+IAttachedState* OperationEstablishment::handleEvent(const sl::event::endpoint::Event& event)
 {
     switch (event.getType())
     {
@@ -34,14 +34,14 @@ IAttachedState* RequestDevice::handleEvent(const sl::event::endpoint::Event& eve
     }
 }
 
-IAttachedState* RequestDevice::handleMessage(std::shared_ptr<skylync::BridgeMessage> message)
+IAttachedState* OperationEstablishment::handleMessage(std::shared_ptr<skylync::BridgeMessage> message)
 {
-    if (skylync::Message::REQUEST_DEVICE == message->base().responsefor())
+    if (skylync::Message::OPERATION_REQUEST == message->base().responsefor())
     {
         switch (message->base().command())
         {
         case skylync::Message::ACCEPT:
-            exceptUnexpected(message);
+            trace("asdasdasdas dasd asdas dasd asd as da");
             return nullptr;
 
         case skylync::Message::REJECT:
@@ -59,7 +59,7 @@ IAttachedState* RequestDevice::handleMessage(std::shared_ptr<skylync::BridgeMess
     return nullptr;
 }
 
-std::string RequestDevice::toString() const noexcept
+std::string OperationEstablishment::toString() const noexcept
 {
-    return "Attached::Pilot::REQUEST_DEVICE";
+    return "Attached::Pilot::OperationEstablishment";
 }

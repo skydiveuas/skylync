@@ -26,9 +26,8 @@ sl::state::ILiveCycleState::Type ILiveCycleState::getType() const noexcept
     return type;
 }
 
-void ILiveCycleState::start(const endpoint::Event* const event) noexcept
+void ILiveCycleState::start() noexcept
 {
-    exceptUnexpected("Start method with event: [" + event->toString() + "]");
 }
 
 void ILiveCycleState::handleEvent(const endpoint::Event& event)

@@ -12,10 +12,10 @@ Release::Release(ILiveCycleState::Listener& listener):
 
 void Release::start() noexcept
 {
-    listener.switchState(std::make_shared<state::Release>(listener), nullptr);
+    listener.switchState(std::make_shared<state::Release>(listener));
 }
 
 std::string Release::toString() const noexcept
 {
-    return "Attached::RELEASE";
+    return "Attached::Release";
 }

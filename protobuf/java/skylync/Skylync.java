@@ -1128,8 +1128,8 @@ public final class Skylync {
 
   }
 
-  public interface RequestDeviceParamsOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:skylync.RequestDeviceParams)
+  public interface OperationRequestParamsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:skylync.OperationRequestParams)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -1138,18 +1138,18 @@ public final class Skylync {
     long getRefId();
   }
   /**
-   * Protobuf type {@code skylync.RequestDeviceParams}
+   * Protobuf type {@code skylync.OperationRequestParams}
    */
-  public  static final class RequestDeviceParams extends
+  public  static final class OperationRequestParams extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:skylync.RequestDeviceParams)
-      RequestDeviceParamsOrBuilder {
+      // @@protoc_insertion_point(message_implements:skylync.OperationRequestParams)
+      OperationRequestParamsOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use RequestDeviceParams.newBuilder() to construct.
-    private RequestDeviceParams(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use OperationRequestParams.newBuilder() to construct.
+    private OperationRequestParams(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private RequestDeviceParams() {
+    private OperationRequestParams() {
       refId_ = 0L;
     }
 
@@ -1158,7 +1158,7 @@ public final class Skylync {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private RequestDeviceParams(
+    private OperationRequestParams(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1203,14 +1203,14 @@ public final class Skylync {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return skylync.Skylync.internal_static_skylync_RequestDeviceParams_descriptor;
+      return skylync.Skylync.internal_static_skylync_OperationRequestParams_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return skylync.Skylync.internal_static_skylync_RequestDeviceParams_fieldAccessorTable
+      return skylync.Skylync.internal_static_skylync_OperationRequestParams_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              skylync.Skylync.RequestDeviceParams.class, skylync.Skylync.RequestDeviceParams.Builder.class);
+              skylync.Skylync.OperationRequestParams.class, skylync.Skylync.OperationRequestParams.Builder.class);
     }
 
     public static final int REFID_FIELD_NUMBER = 1;
@@ -1259,10 +1259,10 @@ public final class Skylync {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof skylync.Skylync.RequestDeviceParams)) {
+      if (!(obj instanceof skylync.Skylync.OperationRequestParams)) {
         return super.equals(obj);
       }
-      skylync.Skylync.RequestDeviceParams other = (skylync.Skylync.RequestDeviceParams) obj;
+      skylync.Skylync.OperationRequestParams other = (skylync.Skylync.OperationRequestParams) obj;
 
       boolean result = true;
       result = result && (getRefId()
@@ -1286,69 +1286,69 @@ public final class Skylync {
       return hash;
     }
 
-    public static skylync.Skylync.RequestDeviceParams parseFrom(
+    public static skylync.Skylync.OperationRequestParams parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static skylync.Skylync.RequestDeviceParams parseFrom(
+    public static skylync.Skylync.OperationRequestParams parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static skylync.Skylync.RequestDeviceParams parseFrom(
+    public static skylync.Skylync.OperationRequestParams parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static skylync.Skylync.RequestDeviceParams parseFrom(
+    public static skylync.Skylync.OperationRequestParams parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static skylync.Skylync.RequestDeviceParams parseFrom(byte[] data)
+    public static skylync.Skylync.OperationRequestParams parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static skylync.Skylync.RequestDeviceParams parseFrom(
+    public static skylync.Skylync.OperationRequestParams parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static skylync.Skylync.RequestDeviceParams parseFrom(java.io.InputStream input)
+    public static skylync.Skylync.OperationRequestParams parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static skylync.Skylync.RequestDeviceParams parseFrom(
+    public static skylync.Skylync.OperationRequestParams parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static skylync.Skylync.RequestDeviceParams parseDelimitedFrom(java.io.InputStream input)
+    public static skylync.Skylync.OperationRequestParams parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static skylync.Skylync.RequestDeviceParams parseDelimitedFrom(
+    public static skylync.Skylync.OperationRequestParams parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static skylync.Skylync.RequestDeviceParams parseFrom(
+    public static skylync.Skylync.OperationRequestParams parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static skylync.Skylync.RequestDeviceParams parseFrom(
+    public static skylync.Skylync.OperationRequestParams parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1360,7 +1360,7 @@ public final class Skylync {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(skylync.Skylync.RequestDeviceParams prototype) {
+    public static Builder newBuilder(skylync.Skylync.OperationRequestParams prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -1375,25 +1375,25 @@ public final class Skylync {
       return builder;
     }
     /**
-     * Protobuf type {@code skylync.RequestDeviceParams}
+     * Protobuf type {@code skylync.OperationRequestParams}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:skylync.RequestDeviceParams)
-        skylync.Skylync.RequestDeviceParamsOrBuilder {
+        // @@protoc_insertion_point(builder_implements:skylync.OperationRequestParams)
+        skylync.Skylync.OperationRequestParamsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return skylync.Skylync.internal_static_skylync_RequestDeviceParams_descriptor;
+        return skylync.Skylync.internal_static_skylync_OperationRequestParams_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return skylync.Skylync.internal_static_skylync_RequestDeviceParams_fieldAccessorTable
+        return skylync.Skylync.internal_static_skylync_OperationRequestParams_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                skylync.Skylync.RequestDeviceParams.class, skylync.Skylync.RequestDeviceParams.Builder.class);
+                skylync.Skylync.OperationRequestParams.class, skylync.Skylync.OperationRequestParams.Builder.class);
       }
 
-      // Construct using skylync.Skylync.RequestDeviceParams.newBuilder()
+      // Construct using skylync.Skylync.OperationRequestParams.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1417,23 +1417,23 @@ public final class Skylync {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return skylync.Skylync.internal_static_skylync_RequestDeviceParams_descriptor;
+        return skylync.Skylync.internal_static_skylync_OperationRequestParams_descriptor;
       }
 
-      public skylync.Skylync.RequestDeviceParams getDefaultInstanceForType() {
-        return skylync.Skylync.RequestDeviceParams.getDefaultInstance();
+      public skylync.Skylync.OperationRequestParams getDefaultInstanceForType() {
+        return skylync.Skylync.OperationRequestParams.getDefaultInstance();
       }
 
-      public skylync.Skylync.RequestDeviceParams build() {
-        skylync.Skylync.RequestDeviceParams result = buildPartial();
+      public skylync.Skylync.OperationRequestParams build() {
+        skylync.Skylync.OperationRequestParams result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public skylync.Skylync.RequestDeviceParams buildPartial() {
-        skylync.Skylync.RequestDeviceParams result = new skylync.Skylync.RequestDeviceParams(this);
+      public skylync.Skylync.OperationRequestParams buildPartial() {
+        skylync.Skylync.OperationRequestParams result = new skylync.Skylync.OperationRequestParams(this);
         result.refId_ = refId_;
         onBuilt();
         return result;
@@ -1466,16 +1466,16 @@ public final class Skylync {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof skylync.Skylync.RequestDeviceParams) {
-          return mergeFrom((skylync.Skylync.RequestDeviceParams)other);
+        if (other instanceof skylync.Skylync.OperationRequestParams) {
+          return mergeFrom((skylync.Skylync.OperationRequestParams)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(skylync.Skylync.RequestDeviceParams other) {
-        if (other == skylync.Skylync.RequestDeviceParams.getDefaultInstance()) return this;
+      public Builder mergeFrom(skylync.Skylync.OperationRequestParams other) {
+        if (other == skylync.Skylync.OperationRequestParams.getDefaultInstance()) return this;
         if (other.getRefId() != 0L) {
           setRefId(other.getRefId());
         }
@@ -1492,11 +1492,11 @@ public final class Skylync {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        skylync.Skylync.RequestDeviceParams parsedMessage = null;
+        skylync.Skylync.OperationRequestParams parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (skylync.Skylync.RequestDeviceParams) e.getUnfinishedMessage();
+          parsedMessage = (skylync.Skylync.OperationRequestParams) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1542,39 +1542,39 @@ public final class Skylync {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:skylync.RequestDeviceParams)
+      // @@protoc_insertion_point(builder_scope:skylync.OperationRequestParams)
     }
 
-    // @@protoc_insertion_point(class_scope:skylync.RequestDeviceParams)
-    private static final skylync.Skylync.RequestDeviceParams DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:skylync.OperationRequestParams)
+    private static final skylync.Skylync.OperationRequestParams DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new skylync.Skylync.RequestDeviceParams();
+      DEFAULT_INSTANCE = new skylync.Skylync.OperationRequestParams();
     }
 
-    public static skylync.Skylync.RequestDeviceParams getDefaultInstance() {
+    public static skylync.Skylync.OperationRequestParams getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<RequestDeviceParams>
-        PARSER = new com.google.protobuf.AbstractParser<RequestDeviceParams>() {
-      public RequestDeviceParams parsePartialFrom(
+    private static final com.google.protobuf.Parser<OperationRequestParams>
+        PARSER = new com.google.protobuf.AbstractParser<OperationRequestParams>() {
+      public OperationRequestParams parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RequestDeviceParams(input, extensionRegistry);
+        return new OperationRequestParams(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<RequestDeviceParams> parser() {
+    public static com.google.protobuf.Parser<OperationRequestParams> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<RequestDeviceParams> getParserForType() {
+    public com.google.protobuf.Parser<OperationRequestParams> getParserForType() {
       return PARSER;
     }
 
-    public skylync.Skylync.RequestDeviceParams getDefaultInstanceForType() {
+    public skylync.Skylync.OperationRequestParams getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3095,45 +3095,45 @@ public final class Skylync {
        */
       CONTEXT_UPDATE(5),
       /**
-       * <code>POKE = 6;</code>
+       * <code>DEVICE_LIST = 6;</code>
        */
-      POKE(6),
+      DEVICE_LIST(6),
       /**
-       * <code>LIST_DEVICE = 7;</code>
+       * <code>DEVICE_STATUS = 7;</code>
        */
-      LIST_DEVICE(7),
+      DEVICE_STATUS(7),
       /**
-       * <code>STATUS_DEVICE = 8;</code>
+       * <code>DEVICE_UPDATE_STATUS = 8;</code>
        */
-      STATUS_DEVICE(8),
+      DEVICE_UPDATE_STATUS(8),
       /**
-       * <code>REQUEST_DEVICE = 9;</code>
+       * <code>OPERATION_REQUEST = 9;</code>
        */
-      REQUEST_DEVICE(9),
+      OPERATION_REQUEST(9),
       /**
-       * <code>REQUEST_HO = 10;</code>
+       * <code>OPERATION_TEARDOWN = 10;</code>
        */
-      REQUEST_HO(10),
+      OPERATION_TEARDOWN(10),
       /**
-       * <code>MISSION_APPROVAL = 11;</code>
+       * <code>OPERATION_STARTED = 11;</code>
        */
-      MISSION_APPROVAL(11),
+      OPERATION_STARTED(11),
       /**
-       * <code>TEARDOWN_MISSION = 12;</code>
+       * <code>TUNNEL_REQUEST = 12;</code>
        */
-      TEARDOWN_MISSION(12),
+      TUNNEL_REQUEST(12),
       /**
-       * <code>STATUS_UPDATE = 13;</code>
+       * <code>CHANNEL_OPEN = 13;</code>
        */
-      STATUS_UPDATE(13),
+      CHANNEL_OPEN(13),
       /**
-       * <code>OPERATION_REQUEST = 14;</code>
+       * <code>CHANNEL_VALIDATE = 14;</code>
        */
-      OPERATION_REQUEST(14),
+      CHANNEL_VALIDATE(14),
       /**
-       * <code>OPERATION_TEARDOWN = 15;</code>
+       * <code>HO_REQUEST = 15;</code>
        */
-      OPERATION_TEARDOWN(15),
+      HO_REQUEST(15),
       UNRECOGNIZED(-1),
       ;
 
@@ -3162,45 +3162,45 @@ public final class Skylync {
        */
       public static final int CONTEXT_UPDATE_VALUE = 5;
       /**
-       * <code>POKE = 6;</code>
+       * <code>DEVICE_LIST = 6;</code>
        */
-      public static final int POKE_VALUE = 6;
+      public static final int DEVICE_LIST_VALUE = 6;
       /**
-       * <code>LIST_DEVICE = 7;</code>
+       * <code>DEVICE_STATUS = 7;</code>
        */
-      public static final int LIST_DEVICE_VALUE = 7;
+      public static final int DEVICE_STATUS_VALUE = 7;
       /**
-       * <code>STATUS_DEVICE = 8;</code>
+       * <code>DEVICE_UPDATE_STATUS = 8;</code>
        */
-      public static final int STATUS_DEVICE_VALUE = 8;
+      public static final int DEVICE_UPDATE_STATUS_VALUE = 8;
       /**
-       * <code>REQUEST_DEVICE = 9;</code>
+       * <code>OPERATION_REQUEST = 9;</code>
        */
-      public static final int REQUEST_DEVICE_VALUE = 9;
+      public static final int OPERATION_REQUEST_VALUE = 9;
       /**
-       * <code>REQUEST_HO = 10;</code>
+       * <code>OPERATION_TEARDOWN = 10;</code>
        */
-      public static final int REQUEST_HO_VALUE = 10;
+      public static final int OPERATION_TEARDOWN_VALUE = 10;
       /**
-       * <code>MISSION_APPROVAL = 11;</code>
+       * <code>OPERATION_STARTED = 11;</code>
        */
-      public static final int MISSION_APPROVAL_VALUE = 11;
+      public static final int OPERATION_STARTED_VALUE = 11;
       /**
-       * <code>TEARDOWN_MISSION = 12;</code>
+       * <code>TUNNEL_REQUEST = 12;</code>
        */
-      public static final int TEARDOWN_MISSION_VALUE = 12;
+      public static final int TUNNEL_REQUEST_VALUE = 12;
       /**
-       * <code>STATUS_UPDATE = 13;</code>
+       * <code>CHANNEL_OPEN = 13;</code>
        */
-      public static final int STATUS_UPDATE_VALUE = 13;
+      public static final int CHANNEL_OPEN_VALUE = 13;
       /**
-       * <code>OPERATION_REQUEST = 14;</code>
+       * <code>CHANNEL_VALIDATE = 14;</code>
        */
-      public static final int OPERATION_REQUEST_VALUE = 14;
+      public static final int CHANNEL_VALIDATE_VALUE = 14;
       /**
-       * <code>OPERATION_TEARDOWN = 15;</code>
+       * <code>HO_REQUEST = 15;</code>
        */
-      public static final int OPERATION_TEARDOWN_VALUE = 15;
+      public static final int HO_REQUEST_VALUE = 15;
 
 
       public final int getNumber() {
@@ -3227,16 +3227,16 @@ public final class Skylync {
           case 3: return ATTACH;
           case 4: return RELEASE;
           case 5: return CONTEXT_UPDATE;
-          case 6: return POKE;
-          case 7: return LIST_DEVICE;
-          case 8: return STATUS_DEVICE;
-          case 9: return REQUEST_DEVICE;
-          case 10: return REQUEST_HO;
-          case 11: return MISSION_APPROVAL;
-          case 12: return TEARDOWN_MISSION;
-          case 13: return STATUS_UPDATE;
-          case 14: return OPERATION_REQUEST;
-          case 15: return OPERATION_TEARDOWN;
+          case 6: return DEVICE_LIST;
+          case 7: return DEVICE_STATUS;
+          case 8: return DEVICE_UPDATE_STATUS;
+          case 9: return OPERATION_REQUEST;
+          case 10: return OPERATION_TEARDOWN;
+          case 11: return OPERATION_STARTED;
+          case 12: return TUNNEL_REQUEST;
+          case 13: return CHANNEL_OPEN;
+          case 14: return CHANNEL_VALIDATE;
+          case 15: return HO_REQUEST;
           default: return null;
         }
       }
@@ -4192,17 +4192,17 @@ public final class Skylync {
     skylync.Skylync.ContextOrBuilder getContextOrBuilder();
 
     /**
-     * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+     * <code>.skylync.OperationRequestParams operationRequestParams = 4;</code>
      */
-    boolean hasRequestDeviceParams();
+    boolean hasOperationRequestParams();
     /**
-     * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+     * <code>.skylync.OperationRequestParams operationRequestParams = 4;</code>
      */
-    skylync.Skylync.RequestDeviceParams getRequestDeviceParams();
+    skylync.Skylync.OperationRequestParams getOperationRequestParams();
     /**
-     * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+     * <code>.skylync.OperationRequestParams operationRequestParams = 4;</code>
      */
-    skylync.Skylync.RequestDeviceParamsOrBuilder getRequestDeviceParamsOrBuilder();
+    skylync.Skylync.OperationRequestParamsOrBuilder getOperationRequestParamsOrBuilder();
   }
   /**
    * Protobuf type {@code skylync.EndpointMessage}
@@ -4290,14 +4290,14 @@ public final class Skylync {
               break;
             }
             case 34: {
-              skylync.Skylync.RequestDeviceParams.Builder subBuilder = null;
-              if (requestDeviceParams_ != null) {
-                subBuilder = requestDeviceParams_.toBuilder();
+              skylync.Skylync.OperationRequestParams.Builder subBuilder = null;
+              if (operationRequestParams_ != null) {
+                subBuilder = operationRequestParams_.toBuilder();
               }
-              requestDeviceParams_ = input.readMessage(skylync.Skylync.RequestDeviceParams.parser(), extensionRegistry);
+              operationRequestParams_ = input.readMessage(skylync.Skylync.OperationRequestParams.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(requestDeviceParams_);
-                requestDeviceParams_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(operationRequestParams_);
+                operationRequestParams_ = subBuilder.buildPartial();
               }
 
               break;
@@ -4389,25 +4389,25 @@ public final class Skylync {
       return getContext();
     }
 
-    public static final int REQUESTDEVICEPARAMS_FIELD_NUMBER = 4;
-    private skylync.Skylync.RequestDeviceParams requestDeviceParams_;
+    public static final int OPERATIONREQUESTPARAMS_FIELD_NUMBER = 4;
+    private skylync.Skylync.OperationRequestParams operationRequestParams_;
     /**
-     * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+     * <code>.skylync.OperationRequestParams operationRequestParams = 4;</code>
      */
-    public boolean hasRequestDeviceParams() {
-      return requestDeviceParams_ != null;
+    public boolean hasOperationRequestParams() {
+      return operationRequestParams_ != null;
     }
     /**
-     * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+     * <code>.skylync.OperationRequestParams operationRequestParams = 4;</code>
      */
-    public skylync.Skylync.RequestDeviceParams getRequestDeviceParams() {
-      return requestDeviceParams_ == null ? skylync.Skylync.RequestDeviceParams.getDefaultInstance() : requestDeviceParams_;
+    public skylync.Skylync.OperationRequestParams getOperationRequestParams() {
+      return operationRequestParams_ == null ? skylync.Skylync.OperationRequestParams.getDefaultInstance() : operationRequestParams_;
     }
     /**
-     * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+     * <code>.skylync.OperationRequestParams operationRequestParams = 4;</code>
      */
-    public skylync.Skylync.RequestDeviceParamsOrBuilder getRequestDeviceParamsOrBuilder() {
-      return getRequestDeviceParams();
+    public skylync.Skylync.OperationRequestParamsOrBuilder getOperationRequestParamsOrBuilder() {
+      return getOperationRequestParams();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4431,8 +4431,8 @@ public final class Skylync {
       if (context_ != null) {
         output.writeMessage(3, getContext());
       }
-      if (requestDeviceParams_ != null) {
-        output.writeMessage(4, getRequestDeviceParams());
+      if (operationRequestParams_ != null) {
+        output.writeMessage(4, getOperationRequestParams());
       }
       unknownFields.writeTo(output);
     }
@@ -4454,9 +4454,9 @@ public final class Skylync {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getContext());
       }
-      if (requestDeviceParams_ != null) {
+      if (operationRequestParams_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getRequestDeviceParams());
+          .computeMessageSize(4, getOperationRequestParams());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4489,10 +4489,10 @@ public final class Skylync {
         result = result && getContext()
             .equals(other.getContext());
       }
-      result = result && (hasRequestDeviceParams() == other.hasRequestDeviceParams());
-      if (hasRequestDeviceParams()) {
-        result = result && getRequestDeviceParams()
-            .equals(other.getRequestDeviceParams());
+      result = result && (hasOperationRequestParams() == other.hasOperationRequestParams());
+      if (hasOperationRequestParams()) {
+        result = result && getOperationRequestParams()
+            .equals(other.getOperationRequestParams());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -4517,9 +4517,9 @@ public final class Skylync {
         hash = (37 * hash) + CONTEXT_FIELD_NUMBER;
         hash = (53 * hash) + getContext().hashCode();
       }
-      if (hasRequestDeviceParams()) {
-        hash = (37 * hash) + REQUESTDEVICEPARAMS_FIELD_NUMBER;
-        hash = (53 * hash) + getRequestDeviceParams().hashCode();
+      if (hasOperationRequestParams()) {
+        hash = (37 * hash) + OPERATIONREQUESTPARAMS_FIELD_NUMBER;
+        hash = (53 * hash) + getOperationRequestParams().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -4668,11 +4668,11 @@ public final class Skylync {
           context_ = null;
           contextBuilder_ = null;
         }
-        if (requestDeviceParamsBuilder_ == null) {
-          requestDeviceParams_ = null;
+        if (operationRequestParamsBuilder_ == null) {
+          operationRequestParams_ = null;
         } else {
-          requestDeviceParams_ = null;
-          requestDeviceParamsBuilder_ = null;
+          operationRequestParams_ = null;
+          operationRequestParamsBuilder_ = null;
         }
         return this;
       }
@@ -4711,10 +4711,10 @@ public final class Skylync {
         } else {
           result.context_ = contextBuilder_.build();
         }
-        if (requestDeviceParamsBuilder_ == null) {
-          result.requestDeviceParams_ = requestDeviceParams_;
+        if (operationRequestParamsBuilder_ == null) {
+          result.operationRequestParams_ = operationRequestParams_;
         } else {
-          result.requestDeviceParams_ = requestDeviceParamsBuilder_.build();
+          result.operationRequestParams_ = operationRequestParamsBuilder_.build();
         }
         onBuilt();
         return result;
@@ -4766,8 +4766,8 @@ public final class Skylync {
         if (other.hasContext()) {
           mergeContext(other.getContext());
         }
-        if (other.hasRequestDeviceParams()) {
-          mergeRequestDeviceParams(other.getRequestDeviceParams());
+        if (other.hasOperationRequestParams()) {
+          mergeOperationRequestParams(other.getOperationRequestParams());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5147,121 +5147,121 @@ public final class Skylync {
         return contextBuilder_;
       }
 
-      private skylync.Skylync.RequestDeviceParams requestDeviceParams_ = null;
+      private skylync.Skylync.OperationRequestParams operationRequestParams_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          skylync.Skylync.RequestDeviceParams, skylync.Skylync.RequestDeviceParams.Builder, skylync.Skylync.RequestDeviceParamsOrBuilder> requestDeviceParamsBuilder_;
+          skylync.Skylync.OperationRequestParams, skylync.Skylync.OperationRequestParams.Builder, skylync.Skylync.OperationRequestParamsOrBuilder> operationRequestParamsBuilder_;
       /**
-       * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+       * <code>.skylync.OperationRequestParams operationRequestParams = 4;</code>
        */
-      public boolean hasRequestDeviceParams() {
-        return requestDeviceParamsBuilder_ != null || requestDeviceParams_ != null;
+      public boolean hasOperationRequestParams() {
+        return operationRequestParamsBuilder_ != null || operationRequestParams_ != null;
       }
       /**
-       * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+       * <code>.skylync.OperationRequestParams operationRequestParams = 4;</code>
        */
-      public skylync.Skylync.RequestDeviceParams getRequestDeviceParams() {
-        if (requestDeviceParamsBuilder_ == null) {
-          return requestDeviceParams_ == null ? skylync.Skylync.RequestDeviceParams.getDefaultInstance() : requestDeviceParams_;
+      public skylync.Skylync.OperationRequestParams getOperationRequestParams() {
+        if (operationRequestParamsBuilder_ == null) {
+          return operationRequestParams_ == null ? skylync.Skylync.OperationRequestParams.getDefaultInstance() : operationRequestParams_;
         } else {
-          return requestDeviceParamsBuilder_.getMessage();
+          return operationRequestParamsBuilder_.getMessage();
         }
       }
       /**
-       * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+       * <code>.skylync.OperationRequestParams operationRequestParams = 4;</code>
        */
-      public Builder setRequestDeviceParams(skylync.Skylync.RequestDeviceParams value) {
-        if (requestDeviceParamsBuilder_ == null) {
+      public Builder setOperationRequestParams(skylync.Skylync.OperationRequestParams value) {
+        if (operationRequestParamsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          requestDeviceParams_ = value;
+          operationRequestParams_ = value;
           onChanged();
         } else {
-          requestDeviceParamsBuilder_.setMessage(value);
+          operationRequestParamsBuilder_.setMessage(value);
         }
 
         return this;
       }
       /**
-       * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+       * <code>.skylync.OperationRequestParams operationRequestParams = 4;</code>
        */
-      public Builder setRequestDeviceParams(
-          skylync.Skylync.RequestDeviceParams.Builder builderForValue) {
-        if (requestDeviceParamsBuilder_ == null) {
-          requestDeviceParams_ = builderForValue.build();
+      public Builder setOperationRequestParams(
+          skylync.Skylync.OperationRequestParams.Builder builderForValue) {
+        if (operationRequestParamsBuilder_ == null) {
+          operationRequestParams_ = builderForValue.build();
           onChanged();
         } else {
-          requestDeviceParamsBuilder_.setMessage(builderForValue.build());
+          operationRequestParamsBuilder_.setMessage(builderForValue.build());
         }
 
         return this;
       }
       /**
-       * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+       * <code>.skylync.OperationRequestParams operationRequestParams = 4;</code>
        */
-      public Builder mergeRequestDeviceParams(skylync.Skylync.RequestDeviceParams value) {
-        if (requestDeviceParamsBuilder_ == null) {
-          if (requestDeviceParams_ != null) {
-            requestDeviceParams_ =
-              skylync.Skylync.RequestDeviceParams.newBuilder(requestDeviceParams_).mergeFrom(value).buildPartial();
+      public Builder mergeOperationRequestParams(skylync.Skylync.OperationRequestParams value) {
+        if (operationRequestParamsBuilder_ == null) {
+          if (operationRequestParams_ != null) {
+            operationRequestParams_ =
+              skylync.Skylync.OperationRequestParams.newBuilder(operationRequestParams_).mergeFrom(value).buildPartial();
           } else {
-            requestDeviceParams_ = value;
+            operationRequestParams_ = value;
           }
           onChanged();
         } else {
-          requestDeviceParamsBuilder_.mergeFrom(value);
+          operationRequestParamsBuilder_.mergeFrom(value);
         }
 
         return this;
       }
       /**
-       * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+       * <code>.skylync.OperationRequestParams operationRequestParams = 4;</code>
        */
-      public Builder clearRequestDeviceParams() {
-        if (requestDeviceParamsBuilder_ == null) {
-          requestDeviceParams_ = null;
+      public Builder clearOperationRequestParams() {
+        if (operationRequestParamsBuilder_ == null) {
+          operationRequestParams_ = null;
           onChanged();
         } else {
-          requestDeviceParams_ = null;
-          requestDeviceParamsBuilder_ = null;
+          operationRequestParams_ = null;
+          operationRequestParamsBuilder_ = null;
         }
 
         return this;
       }
       /**
-       * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+       * <code>.skylync.OperationRequestParams operationRequestParams = 4;</code>
        */
-      public skylync.Skylync.RequestDeviceParams.Builder getRequestDeviceParamsBuilder() {
+      public skylync.Skylync.OperationRequestParams.Builder getOperationRequestParamsBuilder() {
         
         onChanged();
-        return getRequestDeviceParamsFieldBuilder().getBuilder();
+        return getOperationRequestParamsFieldBuilder().getBuilder();
       }
       /**
-       * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+       * <code>.skylync.OperationRequestParams operationRequestParams = 4;</code>
        */
-      public skylync.Skylync.RequestDeviceParamsOrBuilder getRequestDeviceParamsOrBuilder() {
-        if (requestDeviceParamsBuilder_ != null) {
-          return requestDeviceParamsBuilder_.getMessageOrBuilder();
+      public skylync.Skylync.OperationRequestParamsOrBuilder getOperationRequestParamsOrBuilder() {
+        if (operationRequestParamsBuilder_ != null) {
+          return operationRequestParamsBuilder_.getMessageOrBuilder();
         } else {
-          return requestDeviceParams_ == null ?
-              skylync.Skylync.RequestDeviceParams.getDefaultInstance() : requestDeviceParams_;
+          return operationRequestParams_ == null ?
+              skylync.Skylync.OperationRequestParams.getDefaultInstance() : operationRequestParams_;
         }
       }
       /**
-       * <code>.skylync.RequestDeviceParams requestDeviceParams = 4;</code>
+       * <code>.skylync.OperationRequestParams operationRequestParams = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          skylync.Skylync.RequestDeviceParams, skylync.Skylync.RequestDeviceParams.Builder, skylync.Skylync.RequestDeviceParamsOrBuilder> 
-          getRequestDeviceParamsFieldBuilder() {
-        if (requestDeviceParamsBuilder_ == null) {
-          requestDeviceParamsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              skylync.Skylync.RequestDeviceParams, skylync.Skylync.RequestDeviceParams.Builder, skylync.Skylync.RequestDeviceParamsOrBuilder>(
-                  getRequestDeviceParams(),
+          skylync.Skylync.OperationRequestParams, skylync.Skylync.OperationRequestParams.Builder, skylync.Skylync.OperationRequestParamsOrBuilder> 
+          getOperationRequestParamsFieldBuilder() {
+        if (operationRequestParamsBuilder_ == null) {
+          operationRequestParamsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              skylync.Skylync.OperationRequestParams, skylync.Skylync.OperationRequestParams.Builder, skylync.Skylync.OperationRequestParamsOrBuilder>(
+                  getOperationRequestParams(),
                   getParentForChildren(),
                   isClean());
-          requestDeviceParams_ = null;
+          operationRequestParams_ = null;
         }
-        return requestDeviceParamsBuilder_;
+        return operationRequestParamsBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -6293,10 +6293,10 @@ public final class Skylync {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_skylync_AttachParams_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_skylync_RequestDeviceParams_descriptor;
+    internal_static_skylync_OperationRequestParams_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_skylync_RequestDeviceParams_fieldAccessorTable;
+      internal_static_skylync_OperationRequestParams_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_skylync_DeviceId_descriptor;
   private static final 
@@ -6333,35 +6333,36 @@ public final class Skylync {
     java.lang.String[] descriptorData = {
       "\n\rskylync.proto\022\007skylync\"\030\n\007Context\022\r\n\005r" +
       "efId\030\001 \001(\004\"\'\n\014AttachParams\022\n\n\002id\030\001 \001(\t\022\013" +
-      "\n\003pwd\030\002 \001(\t\"$\n\023RequestDeviceParams\022\r\n\005re" +
-      "fId\030\001 \001(\004\"%\n\010DeviceId\022\013\n\003ref\030\001 \001(\004\022\014\n\004na" +
-      "me\030\002 \001(\t\"0\n\nDeviceList\022\"\n\007devices\030\001 \003(\0132" +
-      "\021.skylync.DeviceId\"\241\005\n\007Message\022)\n\007comman" +
-      "d\030\001 \001(\0162\030.skylync.Message.Command\022-\n\013res" +
-      "ponseFor\030\002 \001(\0162\030.skylync.Message.Command" +
-      "\022%\n\005cause\030\003 \001(\0162\026.skylync.Message.Cause\022" +
-      "\014\n\004note\030\004 \001(\t\"\243\002\n\007Command\022\023\n\017UNKNOWN_COM" +
-      "MAND\020\000\022\n\n\006ACCEPT\020\001\022\n\n\006REJECT\020\002\022\n\n\006ATTACH" +
-      "\020\003\022\013\n\007RELEASE\020\004\022\022\n\016CONTEXT_UPDATE\020\005\022\010\n\004P" +
-      "OKE\020\006\022\017\n\013LIST_DEVICE\020\007\022\021\n\rSTATUS_DEVICE\020" +
-      "\010\022\022\n\016REQUEST_DEVICE\020\t\022\016\n\nREQUEST_HO\020\n\022\024\n" +
-      "\020MISSION_APPROVAL\020\013\022\024\n\020TEARDOWN_MISSION\020" +
-      "\014\022\021\n\rSTATUS_UPDATE\020\r\022\025\n\021OPERATION_REQUES" +
-      "T\020\016\022\026\n\022OPERATION_TEARDOWN\020\017\"\340\001\n\005Cause\022\021\n" +
-      "\rUNKNOWN_CAUSE\020\000\022\014\n\010BAD_DATA\020\001\022\022\n\016INTERN" +
-      "AL_ERROR\020\002\022\r\n\tNOT_FOUND\020\003\022\020\n\014UNAUTHORIZE" +
-      "D\020\004\022\010\n\004BUSY\020\005\022\016\n\nBAD_DEVICE\020\006\022\017\n\013NOT_CAP" +
-      "ABLE\020\007\022\t\n\005NOTED\020\010\022\013\n\007BLOCKED\020\t\022\023\n\017ALLREA" +
-      "DY_IN_USE\020\n\022\016\n\nOVERLOADED\020\013\022\031\n\025AUTHENTIC" +
-      "ATION_FAILED\020\014\"\274\001\n\017EndpointMessage\022\036\n\004ba" +
-      "se\030\001 \001(\0132\020.skylync.Message\022+\n\014attachPara" +
-      "ms\030\002 \001(\0132\025.skylync.AttachParams\022!\n\007conte" +
-      "xt\030\003 \001(\0132\020.skylync.Context\0229\n\023requestDev" +
-      "iceParams\030\004 \001(\0132\034.skylync.RequestDeviceP" +
-      "arams\"{\n\rBridgeMessage\022\036\n\004base\030\001 \001(\0132\020.s" +
-      "kylync.Message\022!\n\007context\030\002 \001(\0132\020.skylyn" +
-      "c.Context\022\'\n\ndeviceList\030\003 \001(\0132\023.skylync." +
-      "DeviceListb\006proto3"
+      "\n\003pwd\030\002 \001(\t\"\'\n\026OperationRequestParams\022\r\n" +
+      "\005refId\030\001 \001(\004\"%\n\010DeviceId\022\013\n\003ref\030\001 \001(\004\022\014\n" +
+      "\004name\030\002 \001(\t\"0\n\nDeviceList\022\"\n\007devices\030\001 \003" +
+      "(\0132\021.skylync.DeviceId\"\261\005\n\007Message\022)\n\007com" +
+      "mand\030\001 \001(\0162\030.skylync.Message.Command\022-\n\013" +
+      "responseFor\030\002 \001(\0162\030.skylync.Message.Comm" +
+      "and\022%\n\005cause\030\003 \001(\0162\026.skylync.Message.Cau" +
+      "se\022\014\n\004note\030\004 \001(\t\"\263\002\n\007Command\022\023\n\017UNKNOWN_" +
+      "COMMAND\020\000\022\n\n\006ACCEPT\020\001\022\n\n\006REJECT\020\002\022\n\n\006ATT" +
+      "ACH\020\003\022\013\n\007RELEASE\020\004\022\022\n\016CONTEXT_UPDATE\020\005\022\017" +
+      "\n\013DEVICE_LIST\020\006\022\021\n\rDEVICE_STATUS\020\007\022\030\n\024DE" +
+      "VICE_UPDATE_STATUS\020\010\022\025\n\021OPERATION_REQUES" +
+      "T\020\t\022\026\n\022OPERATION_TEARDOWN\020\n\022\025\n\021OPERATION" +
+      "_STARTED\020\013\022\022\n\016TUNNEL_REQUEST\020\014\022\020\n\014CHANNE" +
+      "L_OPEN\020\r\022\024\n\020CHANNEL_VALIDATE\020\016\022\016\n\nHO_REQ" +
+      "UEST\020\017\"\340\001\n\005Cause\022\021\n\rUNKNOWN_CAUSE\020\000\022\014\n\010B" +
+      "AD_DATA\020\001\022\022\n\016INTERNAL_ERROR\020\002\022\r\n\tNOT_FOU" +
+      "ND\020\003\022\020\n\014UNAUTHORIZED\020\004\022\010\n\004BUSY\020\005\022\016\n\nBAD_" +
+      "DEVICE\020\006\022\017\n\013NOT_CAPABLE\020\007\022\t\n\005NOTED\020\010\022\013\n\007" +
+      "BLOCKED\020\t\022\023\n\017ALLREADY_IN_USE\020\n\022\016\n\nOVERLO" +
+      "ADED\020\013\022\031\n\025AUTHENTICATION_FAILED\020\014\"\302\001\n\017En" +
+      "dpointMessage\022\036\n\004base\030\001 \001(\0132\020.skylync.Me" +
+      "ssage\022+\n\014attachParams\030\002 \001(\0132\025.skylync.At" +
+      "tachParams\022!\n\007context\030\003 \001(\0132\020.skylync.Co" +
+      "ntext\022?\n\026operationRequestParams\030\004 \001(\0132\037." +
+      "skylync.OperationRequestParams\"{\n\rBridge" +
+      "Message\022\036\n\004base\030\001 \001(\0132\020.skylync.Message\022" +
+      "!\n\007context\030\002 \001(\0132\020.skylync.Context\022\'\n\nde" +
+      "viceList\030\003 \001(\0132\023.skylync.DeviceListb\006pro" +
+      "to3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -6387,11 +6388,11 @@ public final class Skylync {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_skylync_AttachParams_descriptor,
         new java.lang.String[] { "Id", "Pwd", });
-    internal_static_skylync_RequestDeviceParams_descriptor =
+    internal_static_skylync_OperationRequestParams_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_skylync_RequestDeviceParams_fieldAccessorTable = new
+    internal_static_skylync_OperationRequestParams_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_skylync_RequestDeviceParams_descriptor,
+        internal_static_skylync_OperationRequestParams_descriptor,
         new java.lang.String[] { "RefId", });
     internal_static_skylync_DeviceId_descriptor =
       getDescriptor().getMessageTypes().get(3);
@@ -6416,7 +6417,7 @@ public final class Skylync {
     internal_static_skylync_EndpointMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_skylync_EndpointMessage_descriptor,
-        new java.lang.String[] { "Base", "AttachParams", "Context", "RequestDeviceParams", });
+        new java.lang.String[] { "Base", "AttachParams", "Context", "OperationRequestParams", });
     internal_static_skylync_BridgeMessage_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_skylync_BridgeMessage_fieldAccessorTable = new

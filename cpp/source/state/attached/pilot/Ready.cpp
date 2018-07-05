@@ -2,10 +2,10 @@
 
 #include "state/attached/Release.hpp"
 
-#include "state/attached/pilot/ListDevices.hpp"
-#include "state/attached/pilot/RequestDevice.hpp"
+#include "state/attached/pilot/DeviceList.hpp"
+#include "state/attached/pilot/OperationEstablishment.hpp"
 
-#include "event/endpoint/RequestDevice.hpp"
+#include "event/endpoint/EstablishOperation.hpp"
 
 using namespace sl::event;
 using namespace sl::state;
@@ -35,11 +35,11 @@ IAttachedState* Ready::handleEvent(const endpoint::Event& event)
         return new Release(listener);
 
     case endpoint::Event::LIST_DEVICES:
-        return new ListDevices(listener);
+        return new DeviceList(listener);
 
     case endpoint::Event::REQUEST_DEVICE:
-        return new pilot::RequestDevice(listener,
-                                        reinterpret_cast<const endpoint::RequestDevice&>(event).getRefId());
+        return new pilot::OperationEstablishment(listener,
+                                        reinterpret_cast<const endpoint::EstablishOperation&>(event).getRefId());
 
     default:
         exceptUnexpected(event);
@@ -49,5 +49,5 @@ IAttachedState* Ready::handleEvent(const endpoint::Event& event)
 
 std::string Ready::toString() const noexcept
 {
-    return "Attached::Pilot::READY";
+    return "Attached::Pilot::Ready";
 }

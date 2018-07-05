@@ -47,8 +47,8 @@ void InitDefaultsContextImpl();
 void InitDefaultsContext();
 void InitDefaultsAttachParamsImpl();
 void InitDefaultsAttachParams();
-void InitDefaultsRequestDeviceParamsImpl();
-void InitDefaultsRequestDeviceParams();
+void InitDefaultsOperationRequestParamsImpl();
+void InitDefaultsOperationRequestParams();
 void InitDefaultsDeviceIdImpl();
 void InitDefaultsDeviceId();
 void InitDefaultsDeviceListImpl();
@@ -62,7 +62,7 @@ void InitDefaultsBridgeMessage();
 inline void InitDefaults() {
   InitDefaultsContext();
   InitDefaultsAttachParams();
-  InitDefaultsRequestDeviceParams();
+  InitDefaultsOperationRequestParams();
   InitDefaultsDeviceId();
   InitDefaultsDeviceList();
   InitDefaultsMessage();
@@ -92,9 +92,9 @@ extern EndpointMessageDefaultTypeInternal _EndpointMessage_default_instance_;
 class Message;
 class MessageDefaultTypeInternal;
 extern MessageDefaultTypeInternal _Message_default_instance_;
-class RequestDeviceParams;
-class RequestDeviceParamsDefaultTypeInternal;
-extern RequestDeviceParamsDefaultTypeInternal _RequestDeviceParams_default_instance_;
+class OperationRequestParams;
+class OperationRequestParamsDefaultTypeInternal;
+extern OperationRequestParamsDefaultTypeInternal _OperationRequestParams_default_instance_;
 }  // namespace skylync
 namespace skylync {
 
@@ -105,22 +105,22 @@ enum Message_Command {
   Message_Command_ATTACH = 3,
   Message_Command_RELEASE = 4,
   Message_Command_CONTEXT_UPDATE = 5,
-  Message_Command_POKE = 6,
-  Message_Command_LIST_DEVICE = 7,
-  Message_Command_STATUS_DEVICE = 8,
-  Message_Command_REQUEST_DEVICE = 9,
-  Message_Command_REQUEST_HO = 10,
-  Message_Command_MISSION_APPROVAL = 11,
-  Message_Command_TEARDOWN_MISSION = 12,
-  Message_Command_STATUS_UPDATE = 13,
-  Message_Command_OPERATION_REQUEST = 14,
-  Message_Command_OPERATION_TEARDOWN = 15,
+  Message_Command_DEVICE_LIST = 6,
+  Message_Command_DEVICE_STATUS = 7,
+  Message_Command_DEVICE_UPDATE_STATUS = 8,
+  Message_Command_OPERATION_REQUEST = 9,
+  Message_Command_OPERATION_TEARDOWN = 10,
+  Message_Command_OPERATION_STARTED = 11,
+  Message_Command_TUNNEL_REQUEST = 12,
+  Message_Command_CHANNEL_OPEN = 13,
+  Message_Command_CHANNEL_VALIDATE = 14,
+  Message_Command_HO_REQUEST = 15,
   Message_Command_Message_Command_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   Message_Command_Message_Command_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool Message_Command_IsValid(int value);
 const Message_Command Message_Command_Command_MIN = Message_Command_UNKNOWN_COMMAND;
-const Message_Command Message_Command_Command_MAX = Message_Command_OPERATION_TEARDOWN;
+const Message_Command Message_Command_Command_MAX = Message_Command_HO_REQUEST;
 const int Message_Command_Command_ARRAYSIZE = Message_Command_Command_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* Message_Command_descriptor();
@@ -388,24 +388,24 @@ class AttachParams : public ::google::protobuf::Message /* @@protoc_insertion_po
 };
 // -------------------------------------------------------------------
 
-class RequestDeviceParams : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:skylync.RequestDeviceParams) */ {
+class OperationRequestParams : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:skylync.OperationRequestParams) */ {
  public:
-  RequestDeviceParams();
-  virtual ~RequestDeviceParams();
+  OperationRequestParams();
+  virtual ~OperationRequestParams();
 
-  RequestDeviceParams(const RequestDeviceParams& from);
+  OperationRequestParams(const OperationRequestParams& from);
 
-  inline RequestDeviceParams& operator=(const RequestDeviceParams& from) {
+  inline OperationRequestParams& operator=(const OperationRequestParams& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  RequestDeviceParams(RequestDeviceParams&& from) noexcept
-    : RequestDeviceParams() {
+  OperationRequestParams(OperationRequestParams&& from) noexcept
+    : OperationRequestParams() {
     *this = ::std::move(from);
   }
 
-  inline RequestDeviceParams& operator=(RequestDeviceParams&& from) noexcept {
+  inline OperationRequestParams& operator=(OperationRequestParams&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -415,30 +415,30 @@ class RequestDeviceParams : public ::google::protobuf::Message /* @@protoc_inser
   }
   #endif
   static const ::google::protobuf::Descriptor* descriptor();
-  static const RequestDeviceParams& default_instance();
+  static const OperationRequestParams& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const RequestDeviceParams* internal_default_instance() {
-    return reinterpret_cast<const RequestDeviceParams*>(
-               &_RequestDeviceParams_default_instance_);
+  static inline const OperationRequestParams* internal_default_instance() {
+    return reinterpret_cast<const OperationRequestParams*>(
+               &_OperationRequestParams_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
     2;
 
-  void Swap(RequestDeviceParams* other);
-  friend void swap(RequestDeviceParams& a, RequestDeviceParams& b) {
+  void Swap(OperationRequestParams* other);
+  friend void swap(OperationRequestParams& a, OperationRequestParams& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline RequestDeviceParams* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline OperationRequestParams* New() const PROTOBUF_FINAL { return New(NULL); }
 
-  RequestDeviceParams* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  OperationRequestParams* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
   void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
   void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const RequestDeviceParams& from);
-  void MergeFrom(const RequestDeviceParams& from);
+  void CopyFrom(const OperationRequestParams& from);
+  void MergeFrom(const OperationRequestParams& from);
   void Clear() PROTOBUF_FINAL;
   bool IsInitialized() const PROTOBUF_FINAL;
 
@@ -454,7 +454,7 @@ class RequestDeviceParams : public ::google::protobuf::Message /* @@protoc_inser
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(RequestDeviceParams* other);
+  void InternalSwap(OperationRequestParams* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -476,14 +476,14 @@ class RequestDeviceParams : public ::google::protobuf::Message /* @@protoc_inser
   ::google::protobuf::uint64 refid() const;
   void set_refid(::google::protobuf::uint64 value);
 
-  // @@protoc_insertion_point(class_scope:skylync.RequestDeviceParams)
+  // @@protoc_insertion_point(class_scope:skylync.OperationRequestParams)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint64 refid_;
   mutable int _cached_size_;
   friend struct ::protobuf_skylync_2eproto::TableStruct;
-  friend void ::protobuf_skylync_2eproto::InitDefaultsRequestDeviceParamsImpl();
+  friend void ::protobuf_skylync_2eproto::InitDefaultsOperationRequestParamsImpl();
 };
 // -------------------------------------------------------------------
 
@@ -799,26 +799,26 @@ class Message : public ::google::protobuf::Message /* @@protoc_insertion_point(c
     Message_Command_RELEASE;
   static const Command CONTEXT_UPDATE =
     Message_Command_CONTEXT_UPDATE;
-  static const Command POKE =
-    Message_Command_POKE;
-  static const Command LIST_DEVICE =
-    Message_Command_LIST_DEVICE;
-  static const Command STATUS_DEVICE =
-    Message_Command_STATUS_DEVICE;
-  static const Command REQUEST_DEVICE =
-    Message_Command_REQUEST_DEVICE;
-  static const Command REQUEST_HO =
-    Message_Command_REQUEST_HO;
-  static const Command MISSION_APPROVAL =
-    Message_Command_MISSION_APPROVAL;
-  static const Command TEARDOWN_MISSION =
-    Message_Command_TEARDOWN_MISSION;
-  static const Command STATUS_UPDATE =
-    Message_Command_STATUS_UPDATE;
+  static const Command DEVICE_LIST =
+    Message_Command_DEVICE_LIST;
+  static const Command DEVICE_STATUS =
+    Message_Command_DEVICE_STATUS;
+  static const Command DEVICE_UPDATE_STATUS =
+    Message_Command_DEVICE_UPDATE_STATUS;
   static const Command OPERATION_REQUEST =
     Message_Command_OPERATION_REQUEST;
   static const Command OPERATION_TEARDOWN =
     Message_Command_OPERATION_TEARDOWN;
+  static const Command OPERATION_STARTED =
+    Message_Command_OPERATION_STARTED;
+  static const Command TUNNEL_REQUEST =
+    Message_Command_TUNNEL_REQUEST;
+  static const Command CHANNEL_OPEN =
+    Message_Command_CHANNEL_OPEN;
+  static const Command CHANNEL_VALIDATE =
+    Message_Command_CHANNEL_VALIDATE;
+  static const Command HO_REQUEST =
+    Message_Command_HO_REQUEST;
   static inline bool Command_IsValid(int value) {
     return Message_Command_IsValid(value);
   }
@@ -1045,14 +1045,14 @@ class EndpointMessage : public ::google::protobuf::Message /* @@protoc_insertion
   ::skylync::Context* mutable_context();
   void set_allocated_context(::skylync::Context* context);
 
-  // .skylync.RequestDeviceParams requestDeviceParams = 4;
-  bool has_requestdeviceparams() const;
-  void clear_requestdeviceparams();
-  static const int kRequestDeviceParamsFieldNumber = 4;
-  const ::skylync::RequestDeviceParams& requestdeviceparams() const;
-  ::skylync::RequestDeviceParams* release_requestdeviceparams();
-  ::skylync::RequestDeviceParams* mutable_requestdeviceparams();
-  void set_allocated_requestdeviceparams(::skylync::RequestDeviceParams* requestdeviceparams);
+  // .skylync.OperationRequestParams operationRequestParams = 4;
+  bool has_operationrequestparams() const;
+  void clear_operationrequestparams();
+  static const int kOperationRequestParamsFieldNumber = 4;
+  const ::skylync::OperationRequestParams& operationrequestparams() const;
+  ::skylync::OperationRequestParams* release_operationrequestparams();
+  ::skylync::OperationRequestParams* mutable_operationrequestparams();
+  void set_allocated_operationrequestparams(::skylync::OperationRequestParams* operationrequestparams);
 
   // @@protoc_insertion_point(class_scope:skylync.EndpointMessage)
  private:
@@ -1061,7 +1061,7 @@ class EndpointMessage : public ::google::protobuf::Message /* @@protoc_insertion
   ::skylync::Message* base_;
   ::skylync::AttachParams* attachparams_;
   ::skylync::Context* context_;
-  ::skylync::RequestDeviceParams* requestdeviceparams_;
+  ::skylync::OperationRequestParams* operationrequestparams_;
   mutable int _cached_size_;
   friend struct ::protobuf_skylync_2eproto::TableStruct;
   friend void ::protobuf_skylync_2eproto::InitDefaultsEndpointMessageImpl();
@@ -1325,20 +1325,20 @@ inline void AttachParams::set_allocated_pwd(::std::string* pwd) {
 
 // -------------------------------------------------------------------
 
-// RequestDeviceParams
+// OperationRequestParams
 
 // uint64 refId = 1;
-inline void RequestDeviceParams::clear_refid() {
+inline void OperationRequestParams::clear_refid() {
   refid_ = GOOGLE_ULONGLONG(0);
 }
-inline ::google::protobuf::uint64 RequestDeviceParams::refid() const {
-  // @@protoc_insertion_point(field_get:skylync.RequestDeviceParams.refId)
+inline ::google::protobuf::uint64 OperationRequestParams::refid() const {
+  // @@protoc_insertion_point(field_get:skylync.OperationRequestParams.refId)
   return refid_;
 }
-inline void RequestDeviceParams::set_refid(::google::protobuf::uint64 value) {
+inline void OperationRequestParams::set_refid(::google::protobuf::uint64 value) {
   
   refid_ = value;
-  // @@protoc_insertion_point(field_set:skylync.RequestDeviceParams.refId)
+  // @@protoc_insertion_point(field_set:skylync.OperationRequestParams.refId)
 }
 
 // -------------------------------------------------------------------
@@ -1699,54 +1699,54 @@ inline void EndpointMessage::set_allocated_context(::skylync::Context* context) 
   // @@protoc_insertion_point(field_set_allocated:skylync.EndpointMessage.context)
 }
 
-// .skylync.RequestDeviceParams requestDeviceParams = 4;
-inline bool EndpointMessage::has_requestdeviceparams() const {
-  return this != internal_default_instance() && requestdeviceparams_ != NULL;
+// .skylync.OperationRequestParams operationRequestParams = 4;
+inline bool EndpointMessage::has_operationrequestparams() const {
+  return this != internal_default_instance() && operationrequestparams_ != NULL;
 }
-inline void EndpointMessage::clear_requestdeviceparams() {
-  if (GetArenaNoVirtual() == NULL && requestdeviceparams_ != NULL) {
-    delete requestdeviceparams_;
+inline void EndpointMessage::clear_operationrequestparams() {
+  if (GetArenaNoVirtual() == NULL && operationrequestparams_ != NULL) {
+    delete operationrequestparams_;
   }
-  requestdeviceparams_ = NULL;
+  operationrequestparams_ = NULL;
 }
-inline const ::skylync::RequestDeviceParams& EndpointMessage::requestdeviceparams() const {
-  const ::skylync::RequestDeviceParams* p = requestdeviceparams_;
-  // @@protoc_insertion_point(field_get:skylync.EndpointMessage.requestDeviceParams)
-  return p != NULL ? *p : *reinterpret_cast<const ::skylync::RequestDeviceParams*>(
-      &::skylync::_RequestDeviceParams_default_instance_);
+inline const ::skylync::OperationRequestParams& EndpointMessage::operationrequestparams() const {
+  const ::skylync::OperationRequestParams* p = operationrequestparams_;
+  // @@protoc_insertion_point(field_get:skylync.EndpointMessage.operationRequestParams)
+  return p != NULL ? *p : *reinterpret_cast<const ::skylync::OperationRequestParams*>(
+      &::skylync::_OperationRequestParams_default_instance_);
 }
-inline ::skylync::RequestDeviceParams* EndpointMessage::release_requestdeviceparams() {
-  // @@protoc_insertion_point(field_release:skylync.EndpointMessage.requestDeviceParams)
+inline ::skylync::OperationRequestParams* EndpointMessage::release_operationrequestparams() {
+  // @@protoc_insertion_point(field_release:skylync.EndpointMessage.operationRequestParams)
   
-  ::skylync::RequestDeviceParams* temp = requestdeviceparams_;
-  requestdeviceparams_ = NULL;
+  ::skylync::OperationRequestParams* temp = operationrequestparams_;
+  operationrequestparams_ = NULL;
   return temp;
 }
-inline ::skylync::RequestDeviceParams* EndpointMessage::mutable_requestdeviceparams() {
+inline ::skylync::OperationRequestParams* EndpointMessage::mutable_operationrequestparams() {
   
-  if (requestdeviceparams_ == NULL) {
-    requestdeviceparams_ = new ::skylync::RequestDeviceParams;
+  if (operationrequestparams_ == NULL) {
+    operationrequestparams_ = new ::skylync::OperationRequestParams;
   }
-  // @@protoc_insertion_point(field_mutable:skylync.EndpointMessage.requestDeviceParams)
-  return requestdeviceparams_;
+  // @@protoc_insertion_point(field_mutable:skylync.EndpointMessage.operationRequestParams)
+  return operationrequestparams_;
 }
-inline void EndpointMessage::set_allocated_requestdeviceparams(::skylync::RequestDeviceParams* requestdeviceparams) {
+inline void EndpointMessage::set_allocated_operationrequestparams(::skylync::OperationRequestParams* operationrequestparams) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == NULL) {
-    delete requestdeviceparams_;
+    delete operationrequestparams_;
   }
-  if (requestdeviceparams) {
+  if (operationrequestparams) {
     ::google::protobuf::Arena* submessage_arena = NULL;
     if (message_arena != submessage_arena) {
-      requestdeviceparams = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, requestdeviceparams, submessage_arena);
+      operationrequestparams = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, operationrequestparams, submessage_arena);
     }
     
   } else {
     
   }
-  requestdeviceparams_ = requestdeviceparams;
-  // @@protoc_insertion_point(field_set_allocated:skylync.EndpointMessage.requestDeviceParams)
+  operationrequestparams_ = operationrequestparams;
+  // @@protoc_insertion_point(field_set_allocated:skylync.EndpointMessage.operationRequestParams)
 }
 
 // -------------------------------------------------------------------
