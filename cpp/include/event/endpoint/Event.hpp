@@ -22,8 +22,11 @@ public:
         CONNECT,
         ATTACH,
         RELEASE,
-        LIST_DEVICES,
-        REQUEST_DEVICE,
+        DEVICE_LIST,
+        DEVICE_STATUS,
+        OPERATION_REQUEST,
+        OPERATION_ACCEPTED,
+        OPERATION_REJECTED,
     };
 
     Event(const Type _type);

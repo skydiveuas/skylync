@@ -1,5 +1,5 @@
-#ifndef STATE_ATTACHED_PILOT_DEVICELIST_HPP
-#define STATE_ATTACHED_PILOT_DEVICELIST_HPP
+#ifndef STATE_ATTACHED_DEVICE_OPERATION_HPP
+#define STATE_ATTACHED_DEVICE_OPERATION_HPP
 
 #include "state/attached/IAttachedState.hpp"
 
@@ -12,22 +12,24 @@ namespace state
 namespace attached
 {
 
-namespace pilot
+namespace device
 {
 
-class DeviceList : public IAttachedState
+class Operation : public IAttachedState
 {
 public:
-    DeviceList(ILiveCycleState::Listener& listener);
+    Operation(ILiveCycleState::Listener& listener);
 
     void start() noexcept override;
+
+    IAttachedState* handleEvent(const sl::event::endpoint::Event& event) override;
 
     IAttachedState* handleMessage(std::shared_ptr<skylync::BridgeMessage> message) override;
 
     std::string toString() const noexcept override;
 };
 
-} // pilot
+} // device
 
 } // attached
 
@@ -35,4 +37,4 @@ public:
 
 } // sl
 
-#endif // STATE_ATTACHED_PILOT_DEVICELIST_HPP
+#endif // STATE_ATTACHED_DEVICE_OPERATION_HPP

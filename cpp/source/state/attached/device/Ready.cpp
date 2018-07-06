@@ -1,12 +1,19 @@
 #include "state/attached/device/Ready.hpp"
 
 #include "state/attached/Release.hpp"
+#include "state/attached/device/Operation.hpp"
 #include "state/attached/device/OperationEstablishment.hpp"
 
 using namespace sl::event;
 using namespace sl::state;
 using namespace sl::state::attached;
 using namespace sl::state::attached::device;
+
+Ready::Ready(ILiveCycleState::Listener& listener):
+    IAttachedState(listener),
+    event(nullptr)
+{
+}
 
 Ready::Ready(ILiveCycleState::Listener& listener, const bridge::Event* const _event):
     IAttachedState(listener),

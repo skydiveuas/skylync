@@ -10,7 +10,7 @@ typedef std::pair<const uint8_t* const, const size_t> DataPacket;
 
 enum TransportProtocol
 {
-    TCP,
+    TCP = 10,
     UDP,
 };
 

@@ -23,8 +23,11 @@ std::string Event::toString() const noexcept
     case CONNECT: return "CONNECT";
     case ATTACH: return "ATTACH";
     case RELEASE: return "RELEASE";
-    case LIST_DEVICES: return "LIST_DEVICES";
-    case REQUEST_DEVICE: return "REQUEST_DEVICE";
+    case DEVICE_LIST: return "DEVICE_LIST";
+    case DEVICE_STATUS: return "DEVICE_STATUS";
+    case OPERATION_REQUEST: return "OPERATION_REQUEST";
+    case OPERATION_ACCEPTED: return "OPERATION_ACCEPTED";
+    case OPERATION_REJECTED: return "OPERATION_REJECTED";
     default:
         return "Unknown event name";
     }

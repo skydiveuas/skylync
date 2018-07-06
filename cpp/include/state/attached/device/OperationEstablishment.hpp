@@ -30,6 +30,8 @@ public:
 
 private:
     const event::bridge::Event* event;
+
+    void sendReject() noexcept;
 };
 
 } // device

@@ -3,7 +3,6 @@
 #include "state/attached/pilot/Ready.hpp"
 
 #include "event/bridge/DeviceList.hpp"
-#include "event/bridge/Error.hpp"
 
 using namespace sl::event;
 using namespace sl::state;
@@ -20,16 +19,6 @@ void DeviceList::start() noexcept
     skylync::EndpointMessage message;
     message.mutable_base()->set_command(skylync::Message::DEVICE_LIST);
     send(message);
-}
-
-IAttachedState* DeviceList::handleEvent(const sl::event::endpoint::Event& event)
-{
-    switch (event.getType())
-    {
-    default:
-        exceptUnexpected(event);
-        return nullptr;
-    }
 }
 
 IAttachedState* DeviceList::handleMessage(std::shared_ptr<skylync::BridgeMessage> message)

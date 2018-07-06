@@ -1,5 +1,5 @@
-#ifndef EVENT_ENDPOINT_ESTABLISHOPERATION_HPP
-#define EVENT_ENDPOINT_ESTABLISHOPERATION_HPP
+#ifndef EVENT_ENDPOINT_OPERATIONREQUEST_HPP
+#define EVENT_ENDPOINT_OPERATIONREQUEST_HPP
 
 #include "Event.hpp"
 
@@ -12,10 +12,10 @@ namespace event
 namespace endpoint
 {
 
-class EstablishOperation : public Event
+class OperationRequest : public Event
 {
 public:
-    EstablishOperation(const RefId refId);
+    OperationRequest(const RefId refId);
 
     std::string toString() const noexcept override;
 
@@ -31,4 +31,4 @@ private:
 
 } // sl
 
-#endif // EVENT_ENDPOINT_ESTABLISHOPERATION_HPP
+#endif // EVENT_ENDPOINT_OPERATIONREQUEST_HPP

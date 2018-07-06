@@ -1,6 +1,7 @@
 #include "state/attached/pilot/OperationEstablishment.hpp"
 
 #include "state/attached/pilot/Ready.hpp"
+#include "state/attached/pilot/Operation.hpp"
 
 #include "event/bridge/DeviceList.hpp"
 #include "event/bridge/Error.hpp"
@@ -69,5 +70,5 @@ IAttachedState* OperationEstablishment::sendFlightTunnelReqest() noexcept
     message.mutable_base()->set_command(skylync::Message::TUNNEL_REQUEST);
     message.mutable_channelparams()->set_channelid(sl::FLIGHT_UDP);
     send(message);
-    return nullptr;
+    return new Operation(listener);
 }

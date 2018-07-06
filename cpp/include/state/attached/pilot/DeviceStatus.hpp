@@ -1,5 +1,5 @@
-#ifndef STATE_ATTACHED_PILOT_DEVICELIST_HPP
-#define STATE_ATTACHED_PILOT_DEVICELIST_HPP
+#ifndef STATE_ATTACHED_PILOT_DEVICESTATUS_HPP
+#define STATE_ATTACHED_PILOT_DEVICESTATUS_HPP
 
 #include "state/attached/IAttachedState.hpp"
 
@@ -15,10 +15,10 @@ namespace attached
 namespace pilot
 {
 
-class DeviceList : public IAttachedState
+class DeviceStatus : public IAttachedState
 {
 public:
-    DeviceList(ILiveCycleState::Listener& listener);
+    DeviceStatus(ILiveCycleState::Listener& listener);
 
     void start() noexcept override;
 
@@ -35,4 +35,4 @@ public:
 
 } // sl
 
-#endif // STATE_ATTACHED_PILOT_DEVICELIST_HPP
+#endif // STATE_ATTACHED_PILOT_DEVICESTATUS_HPP

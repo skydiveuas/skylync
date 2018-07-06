@@ -1,6 +1,7 @@
 #include "state/attached/device/OperationEstablishment.hpp"
 
-#include "state/attached/Release.hpp"
+#include "state/attached/device/Ready.hpp"
+#include "state/attached/device/Operation.hpp"
 
 using namespace sl::event;
 using namespace sl::state;
@@ -14,16 +15,19 @@ OperationEstablishment::OperationEstablishment(ILiveCycleState::Listener& listen
 
 void OperationEstablishment::start() noexcept
 {
-    skylync::EndpointMessage message;
-    message.mutable_base()->set_responsefor(skylync::Message::OPERATION_STARTED);
-    message.mutable_base()->set_command(skylync::Message::ACCEPT);
-    send(message);
+    notifyBridgeEvent(new bridge::Event(bridge::Event::OPERATION_REQUESTED));
 }
 
 sl::state::attached::IAttachedState* OperationEstablishment::handleEvent(const endpoint::Event& event)
 {
     switch (event.getType())
     {
+    case endpoint::Event::OPERATION_ACCEPTED:
+        return new Operation(listener);
+
+    case endpoint::Event::OPERATION_REJECTED:
+        sendReject();
+        return new Ready(listener);
 
     default:
         exceptUnexpected(event);
@@ -45,4 +49,12 @@ IAttachedState* OperationEstablishment::handleMessage(std::shared_ptr<skylync::B
 std::string OperationEstablishment::toString() const noexcept
 {
     return "Attached::Device::OperationEstablishment";
+}
+
+void OperationEstablishment::sendReject() noexcept
+{
+    skylync::EndpointMessage message;
+    message.mutable_base()->set_responsefor(skylync::Message::OPERATION_STARTED);
+    message.mutable_base()->set_command(skylync::Message::REJECT);
+    send(message);
 }

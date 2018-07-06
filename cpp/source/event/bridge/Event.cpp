@@ -28,6 +28,8 @@ std::string Event::toString() const noexcept
     case RELEASED: return "RELEASED";
     case DISCONNECTED: return "DISCONNECTED";
     case DEVICE_LIST: return "DEVICE_LIST";
+    case DEVICE_STATUS: return "DEVICE_STATUS";
+    case OPERATION_REQUESTED: return "OPERATION_REQUESTED";
     case CHANNEL: return "CHANNEL";
     default:
         return "Unknown event name";

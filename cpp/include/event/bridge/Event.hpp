@@ -27,6 +27,8 @@ public:
         RELEASED,
         DISCONNECTED,
         DEVICE_LIST,
+        DEVICE_STATUS,
+        OPERATION_REQUESTED,
         CHANNEL,
     };
 
