@@ -37,7 +37,7 @@ namespace protobuf_skylync_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[8];
+  static const ::google::protobuf::internal::ParseTable schema[10];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -47,12 +47,16 @@ void InitDefaultsContextImpl();
 void InitDefaultsContext();
 void InitDefaultsAttachParamsImpl();
 void InitDefaultsAttachParams();
-void InitDefaultsOperationRequestParamsImpl();
-void InitDefaultsOperationRequestParams();
 void InitDefaultsDeviceIdImpl();
 void InitDefaultsDeviceId();
 void InitDefaultsDeviceListImpl();
 void InitDefaultsDeviceList();
+void InitDefaultsOperationParamsImpl();
+void InitDefaultsOperationParams();
+void InitDefaultsChannelParamsImpl();
+void InitDefaultsChannelParams();
+void InitDefaultsChannelValidationParamsImpl();
+void InitDefaultsChannelValidationParams();
 void InitDefaultsMessageImpl();
 void InitDefaultsMessage();
 void InitDefaultsEndpointMessageImpl();
@@ -62,9 +66,11 @@ void InitDefaultsBridgeMessage();
 inline void InitDefaults() {
   InitDefaultsContext();
   InitDefaultsAttachParams();
-  InitDefaultsOperationRequestParams();
   InitDefaultsDeviceId();
   InitDefaultsDeviceList();
+  InitDefaultsOperationParams();
+  InitDefaultsChannelParams();
+  InitDefaultsChannelValidationParams();
   InitDefaultsMessage();
   InitDefaultsEndpointMessage();
   InitDefaultsBridgeMessage();
@@ -77,6 +83,12 @@ extern AttachParamsDefaultTypeInternal _AttachParams_default_instance_;
 class BridgeMessage;
 class BridgeMessageDefaultTypeInternal;
 extern BridgeMessageDefaultTypeInternal _BridgeMessage_default_instance_;
+class ChannelParams;
+class ChannelParamsDefaultTypeInternal;
+extern ChannelParamsDefaultTypeInternal _ChannelParams_default_instance_;
+class ChannelValidationParams;
+class ChannelValidationParamsDefaultTypeInternal;
+extern ChannelValidationParamsDefaultTypeInternal _ChannelValidationParams_default_instance_;
 class Context;
 class ContextDefaultTypeInternal;
 extern ContextDefaultTypeInternal _Context_default_instance_;
@@ -92,9 +104,9 @@ extern EndpointMessageDefaultTypeInternal _EndpointMessage_default_instance_;
 class Message;
 class MessageDefaultTypeInternal;
 extern MessageDefaultTypeInternal _Message_default_instance_;
-class OperationRequestParams;
-class OperationRequestParamsDefaultTypeInternal;
-extern OperationRequestParamsDefaultTypeInternal _OperationRequestParams_default_instance_;
+class OperationParams;
+class OperationParamsDefaultTypeInternal;
+extern OperationParamsDefaultTypeInternal _OperationParams_default_instance_;
 }  // namespace skylync
 namespace skylync {
 
@@ -388,105 +400,6 @@ class AttachParams : public ::google::protobuf::Message /* @@protoc_insertion_po
 };
 // -------------------------------------------------------------------
 
-class OperationRequestParams : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:skylync.OperationRequestParams) */ {
- public:
-  OperationRequestParams();
-  virtual ~OperationRequestParams();
-
-  OperationRequestParams(const OperationRequestParams& from);
-
-  inline OperationRequestParams& operator=(const OperationRequestParams& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  OperationRequestParams(OperationRequestParams&& from) noexcept
-    : OperationRequestParams() {
-    *this = ::std::move(from);
-  }
-
-  inline OperationRequestParams& operator=(OperationRequestParams&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const OperationRequestParams& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const OperationRequestParams* internal_default_instance() {
-    return reinterpret_cast<const OperationRequestParams*>(
-               &_OperationRequestParams_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    2;
-
-  void Swap(OperationRequestParams* other);
-  friend void swap(OperationRequestParams& a, OperationRequestParams& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline OperationRequestParams* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  OperationRequestParams* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const OperationRequestParams& from);
-  void MergeFrom(const OperationRequestParams& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(OperationRequestParams* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // uint64 refId = 1;
-  void clear_refid();
-  static const int kRefIdFieldNumber = 1;
-  ::google::protobuf::uint64 refid() const;
-  void set_refid(::google::protobuf::uint64 value);
-
-  // @@protoc_insertion_point(class_scope:skylync.OperationRequestParams)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint64 refid_;
-  mutable int _cached_size_;
-  friend struct ::protobuf_skylync_2eproto::TableStruct;
-  friend void ::protobuf_skylync_2eproto::InitDefaultsOperationRequestParamsImpl();
-};
-// -------------------------------------------------------------------
-
 class DeviceId : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:skylync.DeviceId) */ {
  public:
   DeviceId();
@@ -522,7 +435,7 @@ class DeviceId : public ::google::protobuf::Message /* @@protoc_insertion_point(
                &_DeviceId_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    3;
+    2;
 
   void Swap(DeviceId* other);
   friend void swap(DeviceId& a, DeviceId& b) {
@@ -636,7 +549,7 @@ class DeviceList : public ::google::protobuf::Message /* @@protoc_insertion_poin
                &_DeviceList_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    4;
+    3;
 
   void Swap(DeviceList* other);
   friend void swap(DeviceList& a, DeviceList& b) {
@@ -706,6 +619,318 @@ class DeviceList : public ::google::protobuf::Message /* @@protoc_insertion_poin
 };
 // -------------------------------------------------------------------
 
+class OperationParams : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:skylync.OperationParams) */ {
+ public:
+  OperationParams();
+  virtual ~OperationParams();
+
+  OperationParams(const OperationParams& from);
+
+  inline OperationParams& operator=(const OperationParams& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  OperationParams(OperationParams&& from) noexcept
+    : OperationParams() {
+    *this = ::std::move(from);
+  }
+
+  inline OperationParams& operator=(OperationParams&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const OperationParams& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const OperationParams* internal_default_instance() {
+    return reinterpret_cast<const OperationParams*>(
+               &_OperationParams_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    4;
+
+  void Swap(OperationParams* other);
+  friend void swap(OperationParams& a, OperationParams& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline OperationParams* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  OperationParams* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const OperationParams& from);
+  void MergeFrom(const OperationParams& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(OperationParams* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // uint64 refId = 1;
+  void clear_refid();
+  static const int kRefIdFieldNumber = 1;
+  ::google::protobuf::uint64 refid() const;
+  void set_refid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:skylync.OperationParams)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint64 refid_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_skylync_2eproto::TableStruct;
+  friend void ::protobuf_skylync_2eproto::InitDefaultsOperationParamsImpl();
+};
+// -------------------------------------------------------------------
+
+class ChannelParams : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:skylync.ChannelParams) */ {
+ public:
+  ChannelParams();
+  virtual ~ChannelParams();
+
+  ChannelParams(const ChannelParams& from);
+
+  inline ChannelParams& operator=(const ChannelParams& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  ChannelParams(ChannelParams&& from) noexcept
+    : ChannelParams() {
+    *this = ::std::move(from);
+  }
+
+  inline ChannelParams& operator=(ChannelParams&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ChannelParams& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const ChannelParams* internal_default_instance() {
+    return reinterpret_cast<const ChannelParams*>(
+               &_ChannelParams_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    5;
+
+  void Swap(ChannelParams* other);
+  friend void swap(ChannelParams& a, ChannelParams& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ChannelParams* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  ChannelParams* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const ChannelParams& from);
+  void MergeFrom(const ChannelParams& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(ChannelParams* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // uint64 channelId = 1;
+  void clear_channelid();
+  static const int kChannelIdFieldNumber = 1;
+  ::google::protobuf::uint64 channelid() const;
+  void set_channelid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:skylync.ChannelParams)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint64 channelid_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_skylync_2eproto::TableStruct;
+  friend void ::protobuf_skylync_2eproto::InitDefaultsChannelParamsImpl();
+};
+// -------------------------------------------------------------------
+
+class ChannelValidationParams : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:skylync.ChannelValidationParams) */ {
+ public:
+  ChannelValidationParams();
+  virtual ~ChannelValidationParams();
+
+  ChannelValidationParams(const ChannelValidationParams& from);
+
+  inline ChannelValidationParams& operator=(const ChannelValidationParams& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  ChannelValidationParams(ChannelValidationParams&& from) noexcept
+    : ChannelValidationParams() {
+    *this = ::std::move(from);
+  }
+
+  inline ChannelValidationParams& operator=(ChannelValidationParams&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ChannelValidationParams& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const ChannelValidationParams* internal_default_instance() {
+    return reinterpret_cast<const ChannelValidationParams*>(
+               &_ChannelValidationParams_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    6;
+
+  void Swap(ChannelValidationParams* other);
+  friend void swap(ChannelValidationParams& a, ChannelValidationParams& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ChannelValidationParams* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  ChannelValidationParams* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const ChannelValidationParams& from);
+  void MergeFrom(const ChannelValidationParams& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(ChannelValidationParams* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string key = 2;
+  void clear_key();
+  static const int kKeyFieldNumber = 2;
+  const ::std::string& key() const;
+  void set_key(const ::std::string& value);
+  #if LANG_CXX11
+  void set_key(::std::string&& value);
+  #endif
+  void set_key(const char* value);
+  void set_key(const char* value, size_t size);
+  ::std::string* mutable_key();
+  ::std::string* release_key();
+  void set_allocated_key(::std::string* key);
+
+  // uint32 port = 1;
+  void clear_port();
+  static const int kPortFieldNumber = 1;
+  ::google::protobuf::uint32 port() const;
+  void set_port(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:skylync.ChannelValidationParams)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr key_;
+  ::google::protobuf::uint32 port_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_skylync_2eproto::TableStruct;
+  friend void ::protobuf_skylync_2eproto::InitDefaultsChannelValidationParamsImpl();
+};
+// -------------------------------------------------------------------
+
 class Message : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:skylync.Message) */ {
  public:
   Message();
@@ -741,7 +966,7 @@ class Message : public ::google::protobuf::Message /* @@protoc_insertion_point(c
                &_Message_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    5;
+    7;
 
   void Swap(Message* other);
   friend void swap(Message& a, Message& b) {
@@ -971,7 +1196,7 @@ class EndpointMessage : public ::google::protobuf::Message /* @@protoc_insertion
                &_EndpointMessage_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    6;
+    8;
 
   void Swap(EndpointMessage* other);
   friend void swap(EndpointMessage& a, EndpointMessage& b) {
@@ -1045,14 +1270,23 @@ class EndpointMessage : public ::google::protobuf::Message /* @@protoc_insertion
   ::skylync::Context* mutable_context();
   void set_allocated_context(::skylync::Context* context);
 
-  // .skylync.OperationRequestParams operationRequestParams = 4;
-  bool has_operationrequestparams() const;
-  void clear_operationrequestparams();
-  static const int kOperationRequestParamsFieldNumber = 4;
-  const ::skylync::OperationRequestParams& operationrequestparams() const;
-  ::skylync::OperationRequestParams* release_operationrequestparams();
-  ::skylync::OperationRequestParams* mutable_operationrequestparams();
-  void set_allocated_operationrequestparams(::skylync::OperationRequestParams* operationrequestparams);
+  // .skylync.OperationParams operationParams = 4;
+  bool has_operationparams() const;
+  void clear_operationparams();
+  static const int kOperationParamsFieldNumber = 4;
+  const ::skylync::OperationParams& operationparams() const;
+  ::skylync::OperationParams* release_operationparams();
+  ::skylync::OperationParams* mutable_operationparams();
+  void set_allocated_operationparams(::skylync::OperationParams* operationparams);
+
+  // .skylync.ChannelParams channelParams = 5;
+  bool has_channelparams() const;
+  void clear_channelparams();
+  static const int kChannelParamsFieldNumber = 5;
+  const ::skylync::ChannelParams& channelparams() const;
+  ::skylync::ChannelParams* release_channelparams();
+  ::skylync::ChannelParams* mutable_channelparams();
+  void set_allocated_channelparams(::skylync::ChannelParams* channelparams);
 
   // @@protoc_insertion_point(class_scope:skylync.EndpointMessage)
  private:
@@ -1061,7 +1295,8 @@ class EndpointMessage : public ::google::protobuf::Message /* @@protoc_insertion
   ::skylync::Message* base_;
   ::skylync::AttachParams* attachparams_;
   ::skylync::Context* context_;
-  ::skylync::OperationRequestParams* operationrequestparams_;
+  ::skylync::OperationParams* operationparams_;
+  ::skylync::ChannelParams* channelparams_;
   mutable int _cached_size_;
   friend struct ::protobuf_skylync_2eproto::TableStruct;
   friend void ::protobuf_skylync_2eproto::InitDefaultsEndpointMessageImpl();
@@ -1103,7 +1338,7 @@ class BridgeMessage : public ::google::protobuf::Message /* @@protoc_insertion_p
                &_BridgeMessage_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    7;
+    9;
 
   void Swap(BridgeMessage* other);
   friend void swap(BridgeMessage& a, BridgeMessage& b) {
@@ -1177,6 +1412,24 @@ class BridgeMessage : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::skylync::DeviceList* mutable_devicelist();
   void set_allocated_devicelist(::skylync::DeviceList* devicelist);
 
+  // .skylync.ChannelParams channelParams = 5;
+  bool has_channelparams() const;
+  void clear_channelparams();
+  static const int kChannelParamsFieldNumber = 5;
+  const ::skylync::ChannelParams& channelparams() const;
+  ::skylync::ChannelParams* release_channelparams();
+  ::skylync::ChannelParams* mutable_channelparams();
+  void set_allocated_channelparams(::skylync::ChannelParams* channelparams);
+
+  // .skylync.ChannelValidationParams channelValidationParams = 6;
+  bool has_channelvalidationparams() const;
+  void clear_channelvalidationparams();
+  static const int kChannelValidationParamsFieldNumber = 6;
+  const ::skylync::ChannelValidationParams& channelvalidationparams() const;
+  ::skylync::ChannelValidationParams* release_channelvalidationparams();
+  ::skylync::ChannelValidationParams* mutable_channelvalidationparams();
+  void set_allocated_channelvalidationparams(::skylync::ChannelValidationParams* channelvalidationparams);
+
   // @@protoc_insertion_point(class_scope:skylync.BridgeMessage)
  private:
 
@@ -1184,6 +1437,8 @@ class BridgeMessage : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::skylync::Message* base_;
   ::skylync::Context* context_;
   ::skylync::DeviceList* devicelist_;
+  ::skylync::ChannelParams* channelparams_;
+  ::skylync::ChannelValidationParams* channelvalidationparams_;
   mutable int _cached_size_;
   friend struct ::protobuf_skylync_2eproto::TableStruct;
   friend void ::protobuf_skylync_2eproto::InitDefaultsBridgeMessageImpl();
@@ -1325,24 +1580,6 @@ inline void AttachParams::set_allocated_pwd(::std::string* pwd) {
 
 // -------------------------------------------------------------------
 
-// OperationRequestParams
-
-// uint64 refId = 1;
-inline void OperationRequestParams::clear_refid() {
-  refid_ = GOOGLE_ULONGLONG(0);
-}
-inline ::google::protobuf::uint64 OperationRequestParams::refid() const {
-  // @@protoc_insertion_point(field_get:skylync.OperationRequestParams.refId)
-  return refid_;
-}
-inline void OperationRequestParams::set_refid(::google::protobuf::uint64 value) {
-  
-  refid_ = value;
-  // @@protoc_insertion_point(field_set:skylync.OperationRequestParams.refId)
-}
-
-// -------------------------------------------------------------------
-
 // DeviceId
 
 // uint64 ref = 1;
@@ -1444,6 +1681,113 @@ inline const ::google::protobuf::RepeatedPtrField< ::skylync::DeviceId >&
 DeviceList::devices() const {
   // @@protoc_insertion_point(field_list:skylync.DeviceList.devices)
   return devices_;
+}
+
+// -------------------------------------------------------------------
+
+// OperationParams
+
+// uint64 refId = 1;
+inline void OperationParams::clear_refid() {
+  refid_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 OperationParams::refid() const {
+  // @@protoc_insertion_point(field_get:skylync.OperationParams.refId)
+  return refid_;
+}
+inline void OperationParams::set_refid(::google::protobuf::uint64 value) {
+  
+  refid_ = value;
+  // @@protoc_insertion_point(field_set:skylync.OperationParams.refId)
+}
+
+// -------------------------------------------------------------------
+
+// ChannelParams
+
+// uint64 channelId = 1;
+inline void ChannelParams::clear_channelid() {
+  channelid_ = GOOGLE_ULONGLONG(0);
+}
+inline ::google::protobuf::uint64 ChannelParams::channelid() const {
+  // @@protoc_insertion_point(field_get:skylync.ChannelParams.channelId)
+  return channelid_;
+}
+inline void ChannelParams::set_channelid(::google::protobuf::uint64 value) {
+  
+  channelid_ = value;
+  // @@protoc_insertion_point(field_set:skylync.ChannelParams.channelId)
+}
+
+// -------------------------------------------------------------------
+
+// ChannelValidationParams
+
+// uint32 port = 1;
+inline void ChannelValidationParams::clear_port() {
+  port_ = 0u;
+}
+inline ::google::protobuf::uint32 ChannelValidationParams::port() const {
+  // @@protoc_insertion_point(field_get:skylync.ChannelValidationParams.port)
+  return port_;
+}
+inline void ChannelValidationParams::set_port(::google::protobuf::uint32 value) {
+  
+  port_ = value;
+  // @@protoc_insertion_point(field_set:skylync.ChannelValidationParams.port)
+}
+
+// string key = 2;
+inline void ChannelValidationParams::clear_key() {
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& ChannelValidationParams::key() const {
+  // @@protoc_insertion_point(field_get:skylync.ChannelValidationParams.key)
+  return key_.GetNoArena();
+}
+inline void ChannelValidationParams::set_key(const ::std::string& value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:skylync.ChannelValidationParams.key)
+}
+#if LANG_CXX11
+inline void ChannelValidationParams::set_key(::std::string&& value) {
+  
+  key_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:skylync.ChannelValidationParams.key)
+}
+#endif
+inline void ChannelValidationParams::set_key(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:skylync.ChannelValidationParams.key)
+}
+inline void ChannelValidationParams::set_key(const char* value, size_t size) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:skylync.ChannelValidationParams.key)
+}
+inline ::std::string* ChannelValidationParams::mutable_key() {
+  
+  // @@protoc_insertion_point(field_mutable:skylync.ChannelValidationParams.key)
+  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* ChannelValidationParams::release_key() {
+  // @@protoc_insertion_point(field_release:skylync.ChannelValidationParams.key)
+  
+  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ChannelValidationParams::set_allocated_key(::std::string* key) {
+  if (key != NULL) {
+    
+  } else {
+    
+  }
+  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
+  // @@protoc_insertion_point(field_set_allocated:skylync.ChannelValidationParams.key)
 }
 
 // -------------------------------------------------------------------
@@ -1699,54 +2043,104 @@ inline void EndpointMessage::set_allocated_context(::skylync::Context* context) 
   // @@protoc_insertion_point(field_set_allocated:skylync.EndpointMessage.context)
 }
 
-// .skylync.OperationRequestParams operationRequestParams = 4;
-inline bool EndpointMessage::has_operationrequestparams() const {
-  return this != internal_default_instance() && operationrequestparams_ != NULL;
+// .skylync.OperationParams operationParams = 4;
+inline bool EndpointMessage::has_operationparams() const {
+  return this != internal_default_instance() && operationparams_ != NULL;
 }
-inline void EndpointMessage::clear_operationrequestparams() {
-  if (GetArenaNoVirtual() == NULL && operationrequestparams_ != NULL) {
-    delete operationrequestparams_;
+inline void EndpointMessage::clear_operationparams() {
+  if (GetArenaNoVirtual() == NULL && operationparams_ != NULL) {
+    delete operationparams_;
   }
-  operationrequestparams_ = NULL;
+  operationparams_ = NULL;
 }
-inline const ::skylync::OperationRequestParams& EndpointMessage::operationrequestparams() const {
-  const ::skylync::OperationRequestParams* p = operationrequestparams_;
-  // @@protoc_insertion_point(field_get:skylync.EndpointMessage.operationRequestParams)
-  return p != NULL ? *p : *reinterpret_cast<const ::skylync::OperationRequestParams*>(
-      &::skylync::_OperationRequestParams_default_instance_);
+inline const ::skylync::OperationParams& EndpointMessage::operationparams() const {
+  const ::skylync::OperationParams* p = operationparams_;
+  // @@protoc_insertion_point(field_get:skylync.EndpointMessage.operationParams)
+  return p != NULL ? *p : *reinterpret_cast<const ::skylync::OperationParams*>(
+      &::skylync::_OperationParams_default_instance_);
 }
-inline ::skylync::OperationRequestParams* EndpointMessage::release_operationrequestparams() {
-  // @@protoc_insertion_point(field_release:skylync.EndpointMessage.operationRequestParams)
+inline ::skylync::OperationParams* EndpointMessage::release_operationparams() {
+  // @@protoc_insertion_point(field_release:skylync.EndpointMessage.operationParams)
   
-  ::skylync::OperationRequestParams* temp = operationrequestparams_;
-  operationrequestparams_ = NULL;
+  ::skylync::OperationParams* temp = operationparams_;
+  operationparams_ = NULL;
   return temp;
 }
-inline ::skylync::OperationRequestParams* EndpointMessage::mutable_operationrequestparams() {
+inline ::skylync::OperationParams* EndpointMessage::mutable_operationparams() {
   
-  if (operationrequestparams_ == NULL) {
-    operationrequestparams_ = new ::skylync::OperationRequestParams;
+  if (operationparams_ == NULL) {
+    operationparams_ = new ::skylync::OperationParams;
   }
-  // @@protoc_insertion_point(field_mutable:skylync.EndpointMessage.operationRequestParams)
-  return operationrequestparams_;
+  // @@protoc_insertion_point(field_mutable:skylync.EndpointMessage.operationParams)
+  return operationparams_;
 }
-inline void EndpointMessage::set_allocated_operationrequestparams(::skylync::OperationRequestParams* operationrequestparams) {
+inline void EndpointMessage::set_allocated_operationparams(::skylync::OperationParams* operationparams) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == NULL) {
-    delete operationrequestparams_;
+    delete operationparams_;
   }
-  if (operationrequestparams) {
+  if (operationparams) {
     ::google::protobuf::Arena* submessage_arena = NULL;
     if (message_arena != submessage_arena) {
-      operationrequestparams = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, operationrequestparams, submessage_arena);
+      operationparams = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, operationparams, submessage_arena);
     }
     
   } else {
     
   }
-  operationrequestparams_ = operationrequestparams;
-  // @@protoc_insertion_point(field_set_allocated:skylync.EndpointMessage.operationRequestParams)
+  operationparams_ = operationparams;
+  // @@protoc_insertion_point(field_set_allocated:skylync.EndpointMessage.operationParams)
+}
+
+// .skylync.ChannelParams channelParams = 5;
+inline bool EndpointMessage::has_channelparams() const {
+  return this != internal_default_instance() && channelparams_ != NULL;
+}
+inline void EndpointMessage::clear_channelparams() {
+  if (GetArenaNoVirtual() == NULL && channelparams_ != NULL) {
+    delete channelparams_;
+  }
+  channelparams_ = NULL;
+}
+inline const ::skylync::ChannelParams& EndpointMessage::channelparams() const {
+  const ::skylync::ChannelParams* p = channelparams_;
+  // @@protoc_insertion_point(field_get:skylync.EndpointMessage.channelParams)
+  return p != NULL ? *p : *reinterpret_cast<const ::skylync::ChannelParams*>(
+      &::skylync::_ChannelParams_default_instance_);
+}
+inline ::skylync::ChannelParams* EndpointMessage::release_channelparams() {
+  // @@protoc_insertion_point(field_release:skylync.EndpointMessage.channelParams)
+  
+  ::skylync::ChannelParams* temp = channelparams_;
+  channelparams_ = NULL;
+  return temp;
+}
+inline ::skylync::ChannelParams* EndpointMessage::mutable_channelparams() {
+  
+  if (channelparams_ == NULL) {
+    channelparams_ = new ::skylync::ChannelParams;
+  }
+  // @@protoc_insertion_point(field_mutable:skylync.EndpointMessage.channelParams)
+  return channelparams_;
+}
+inline void EndpointMessage::set_allocated_channelparams(::skylync::ChannelParams* channelparams) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete channelparams_;
+  }
+  if (channelparams) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      channelparams = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, channelparams, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  channelparams_ = channelparams;
+  // @@protoc_insertion_point(field_set_allocated:skylync.EndpointMessage.channelParams)
 }
 
 // -------------------------------------------------------------------
@@ -1903,9 +2297,113 @@ inline void BridgeMessage::set_allocated_devicelist(::skylync::DeviceList* devic
   // @@protoc_insertion_point(field_set_allocated:skylync.BridgeMessage.deviceList)
 }
 
+// .skylync.ChannelParams channelParams = 5;
+inline bool BridgeMessage::has_channelparams() const {
+  return this != internal_default_instance() && channelparams_ != NULL;
+}
+inline void BridgeMessage::clear_channelparams() {
+  if (GetArenaNoVirtual() == NULL && channelparams_ != NULL) {
+    delete channelparams_;
+  }
+  channelparams_ = NULL;
+}
+inline const ::skylync::ChannelParams& BridgeMessage::channelparams() const {
+  const ::skylync::ChannelParams* p = channelparams_;
+  // @@protoc_insertion_point(field_get:skylync.BridgeMessage.channelParams)
+  return p != NULL ? *p : *reinterpret_cast<const ::skylync::ChannelParams*>(
+      &::skylync::_ChannelParams_default_instance_);
+}
+inline ::skylync::ChannelParams* BridgeMessage::release_channelparams() {
+  // @@protoc_insertion_point(field_release:skylync.BridgeMessage.channelParams)
+  
+  ::skylync::ChannelParams* temp = channelparams_;
+  channelparams_ = NULL;
+  return temp;
+}
+inline ::skylync::ChannelParams* BridgeMessage::mutable_channelparams() {
+  
+  if (channelparams_ == NULL) {
+    channelparams_ = new ::skylync::ChannelParams;
+  }
+  // @@protoc_insertion_point(field_mutable:skylync.BridgeMessage.channelParams)
+  return channelparams_;
+}
+inline void BridgeMessage::set_allocated_channelparams(::skylync::ChannelParams* channelparams) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete channelparams_;
+  }
+  if (channelparams) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      channelparams = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, channelparams, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  channelparams_ = channelparams;
+  // @@protoc_insertion_point(field_set_allocated:skylync.BridgeMessage.channelParams)
+}
+
+// .skylync.ChannelValidationParams channelValidationParams = 6;
+inline bool BridgeMessage::has_channelvalidationparams() const {
+  return this != internal_default_instance() && channelvalidationparams_ != NULL;
+}
+inline void BridgeMessage::clear_channelvalidationparams() {
+  if (GetArenaNoVirtual() == NULL && channelvalidationparams_ != NULL) {
+    delete channelvalidationparams_;
+  }
+  channelvalidationparams_ = NULL;
+}
+inline const ::skylync::ChannelValidationParams& BridgeMessage::channelvalidationparams() const {
+  const ::skylync::ChannelValidationParams* p = channelvalidationparams_;
+  // @@protoc_insertion_point(field_get:skylync.BridgeMessage.channelValidationParams)
+  return p != NULL ? *p : *reinterpret_cast<const ::skylync::ChannelValidationParams*>(
+      &::skylync::_ChannelValidationParams_default_instance_);
+}
+inline ::skylync::ChannelValidationParams* BridgeMessage::release_channelvalidationparams() {
+  // @@protoc_insertion_point(field_release:skylync.BridgeMessage.channelValidationParams)
+  
+  ::skylync::ChannelValidationParams* temp = channelvalidationparams_;
+  channelvalidationparams_ = NULL;
+  return temp;
+}
+inline ::skylync::ChannelValidationParams* BridgeMessage::mutable_channelvalidationparams() {
+  
+  if (channelvalidationparams_ == NULL) {
+    channelvalidationparams_ = new ::skylync::ChannelValidationParams;
+  }
+  // @@protoc_insertion_point(field_mutable:skylync.BridgeMessage.channelValidationParams)
+  return channelvalidationparams_;
+}
+inline void BridgeMessage::set_allocated_channelvalidationparams(::skylync::ChannelValidationParams* channelvalidationparams) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete channelvalidationparams_;
+  }
+  if (channelvalidationparams) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      channelvalidationparams = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, channelvalidationparams, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  channelvalidationparams_ = channelvalidationparams;
+  // @@protoc_insertion_point(field_set_allocated:skylync.BridgeMessage.channelValidationParams)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

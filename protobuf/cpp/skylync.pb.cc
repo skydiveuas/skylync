@@ -30,11 +30,6 @@ class AttachParamsDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<AttachParams>
       _instance;
 } _AttachParams_default_instance_;
-class OperationRequestParamsDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<OperationRequestParams>
-      _instance;
-} _OperationRequestParams_default_instance_;
 class DeviceIdDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<DeviceId>
@@ -45,6 +40,21 @@ class DeviceListDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<DeviceList>
       _instance;
 } _DeviceList_default_instance_;
+class OperationParamsDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<OperationParams>
+      _instance;
+} _OperationParams_default_instance_;
+class ChannelParamsDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<ChannelParams>
+      _instance;
+} _ChannelParams_default_instance_;
+class ChannelValidationParamsDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<ChannelValidationParams>
+      _instance;
+} _ChannelValidationParams_default_instance_;
 class MessageDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<Message>
@@ -104,27 +114,6 @@ void InitDefaultsAttachParams() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsAttachParamsImpl);
 }
 
-void InitDefaultsOperationRequestParamsImpl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
-#else
-  ::google::protobuf::internal::InitProtobufDefaults();
-#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  {
-    void* ptr = &::skylync::_OperationRequestParams_default_instance_;
-    new (ptr) ::skylync::OperationRequestParams();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::skylync::OperationRequestParams::InitAsDefaultInstance();
-}
-
-void InitDefaultsOperationRequestParams() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsOperationRequestParamsImpl);
-}
-
 void InitDefaultsDeviceIdImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -168,6 +157,69 @@ void InitDefaultsDeviceList() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsDeviceListImpl);
 }
 
+void InitDefaultsOperationParamsImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  {
+    void* ptr = &::skylync::_OperationParams_default_instance_;
+    new (ptr) ::skylync::OperationParams();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::skylync::OperationParams::InitAsDefaultInstance();
+}
+
+void InitDefaultsOperationParams() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsOperationParamsImpl);
+}
+
+void InitDefaultsChannelParamsImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  {
+    void* ptr = &::skylync::_ChannelParams_default_instance_;
+    new (ptr) ::skylync::ChannelParams();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::skylync::ChannelParams::InitAsDefaultInstance();
+}
+
+void InitDefaultsChannelParams() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsChannelParamsImpl);
+}
+
+void InitDefaultsChannelValidationParamsImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  {
+    void* ptr = &::skylync::_ChannelValidationParams_default_instance_;
+    new (ptr) ::skylync::ChannelValidationParams();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::skylync::ChannelValidationParams::InitAsDefaultInstance();
+}
+
+void InitDefaultsChannelValidationParams() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsChannelValidationParamsImpl);
+}
+
 void InitDefaultsMessageImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -200,7 +252,8 @@ void InitDefaultsEndpointMessageImpl() {
   protobuf_skylync_2eproto::InitDefaultsMessage();
   protobuf_skylync_2eproto::InitDefaultsAttachParams();
   protobuf_skylync_2eproto::InitDefaultsContext();
-  protobuf_skylync_2eproto::InitDefaultsOperationRequestParams();
+  protobuf_skylync_2eproto::InitDefaultsOperationParams();
+  protobuf_skylync_2eproto::InitDefaultsChannelParams();
   {
     void* ptr = &::skylync::_EndpointMessage_default_instance_;
     new (ptr) ::skylync::EndpointMessage();
@@ -225,6 +278,8 @@ void InitDefaultsBridgeMessageImpl() {
   protobuf_skylync_2eproto::InitDefaultsMessage();
   protobuf_skylync_2eproto::InitDefaultsContext();
   protobuf_skylync_2eproto::InitDefaultsDeviceList();
+  protobuf_skylync_2eproto::InitDefaultsChannelParams();
+  protobuf_skylync_2eproto::InitDefaultsChannelValidationParams();
   {
     void* ptr = &::skylync::_BridgeMessage_default_instance_;
     new (ptr) ::skylync::BridgeMessage();
@@ -238,7 +293,7 @@ void InitDefaultsBridgeMessage() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsBridgeMessageImpl);
 }
 
-::google::protobuf::Metadata file_level_metadata[8];
+::google::protobuf::Metadata file_level_metadata[10];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
@@ -256,12 +311,6 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::AttachParams, id_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::AttachParams, pwd_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::OperationRequestParams, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::OperationRequestParams, refid_),
-  ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::DeviceId, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -274,6 +323,25 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::DeviceList, devices_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::OperationParams, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::OperationParams, refid_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::ChannelParams, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::ChannelParams, channelid_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::ChannelValidationParams, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::ChannelValidationParams, port_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::ChannelValidationParams, key_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::Message, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -291,7 +359,8 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::EndpointMessage, base_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::EndpointMessage, attachparams_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::EndpointMessage, context_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::EndpointMessage, operationrequestparams_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::EndpointMessage, operationparams_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::EndpointMessage, channelparams_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::BridgeMessage, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -300,24 +369,30 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::BridgeMessage, base_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::BridgeMessage, context_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::BridgeMessage, devicelist_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::BridgeMessage, channelparams_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::BridgeMessage, channelvalidationparams_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::skylync::Context)},
   { 6, -1, sizeof(::skylync::AttachParams)},
-  { 13, -1, sizeof(::skylync::OperationRequestParams)},
-  { 19, -1, sizeof(::skylync::DeviceId)},
-  { 26, -1, sizeof(::skylync::DeviceList)},
-  { 32, -1, sizeof(::skylync::Message)},
-  { 41, -1, sizeof(::skylync::EndpointMessage)},
-  { 50, -1, sizeof(::skylync::BridgeMessage)},
+  { 13, -1, sizeof(::skylync::DeviceId)},
+  { 20, -1, sizeof(::skylync::DeviceList)},
+  { 26, -1, sizeof(::skylync::OperationParams)},
+  { 32, -1, sizeof(::skylync::ChannelParams)},
+  { 38, -1, sizeof(::skylync::ChannelValidationParams)},
+  { 45, -1, sizeof(::skylync::Message)},
+  { 54, -1, sizeof(::skylync::EndpointMessage)},
+  { 64, -1, sizeof(::skylync::BridgeMessage)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::skylync::_Context_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::skylync::_AttachParams_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::skylync::_OperationRequestParams_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::skylync::_DeviceId_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::skylync::_DeviceList_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::skylync::_OperationParams_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::skylync::_ChannelParams_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::skylync::_ChannelValidationParams_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::skylync::_Message_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::skylync::_EndpointMessage_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::skylync::_BridgeMessage_default_instance_),
@@ -339,7 +414,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 8);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 10);
 }
 
 void AddDescriptorsImpl() {
@@ -347,39 +422,44 @@ void AddDescriptorsImpl() {
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\rskylync.proto\022\007skylync\"\030\n\007Context\022\r\n\005r"
       "efId\030\001 \001(\004\"\'\n\014AttachParams\022\n\n\002id\030\001 \001(\t\022\013"
-      "\n\003pwd\030\002 \001(\t\"\'\n\026OperationRequestParams\022\r\n"
-      "\005refId\030\001 \001(\004\"%\n\010DeviceId\022\013\n\003ref\030\001 \001(\004\022\014\n"
-      "\004name\030\002 \001(\t\"0\n\nDeviceList\022\"\n\007devices\030\001 \003"
-      "(\0132\021.skylync.DeviceId\"\261\005\n\007Message\022)\n\007com"
-      "mand\030\001 \001(\0162\030.skylync.Message.Command\022-\n\013"
-      "responseFor\030\002 \001(\0162\030.skylync.Message.Comm"
-      "and\022%\n\005cause\030\003 \001(\0162\026.skylync.Message.Cau"
-      "se\022\014\n\004note\030\004 \001(\t\"\263\002\n\007Command\022\023\n\017UNKNOWN_"
-      "COMMAND\020\000\022\n\n\006ACCEPT\020\001\022\n\n\006REJECT\020\002\022\n\n\006ATT"
-      "ACH\020\003\022\013\n\007RELEASE\020\004\022\022\n\016CONTEXT_UPDATE\020\005\022\017"
-      "\n\013DEVICE_LIST\020\006\022\021\n\rDEVICE_STATUS\020\007\022\030\n\024DE"
-      "VICE_UPDATE_STATUS\020\010\022\025\n\021OPERATION_REQUES"
-      "T\020\t\022\026\n\022OPERATION_TEARDOWN\020\n\022\025\n\021OPERATION"
-      "_STARTED\020\013\022\022\n\016TUNNEL_REQUEST\020\014\022\020\n\014CHANNE"
-      "L_OPEN\020\r\022\024\n\020CHANNEL_VALIDATE\020\016\022\016\n\nHO_REQ"
-      "UEST\020\017\"\340\001\n\005Cause\022\021\n\rUNKNOWN_CAUSE\020\000\022\014\n\010B"
-      "AD_DATA\020\001\022\022\n\016INTERNAL_ERROR\020\002\022\r\n\tNOT_FOU"
-      "ND\020\003\022\020\n\014UNAUTHORIZED\020\004\022\010\n\004BUSY\020\005\022\016\n\nBAD_"
-      "DEVICE\020\006\022\017\n\013NOT_CAPABLE\020\007\022\t\n\005NOTED\020\010\022\013\n\007"
-      "BLOCKED\020\t\022\023\n\017ALLREADY_IN_USE\020\n\022\016\n\nOVERLO"
-      "ADED\020\013\022\031\n\025AUTHENTICATION_FAILED\020\014\"\302\001\n\017En"
-      "dpointMessage\022\036\n\004base\030\001 \001(\0132\020.skylync.Me"
-      "ssage\022+\n\014attachParams\030\002 \001(\0132\025.skylync.At"
-      "tachParams\022!\n\007context\030\003 \001(\0132\020.skylync.Co"
-      "ntext\022\?\n\026operationRequestParams\030\004 \001(\0132\037."
-      "skylync.OperationRequestParams\"{\n\rBridge"
-      "Message\022\036\n\004base\030\001 \001(\0132\020.skylync.Message\022"
-      "!\n\007context\030\002 \001(\0132\020.skylync.Context\022\'\n\nde"
-      "viceList\030\003 \001(\0132\023.skylync.DeviceListb\006pro"
-      "to3"
+      "\n\003pwd\030\002 \001(\t\"%\n\010DeviceId\022\013\n\003ref\030\001 \001(\004\022\014\n\004"
+      "name\030\002 \001(\t\"0\n\nDeviceList\022\"\n\007devices\030\001 \003("
+      "\0132\021.skylync.DeviceId\" \n\017OperationParams\022"
+      "\r\n\005refId\030\001 \001(\004\"\"\n\rChannelParams\022\021\n\tchann"
+      "elId\030\001 \001(\004\"4\n\027ChannelValidationParams\022\014\n"
+      "\004port\030\001 \001(\r\022\013\n\003key\030\002 \001(\t\"\261\005\n\007Message\022)\n\007"
+      "command\030\001 \001(\0162\030.skylync.Message.Command\022"
+      "-\n\013responseFor\030\002 \001(\0162\030.skylync.Message.C"
+      "ommand\022%\n\005cause\030\003 \001(\0162\026.skylync.Message."
+      "Cause\022\014\n\004note\030\004 \001(\t\"\263\002\n\007Command\022\023\n\017UNKNO"
+      "WN_COMMAND\020\000\022\n\n\006ACCEPT\020\001\022\n\n\006REJECT\020\002\022\n\n\006"
+      "ATTACH\020\003\022\013\n\007RELEASE\020\004\022\022\n\016CONTEXT_UPDATE\020"
+      "\005\022\017\n\013DEVICE_LIST\020\006\022\021\n\rDEVICE_STATUS\020\007\022\030\n"
+      "\024DEVICE_UPDATE_STATUS\020\010\022\025\n\021OPERATION_REQ"
+      "UEST\020\t\022\026\n\022OPERATION_TEARDOWN\020\n\022\025\n\021OPERAT"
+      "ION_STARTED\020\013\022\022\n\016TUNNEL_REQUEST\020\014\022\020\n\014CHA"
+      "NNEL_OPEN\020\r\022\024\n\020CHANNEL_VALIDATE\020\016\022\016\n\nHO_"
+      "REQUEST\020\017\"\340\001\n\005Cause\022\021\n\rUNKNOWN_CAUSE\020\000\022\014"
+      "\n\010BAD_DATA\020\001\022\022\n\016INTERNAL_ERROR\020\002\022\r\n\tNOT_"
+      "FOUND\020\003\022\020\n\014UNAUTHORIZED\020\004\022\010\n\004BUSY\020\005\022\016\n\nB"
+      "AD_DEVICE\020\006\022\017\n\013NOT_CAPABLE\020\007\022\t\n\005NOTED\020\010\022"
+      "\013\n\007BLOCKED\020\t\022\023\n\017ALLREADY_IN_USE\020\n\022\016\n\nOVE"
+      "RLOADED\020\013\022\031\n\025AUTHENTICATION_FAILED\020\014\"\343\001\n"
+      "\017EndpointMessage\022\036\n\004base\030\001 \001(\0132\020.skylync"
+      ".Message\022+\n\014attachParams\030\002 \001(\0132\025.skylync"
+      ".AttachParams\022!\n\007context\030\003 \001(\0132\020.skylync"
+      ".Context\0221\n\017operationParams\030\004 \001(\0132\030.skyl"
+      "ync.OperationParams\022-\n\rchannelParams\030\005 \001"
+      "(\0132\026.skylync.ChannelParams\"\355\001\n\rBridgeMes"
+      "sage\022\036\n\004base\030\001 \001(\0132\020.skylync.Message\022!\n\007"
+      "context\030\002 \001(\0132\020.skylync.Context\022\'\n\ndevic"
+      "eList\030\003 \001(\0132\023.skylync.DeviceList\022-\n\rchan"
+      "nelParams\030\005 \001(\0132\026.skylync.ChannelParams\022"
+      "A\n\027channelValidationParams\030\006 \001(\0132 .skyly"
+      "nc.ChannelValidationParamsb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1243);
+      descriptor, 1474);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "skylync.proto", &protobuf_RegisterTypes);
 }
@@ -1042,244 +1122,6 @@ void AttachParams::InternalSwap(AttachParams* other) {
 
 // ===================================================================
 
-void OperationRequestParams::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int OperationRequestParams::kRefIdFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-OperationRequestParams::OperationRequestParams()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_skylync_2eproto::InitDefaultsOperationRequestParams();
-  }
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:skylync.OperationRequestParams)
-}
-OperationRequestParams::OperationRequestParams(const OperationRequestParams& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      _cached_size_(0) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  refid_ = from.refid_;
-  // @@protoc_insertion_point(copy_constructor:skylync.OperationRequestParams)
-}
-
-void OperationRequestParams::SharedCtor() {
-  refid_ = GOOGLE_ULONGLONG(0);
-  _cached_size_ = 0;
-}
-
-OperationRequestParams::~OperationRequestParams() {
-  // @@protoc_insertion_point(destructor:skylync.OperationRequestParams)
-  SharedDtor();
-}
-
-void OperationRequestParams::SharedDtor() {
-}
-
-void OperationRequestParams::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* OperationRequestParams::descriptor() {
-  ::protobuf_skylync_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_skylync_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const OperationRequestParams& OperationRequestParams::default_instance() {
-  ::protobuf_skylync_2eproto::InitDefaultsOperationRequestParams();
-  return *internal_default_instance();
-}
-
-OperationRequestParams* OperationRequestParams::New(::google::protobuf::Arena* arena) const {
-  OperationRequestParams* n = new OperationRequestParams;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
-}
-
-void OperationRequestParams::Clear() {
-// @@protoc_insertion_point(message_clear_start:skylync.OperationRequestParams)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  refid_ = GOOGLE_ULONGLONG(0);
-  _internal_metadata_.Clear();
-}
-
-bool OperationRequestParams::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:skylync.OperationRequestParams)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // uint64 refId = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &refid_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:skylync.OperationRequestParams)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:skylync.OperationRequestParams)
-  return false;
-#undef DO_
-}
-
-void OperationRequestParams::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:skylync.OperationRequestParams)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // uint64 refId = 1;
-  if (this->refid() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->refid(), output);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:skylync.OperationRequestParams)
-}
-
-::google::protobuf::uint8* OperationRequestParams::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:skylync.OperationRequestParams)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // uint64 refId = 1;
-  if (this->refid() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->refid(), target);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:skylync.OperationRequestParams)
-  return target;
-}
-
-size_t OperationRequestParams::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:skylync.OperationRequestParams)
-  size_t total_size = 0;
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
-  // uint64 refId = 1;
-  if (this->refid() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt64Size(
-        this->refid());
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void OperationRequestParams::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:skylync.OperationRequestParams)
-  GOOGLE_DCHECK_NE(&from, this);
-  const OperationRequestParams* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const OperationRequestParams>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:skylync.OperationRequestParams)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:skylync.OperationRequestParams)
-    MergeFrom(*source);
-  }
-}
-
-void OperationRequestParams::MergeFrom(const OperationRequestParams& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:skylync.OperationRequestParams)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.refid() != 0) {
-    set_refid(from.refid());
-  }
-}
-
-void OperationRequestParams::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:skylync.OperationRequestParams)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void OperationRequestParams::CopyFrom(const OperationRequestParams& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:skylync.OperationRequestParams)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool OperationRequestParams::IsInitialized() const {
-  return true;
-}
-
-void OperationRequestParams::Swap(OperationRequestParams* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void OperationRequestParams::InternalSwap(OperationRequestParams* other) {
-  using std::swap;
-  swap(refid_, other->refid_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
-}
-
-::google::protobuf::Metadata OperationRequestParams::GetMetadata() const {
-  protobuf_skylync_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_skylync_2eproto::file_level_metadata[kIndexInFileMessages];
-}
-
-
-// ===================================================================
-
 void DeviceId::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -1816,6 +1658,777 @@ void DeviceList::InternalSwap(DeviceList* other) {
 
 // ===================================================================
 
+void OperationParams::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int OperationParams::kRefIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+OperationParams::OperationParams()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_skylync_2eproto::InitDefaultsOperationParams();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:skylync.OperationParams)
+}
+OperationParams::OperationParams(const OperationParams& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  refid_ = from.refid_;
+  // @@protoc_insertion_point(copy_constructor:skylync.OperationParams)
+}
+
+void OperationParams::SharedCtor() {
+  refid_ = GOOGLE_ULONGLONG(0);
+  _cached_size_ = 0;
+}
+
+OperationParams::~OperationParams() {
+  // @@protoc_insertion_point(destructor:skylync.OperationParams)
+  SharedDtor();
+}
+
+void OperationParams::SharedDtor() {
+}
+
+void OperationParams::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* OperationParams::descriptor() {
+  ::protobuf_skylync_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_skylync_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const OperationParams& OperationParams::default_instance() {
+  ::protobuf_skylync_2eproto::InitDefaultsOperationParams();
+  return *internal_default_instance();
+}
+
+OperationParams* OperationParams::New(::google::protobuf::Arena* arena) const {
+  OperationParams* n = new OperationParams;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void OperationParams::Clear() {
+// @@protoc_insertion_point(message_clear_start:skylync.OperationParams)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  refid_ = GOOGLE_ULONGLONG(0);
+  _internal_metadata_.Clear();
+}
+
+bool OperationParams::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:skylync.OperationParams)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // uint64 refId = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &refid_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:skylync.OperationParams)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:skylync.OperationParams)
+  return false;
+#undef DO_
+}
+
+void OperationParams::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:skylync.OperationParams)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint64 refId = 1;
+  if (this->refid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->refid(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:skylync.OperationParams)
+}
+
+::google::protobuf::uint8* OperationParams::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:skylync.OperationParams)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint64 refId = 1;
+  if (this->refid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->refid(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:skylync.OperationParams)
+  return target;
+}
+
+size_t OperationParams::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:skylync.OperationParams)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // uint64 refId = 1;
+  if (this->refid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->refid());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void OperationParams::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:skylync.OperationParams)
+  GOOGLE_DCHECK_NE(&from, this);
+  const OperationParams* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const OperationParams>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:skylync.OperationParams)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:skylync.OperationParams)
+    MergeFrom(*source);
+  }
+}
+
+void OperationParams::MergeFrom(const OperationParams& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:skylync.OperationParams)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.refid() != 0) {
+    set_refid(from.refid());
+  }
+}
+
+void OperationParams::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:skylync.OperationParams)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void OperationParams::CopyFrom(const OperationParams& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:skylync.OperationParams)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool OperationParams::IsInitialized() const {
+  return true;
+}
+
+void OperationParams::Swap(OperationParams* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void OperationParams::InternalSwap(OperationParams* other) {
+  using std::swap;
+  swap(refid_, other->refid_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata OperationParams::GetMetadata() const {
+  protobuf_skylync_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_skylync_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void ChannelParams::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int ChannelParams::kChannelIdFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+ChannelParams::ChannelParams()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_skylync_2eproto::InitDefaultsChannelParams();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:skylync.ChannelParams)
+}
+ChannelParams::ChannelParams(const ChannelParams& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  channelid_ = from.channelid_;
+  // @@protoc_insertion_point(copy_constructor:skylync.ChannelParams)
+}
+
+void ChannelParams::SharedCtor() {
+  channelid_ = GOOGLE_ULONGLONG(0);
+  _cached_size_ = 0;
+}
+
+ChannelParams::~ChannelParams() {
+  // @@protoc_insertion_point(destructor:skylync.ChannelParams)
+  SharedDtor();
+}
+
+void ChannelParams::SharedDtor() {
+}
+
+void ChannelParams::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* ChannelParams::descriptor() {
+  ::protobuf_skylync_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_skylync_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const ChannelParams& ChannelParams::default_instance() {
+  ::protobuf_skylync_2eproto::InitDefaultsChannelParams();
+  return *internal_default_instance();
+}
+
+ChannelParams* ChannelParams::New(::google::protobuf::Arena* arena) const {
+  ChannelParams* n = new ChannelParams;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void ChannelParams::Clear() {
+// @@protoc_insertion_point(message_clear_start:skylync.ChannelParams)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  channelid_ = GOOGLE_ULONGLONG(0);
+  _internal_metadata_.Clear();
+}
+
+bool ChannelParams::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:skylync.ChannelParams)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // uint64 channelId = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &channelid_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:skylync.ChannelParams)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:skylync.ChannelParams)
+  return false;
+#undef DO_
+}
+
+void ChannelParams::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:skylync.ChannelParams)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint64 channelId = 1;
+  if (this->channelid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->channelid(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:skylync.ChannelParams)
+}
+
+::google::protobuf::uint8* ChannelParams::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:skylync.ChannelParams)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint64 channelId = 1;
+  if (this->channelid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->channelid(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:skylync.ChannelParams)
+  return target;
+}
+
+size_t ChannelParams::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:skylync.ChannelParams)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // uint64 channelId = 1;
+  if (this->channelid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        this->channelid());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void ChannelParams::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:skylync.ChannelParams)
+  GOOGLE_DCHECK_NE(&from, this);
+  const ChannelParams* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const ChannelParams>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:skylync.ChannelParams)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:skylync.ChannelParams)
+    MergeFrom(*source);
+  }
+}
+
+void ChannelParams::MergeFrom(const ChannelParams& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:skylync.ChannelParams)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.channelid() != 0) {
+    set_channelid(from.channelid());
+  }
+}
+
+void ChannelParams::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:skylync.ChannelParams)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ChannelParams::CopyFrom(const ChannelParams& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:skylync.ChannelParams)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ChannelParams::IsInitialized() const {
+  return true;
+}
+
+void ChannelParams::Swap(ChannelParams* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void ChannelParams::InternalSwap(ChannelParams* other) {
+  using std::swap;
+  swap(channelid_, other->channelid_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata ChannelParams::GetMetadata() const {
+  protobuf_skylync_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_skylync_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void ChannelValidationParams::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int ChannelValidationParams::kPortFieldNumber;
+const int ChannelValidationParams::kKeyFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+ChannelValidationParams::ChannelValidationParams()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_skylync_2eproto::InitDefaultsChannelValidationParams();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:skylync.ChannelValidationParams)
+}
+ChannelValidationParams::ChannelValidationParams(const ChannelValidationParams& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.key().size() > 0) {
+    key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.key_);
+  }
+  port_ = from.port_;
+  // @@protoc_insertion_point(copy_constructor:skylync.ChannelValidationParams)
+}
+
+void ChannelValidationParams::SharedCtor() {
+  key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  port_ = 0u;
+  _cached_size_ = 0;
+}
+
+ChannelValidationParams::~ChannelValidationParams() {
+  // @@protoc_insertion_point(destructor:skylync.ChannelValidationParams)
+  SharedDtor();
+}
+
+void ChannelValidationParams::SharedDtor() {
+  key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void ChannelValidationParams::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* ChannelValidationParams::descriptor() {
+  ::protobuf_skylync_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_skylync_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const ChannelValidationParams& ChannelValidationParams::default_instance() {
+  ::protobuf_skylync_2eproto::InitDefaultsChannelValidationParams();
+  return *internal_default_instance();
+}
+
+ChannelValidationParams* ChannelValidationParams::New(::google::protobuf::Arena* arena) const {
+  ChannelValidationParams* n = new ChannelValidationParams;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void ChannelValidationParams::Clear() {
+// @@protoc_insertion_point(message_clear_start:skylync.ChannelValidationParams)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  port_ = 0u;
+  _internal_metadata_.Clear();
+}
+
+bool ChannelValidationParams::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:skylync.ChannelValidationParams)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // uint32 port = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &port_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string key = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_key()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->key().data(), static_cast<int>(this->key().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "skylync.ChannelValidationParams.key"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:skylync.ChannelValidationParams)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:skylync.ChannelValidationParams)
+  return false;
+#undef DO_
+}
+
+void ChannelValidationParams::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:skylync.ChannelValidationParams)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 port = 1;
+  if (this->port() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->port(), output);
+  }
+
+  // string key = 2;
+  if (this->key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key().data(), static_cast<int>(this->key().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "skylync.ChannelValidationParams.key");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->key(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:skylync.ChannelValidationParams)
+}
+
+::google::protobuf::uint8* ChannelValidationParams::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:skylync.ChannelValidationParams)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 port = 1;
+  if (this->port() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->port(), target);
+  }
+
+  // string key = 2;
+  if (this->key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key().data(), static_cast<int>(this->key().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "skylync.ChannelValidationParams.key");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->key(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:skylync.ChannelValidationParams)
+  return target;
+}
+
+size_t ChannelValidationParams::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:skylync.ChannelValidationParams)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // string key = 2;
+  if (this->key().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->key());
+  }
+
+  // uint32 port = 1;
+  if (this->port() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->port());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void ChannelValidationParams::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:skylync.ChannelValidationParams)
+  GOOGLE_DCHECK_NE(&from, this);
+  const ChannelValidationParams* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const ChannelValidationParams>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:skylync.ChannelValidationParams)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:skylync.ChannelValidationParams)
+    MergeFrom(*source);
+  }
+}
+
+void ChannelValidationParams::MergeFrom(const ChannelValidationParams& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:skylync.ChannelValidationParams)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.key().size() > 0) {
+
+    key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.key_);
+  }
+  if (from.port() != 0) {
+    set_port(from.port());
+  }
+}
+
+void ChannelValidationParams::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:skylync.ChannelValidationParams)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ChannelValidationParams::CopyFrom(const ChannelValidationParams& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:skylync.ChannelValidationParams)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ChannelValidationParams::IsInitialized() const {
+  return true;
+}
+
+void ChannelValidationParams::Swap(ChannelValidationParams* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void ChannelValidationParams::InternalSwap(ChannelValidationParams* other) {
+  using std::swap;
+  key_.Swap(&other->key_);
+  swap(port_, other->port_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata ChannelValidationParams::GetMetadata() const {
+  protobuf_skylync_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_skylync_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
 void Message::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -2202,14 +2815,17 @@ void EndpointMessage::InitAsDefaultInstance() {
       ::skylync::AttachParams::internal_default_instance());
   ::skylync::_EndpointMessage_default_instance_._instance.get_mutable()->context_ = const_cast< ::skylync::Context*>(
       ::skylync::Context::internal_default_instance());
-  ::skylync::_EndpointMessage_default_instance_._instance.get_mutable()->operationrequestparams_ = const_cast< ::skylync::OperationRequestParams*>(
-      ::skylync::OperationRequestParams::internal_default_instance());
+  ::skylync::_EndpointMessage_default_instance_._instance.get_mutable()->operationparams_ = const_cast< ::skylync::OperationParams*>(
+      ::skylync::OperationParams::internal_default_instance());
+  ::skylync::_EndpointMessage_default_instance_._instance.get_mutable()->channelparams_ = const_cast< ::skylync::ChannelParams*>(
+      ::skylync::ChannelParams::internal_default_instance());
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int EndpointMessage::kBaseFieldNumber;
 const int EndpointMessage::kAttachParamsFieldNumber;
 const int EndpointMessage::kContextFieldNumber;
-const int EndpointMessage::kOperationRequestParamsFieldNumber;
+const int EndpointMessage::kOperationParamsFieldNumber;
+const int EndpointMessage::kChannelParamsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 EndpointMessage::EndpointMessage()
@@ -2240,18 +2856,23 @@ EndpointMessage::EndpointMessage(const EndpointMessage& from)
   } else {
     context_ = NULL;
   }
-  if (from.has_operationrequestparams()) {
-    operationrequestparams_ = new ::skylync::OperationRequestParams(*from.operationrequestparams_);
+  if (from.has_operationparams()) {
+    operationparams_ = new ::skylync::OperationParams(*from.operationparams_);
   } else {
-    operationrequestparams_ = NULL;
+    operationparams_ = NULL;
+  }
+  if (from.has_channelparams()) {
+    channelparams_ = new ::skylync::ChannelParams(*from.channelparams_);
+  } else {
+    channelparams_ = NULL;
   }
   // @@protoc_insertion_point(copy_constructor:skylync.EndpointMessage)
 }
 
 void EndpointMessage::SharedCtor() {
   ::memset(&base_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&operationrequestparams_) -
-      reinterpret_cast<char*>(&base_)) + sizeof(operationrequestparams_));
+      reinterpret_cast<char*>(&channelparams_) -
+      reinterpret_cast<char*>(&base_)) + sizeof(channelparams_));
   _cached_size_ = 0;
 }
 
@@ -2264,7 +2885,8 @@ void EndpointMessage::SharedDtor() {
   if (this != internal_default_instance()) delete base_;
   if (this != internal_default_instance()) delete attachparams_;
   if (this != internal_default_instance()) delete context_;
-  if (this != internal_default_instance()) delete operationrequestparams_;
+  if (this != internal_default_instance()) delete operationparams_;
+  if (this != internal_default_instance()) delete channelparams_;
 }
 
 void EndpointMessage::SetCachedSize(int size) const {
@@ -2308,10 +2930,14 @@ void EndpointMessage::Clear() {
     delete context_;
   }
   context_ = NULL;
-  if (GetArenaNoVirtual() == NULL && operationrequestparams_ != NULL) {
-    delete operationrequestparams_;
+  if (GetArenaNoVirtual() == NULL && operationparams_ != NULL) {
+    delete operationparams_;
   }
-  operationrequestparams_ = NULL;
+  operationparams_ = NULL;
+  if (GetArenaNoVirtual() == NULL && channelparams_ != NULL) {
+    delete channelparams_;
+  }
+  channelparams_ = NULL;
   _internal_metadata_.Clear();
 }
 
@@ -2361,12 +2987,24 @@ bool EndpointMessage::MergePartialFromCodedStream(
         break;
       }
 
-      // .skylync.OperationRequestParams operationRequestParams = 4;
+      // .skylync.OperationParams operationParams = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_operationrequestparams()));
+               input, mutable_operationparams()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .skylync.ChannelParams channelParams = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_channelparams()));
         } else {
           goto handle_unusual;
         }
@@ -2417,10 +3055,16 @@ void EndpointMessage::SerializeWithCachedSizes(
       3, *this->context_, output);
   }
 
-  // .skylync.OperationRequestParams operationRequestParams = 4;
-  if (this->has_operationrequestparams()) {
+  // .skylync.OperationParams operationParams = 4;
+  if (this->has_operationparams()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, *this->operationrequestparams_, output);
+      4, *this->operationparams_, output);
+  }
+
+  // .skylync.ChannelParams channelParams = 5;
+  if (this->has_channelparams()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, *this->channelparams_, output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -2458,11 +3102,18 @@ void EndpointMessage::SerializeWithCachedSizes(
         3, *this->context_, deterministic, target);
   }
 
-  // .skylync.OperationRequestParams operationRequestParams = 4;
-  if (this->has_operationrequestparams()) {
+  // .skylync.OperationParams operationParams = 4;
+  if (this->has_operationparams()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        4, *this->operationrequestparams_, deterministic, target);
+        4, *this->operationparams_, deterministic, target);
+  }
+
+  // .skylync.ChannelParams channelParams = 5;
+  if (this->has_channelparams()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        5, *this->channelparams_, deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -2503,11 +3154,18 @@ size_t EndpointMessage::ByteSizeLong() const {
         *this->context_);
   }
 
-  // .skylync.OperationRequestParams operationRequestParams = 4;
-  if (this->has_operationrequestparams()) {
+  // .skylync.OperationParams operationParams = 4;
+  if (this->has_operationparams()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *this->operationrequestparams_);
+        *this->operationparams_);
+  }
+
+  // .skylync.ChannelParams channelParams = 5;
+  if (this->has_channelparams()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *this->channelparams_);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -2548,8 +3206,11 @@ void EndpointMessage::MergeFrom(const EndpointMessage& from) {
   if (from.has_context()) {
     mutable_context()->::skylync::Context::MergeFrom(from.context());
   }
-  if (from.has_operationrequestparams()) {
-    mutable_operationrequestparams()->::skylync::OperationRequestParams::MergeFrom(from.operationrequestparams());
+  if (from.has_operationparams()) {
+    mutable_operationparams()->::skylync::OperationParams::MergeFrom(from.operationparams());
+  }
+  if (from.has_channelparams()) {
+    mutable_channelparams()->::skylync::ChannelParams::MergeFrom(from.channelparams());
   }
 }
 
@@ -2580,7 +3241,8 @@ void EndpointMessage::InternalSwap(EndpointMessage* other) {
   swap(base_, other->base_);
   swap(attachparams_, other->attachparams_);
   swap(context_, other->context_);
-  swap(operationrequestparams_, other->operationrequestparams_);
+  swap(operationparams_, other->operationparams_);
+  swap(channelparams_, other->channelparams_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -2600,11 +3262,17 @@ void BridgeMessage::InitAsDefaultInstance() {
       ::skylync::Context::internal_default_instance());
   ::skylync::_BridgeMessage_default_instance_._instance.get_mutable()->devicelist_ = const_cast< ::skylync::DeviceList*>(
       ::skylync::DeviceList::internal_default_instance());
+  ::skylync::_BridgeMessage_default_instance_._instance.get_mutable()->channelparams_ = const_cast< ::skylync::ChannelParams*>(
+      ::skylync::ChannelParams::internal_default_instance());
+  ::skylync::_BridgeMessage_default_instance_._instance.get_mutable()->channelvalidationparams_ = const_cast< ::skylync::ChannelValidationParams*>(
+      ::skylync::ChannelValidationParams::internal_default_instance());
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int BridgeMessage::kBaseFieldNumber;
 const int BridgeMessage::kContextFieldNumber;
 const int BridgeMessage::kDeviceListFieldNumber;
+const int BridgeMessage::kChannelParamsFieldNumber;
+const int BridgeMessage::kChannelValidationParamsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 BridgeMessage::BridgeMessage()
@@ -2635,13 +3303,23 @@ BridgeMessage::BridgeMessage(const BridgeMessage& from)
   } else {
     devicelist_ = NULL;
   }
+  if (from.has_channelparams()) {
+    channelparams_ = new ::skylync::ChannelParams(*from.channelparams_);
+  } else {
+    channelparams_ = NULL;
+  }
+  if (from.has_channelvalidationparams()) {
+    channelvalidationparams_ = new ::skylync::ChannelValidationParams(*from.channelvalidationparams_);
+  } else {
+    channelvalidationparams_ = NULL;
+  }
   // @@protoc_insertion_point(copy_constructor:skylync.BridgeMessage)
 }
 
 void BridgeMessage::SharedCtor() {
   ::memset(&base_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&devicelist_) -
-      reinterpret_cast<char*>(&base_)) + sizeof(devicelist_));
+      reinterpret_cast<char*>(&channelvalidationparams_) -
+      reinterpret_cast<char*>(&base_)) + sizeof(channelvalidationparams_));
   _cached_size_ = 0;
 }
 
@@ -2654,6 +3332,8 @@ void BridgeMessage::SharedDtor() {
   if (this != internal_default_instance()) delete base_;
   if (this != internal_default_instance()) delete context_;
   if (this != internal_default_instance()) delete devicelist_;
+  if (this != internal_default_instance()) delete channelparams_;
+  if (this != internal_default_instance()) delete channelvalidationparams_;
 }
 
 void BridgeMessage::SetCachedSize(int size) const {
@@ -2697,6 +3377,14 @@ void BridgeMessage::Clear() {
     delete devicelist_;
   }
   devicelist_ = NULL;
+  if (GetArenaNoVirtual() == NULL && channelparams_ != NULL) {
+    delete channelparams_;
+  }
+  channelparams_ = NULL;
+  if (GetArenaNoVirtual() == NULL && channelvalidationparams_ != NULL) {
+    delete channelvalidationparams_;
+  }
+  channelvalidationparams_ = NULL;
   _internal_metadata_.Clear();
 }
 
@@ -2740,6 +3428,30 @@ bool BridgeMessage::MergePartialFromCodedStream(
             static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_devicelist()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .skylync.ChannelParams channelParams = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_channelparams()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .skylync.ChannelValidationParams channelValidationParams = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_channelvalidationparams()));
         } else {
           goto handle_unusual;
         }
@@ -2790,6 +3502,18 @@ void BridgeMessage::SerializeWithCachedSizes(
       3, *this->devicelist_, output);
   }
 
+  // .skylync.ChannelParams channelParams = 5;
+  if (this->has_channelparams()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, *this->channelparams_, output);
+  }
+
+  // .skylync.ChannelValidationParams channelValidationParams = 6;
+  if (this->has_channelvalidationparams()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      6, *this->channelvalidationparams_, output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -2823,6 +3547,20 @@ void BridgeMessage::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
         3, *this->devicelist_, deterministic, target);
+  }
+
+  // .skylync.ChannelParams channelParams = 5;
+  if (this->has_channelparams()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        5, *this->channelparams_, deterministic, target);
+  }
+
+  // .skylync.ChannelValidationParams channelValidationParams = 6;
+  if (this->has_channelvalidationparams()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        6, *this->channelvalidationparams_, deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -2863,6 +3601,20 @@ size_t BridgeMessage::ByteSizeLong() const {
         *this->devicelist_);
   }
 
+  // .skylync.ChannelParams channelParams = 5;
+  if (this->has_channelparams()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *this->channelparams_);
+  }
+
+  // .skylync.ChannelValidationParams channelValidationParams = 6;
+  if (this->has_channelvalidationparams()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *this->channelvalidationparams_);
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -2901,6 +3653,12 @@ void BridgeMessage::MergeFrom(const BridgeMessage& from) {
   if (from.has_devicelist()) {
     mutable_devicelist()->::skylync::DeviceList::MergeFrom(from.devicelist());
   }
+  if (from.has_channelparams()) {
+    mutable_channelparams()->::skylync::ChannelParams::MergeFrom(from.channelparams());
+  }
+  if (from.has_channelvalidationparams()) {
+    mutable_channelvalidationparams()->::skylync::ChannelValidationParams::MergeFrom(from.channelvalidationparams());
+  }
 }
 
 void BridgeMessage::CopyFrom(const ::google::protobuf::Message& from) {
@@ -2930,6 +3688,8 @@ void BridgeMessage::InternalSwap(BridgeMessage* other) {
   swap(base_, other->base_);
   swap(context_, other->context_);
   swap(devicelist_, other->devicelist_);
+  swap(channelparams_, other->channelparams_);
+  swap(channelvalidationparams_, other->channelvalidationparams_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }

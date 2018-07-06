@@ -20,7 +20,7 @@ void OperationEstablishment::start() noexcept
 {
     skylync::EndpointMessage message;
     message.mutable_base()->set_command(skylync::Message::OPERATION_REQUEST);
-    message.mutable_operationrequestparams()->set_refid(requestedRefId);
+    message.mutable_operationparams()->set_refid(requestedRefId);
     send(message);
 }
 
@@ -41,8 +41,7 @@ IAttachedState* OperationEstablishment::handleMessage(std::shared_ptr<skylync::B
         switch (message->base().command())
         {
         case skylync::Message::ACCEPT:
-            trace("asdasdasdas dasd asdas dasd asd as da");
-            return nullptr;
+            return sendFlightTunnelReqest();
 
         case skylync::Message::REJECT:
             return new Ready(listener, new bridge::Error("Request device failed: " +
@@ -62,4 +61,13 @@ IAttachedState* OperationEstablishment::handleMessage(std::shared_ptr<skylync::B
 std::string OperationEstablishment::toString() const noexcept
 {
     return "Attached::Pilot::OperationEstablishment";
+}
+
+IAttachedState* OperationEstablishment::sendFlightTunnelReqest() noexcept
+{
+    skylync::EndpointMessage message;
+    message.mutable_base()->set_command(skylync::Message::TUNNEL_REQUEST);
+    message.mutable_channelparams()->set_channelid(sl::FLIGHT_UDP);
+    send(message);
+    return nullptr;
 }

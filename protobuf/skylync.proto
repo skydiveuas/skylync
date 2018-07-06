@@ -11,10 +11,6 @@ message AttachParams {
     string pwd = 2;
 }
 
-message OperationRequestParams {
-    uint64 refId = 1;
-}
-
 message DeviceId {
    uint64 ref = 1;
    string name = 2;
@@ -22,6 +18,19 @@ message DeviceId {
 
 message DeviceList {
     repeated DeviceId devices = 1;
+}
+
+message OperationParams {
+    uint64 refId = 1;
+}
+
+message ChannelParams {
+    uint64 channelId = 1;
+}
+
+message ChannelValidationParams {
+    uint32 port = 1;
+    string key = 2;
 }
 
 message Message {
@@ -73,7 +82,8 @@ message EndpointMessage {
 
   AttachParams attachParams = 2;
   Context context = 3;
-  OperationRequestParams operationRequestParams = 4;
+  OperationParams operationParams = 4;
+  ChannelParams channelParams = 5;
 }
 
 message BridgeMessage {
@@ -81,4 +91,6 @@ message BridgeMessage {
 
   Context context = 2;
   DeviceList deviceList = 3;
+  ChannelParams channelParams = 5;
+  ChannelValidationParams channelValidationParams = 6;
 }

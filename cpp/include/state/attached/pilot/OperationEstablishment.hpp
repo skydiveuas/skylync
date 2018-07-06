@@ -30,6 +30,8 @@ public:
 
 private:
     const RefId requestedRefId;
+
+    IAttachedState* sendFlightTunnelReqest() noexcept;
 };
 
 } // pilot

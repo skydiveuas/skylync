@@ -14,6 +14,12 @@ enum TransportProtocol
     UDP,
 };
 
+enum ChannelId
+{
+    FLIGHT_UDP,
+    FLIGHT_TCP,
+};
+
 enum EndpointType
 {
     DEVICE,
