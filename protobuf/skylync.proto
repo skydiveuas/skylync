@@ -25,7 +25,7 @@ message OperationParams {
 }
 
 message ChannelParams {
-    uint64 channelId = 1;
+    uint32 channelId = 1;
 }
 
 message ChannelValidationParams {

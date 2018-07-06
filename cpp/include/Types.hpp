@@ -10,13 +10,13 @@ typedef std::pair<const uint8_t* const, const size_t> DataPacket;
 
 enum TransportProtocol
 {
-    TCP = 10,
+    TCP,
     UDP,
 };
 
 enum ChannelId
 {
-    FLIGHT_UDP,
+    FLIGHT_UDP = 10,
     FLIGHT_TCP,
 };
 
