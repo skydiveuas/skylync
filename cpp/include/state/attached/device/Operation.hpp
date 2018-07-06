@@ -27,6 +27,9 @@ public:
     IAttachedState* handleMessage(std::shared_ptr<skylync::BridgeMessage> message) override;
 
     std::string toString() const noexcept override;
+
+private:
+    void openChannel(const skylync::ChannelParams&);
 };
 
 } // device
