@@ -14,7 +14,7 @@ namespace state
 class Authentication : public ILiveCycleState
 {
 public:
-    Authentication(Listener& listener, const event::endpoint::Attach* _attach);
+    Authentication(Listener& listener, const event::endpoint::Attach& _attach);
 
     void start() noexcept override;
 
@@ -23,7 +23,7 @@ public:
     std::string toString() const noexcept override;
 
 private:
-    std::unique_ptr<const event::endpoint::Attach> attach;
+    const event::endpoint::Attach attach;
 };
 
 } // state

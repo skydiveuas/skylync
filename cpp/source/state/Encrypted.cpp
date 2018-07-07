@@ -20,7 +20,7 @@ void Encrypted::handleEvent(const endpoint::Event& event)
     switch (event.getType())
     {
     case endpoint::Event::ATTACH:
-        switchState<Authentication>(&reinterpret_cast<const endpoint::Attach&>(event));
+        switchState<Authentication>(reinterpret_cast<const endpoint::Attach&>(event));
         break;
 
     default:

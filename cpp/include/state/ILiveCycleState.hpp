@@ -98,12 +98,6 @@ protected:
     {
         listener.switchState(std::make_shared<_State>(listener, args...));
     }
-
-    template <typename _State, typename... _Args>
-    void switchState(const _Args&... args)
-    {
-        listener.switchState(std::make_shared<_State>(listener, args...));
-    }
 };
 
 } // state

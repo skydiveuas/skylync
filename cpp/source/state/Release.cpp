@@ -19,7 +19,6 @@ void Release::start() noexcept
 
 void Release::handleMessage(std::shared_ptr<skylync::BridgeMessage> message)
 {
-    trace("Received: [" + message->DebugString() + "]");
     if (message->has_base() &&
             message->base().command() == skylync::Message::ACCEPT)
     {
