@@ -800,17 +800,17 @@ class ChannelParams : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   // accessors -------------------------------------------------------
 
-  // uint64 channelId = 1;
+  // uint32 channelId = 1;
   void clear_channelid();
   static const int kChannelIdFieldNumber = 1;
-  ::google::protobuf::uint64 channelid() const;
-  void set_channelid(::google::protobuf::uint64 value);
+  ::google::protobuf::uint32 channelid() const;
+  void set_channelid(::google::protobuf::uint32 value);
 
   // @@protoc_insertion_point(class_scope:skylync.ChannelParams)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint64 channelid_;
+  ::google::protobuf::uint32 channelid_;
   mutable int _cached_size_;
   friend struct ::protobuf_skylync_2eproto::TableStruct;
   friend void ::protobuf_skylync_2eproto::InitDefaultsChannelParamsImpl();
@@ -899,23 +899,29 @@ class ChannelValidationParams : public ::google::protobuf::Message /* @@protoc_i
 
   // accessors -------------------------------------------------------
 
-  // string key = 2;
+  // bytes key = 3;
   void clear_key();
-  static const int kKeyFieldNumber = 2;
+  static const int kKeyFieldNumber = 3;
   const ::std::string& key() const;
   void set_key(const ::std::string& value);
   #if LANG_CXX11
   void set_key(::std::string&& value);
   #endif
   void set_key(const char* value);
-  void set_key(const char* value, size_t size);
+  void set_key(const void* value, size_t size);
   ::std::string* mutable_key();
   ::std::string* release_key();
   void set_allocated_key(::std::string* key);
 
-  // uint32 port = 1;
+  // uint32 channelId = 1;
+  void clear_channelid();
+  static const int kChannelIdFieldNumber = 1;
+  ::google::protobuf::uint32 channelid() const;
+  void set_channelid(::google::protobuf::uint32 value);
+
+  // uint32 port = 2;
   void clear_port();
-  static const int kPortFieldNumber = 1;
+  static const int kPortFieldNumber = 2;
   ::google::protobuf::uint32 port() const;
   void set_port(::google::protobuf::uint32 value);
 
@@ -924,6 +930,7 @@ class ChannelValidationParams : public ::google::protobuf::Message /* @@protoc_i
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr key_;
+  ::google::protobuf::uint32 channelid_;
   ::google::protobuf::uint32 port_;
   mutable int _cached_size_;
   friend struct ::protobuf_skylync_2eproto::TableStruct;
@@ -1705,15 +1712,15 @@ inline void OperationParams::set_refid(::google::protobuf::uint64 value) {
 
 // ChannelParams
 
-// uint64 channelId = 1;
+// uint32 channelId = 1;
 inline void ChannelParams::clear_channelid() {
-  channelid_ = GOOGLE_ULONGLONG(0);
+  channelid_ = 0u;
 }
-inline ::google::protobuf::uint64 ChannelParams::channelid() const {
+inline ::google::protobuf::uint32 ChannelParams::channelid() const {
   // @@protoc_insertion_point(field_get:skylync.ChannelParams.channelId)
   return channelid_;
 }
-inline void ChannelParams::set_channelid(::google::protobuf::uint64 value) {
+inline void ChannelParams::set_channelid(::google::protobuf::uint32 value) {
   
   channelid_ = value;
   // @@protoc_insertion_point(field_set:skylync.ChannelParams.channelId)
@@ -1723,7 +1730,21 @@ inline void ChannelParams::set_channelid(::google::protobuf::uint64 value) {
 
 // ChannelValidationParams
 
-// uint32 port = 1;
+// uint32 channelId = 1;
+inline void ChannelValidationParams::clear_channelid() {
+  channelid_ = 0u;
+}
+inline ::google::protobuf::uint32 ChannelValidationParams::channelid() const {
+  // @@protoc_insertion_point(field_get:skylync.ChannelValidationParams.channelId)
+  return channelid_;
+}
+inline void ChannelValidationParams::set_channelid(::google::protobuf::uint32 value) {
+  
+  channelid_ = value;
+  // @@protoc_insertion_point(field_set:skylync.ChannelValidationParams.channelId)
+}
+
+// uint32 port = 2;
 inline void ChannelValidationParams::clear_port() {
   port_ = 0u;
 }
@@ -1737,7 +1758,7 @@ inline void ChannelValidationParams::set_port(::google::protobuf::uint32 value) 
   // @@protoc_insertion_point(field_set:skylync.ChannelValidationParams.port)
 }
 
-// string key = 2;
+// bytes key = 3;
 inline void ChannelValidationParams::clear_key() {
   key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1764,7 +1785,7 @@ inline void ChannelValidationParams::set_key(const char* value) {
   key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:skylync.ChannelValidationParams.key)
 }
-inline void ChannelValidationParams::set_key(const char* value, size_t size) {
+inline void ChannelValidationParams::set_key(const void* value, size_t size) {
   
   key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));

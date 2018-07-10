@@ -2931,9 +2931,9 @@ public final class Skylync {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>uint64 channelId = 1;</code>
+     * <code>uint32 channelId = 1;</code>
      */
-    long getChannelId();
+    int getChannelId();
   }
   /**
    * Protobuf type {@code skylync.ChannelParams}
@@ -2948,7 +2948,7 @@ public final class Skylync {
       super(builder);
     }
     private ChannelParams() {
-      channelId_ = 0L;
+      channelId_ = 0;
     }
 
     @java.lang.Override
@@ -2984,7 +2984,7 @@ public final class Skylync {
             }
             case 8: {
 
-              channelId_ = input.readUInt64();
+              channelId_ = input.readUInt32();
               break;
             }
           }
@@ -3012,11 +3012,11 @@ public final class Skylync {
     }
 
     public static final int CHANNELID_FIELD_NUMBER = 1;
-    private long channelId_;
+    private int channelId_;
     /**
-     * <code>uint64 channelId = 1;</code>
+     * <code>uint32 channelId = 1;</code>
      */
-    public long getChannelId() {
+    public int getChannelId() {
       return channelId_;
     }
 
@@ -3032,8 +3032,8 @@ public final class Skylync {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (channelId_ != 0L) {
-        output.writeUInt64(1, channelId_);
+      if (channelId_ != 0) {
+        output.writeUInt32(1, channelId_);
       }
       unknownFields.writeTo(output);
     }
@@ -3043,9 +3043,9 @@ public final class Skylync {
       if (size != -1) return size;
 
       size = 0;
-      if (channelId_ != 0L) {
+      if (channelId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(1, channelId_);
+          .computeUInt32Size(1, channelId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3077,8 +3077,7 @@ public final class Skylync {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + CHANNELID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getChannelId());
+      hash = (53 * hash) + getChannelId();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3208,7 +3207,7 @@ public final class Skylync {
       }
       public Builder clear() {
         super.clear();
-        channelId_ = 0L;
+        channelId_ = 0;
 
         return this;
       }
@@ -3274,7 +3273,7 @@ public final class Skylync {
 
       public Builder mergeFrom(skylync.Skylync.ChannelParams other) {
         if (other == skylync.Skylync.ChannelParams.getDefaultInstance()) return this;
-        if (other.getChannelId() != 0L) {
+        if (other.getChannelId() != 0) {
           setChannelId(other.getChannelId());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -3304,28 +3303,28 @@ public final class Skylync {
         return this;
       }
 
-      private long channelId_ ;
+      private int channelId_ ;
       /**
-       * <code>uint64 channelId = 1;</code>
+       * <code>uint32 channelId = 1;</code>
        */
-      public long getChannelId() {
+      public int getChannelId() {
         return channelId_;
       }
       /**
-       * <code>uint64 channelId = 1;</code>
+       * <code>uint32 channelId = 1;</code>
        */
-      public Builder setChannelId(long value) {
+      public Builder setChannelId(int value) {
         
         channelId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint64 channelId = 1;</code>
+       * <code>uint32 channelId = 1;</code>
        */
       public Builder clearChannelId() {
         
-        channelId_ = 0L;
+        channelId_ = 0;
         onChanged();
         return this;
       }
@@ -3383,19 +3382,19 @@ public final class Skylync {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>uint32 port = 1;</code>
+     * <code>uint32 channelId = 1;</code>
+     */
+    int getChannelId();
+
+    /**
+     * <code>uint32 port = 2;</code>
      */
     int getPort();
 
     /**
-     * <code>string key = 2;</code>
+     * <code>bytes key = 3;</code>
      */
-    java.lang.String getKey();
-    /**
-     * <code>string key = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getKeyBytes();
+    com.google.protobuf.ByteString getKey();
   }
   /**
    * Protobuf type {@code skylync.ChannelValidationParams}
@@ -3410,8 +3409,9 @@ public final class Skylync {
       super(builder);
     }
     private ChannelValidationParams() {
+      channelId_ = 0;
       port_ = 0;
-      key_ = "";
+      key_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -3447,13 +3447,17 @@ public final class Skylync {
             }
             case 8: {
 
+              channelId_ = input.readUInt32();
+              break;
+            }
+            case 16: {
+
               port_ = input.readUInt32();
               break;
             }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 26: {
 
-              key_ = s;
+              key_ = input.readBytes();
               break;
             }
           }
@@ -3480,47 +3484,31 @@ public final class Skylync {
               skylync.Skylync.ChannelValidationParams.class, skylync.Skylync.ChannelValidationParams.Builder.class);
     }
 
-    public static final int PORT_FIELD_NUMBER = 1;
+    public static final int CHANNELID_FIELD_NUMBER = 1;
+    private int channelId_;
+    /**
+     * <code>uint32 channelId = 1;</code>
+     */
+    public int getChannelId() {
+      return channelId_;
+    }
+
+    public static final int PORT_FIELD_NUMBER = 2;
     private int port_;
     /**
-     * <code>uint32 port = 1;</code>
+     * <code>uint32 port = 2;</code>
      */
     public int getPort() {
       return port_;
     }
 
-    public static final int KEY_FIELD_NUMBER = 2;
-    private volatile java.lang.Object key_;
+    public static final int KEY_FIELD_NUMBER = 3;
+    private com.google.protobuf.ByteString key_;
     /**
-     * <code>string key = 2;</code>
+     * <code>bytes key = 3;</code>
      */
-    public java.lang.String getKey() {
-      java.lang.Object ref = key_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        key_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string key = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getKeyBytes() {
-      java.lang.Object ref = key_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        key_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public com.google.protobuf.ByteString getKey() {
+      return key_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3535,11 +3523,14 @@ public final class Skylync {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (port_ != 0) {
-        output.writeUInt32(1, port_);
+      if (channelId_ != 0) {
+        output.writeUInt32(1, channelId_);
       }
-      if (!getKeyBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, key_);
+      if (port_ != 0) {
+        output.writeUInt32(2, port_);
+      }
+      if (!key_.isEmpty()) {
+        output.writeBytes(3, key_);
       }
       unknownFields.writeTo(output);
     }
@@ -3549,12 +3540,17 @@ public final class Skylync {
       if (size != -1) return size;
 
       size = 0;
+      if (channelId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, channelId_);
+      }
       if (port_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, port_);
+          .computeUInt32Size(2, port_);
       }
-      if (!getKeyBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, key_);
+      if (!key_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, key_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3572,6 +3568,8 @@ public final class Skylync {
       skylync.Skylync.ChannelValidationParams other = (skylync.Skylync.ChannelValidationParams) obj;
 
       boolean result = true;
+      result = result && (getChannelId()
+          == other.getChannelId());
       result = result && (getPort()
           == other.getPort());
       result = result && getKey()
@@ -3587,6 +3585,8 @@ public final class Skylync {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CHANNELID_FIELD_NUMBER;
+      hash = (53 * hash) + getChannelId();
       hash = (37 * hash) + PORT_FIELD_NUMBER;
       hash = (53 * hash) + getPort();
       hash = (37 * hash) + KEY_FIELD_NUMBER;
@@ -3720,9 +3720,11 @@ public final class Skylync {
       }
       public Builder clear() {
         super.clear();
+        channelId_ = 0;
+
         port_ = 0;
 
-        key_ = "";
+        key_ = com.google.protobuf.ByteString.EMPTY;
 
         return this;
       }
@@ -3746,6 +3748,7 @@ public final class Skylync {
 
       public skylync.Skylync.ChannelValidationParams buildPartial() {
         skylync.Skylync.ChannelValidationParams result = new skylync.Skylync.ChannelValidationParams(this);
+        result.channelId_ = channelId_;
         result.port_ = port_;
         result.key_ = key_;
         onBuilt();
@@ -3789,12 +3792,14 @@ public final class Skylync {
 
       public Builder mergeFrom(skylync.Skylync.ChannelValidationParams other) {
         if (other == skylync.Skylync.ChannelValidationParams.getDefaultInstance()) return this;
+        if (other.getChannelId() != 0) {
+          setChannelId(other.getChannelId());
+        }
         if (other.getPort() != 0) {
           setPort(other.getPort());
         }
-        if (!other.getKey().isEmpty()) {
-          key_ = other.key_;
-          onChanged();
+        if (other.getKey() != com.google.protobuf.ByteString.EMPTY) {
+          setKey(other.getKey());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3823,15 +3828,41 @@ public final class Skylync {
         return this;
       }
 
+      private int channelId_ ;
+      /**
+       * <code>uint32 channelId = 1;</code>
+       */
+      public int getChannelId() {
+        return channelId_;
+      }
+      /**
+       * <code>uint32 channelId = 1;</code>
+       */
+      public Builder setChannelId(int value) {
+        
+        channelId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 channelId = 1;</code>
+       */
+      public Builder clearChannelId() {
+        
+        channelId_ = 0;
+        onChanged();
+        return this;
+      }
+
       private int port_ ;
       /**
-       * <code>uint32 port = 1;</code>
+       * <code>uint32 port = 2;</code>
        */
       public int getPort() {
         return port_;
       }
       /**
-       * <code>uint32 port = 1;</code>
+       * <code>uint32 port = 2;</code>
        */
       public Builder setPort(int value) {
         
@@ -3840,7 +3871,7 @@ public final class Skylync {
         return this;
       }
       /**
-       * <code>uint32 port = 1;</code>
+       * <code>uint32 port = 2;</code>
        */
       public Builder clearPort() {
         
@@ -3849,43 +3880,17 @@ public final class Skylync {
         return this;
       }
 
-      private java.lang.Object key_ = "";
+      private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>string key = 2;</code>
+       * <code>bytes key = 3;</code>
        */
-      public java.lang.String getKey() {
-        java.lang.Object ref = key_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          key_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public com.google.protobuf.ByteString getKey() {
+        return key_;
       }
       /**
-       * <code>string key = 2;</code>
+       * <code>bytes key = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getKeyBytes() {
-        java.lang.Object ref = key_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          key_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string key = 2;</code>
-       */
-      public Builder setKey(
-          java.lang.String value) {
+      public Builder setKey(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -3895,25 +3900,11 @@ public final class Skylync {
         return this;
       }
       /**
-       * <code>string key = 2;</code>
+       * <code>bytes key = 3;</code>
        */
       public Builder clearKey() {
         
         key_ = getDefaultInstance().getKey();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string key = 2;</code>
-       */
-      public Builder setKeyBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        key_ = value;
         onChanged();
         return this;
       }
@@ -7969,37 +7960,38 @@ public final class Skylync {
       "name\030\002 \001(\t\"0\n\nDeviceList\022\"\n\007devices\030\001 \003(" +
       "\0132\021.skylync.DeviceId\" \n\017OperationParams\022" +
       "\r\n\005refId\030\001 \001(\004\"\"\n\rChannelParams\022\021\n\tchann" +
-      "elId\030\001 \001(\004\"4\n\027ChannelValidationParams\022\014\n" +
-      "\004port\030\001 \001(\r\022\013\n\003key\030\002 \001(\t\"\261\005\n\007Message\022)\n\007" +
-      "command\030\001 \001(\0162\030.skylync.Message.Command\022" +
-      "-\n\013responseFor\030\002 \001(\0162\030.skylync.Message.C" +
-      "ommand\022%\n\005cause\030\003 \001(\0162\026.skylync.Message." +
-      "Cause\022\014\n\004note\030\004 \001(\t\"\263\002\n\007Command\022\023\n\017UNKNO" +
-      "WN_COMMAND\020\000\022\n\n\006ACCEPT\020\001\022\n\n\006REJECT\020\002\022\n\n\006" +
-      "ATTACH\020\003\022\013\n\007RELEASE\020\004\022\022\n\016CONTEXT_UPDATE\020" +
-      "\005\022\017\n\013DEVICE_LIST\020\006\022\021\n\rDEVICE_STATUS\020\007\022\030\n" +
-      "\024DEVICE_UPDATE_STATUS\020\010\022\025\n\021OPERATION_REQ" +
-      "UEST\020\t\022\026\n\022OPERATION_TEARDOWN\020\n\022\025\n\021OPERAT" +
-      "ION_STARTED\020\013\022\022\n\016TUNNEL_REQUEST\020\014\022\020\n\014CHA" +
-      "NNEL_OPEN\020\r\022\024\n\020CHANNEL_VALIDATE\020\016\022\016\n\nHO_" +
-      "REQUEST\020\017\"\340\001\n\005Cause\022\021\n\rUNKNOWN_CAUSE\020\000\022\014" +
-      "\n\010BAD_DATA\020\001\022\022\n\016INTERNAL_ERROR\020\002\022\r\n\tNOT_" +
-      "FOUND\020\003\022\020\n\014UNAUTHORIZED\020\004\022\010\n\004BUSY\020\005\022\016\n\nB" +
-      "AD_DEVICE\020\006\022\017\n\013NOT_CAPABLE\020\007\022\t\n\005NOTED\020\010\022" +
-      "\013\n\007BLOCKED\020\t\022\023\n\017ALLREADY_IN_USE\020\n\022\016\n\nOVE" +
-      "RLOADED\020\013\022\031\n\025AUTHENTICATION_FAILED\020\014\"\343\001\n" +
-      "\017EndpointMessage\022\036\n\004base\030\001 \001(\0132\020.skylync" +
-      ".Message\022+\n\014attachParams\030\002 \001(\0132\025.skylync" +
-      ".AttachParams\022!\n\007context\030\003 \001(\0132\020.skylync" +
-      ".Context\0221\n\017operationParams\030\004 \001(\0132\030.skyl" +
-      "ync.OperationParams\022-\n\rchannelParams\030\005 \001" +
-      "(\0132\026.skylync.ChannelParams\"\355\001\n\rBridgeMes" +
-      "sage\022\036\n\004base\030\001 \001(\0132\020.skylync.Message\022!\n\007" +
-      "context\030\002 \001(\0132\020.skylync.Context\022\'\n\ndevic" +
-      "eList\030\003 \001(\0132\023.skylync.DeviceList\022-\n\rchan" +
-      "nelParams\030\005 \001(\0132\026.skylync.ChannelParams\022" +
-      "A\n\027channelValidationParams\030\006 \001(\0132 .skyly" +
-      "nc.ChannelValidationParamsb\006proto3"
+      "elId\030\001 \001(\r\"G\n\027ChannelValidationParams\022\021\n" +
+      "\tchannelId\030\001 \001(\r\022\014\n\004port\030\002 \001(\r\022\013\n\003key\030\003 " +
+      "\001(\014\"\261\005\n\007Message\022)\n\007command\030\001 \001(\0162\030.skyly" +
+      "nc.Message.Command\022-\n\013responseFor\030\002 \001(\0162" +
+      "\030.skylync.Message.Command\022%\n\005cause\030\003 \001(\016" +
+      "2\026.skylync.Message.Cause\022\014\n\004note\030\004 \001(\t\"\263" +
+      "\002\n\007Command\022\023\n\017UNKNOWN_COMMAND\020\000\022\n\n\006ACCEP" +
+      "T\020\001\022\n\n\006REJECT\020\002\022\n\n\006ATTACH\020\003\022\013\n\007RELEASE\020\004" +
+      "\022\022\n\016CONTEXT_UPDATE\020\005\022\017\n\013DEVICE_LIST\020\006\022\021\n" +
+      "\rDEVICE_STATUS\020\007\022\030\n\024DEVICE_UPDATE_STATUS" +
+      "\020\010\022\025\n\021OPERATION_REQUEST\020\t\022\026\n\022OPERATION_T" +
+      "EARDOWN\020\n\022\025\n\021OPERATION_STARTED\020\013\022\022\n\016TUNN" +
+      "EL_REQUEST\020\014\022\020\n\014CHANNEL_OPEN\020\r\022\024\n\020CHANNE" +
+      "L_VALIDATE\020\016\022\016\n\nHO_REQUEST\020\017\"\340\001\n\005Cause\022\021" +
+      "\n\rUNKNOWN_CAUSE\020\000\022\014\n\010BAD_DATA\020\001\022\022\n\016INTER" +
+      "NAL_ERROR\020\002\022\r\n\tNOT_FOUND\020\003\022\020\n\014UNAUTHORIZ" +
+      "ED\020\004\022\010\n\004BUSY\020\005\022\016\n\nBAD_DEVICE\020\006\022\017\n\013NOT_CA" +
+      "PABLE\020\007\022\t\n\005NOTED\020\010\022\013\n\007BLOCKED\020\t\022\023\n\017ALLRE" +
+      "ADY_IN_USE\020\n\022\016\n\nOVERLOADED\020\013\022\031\n\025AUTHENTI" +
+      "CATION_FAILED\020\014\"\343\001\n\017EndpointMessage\022\036\n\004b" +
+      "ase\030\001 \001(\0132\020.skylync.Message\022+\n\014attachPar" +
+      "ams\030\002 \001(\0132\025.skylync.AttachParams\022!\n\007cont" +
+      "ext\030\003 \001(\0132\020.skylync.Context\0221\n\017operation" +
+      "Params\030\004 \001(\0132\030.skylync.OperationParams\022-" +
+      "\n\rchannelParams\030\005 \001(\0132\026.skylync.ChannelP" +
+      "arams\"\355\001\n\rBridgeMessage\022\036\n\004base\030\001 \001(\0132\020." +
+      "skylync.Message\022!\n\007context\030\002 \001(\0132\020.skyly" +
+      "nc.Context\022\'\n\ndeviceList\030\003 \001(\0132\023.skylync" +
+      ".DeviceList\022-\n\rchannelParams\030\005 \001(\0132\026.sky" +
+      "lync.ChannelParams\022A\n\027channelValidationP" +
+      "arams\030\006 \001(\0132 .skylync.ChannelValidationP" +
+      "aramsb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -8054,7 +8046,7 @@ public final class Skylync {
     internal_static_skylync_ChannelValidationParams_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_skylync_ChannelValidationParams_descriptor,
-        new java.lang.String[] { "Port", "Key", });
+        new java.lang.String[] { "ChannelId", "Port", "Key", });
     internal_static_skylync_Message_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_skylync_Message_fieldAccessorTable = new

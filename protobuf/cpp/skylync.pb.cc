@@ -340,6 +340,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::ChannelValidationParams, channelid_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::ChannelValidationParams, port_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::skylync::ChannelValidationParams, key_),
   ~0u,  // no _has_bits_
@@ -380,9 +381,9 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 26, -1, sizeof(::skylync::OperationParams)},
   { 32, -1, sizeof(::skylync::ChannelParams)},
   { 38, -1, sizeof(::skylync::ChannelValidationParams)},
-  { 45, -1, sizeof(::skylync::Message)},
-  { 54, -1, sizeof(::skylync::EndpointMessage)},
-  { 64, -1, sizeof(::skylync::BridgeMessage)},
+  { 46, -1, sizeof(::skylync::Message)},
+  { 55, -1, sizeof(::skylync::EndpointMessage)},
+  { 65, -1, sizeof(::skylync::BridgeMessage)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -426,40 +427,41 @@ void AddDescriptorsImpl() {
       "name\030\002 \001(\t\"0\n\nDeviceList\022\"\n\007devices\030\001 \003("
       "\0132\021.skylync.DeviceId\" \n\017OperationParams\022"
       "\r\n\005refId\030\001 \001(\004\"\"\n\rChannelParams\022\021\n\tchann"
-      "elId\030\001 \001(\004\"4\n\027ChannelValidationParams\022\014\n"
-      "\004port\030\001 \001(\r\022\013\n\003key\030\002 \001(\t\"\261\005\n\007Message\022)\n\007"
-      "command\030\001 \001(\0162\030.skylync.Message.Command\022"
-      "-\n\013responseFor\030\002 \001(\0162\030.skylync.Message.C"
-      "ommand\022%\n\005cause\030\003 \001(\0162\026.skylync.Message."
-      "Cause\022\014\n\004note\030\004 \001(\t\"\263\002\n\007Command\022\023\n\017UNKNO"
-      "WN_COMMAND\020\000\022\n\n\006ACCEPT\020\001\022\n\n\006REJECT\020\002\022\n\n\006"
-      "ATTACH\020\003\022\013\n\007RELEASE\020\004\022\022\n\016CONTEXT_UPDATE\020"
-      "\005\022\017\n\013DEVICE_LIST\020\006\022\021\n\rDEVICE_STATUS\020\007\022\030\n"
-      "\024DEVICE_UPDATE_STATUS\020\010\022\025\n\021OPERATION_REQ"
-      "UEST\020\t\022\026\n\022OPERATION_TEARDOWN\020\n\022\025\n\021OPERAT"
-      "ION_STARTED\020\013\022\022\n\016TUNNEL_REQUEST\020\014\022\020\n\014CHA"
-      "NNEL_OPEN\020\r\022\024\n\020CHANNEL_VALIDATE\020\016\022\016\n\nHO_"
-      "REQUEST\020\017\"\340\001\n\005Cause\022\021\n\rUNKNOWN_CAUSE\020\000\022\014"
-      "\n\010BAD_DATA\020\001\022\022\n\016INTERNAL_ERROR\020\002\022\r\n\tNOT_"
-      "FOUND\020\003\022\020\n\014UNAUTHORIZED\020\004\022\010\n\004BUSY\020\005\022\016\n\nB"
-      "AD_DEVICE\020\006\022\017\n\013NOT_CAPABLE\020\007\022\t\n\005NOTED\020\010\022"
-      "\013\n\007BLOCKED\020\t\022\023\n\017ALLREADY_IN_USE\020\n\022\016\n\nOVE"
-      "RLOADED\020\013\022\031\n\025AUTHENTICATION_FAILED\020\014\"\343\001\n"
-      "\017EndpointMessage\022\036\n\004base\030\001 \001(\0132\020.skylync"
-      ".Message\022+\n\014attachParams\030\002 \001(\0132\025.skylync"
-      ".AttachParams\022!\n\007context\030\003 \001(\0132\020.skylync"
-      ".Context\0221\n\017operationParams\030\004 \001(\0132\030.skyl"
-      "ync.OperationParams\022-\n\rchannelParams\030\005 \001"
-      "(\0132\026.skylync.ChannelParams\"\355\001\n\rBridgeMes"
-      "sage\022\036\n\004base\030\001 \001(\0132\020.skylync.Message\022!\n\007"
-      "context\030\002 \001(\0132\020.skylync.Context\022\'\n\ndevic"
-      "eList\030\003 \001(\0132\023.skylync.DeviceList\022-\n\rchan"
-      "nelParams\030\005 \001(\0132\026.skylync.ChannelParams\022"
-      "A\n\027channelValidationParams\030\006 \001(\0132 .skyly"
-      "nc.ChannelValidationParamsb\006proto3"
+      "elId\030\001 \001(\r\"G\n\027ChannelValidationParams\022\021\n"
+      "\tchannelId\030\001 \001(\r\022\014\n\004port\030\002 \001(\r\022\013\n\003key\030\003 "
+      "\001(\014\"\261\005\n\007Message\022)\n\007command\030\001 \001(\0162\030.skyly"
+      "nc.Message.Command\022-\n\013responseFor\030\002 \001(\0162"
+      "\030.skylync.Message.Command\022%\n\005cause\030\003 \001(\016"
+      "2\026.skylync.Message.Cause\022\014\n\004note\030\004 \001(\t\"\263"
+      "\002\n\007Command\022\023\n\017UNKNOWN_COMMAND\020\000\022\n\n\006ACCEP"
+      "T\020\001\022\n\n\006REJECT\020\002\022\n\n\006ATTACH\020\003\022\013\n\007RELEASE\020\004"
+      "\022\022\n\016CONTEXT_UPDATE\020\005\022\017\n\013DEVICE_LIST\020\006\022\021\n"
+      "\rDEVICE_STATUS\020\007\022\030\n\024DEVICE_UPDATE_STATUS"
+      "\020\010\022\025\n\021OPERATION_REQUEST\020\t\022\026\n\022OPERATION_T"
+      "EARDOWN\020\n\022\025\n\021OPERATION_STARTED\020\013\022\022\n\016TUNN"
+      "EL_REQUEST\020\014\022\020\n\014CHANNEL_OPEN\020\r\022\024\n\020CHANNE"
+      "L_VALIDATE\020\016\022\016\n\nHO_REQUEST\020\017\"\340\001\n\005Cause\022\021"
+      "\n\rUNKNOWN_CAUSE\020\000\022\014\n\010BAD_DATA\020\001\022\022\n\016INTER"
+      "NAL_ERROR\020\002\022\r\n\tNOT_FOUND\020\003\022\020\n\014UNAUTHORIZ"
+      "ED\020\004\022\010\n\004BUSY\020\005\022\016\n\nBAD_DEVICE\020\006\022\017\n\013NOT_CA"
+      "PABLE\020\007\022\t\n\005NOTED\020\010\022\013\n\007BLOCKED\020\t\022\023\n\017ALLRE"
+      "ADY_IN_USE\020\n\022\016\n\nOVERLOADED\020\013\022\031\n\025AUTHENTI"
+      "CATION_FAILED\020\014\"\343\001\n\017EndpointMessage\022\036\n\004b"
+      "ase\030\001 \001(\0132\020.skylync.Message\022+\n\014attachPar"
+      "ams\030\002 \001(\0132\025.skylync.AttachParams\022!\n\007cont"
+      "ext\030\003 \001(\0132\020.skylync.Context\0221\n\017operation"
+      "Params\030\004 \001(\0132\030.skylync.OperationParams\022-"
+      "\n\rchannelParams\030\005 \001(\0132\026.skylync.ChannelP"
+      "arams\"\355\001\n\rBridgeMessage\022\036\n\004base\030\001 \001(\0132\020."
+      "skylync.Message\022!\n\007context\030\002 \001(\0132\020.skyly"
+      "nc.Context\022\'\n\ndeviceList\030\003 \001(\0132\023.skylync"
+      ".DeviceList\022-\n\rchannelParams\030\005 \001(\0132\026.sky"
+      "lync.ChannelParams\022A\n\027channelValidationP"
+      "arams\030\006 \001(\0132 .skylync.ChannelValidationP"
+      "aramsb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1474);
+      descriptor, 1493);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "skylync.proto", &protobuf_RegisterTypes);
 }
@@ -1920,7 +1922,7 @@ ChannelParams::ChannelParams(const ChannelParams& from)
 }
 
 void ChannelParams::SharedCtor() {
-  channelid_ = GOOGLE_ULONGLONG(0);
+  channelid_ = 0u;
   _cached_size_ = 0;
 }
 
@@ -1961,7 +1963,7 @@ void ChannelParams::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  channelid_ = GOOGLE_ULONGLONG(0);
+  channelid_ = 0u;
   _internal_metadata_.Clear();
 }
 
@@ -1975,13 +1977,13 @@ bool ChannelParams::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // uint64 channelId = 1;
+      // uint32 channelId = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &channelid_)));
         } else {
           goto handle_unusual;
@@ -2015,9 +2017,9 @@ void ChannelParams::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 channelId = 1;
+  // uint32 channelId = 1;
   if (this->channelid() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->channelid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->channelid(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -2034,9 +2036,9 @@ void ChannelParams::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 channelId = 1;
+  // uint32 channelId = 1;
   if (this->channelid() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->channelid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->channelid(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -2056,10 +2058,10 @@ size_t ChannelParams::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // uint64 channelId = 1;
+  // uint32 channelId = 1;
   if (this->channelid() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt64Size(
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->channelid());
   }
 
@@ -2137,6 +2139,7 @@ void ChannelParams::InternalSwap(ChannelParams* other) {
 void ChannelValidationParams::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int ChannelValidationParams::kChannelIdFieldNumber;
 const int ChannelValidationParams::kPortFieldNumber;
 const int ChannelValidationParams::kKeyFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -2158,13 +2161,17 @@ ChannelValidationParams::ChannelValidationParams(const ChannelValidationParams& 
   if (from.key().size() > 0) {
     key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.key_);
   }
-  port_ = from.port_;
+  ::memcpy(&channelid_, &from.channelid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&port_) -
+    reinterpret_cast<char*>(&channelid_)) + sizeof(port_));
   // @@protoc_insertion_point(copy_constructor:skylync.ChannelValidationParams)
 }
 
 void ChannelValidationParams::SharedCtor() {
   key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  port_ = 0u;
+  ::memset(&channelid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&port_) -
+      reinterpret_cast<char*>(&channelid_)) + sizeof(port_));
   _cached_size_ = 0;
 }
 
@@ -2207,7 +2214,9 @@ void ChannelValidationParams::Clear() {
   (void) cached_has_bits;
 
   key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  port_ = 0u;
+  ::memset(&channelid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&port_) -
+      reinterpret_cast<char*>(&channelid_)) + sizeof(port_));
   _internal_metadata_.Clear();
 }
 
@@ -2221,10 +2230,24 @@ bool ChannelValidationParams::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // uint32 port = 1;
+      // uint32 channelId = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &channelid_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint32 port = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
@@ -2235,16 +2258,12 @@ bool ChannelValidationParams::MergePartialFromCodedStream(
         break;
       }
 
-      // string key = 2;
-      case 2: {
+      // bytes key = 3;
+      case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
                 input, this->mutable_key()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->key().data(), static_cast<int>(this->key().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "skylync.ChannelValidationParams.key"));
         } else {
           goto handle_unusual;
         }
@@ -2277,19 +2296,20 @@ void ChannelValidationParams::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 port = 1;
-  if (this->port() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->port(), output);
+  // uint32 channelId = 1;
+  if (this->channelid() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->channelid(), output);
   }
 
-  // string key = 2;
+  // uint32 port = 2;
+  if (this->port() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->port(), output);
+  }
+
+  // bytes key = 3;
   if (this->key().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->key().data(), static_cast<int>(this->key().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "skylync.ChannelValidationParams.key");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->key(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      3, this->key(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -2306,20 +2326,21 @@ void ChannelValidationParams::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 port = 1;
-  if (this->port() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->port(), target);
+  // uint32 channelId = 1;
+  if (this->channelid() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->channelid(), target);
   }
 
-  // string key = 2;
+  // uint32 port = 2;
+  if (this->port() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->port(), target);
+  }
+
+  // bytes key = 3;
   if (this->key().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->key().data(), static_cast<int>(this->key().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "skylync.ChannelValidationParams.key");
     target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->key(), target);
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        3, this->key(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -2339,14 +2360,21 @@ size_t ChannelValidationParams::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // string key = 2;
+  // bytes key = 3;
   if (this->key().size() > 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->key());
   }
 
-  // uint32 port = 1;
+  // uint32 channelId = 1;
+  if (this->channelid() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->channelid());
+  }
+
+  // uint32 port = 2;
   if (this->port() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
@@ -2386,6 +2414,9 @@ void ChannelValidationParams::MergeFrom(const ChannelValidationParams& from) {
 
     key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.key_);
   }
+  if (from.channelid() != 0) {
+    set_channelid(from.channelid());
+  }
   if (from.port() != 0) {
     set_port(from.port());
   }
@@ -2416,6 +2447,7 @@ void ChannelValidationParams::Swap(ChannelValidationParams* other) {
 void ChannelValidationParams::InternalSwap(ChannelValidationParams* other) {
   using std::swap;
   key_.Swap(&other->key_);
+  swap(channelid_, other->channelid_);
   swap(port_, other->port_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);

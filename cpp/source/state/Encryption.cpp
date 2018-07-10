@@ -16,11 +16,8 @@ void Encryption::start() noexcept
 {
     notifyBridgeEvent(new bridge::Event(event::bridge::Event::CONNECTED));
     trace("Starting encryption procedure");
-    const size_t SIZE = 64;
-    uint8_t* data = new uint8_t[SIZE];
-    std::memset(data, 'a', SIZE);
-    controlCommInterface.send(DataPacket(data, SIZE));
-    delete[] data;
+    std::vector<uint8_t> data(static_cast<uint8_t>('a'), 64);
+    controlCommInterface.send(DataPacket(data.data(), 64));
 }
 
 void Encryption::onReceived(const DataPacket dataPacket)

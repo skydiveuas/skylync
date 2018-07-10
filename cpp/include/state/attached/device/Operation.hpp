@@ -15,7 +15,8 @@ namespace attached
 namespace device
 {
 
-class Operation : public IAttachedState
+class Operation : public IAttachedState,
+        public sl::ICommInterface::Listener
 {
 public:
     Operation(ILiveCycleState::Listener& listener);
@@ -29,7 +30,15 @@ public:
     std::string toString() const noexcept override;
 
 private:
-    void openChannel(const skylync::ChannelParams&);
+    std::shared_ptr<ICommInterface> interface;
+    std::vector<uint8_t> key;
+
+    void openChannel(const skylync::ChannelParams& params);
+    void validateChannel(const skylync::ChannelValidationParams& params);
+
+    void onConnected() override;
+    void onDisconnected() override;
+    void onReceived(const DataPacket) override;
 };
 
 } // device
