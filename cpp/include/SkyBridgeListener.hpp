@@ -25,7 +25,7 @@ public:
 
     virtual void notifyBridgeEvent(std::unique_ptr<const event::bridge::Event>) noexcept = 0;
 
-    virtual std::shared_ptr<ICommInterface> createCommInterface(const ICommInterface::TransportProtocol,
+    virtual std::shared_ptr<ICommInterface> createCommInterface(const TransportProtocol,
                                                                 ICommInterface::Listener&) noexcept = 0;
 
     virtual std::shared_ptr<ITimer> createTimer() noexcept = 0;

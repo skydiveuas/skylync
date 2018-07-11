@@ -11,10 +11,10 @@ using namespace sl;
 SkyBridge::SkyBridge(SkyBridgeListener& _listener):
     listener(_listener),
     parser(std::bind(&SkyBridge::handleMessage, this, std::placeholders::_1)),
-    commInterface(listener.createCommInterface(ICommInterface::TCP, *state.get())),
+    commInterface(listener.createCommInterface(sl::TCP, *state.get())),
     state(std::make_shared<state::Disconnected>(*this))
 {
-    commInterface->setListener(*state.get());
+    commInterface->setListener(state.get());
 }
 
 void SkyBridge::notifyEndpointEvent(const event::endpoint::Event* event) noexcept

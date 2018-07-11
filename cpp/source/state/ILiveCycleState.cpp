@@ -13,7 +13,7 @@ ILiveCycleState::ILiveCycleState(const Type _type, Listener& _listener):
     controlCommInterface(listener.getControlCommInterface())
 {
     listener.getBridgeListener().trace("ctor ILiveCycleState");
-    controlCommInterface.setListener(*this);
+    controlCommInterface.setListener(this);
 }
 
 ILiveCycleState::~ILiveCycleState()

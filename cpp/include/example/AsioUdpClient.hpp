@@ -16,7 +16,7 @@ namespace example
 class AsioUdpClient : public sl::ICommInterface
 {
 public:
-    AsioUdpClient(sl::ICommInterface::Listener& _listener, asio::io_context& _ioContext);
+    AsioUdpClient(sl::ICommInterface::Listener* _listener, asio::io_context& _ioContext);
 
     void connect(const std::string&, const int) override;
 

@@ -1,5 +1,7 @@
 #include "state/attached/device/Operation.hpp"
 
+#include "event/bridge/Channel.hpp"
+
 using namespace sl::event;
 using namespace sl::state;
 using namespace sl::state::attached;
@@ -70,9 +72,9 @@ void Operation::validateChannel(const skylync::ChannelValidationParams& params)
 {
     if (true)//listener.isChannelSupported(params.channelid()))
     {
-        //sl::TransportProtocol tp = evaluateTransportProtocol(params.channelid());
+        TransportProtocol tp = UDP;//evaluateTransportProtocol(params.channelid());
         key = std::vector<uint8_t>(params.key().data(), params.key().data() + params.key().size());
-        interface = listener.getBridgeListener().createCommInterface(ICommInterface::UDP, *this);
+        interface = listener.getBridgeListener().createCommInterface(tp, *this);
         interface->connect("localhost", params.port());
     }
     else
@@ -88,16 +90,51 @@ void Operation::onConnected()
 {
     trace("Operation::onConnected");
     interface->send(DataPacket(key.data(), key.size()));
-    skylync::EndpointMessage message;
-    message.mutable_base()->set_responsefor(skylync::Message::CHANNEL_VALIDATE);
-    message.mutable_base()->set_command(skylync::Message::ACCEPT);
-    send(message);
+    key.clear();
 }
 
 void Operation::onDisconnected()
 {
+    skylync::EndpointMessage message;
+    message.mutable_base()->set_responsefor(skylync::Message::CHANNEL_VALIDATE);
+    message.mutable_base()->set_command(skylync::Message::REJECT);
+    send(message);
+    interface.reset();
 }
 
-void Operation::onReceived(const DataPacket)
+void Operation::onReceived(const DataPacket dataPacket)
 {
+    skylync::EndpointMessage message;
+    message.mutable_base()->set_responsefor(skylync::Message::CHANNEL_VALIDATE);
+    if (validateKey(dataPacket))
+    {
+        interface->setListener(nullptr);
+        notifyBridgeEvent(new bridge::Channel(interface));
+        message.mutable_base()->set_command(skylync::Message::ACCEPT);
+    }
+    else
+    {
+        message.mutable_base()->set_command(skylync::Message::REJECT);
+    }
+    interface.reset();
+    send(message);
+}
+
+bool Operation::validateKey(const DataPacket dataPacket) const
+{
+    if (dataPacket.second == key.size())
+    {
+        for (size_t i = 0; i < dataPacket.second; ++i)
+        {
+            if (key.at(i) != dataPacket.first[i])
+            {
+                return false;
+            }
+        }
+    }
+    else
+    {
+        return false;
+    }
+    return true;
 }

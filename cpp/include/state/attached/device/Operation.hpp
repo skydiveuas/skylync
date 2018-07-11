@@ -39,6 +39,8 @@ private:
     void onConnected() override;
     void onDisconnected() override;
     void onReceived(const DataPacket) override;
+
+    bool validateKey(const DataPacket dataPacket) const;
 };
 
 } // device

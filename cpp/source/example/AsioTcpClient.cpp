@@ -2,9 +2,9 @@
 
 #include <iostream>
 
-using sl::example::AsioTcpClient;
+using namespace sl::example;
 
-AsioTcpClient::AsioTcpClient(sl::ICommInterface::Listener& _listener,
+AsioTcpClient::AsioTcpClient(sl::ICommInterface::Listener* _listener,
                                    asio::io_context& _ioContext):
     sl::ICommInterface(_listener),
     ioContext(_ioContext),

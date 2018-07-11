@@ -14,12 +14,6 @@ namespace sl
 class ICommInterface
 {
 public:
-    enum TransportProtocol
-    {
-        TCP,
-        UDP,
-    };
-
     class Listener
     {
     public:
@@ -30,9 +24,9 @@ public:
         virtual void onReceived(const DataPacket) = 0;
     };
 
-    ICommInterface(Listener& listener);
+    ICommInterface(Listener* listener);
 
-    void setListener(Listener& listener);
+    void setListener(Listener* listener);
 
     virtual ~ICommInterface();
 

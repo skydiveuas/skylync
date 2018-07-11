@@ -29,17 +29,17 @@ void AsioSkyBridgeListener::notifyBridgeEvent(const bridge::Event& event) noexce
     trace("Received: " + event.toString());
 }
 
-std::shared_ptr<sl::ICommInterface> AsioSkyBridgeListener::createCommInterface(const ICommInterface::TransportProtocol protocol,
+std::shared_ptr<sl::ICommInterface> AsioSkyBridgeListener::createCommInterface(const sl::TransportProtocol protocol,
                                                         ICommInterface::Listener& listener) noexcept
 {
     std::cout << "SkyBridgeListener::createCommInterface" << std::endl;
     switch (protocol)
     {
-    case ICommInterface::TCP:
-        return std::make_shared<AsioTcpClient>(listener, ioContext);
+    case sl::TCP:
+        return std::make_shared<AsioTcpClient>(&listener, ioContext);
 
-    case ICommInterface::UDP:
-        return std::make_shared<AsioUdpClient>(listener, ioContext);
+    case sl::UDP:
+        return std::make_shared<AsioUdpClient>(&listener, ioContext);
 
     default:
         // error

@@ -2,8 +2,9 @@
 
 using namespace sl::event::bridge;
 
-Channel::Channel():
-    Event(Event::CHANNEL)
+Channel::Channel(std::shared_ptr<ICommInterface> _interface):
+    Event(Event::CHANNEL),
+    interface(_interface)
 {
 }
 

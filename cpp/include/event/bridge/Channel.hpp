@@ -3,7 +3,10 @@
 
 #include "Event.hpp"
 
+#include "ICommInterface.hpp"
+
 #include <string>
+#include "memory"
 
 namespace sl
 {
@@ -17,9 +20,12 @@ namespace bridge
 class Channel : public Event
 {
 public:
-    Channel();
+    Channel(std::shared_ptr<ICommInterface> _interface);
 
     std::string toString() const noexcept override;
+
+private:
+    std::shared_ptr<ICommInterface> interface;
 };
 
 } // bridge

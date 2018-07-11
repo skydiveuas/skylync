@@ -2,9 +2,9 @@
 
 #include <iostream>
 
-using sl::example::AsioUdpClient;
+using namespace sl::example;
 
-AsioUdpClient::AsioUdpClient(sl::ICommInterface::Listener& _listener, asio::io_context& _ioContext):
+AsioUdpClient::AsioUdpClient(sl::ICommInterface::Listener* _listener, asio::io_context& _ioContext):
     sl::ICommInterface(_listener),
     ioContext(_ioContext)
 {

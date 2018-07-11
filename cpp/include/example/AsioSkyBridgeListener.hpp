@@ -33,7 +33,7 @@ public:
 
     virtual void notifyBridgeEvent(const event::bridge::Event& event) noexcept;
 
-    std::shared_ptr<sl::ICommInterface> createCommInterface(const ICommInterface::TransportProtocol protocol,
+    std::shared_ptr<sl::ICommInterface> createCommInterface(const sl::TransportProtocol protocol,
                                                             ICommInterface::Listener& listener) noexcept;
 
     std::shared_ptr<ITimer> createTimer() noexcept override;
