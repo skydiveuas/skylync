@@ -29,6 +29,8 @@ private:
     std::array<uint8_t, READ_BUFFER_SIZE> readBuffer;
 
     asio::io_context& ioContext;
+
+    asio::ip::udp::socket socket;
     asio::ip::udp::endpoint endpoint;
 
     void doRead();
